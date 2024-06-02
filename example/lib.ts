@@ -3,6 +3,6 @@
  * @param bornInYear The year the person was born
  */
 export function calculateAge(bornInYear: number) {
-  const currentYear = new Date().getFullYear();
-  return currentYear - bornInYear;
+	const currentYear = new Date().getFullYear();
+	return currentYear - bornInYear;
 }
