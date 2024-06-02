@@ -1,0 +1,41 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "Dracula",
+  "ui_font_size": 16,
+  "buffer_font_size": 18,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  // Vim mode settings
+  "vim_mode": true,
+  // use relative line numbers
+  "relative_line_numbers": true,
+  "tab_bar": {
+    "show": false
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  // Local AI with Ollama, refer https://zed.dev/docs/assistant-panel#using-ollama-on-macos
+  "assistant": {
+    "version": "1",
+    "provider": {
+      "name": "openai",
+      "type": "openai",
+      "default_model": "gpt-4-turbo-preview",
+      "api_url": "http://localhost:11434/v1"
+    }
+  },
+  "languages": {
+    "TypeScript": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    }
+  }
+}

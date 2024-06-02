@@ -1,0 +1,14 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v4.0.0-alpha.8"
+    hooks:
+      - id: prettier
+        # Those are not supported by biomejs yet, refer https://biomejs.dev/internals/language-support/
+        types_or: [html, css, markdown]
+        description: "Prettify files for the files which Biomejs doesn't support yet"
+  - repo: https://github.com/biomejs/pre-commit
+    rev: "v0.1.0"
+    hooks:
+      - id: biome-check
+        additional_dependencies: ["@biomejs/biome@1.7.3"]
+        description: "Format, organize imports, lint, and apply safe fixes to the committed files"
