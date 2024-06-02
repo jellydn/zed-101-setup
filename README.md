@@ -47,6 +47,12 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
         "enabled": true
       }
     }
+  },
+  // Use zed commit editor
+  "terminal": {
+    "env": {
+      "EDITOR": "zed --wait"
+    }
   }
 }
 ```
