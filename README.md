@@ -175,7 +175,7 @@ Update your keymap.json file with the following key bindings:
 ]
 ```
 
-## Setup local AI with Ollama -
+## Setup local AI with Ollama
 
 Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions](https://zed.dev/docs/assistant-panel#using-ollama-on-macos).
 
@@ -184,6 +184,7 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 - [Text Manipulation Kung Fu for the Aspiring Black Belt](https://zed.dev/blog/text-manipulation)
 - [Vim - Zed](https://zed.dev/docs/vim)
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
+- [Other Zed config](https://gist.github.com/search?l=JSON&o=desc&q=Zed+config&s=)
 
 ## TODO
 
