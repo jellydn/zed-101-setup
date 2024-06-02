@@ -142,17 +142,17 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
   },
   // File panel (netrw)
   {
-      "context": "ProjectPanel && not_editing",
-      "bindings": {
-        "a": "project_panel::NewFile",
-        "A": "project_panel::NewDirectory",
-        "r": "project_panel::Rename",
-        "d": "project_panel::Delete",
-        "x": "project_panel::Cut",
-        "c": "project_panel::Copy",
-        "p": "project_panel::Paste"
-      }
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste"
     }
+  }
 ]
 ```
 
