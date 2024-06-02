@@ -42,6 +42,7 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
   },
   "languages": {
     "TypeScript": {
+      // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
       "inlay_hints": {
         "enabled": true
       }
