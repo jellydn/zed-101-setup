@@ -21,6 +21,8 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 
 For detailed Vim mode setup instructions, refer to the [Zed Vim Mode Documentation](https://zed.dev/docs/vim).
 
+[![Vim mode](https://i.gyazo.com/a7d4d6585d4b997153542c3b4f42bf61.gif)](https://gyazo.com/a7d4d6585d4b997153542c3b4f42bf61)
+
 ### Settings
 
 Update your settings.json file with the following configuration:
@@ -68,6 +70,10 @@ Update your settings.json file with the following configuration:
   }
 }
 ```
+
+[![Demo](https://i.gyazo.com/28f24b1bd9f0f49658862ca406104c75.png)](https://gyazo.com/28f24b1bd9f0f49658862ca406104c75)
+
+[![Demo 2](https://i.gyazo.com/00cc139a589d39c0fd6ee0aa21c1a051.png)](https://gyazo.com/00cc139a589d39c0fd6ee0aa21c1a051)
 
 ## Keymaps
 
