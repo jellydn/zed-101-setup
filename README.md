@@ -156,8 +156,6 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 ]
 ```
 
-Please
-
 ## Setup local AI with Ollama - https://zed.dev/docs/assistant-panel#using-ollama-on-macos
 
 ## Resources
@@ -166,6 +164,21 @@ Please
 - [Vim - Zed](https://zed.dev/docs/vim)
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
 
-## Show your support
+## TODO
+ - [ ] Generate keymap.json and settings.json using a script
 
-Give a ⭐️ if this project helped you!
+ ## Author
+
+ 👤 **Huynh Duc Dung**
+
+ - Website: https://productsway.com/
+ - Twitter: [@jellydn](https://twitter.com/jellydn)
+ - Github: [@jellydn](https://github.com/jellydn)
+
+ ## Show your support
+
+ If this guide has been helpful, please give it a ⭐️.
+
+ [![kofi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/dunghd)
+ [![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/dunghd)
+ [![buymeacoffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/dunghd)
