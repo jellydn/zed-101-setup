@@ -1,17 +1,27 @@
 <h1 align="center">Welcome to zed-101-setup 👋</h1>
 <p>
-  Zed Editor 101 setup
+  Your ultimate guide to setting up Zed Editor with Vim mode, tailored settings, and key bindings for a seamless coding experience
 </p>
 
-## Nerd Font - https://github.com/getnf/getnf
+## Introduction
+
+The Zed Editor 101 setup guide is designed to help you configure Zed Editor to enhance your development workflow. Whether you’re a Vim enthusiast or looking to boost your productivity with custom settings and key bindings, this guide provides all the necessary steps and resources. Follow along to get your Zed Editor configured with Nerd Font, Vim mode, local AI assistance, and more.
+
+## Nerd Font
+
+Install Nerd Font using the following command:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 ```
 
-## Vim mode - https://zed.dev/docs/vim
+## Vim mode
+
+For detailed Vim mode setup instructions, refer to the [Zed Vim Mode Documentation](https://zed.dev/docs/vim).
 
 ### Settings
+
+Update your settings.json file with the following configuration:
 
 ```json
 // settings.json
@@ -58,6 +68,8 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 ```
 
 ## Keymaps
+
+Update your keymap.json file with the following key bindings:
 
 ```json
 // keymap.json
@@ -163,7 +175,9 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 ]
 ```
 
-## Setup local AI with Ollama - https://zed.dev/docs/assistant-panel#using-ollama-on-macos
+## Setup local AI with Ollama -
+
+Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions](https://zed.dev/docs/assistant-panel#using-ollama-on-macos).
 
 ## Resources
 
