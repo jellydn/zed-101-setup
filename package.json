@@ -1,15 +1,15 @@
 {
-  "name": "zed-101-setup",
-  "type": "module",
-  "scripts": {
-    "start": "bun run cli.ts",
-    "dev": "bun run --hot cli.ts"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.7.3",
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+	"name": "zed-101-setup",
+	"type": "module",
+	"scripts": {
+		"start": "bun run cli.ts",
+		"dev": "bun run --hot cli.ts"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.7.3",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	}
 }

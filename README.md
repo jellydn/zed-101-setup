@@ -79,7 +79,6 @@ Update your settings.json file with the following configuration:
     }
   }
 }
-
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -200,7 +199,6 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
-
 ```
 
 <!-- ALL-KEYMAPS:END -->
@@ -215,7 +213,6 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 - [Vim - Zed](https://zed.dev/docs/vim)
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
 - [Other Zed config](https://gist.github.com/search?l=JSON&o=desc&q=Zed+config&s=)
-
 
 ## Author
 
