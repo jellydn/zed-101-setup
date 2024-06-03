@@ -5,7 +5,10 @@
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
       "space g h d": "editor::ToggleHunkDiff",
-      "space g h r": "editor::RevertSelectedHunks"
+      "space g h r": "editor::RevertSelectedHunks",
+
+      // Toggle inlay hints
+      "space t i": "editor::ToggleInlayHints"
     }
   },
   {
@@ -30,6 +33,7 @@
       "[ d": "editor::GoToPrevDiagnostic",
       // Symbol search
       "s s": "outline::Toggle",
+      "s S": "project_symbols::Toggle",
       // Project diagnostic
       "space x x": "diagnostics::Deploy",
       // Switch between buffers
@@ -89,6 +93,7 @@
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
       "r": "project_panel::Rename",
       "d": "project_panel::Delete",
       "x": "project_panel::Cut",

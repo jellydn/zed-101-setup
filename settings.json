@@ -16,7 +16,7 @@
   // use relative line numbers
   "relative_line_numbers": true,
   "tab_bar": {
-    "show": false
+    "show": true
   },
   "scrollbar": {
     "show": "never"
@@ -33,9 +33,16 @@
   },
   "languages": {
     "TypeScript": {
+      // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
       "inlay_hints": {
         "enabled": true
       }
+    }
+  },
+  // Use zed commit editor
+  "terminal": {
+    "env": {
+      "EDITOR": "zed --wait"
     }
   }
 }

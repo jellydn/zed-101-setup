@@ -27,8 +27,18 @@ For detailed Vim mode setup instructions, refer to the [Zed Vim Mode Documentati
 
 Update your settings.json file with the following configuration:
 
+<!-- ALL-SETTINGS:START -->
+
 ```json
-// settings.json
+// settings.json, generated at Mon Jun 03 2024 21:38:12 GMT+0800 (Singapore Standard Time)
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
 {
   "theme": "Dracula",
   "ui_font_size": 16,
@@ -39,7 +49,7 @@ Update your settings.json file with the following configuration:
   // use relative line numbers
   "relative_line_numbers": true,
   "tab_bar": {
-    "show": false
+    "show": true
   },
   "scrollbar": {
     "show": "never"
@@ -69,7 +79,10 @@ Update your settings.json file with the following configuration:
     }
   }
 }
+
 ```
+
+<!-- ALL-SETTINGS:END -->
 
 [![Demo](https://i.gyazo.com/28f24b1bd9f0f49658862ca406104c75.png)](https://gyazo.com/28f24b1bd9f0f49658862ca406104c75)
 
@@ -79,8 +92,10 @@ Update your settings.json file with the following configuration:
 
 Update your keymap.json file with the following key bindings:
 
+<!-- ALL-KEYMAPS:START -->
+
 ```json
-// keymap.json
+// keymap.json, generated at Mon Jun 03 2024 21:38:12 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -88,7 +103,10 @@ Update your keymap.json file with the following key bindings:
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
       "space g h d": "editor::ToggleHunkDiff",
-      "space g h r": "editor::RevertSelectedHunks"
+      "space g h r": "editor::RevertSelectedHunks",
+
+      // Toggle inlay hints
+      "space t i": "editor::ToggleInlayHints"
     }
   },
   {
@@ -113,6 +131,7 @@ Update your keymap.json file with the following key bindings:
       "[ d": "editor::GoToPrevDiagnostic",
       // Symbol search
       "s s": "outline::Toggle",
+      "s S": "project_symbols::Toggle",
       // Project diagnostic
       "space x x": "diagnostics::Deploy",
       // Switch between buffers
@@ -181,7 +200,10 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
+
 ```
+
+<!-- ALL-KEYMAPS:END -->
 
 ## Setup local AI with Ollama
 
@@ -194,9 +216,6 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
 - [Other Zed config](https://gist.github.com/search?l=JSON&o=desc&q=Zed+config&s=)
 
-## TODO
-
-- [ ] Generate keymap.json and settings.json using a script
 
 ## Author
 
