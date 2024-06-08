@@ -35,7 +35,10 @@
     "TypeScript": {
       // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
       "inlay_hints": {
-        "enabled": true
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true
       }
     }
   },

@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Mon Jun 03 2024 21:38:12 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 08 2024 17:15:21 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -68,7 +68,10 @@ Update your settings.json file with the following configuration:
     "TypeScript": {
       // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
       "inlay_hints": {
-        "enabled": true
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true
       }
     }
   },
@@ -79,6 +82,7 @@ Update your settings.json file with the following configuration:
     }
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -94,7 +98,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Mon Jun 03 2024 21:38:12 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 08 2024 17:15:21 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -199,6 +203,7 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
@@ -213,6 +218,14 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 - [Vim - Zed](https://zed.dev/docs/vim)
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
 - [Other Zed config](https://gist.github.com/search?l=JSON&o=desc&q=Zed+config&s=)
+
+## How to generate the settings
+
+```bash
+cp ~/.config/zed/settings.json settings.json
+cp ~/.config/zed/keymap.json keymap.json
+bun run cli.ts
+```
 
 ## Author
 
