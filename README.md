@@ -82,7 +82,6 @@ Update your settings.json file with the following configuration:
     }
   }
 }
-
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -203,7 +202,6 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
-
 ```
 
 <!-- ALL-KEYMAPS:END -->
