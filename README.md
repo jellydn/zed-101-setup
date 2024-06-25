@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Thu Jun 13 2024 22:30:52 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 25 2024 20:47:44 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -73,8 +73,6 @@ Update your settings.json file with the following configuration:
         "show_other_hints": true,
         "show_type_hints": true
       }
-      // Uncomment below if use vtsls instead of typescript-language-server
-      // "language_servers": ["!typescript-language-server", "vtsls", ".."]
     }
   },
   // Use zed commit editor
@@ -82,8 +80,13 @@ Update your settings.json file with the following configuration:
     "env": {
       "EDITOR": "zed --wait"
     }
+  },
+  // Dockerfile syntax highlighting
+  "file_types": {
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -99,7 +102,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Thu Jun 13 2024 22:30:52 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 25 2024 20:47:44 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -209,6 +212,7 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

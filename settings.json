@@ -40,8 +40,6 @@
         "show_other_hints": true,
         "show_type_hints": true
       }
-      // Uncomment below if use vtsls instead of typescript-language-server
-      // "language_servers": ["!typescript-language-server", "vtsls", ".."]
     }
   },
   // Use zed commit editor
@@ -49,5 +47,9 @@
     "env": {
       "EDITOR": "zed --wait"
     }
+  },
+  // Dockerfile syntax highlighting
+  "file_types": {
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"]
   }
 }
