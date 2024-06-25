@@ -86,7 +86,6 @@ Update your settings.json file with the following configuration:
     "Dockerfile": ["Dockerfile", "Dockerfile.*"]
   }
 }
-
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -212,7 +211,6 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
-
 ```
 
 <!-- ALL-KEYMAPS:END -->
