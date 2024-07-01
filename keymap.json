@@ -8,7 +8,14 @@
       "space g h r": "editor::RevertSelectedHunks",
 
       // Toggle inlay hints
-      "space t i": "editor::ToggleInlayHints"
+      "space t i": "editor::ToggleInlayHints",
+
+      // Toggle soft wrap
+      "space u w": "editor::ToggleSoftWrap",
+
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide"
     }
   },
   {

@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Tue Jun 25 2024 20:47:44 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Mon Jul 01 2024 22:44:11 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -86,6 +86,7 @@ Update your settings.json file with the following configuration:
     "Dockerfile": ["Dockerfile", "Dockerfile.*"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -101,7 +102,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Tue Jun 25 2024 20:47:44 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Mon Jul 01 2024 22:44:11 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -112,7 +113,14 @@ Update your keymap.json file with the following key bindings:
       "space g h r": "editor::RevertSelectedHunks",
 
       // Toggle inlay hints
-      "space t i": "editor::ToggleInlayHints"
+      "space t i": "editor::ToggleInlayHints",
+
+      // Toggle soft wrap
+      "space u w": "editor::ToggleSoftWrap",
+
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide"
     }
   },
   {
@@ -211,6 +219,7 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
