@@ -13,9 +13,14 @@
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
 
+      // NOTE: Toggle Zen mode, not fully working yet
+      "space c z": "workspace::ToggleCenteredLayout",
+
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide"
+
+      // TODO: Search word under cursor
     }
   },
   {
@@ -92,7 +97,6 @@
   {
     "context": "Workspace",
     "bindings": {
-      // Toggle terminal
       "ctrl-\\": "terminal_panel::ToggleFocus"
     }
   },

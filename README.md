@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Mon Jul 01 2024 22:44:11 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri Jul 05 2024 10:34:17 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -53,6 +53,11 @@ Update your settings.json file with the following configuration:
   },
   "scrollbar": {
     "show": "never"
+  },
+  // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
+  "centered_layout": {
+    "left_padding": 0.2,
+    "right_padding": 0.2
   },
   // Local AI with Ollama, refer https://zed.dev/docs/assistant-panel#using-ollama-on-macos
   "assistant": {
@@ -101,7 +106,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Mon Jul 01 2024 22:44:11 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri Jul 05 2024 10:34:17 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -117,9 +122,14 @@ Update your keymap.json file with the following key bindings:
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
 
+      // NOTE: Toggle Zen mode, not fully working yet
+      "space c z": "workspace::ToggleCenteredLayout",
+
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide"
+
+      // TODO: Search word under cursor
     }
   },
   {
@@ -196,7 +206,6 @@ Update your keymap.json file with the following key bindings:
   {
     "context": "Workspace",
     "bindings": {
-      // Toggle terminal
       "ctrl-\\": "terminal_panel::ToggleFocus"
     }
   },
