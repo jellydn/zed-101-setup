@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Fri Jul 12 2024 10:12:22 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri Jul 12 2024 11:29:20 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -40,7 +40,7 @@ Update your settings.json file with the following configuration:
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Dracula",
+  "theme": "Kanagawa Wave",
   "ui_font_size": 16,
   "buffer_font_size": 18,
   "buffer_font_family": "JetBrainsMono Nerd Font",
@@ -92,6 +92,7 @@ Update your settings.json file with the following configuration:
     "JSON": ["json", "jsonc", "*.code-snippets"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -107,7 +108,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Fri Jul 12 2024 10:12:22 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri Jul 12 2024 11:29:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -131,10 +132,11 @@ Update your keymap.json file with the following key bindings:
       "space m P": "markdown::OpenPreviewToTheSide",
 
       // Open recent project
-      "space f p": "projects::OpenRecent"
-
-      // TODO: Go to file with `gx`
-      // TODO: Search word under cursor
+      "space f p": "projects::OpenRecent",
+      // Search word under cursor
+      "space s w": "pane::DeploySearch",
+      // Go to file with `gf`
+      "g f": "editor::OpenExcerpts"
     }
   },
   {
@@ -147,7 +149,10 @@ Update your keymap.json file with the following key bindings:
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      // LSP
+
+      // +LSP
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
       "g i": "editor::GoToImplementation",
@@ -157,14 +162,21 @@ Update your keymap.json file with the following key bindings:
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPrevDiagnostic",
-      // Git prev/next hunk
-      "] h": "editor::GoToHunk",
-      "[ h": "editor::GoToPrevHunk",
+      // TODO: Go to next/prev error
+      "] e": "editor::GoToDiagnostic",
+      "[ e": "editor::GoToPrevDiagnostic",
       // Symbol search
       "s s": "outline::Toggle",
       "s S": "project_symbols::Toggle",
-      // Project diagnostic
+      // Diagnostic
       "space x x": "diagnostics::Deploy",
+
+      // +Git
+      // Git prev/next hunk
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPrevHunk",
+
+      // + Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePrevItem",
       "shift-l": "pane::ActivateNextItem",
@@ -173,7 +185,9 @@ Update your keymap.json file with the following key bindings:
       // Save file
       "ctrl-s": "workspace::Save",
       // File finder
-      "space space": "file_finder::Toggle"
+      "space space": "file_finder::Toggle",
+      // Show project panel with current file
+      "space e": "pane::RevealInProjectPanel"
     }
   },
   // Comment code
@@ -232,6 +246,7 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
