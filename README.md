@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Fri Jul 12 2024 12:02:06 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri Jul 12 2024 14:11:19 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -92,6 +92,7 @@ Update your settings.json file with the following configuration:
     "JSON": ["json", "jsonc", "*.code-snippets"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -107,7 +108,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Fri Jul 12 2024 12:02:06 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri Jul 12 2024 14:11:19 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -207,10 +208,10 @@ Update your keymap.json file with the following key bindings:
       "g c": "editor::ToggleComments"
     }
   },
+  // Better escape
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in insert mode
       "j j": "vim::NormalBefore" // remap jj in insert mode to escape
     }
   },
@@ -253,8 +254,29 @@ Update your keymap.json file with the following key bindings:
       "c": "project_panel::Copy",
       "p": "project_panel::Paste"
     }
+  },
+  // Panel nagivation
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  // Subword motion, from vim-spider/CamelCaseMotion
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "w": "vim::NextSubwordStart",
+      "b": "vim::PreviousSubwordStart",
+      "e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd"
+    }
   }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
