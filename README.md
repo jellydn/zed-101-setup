@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Fri Jul 12 2024 11:29:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri Jul 12 2024 12:02:06 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -108,7 +108,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Fri Jul 12 2024 11:29:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri Jul 12 2024 12:02:06 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -188,6 +188,16 @@ Update your keymap.json file with the following key bindings:
       "space space": "file_finder::Toggle",
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel"
+    }
+  },
+  // Empty pane, set of keybindings that are available when there is no active editor
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "space space": "file_finder::Toggle",
+      // Open recent project
+      "space f p": "projects::OpenRecent"
     }
   },
   // Comment code
