@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Fri Jul 12 2024 14:11:19 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri Jul 12 2024 16:17:22 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -92,6 +92,7 @@ Update your settings.json file with the following configuration:
     "JSON": ["json", "jsonc", "*.code-snippets"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -107,7 +108,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Fri Jul 12 2024 14:11:19 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri Jul 12 2024 16:17:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -181,6 +182,9 @@ Update your keymap.json file with the following key bindings:
       "shift-l": "pane::ActivateNextItem",
       // Close active panel
       "shift-q": "pane::CloseActiveItem",
+      "space b d": "pane::CloseActiveItem",
+      // Close other items
+      "space b o": "pane::CloseInactiveItems",
       // Save file
       "ctrl-s": "workspace::Save",
       // File finder
@@ -263,18 +267,19 @@ Update your keymap.json file with the following key bindings:
       "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
     }
-  },
-  // Subword motion, from vim-spider/CamelCaseMotion
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "w": "vim::NextSubwordStart",
-      "b": "vim::PreviousSubwordStart",
-      "e": "vim::NextSubwordEnd",
-      "g e": "vim::PreviousSubwordEnd"
-    }
   }
+  // Subword motion is not working really nice with `ciw`, disable for now
+  // {
+  //   "context": "VimControl && !menu",
+  //   "bindings": {
+  //     "w": "vim::NextSubwordStart",
+  //     "b": "vim::PreviousSubwordStart",
+  //     "e": "vim::NextSubwordEnd",
+  //     "g e": "vim::PreviousSubwordEnd"
+  //   }
+  // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

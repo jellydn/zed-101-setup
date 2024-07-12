@@ -71,6 +71,9 @@
       "shift-l": "pane::ActivateNextItem",
       // Close active panel
       "shift-q": "pane::CloseActiveItem",
+      "space b d": "pane::CloseActiveItem",
+      // Close other items
+      "space b o": "pane::CloseInactiveItems",
       // Save file
       "ctrl-s": "workspace::Save",
       // File finder
@@ -153,15 +156,15 @@
       "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
     }
-  },
-  // Subword motion, from vim-spider/CamelCaseMotion
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "w": "vim::NextSubwordStart",
-      "b": "vim::PreviousSubwordStart",
-      "e": "vim::NextSubwordEnd",
-      "g e": "vim::PreviousSubwordEnd"
-    }
   }
+  // Subword motion is not working really nice with `ciw`, disable for now
+  // {
+  //   "context": "VimControl && !menu",
+  //   "bindings": {
+  //     "w": "vim::NextSubwordStart",
+  //     "b": "vim::PreviousSubwordStart",
+  //     "e": "vim::NextSubwordEnd",
+  //     "g e": "vim::PreviousSubwordEnd"
+  //   }
+  // }
 ]
