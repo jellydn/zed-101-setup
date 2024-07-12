@@ -55,6 +55,7 @@
   },
   // Dockerfile syntax highlighting
   "file_types": {
-    "Dockerfile": ["Dockerfile", "Dockerfile.*"]
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"]
   }
 }

@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Fri Jul 05 2024 10:34:17 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri Jul 12 2024 10:12:22 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -88,9 +88,11 @@ Update your settings.json file with the following configuration:
   },
   // Dockerfile syntax highlighting
   "file_types": {
-    "Dockerfile": ["Dockerfile", "Dockerfile.*"]
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -106,7 +108,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Fri Jul 05 2024 10:34:17 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri Jul 12 2024 10:12:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -127,8 +129,12 @@ Update your keymap.json file with the following key bindings:
 
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
-      "space m P": "markdown::OpenPreviewToTheSide"
+      "space m P": "markdown::OpenPreviewToTheSide",
 
+      // Open recent project
+      "space f p": "projects::OpenRecent"
+
+      // TODO: Go to file with `gx`
       // TODO: Search word under cursor
     }
   },
@@ -227,6 +233,7 @@ Update your keymap.json file with the following key bindings:
     }
   }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

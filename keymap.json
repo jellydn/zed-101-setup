@@ -18,8 +18,12 @@
 
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
-      "space m P": "markdown::OpenPreviewToTheSide"
+      "space m P": "markdown::OpenPreviewToTheSide",
 
+      // Open recent project
+      "space f p": "projects::OpenRecent"
+
+      // TODO: Go to file with `gx`
       // TODO: Search word under cursor
     }
   },
