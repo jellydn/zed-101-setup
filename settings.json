@@ -21,6 +21,11 @@
   "scrollbar": {
     "show": "never"
   },
+  // Indentation, rainbow indentation
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
   // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.2,
@@ -36,6 +41,10 @@
       "api_url": "http://localhost:11434/v1"
     }
   },
+  // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
+  "inlay_hints": {
+    "enabled": true
+  },
   "languages": {
     "TypeScript": {
       // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
@@ -44,6 +53,16 @@
         "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true
+      },
+      // Organize imports on format
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "TSX": {
+      // Organize imports on format
+      "code_actions_on_format": {
+        "source.organizeImports": true
       }
     }
   },
@@ -57,5 +76,10 @@
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"]
+  },
+  // Turn off telemetry
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
   }
 }

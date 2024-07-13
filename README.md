@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Sat Jul 13 2024 21:55:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jul 13 2024 22:23:27 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -54,6 +54,11 @@ Update your settings.json file with the following configuration:
   "scrollbar": {
     "show": "never"
   },
+  // Indentation, rainbow indentation
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
   // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.2,
@@ -69,6 +74,10 @@ Update your settings.json file with the following configuration:
       "api_url": "http://localhost:11434/v1"
     }
   },
+  // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
+  "inlay_hints": {
+    "enabled": true
+  },
   "languages": {
     "TypeScript": {
       // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
@@ -77,6 +86,16 @@ Update your settings.json file with the following configuration:
         "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true
+      },
+      // Organize imports on format
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "TSX": {
+      // Organize imports on format
+      "code_actions_on_format": {
+        "source.organizeImports": true
       }
     }
   },
@@ -90,8 +109,14 @@ Update your settings.json file with the following configuration:
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"]
+  },
+  // Turn off telemetry
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -107,7 +132,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Sat Jul 13 2024 21:55:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jul 13 2024 22:23:27 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -280,6 +305,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
