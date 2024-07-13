@@ -65,6 +65,7 @@
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPrevHunk",
 
+      // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
       // + Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePrevItem",

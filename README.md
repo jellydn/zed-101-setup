@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Fri Jul 12 2024 16:17:22 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jul 13 2024 21:55:20 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -40,10 +40,10 @@ Update your settings.json file with the following configuration:
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Kanagawa Wave",
+  "theme": "Dracula",
   "ui_font_size": 16,
   "buffer_font_size": 18,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "GeistMono Nerd Font",
   // Vim mode settings
   "vim_mode": true,
   // use relative line numbers
@@ -92,6 +92,7 @@ Update your settings.json file with the following configuration:
     "JSON": ["json", "jsonc", "*.code-snippets"]
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -107,7 +108,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Fri Jul 12 2024 16:17:22 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jul 13 2024 21:55:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -174,6 +175,8 @@ Update your keymap.json file with the following key bindings:
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPrevHunk",
+
+      // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
 
       // + Buffers
       // Switch between buffers
@@ -278,6 +281,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

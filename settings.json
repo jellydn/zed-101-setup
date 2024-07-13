@@ -10,7 +10,7 @@
   "theme": "Dracula",
   "ui_font_size": 16,
   "buffer_font_size": 18,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "GeistMono Nerd Font",
   // Vim mode settings
   "vim_mode": true,
   // use relative line numbers
