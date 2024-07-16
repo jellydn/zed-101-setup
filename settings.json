@@ -38,6 +38,7 @@
       "name": "openai",
       "type": "openai",
       "default_model": "gpt-4-turbo-preview",
+      // make sure ollama is running
       "api_url": "http://localhost:11434/v1"
     }
   },
@@ -53,12 +54,6 @@
         "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true
-      }
-    },
-    "TSX": {
-      // Organize imports on format
-      "code_actions_on_format": {
-        "source.organizeImports": true
       }
     }
   },

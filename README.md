@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Tue Jul 16 2024 22:08:00 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jul 16 2024 22:21:05 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -71,6 +71,7 @@ Update your settings.json file with the following configuration:
       "name": "openai",
       "type": "openai",
       "default_model": "gpt-4-turbo-preview",
+      // make sure ollama is running
       "api_url": "http://localhost:11434/v1"
     }
   },
@@ -86,12 +87,6 @@ Update your settings.json file with the following configuration:
         "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true
-      }
-    },
-    "TSX": {
-      // Organize imports on format
-      "code_actions_on_format": {
-        "source.organizeImports": true
       }
     }
   },
@@ -118,6 +113,7 @@ Update your settings.json file with the following configuration:
     "git_status": true
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -133,7 +129,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Tue Jul 16 2024 22:08:00 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jul 16 2024 22:21:05 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -310,6 +306,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
