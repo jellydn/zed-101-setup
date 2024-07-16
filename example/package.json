@@ -4,7 +4,7 @@
 	"type": "module",
 	"devDependencies": {
 		"@types/bun": "latest",
-		"@antfu/eslint-config": "^2.22.4",
+		"@antfu/eslint-config": "2.22.4",
 		"eslint": "9.5.0"
 	},
 	"peerDependencies": {
