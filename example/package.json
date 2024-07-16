@@ -1,11 +1,13 @@
 {
-	"name": "zed-bun-example",
-	"module": "index.ts",
-	"type": "module",
-	"devDependencies": {
-		"@types/bun": "latest"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	}
+  "name": "zed-bun-example",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@antfu/eslint-config": "^2.22.4",
+    "eslint": "9.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
