@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Tue Jul 16 2024 22:21:05 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jul 16 2024 22:23:51 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -80,6 +80,7 @@ Update your settings.json file with the following configuration:
     "enabled": true
   },
   "languages": {
+    // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
     "TypeScript": {
       // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
       "inlay_hints": {
@@ -113,6 +114,7 @@ Update your settings.json file with the following configuration:
     "git_status": true
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -128,7 +130,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Tue Jul 16 2024 22:21:05 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jul 16 2024 22:23:51 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -305,6 +307,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
