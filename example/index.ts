@@ -1,5 +1,5 @@
-import { calculateAge } from "./lib";
+import { calculateAge } from './lib'
 
-console.log("Hello via Bun!");
+console.log('Hello via Bun!')
 
-console.log(calculateAge(1988));
+console.log(calculateAge(1988))
