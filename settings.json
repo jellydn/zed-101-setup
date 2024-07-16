@@ -72,7 +72,7 @@
       "EDITOR": "zed --wait"
     }
   },
-  // Dockerfile syntax highlighting
+  // File syntax highlighting
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"]
@@ -81,5 +81,11 @@
   "telemetry": {
     "diagnostics": false,
     "metrics": false
+  },
+  // Project on the right
+  "project_panel": {
+    "button": true,
+    "dock": "right",
+    "git_status": true
   }
 }

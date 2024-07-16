@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Sat Jul 13 2024 22:23:27 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jul 16 2024 21:36:08 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -105,7 +105,7 @@ Update your settings.json file with the following configuration:
       "EDITOR": "zed --wait"
     }
   },
-  // Dockerfile syntax highlighting
+  // File syntax highlighting
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"]
@@ -114,8 +114,15 @@ Update your settings.json file with the following configuration:
   "telemetry": {
     "diagnostics": false,
     "metrics": false
+  },
+  // Project on the right
+  "project_panel": {
+    "button": true,
+    "dock": "right",
+    "git_status": true
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -131,7 +138,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Sat Jul 13 2024 22:23:27 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jul 16 2024 21:36:08 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -214,6 +221,7 @@ Update your keymap.json file with the following key bindings:
       "ctrl-s": "workspace::Save",
       // File finder
       "space space": "file_finder::Toggle",
+      // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel"
     }
@@ -280,7 +288,10 @@ Update your keymap.json file with the following key bindings:
       "d": "project_panel::Delete",
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
-      "p": "project_panel::Paste"
+      "p": "project_panel::Paste",
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleRightDock"
     }
   },
   // Panel nagivation
@@ -304,6 +315,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

@@ -66,6 +66,7 @@
       "[ h": "editor::GoToPrevHunk",
 
       // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
+
       // + Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePrevItem",
@@ -79,6 +80,7 @@
       "ctrl-s": "workspace::Save",
       // File finder
       "space space": "file_finder::Toggle",
+      // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel"
     }
@@ -145,7 +147,10 @@
       "d": "project_panel::Delete",
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
-      "p": "project_panel::Paste"
+      "p": "project_panel::Paste",
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleRightDock"
     }
   },
   // Panel nagivation
