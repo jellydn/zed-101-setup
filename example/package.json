@@ -1,17 +1,17 @@
 {
-  "name": "zed-bun-example",
-  "type": "module",
-  "module": "index.ts",
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "2.22.4",
-    "@types/bun": "latest",
-    "eslint": "9.5.0"
-  }
+	"name": "zed-bun-example",
+	"type": "module",
+	"module": "index.ts",
+	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "2.22.4",
+		"@types/bun": "latest",
+		"eslint": "9.5.0"
+	}
 }
