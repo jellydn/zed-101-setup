@@ -53,10 +53,6 @@
         "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true
-      },
-      // Organize imports on format
-      "code_actions_on_format": {
-        "source.organizeImports": true
       }
     },
     "TSX": {
@@ -82,7 +78,7 @@
     "diagnostics": false,
     "metrics": false
   },
-  // Project on the right
+  // File explorer on the right
   "project_panel": {
     "button": true,
     "dock": "right",
