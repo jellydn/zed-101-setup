@@ -15,6 +15,7 @@ Install Nerd Font using the following command:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+getnf
 ```
 
 ## Vim mode
