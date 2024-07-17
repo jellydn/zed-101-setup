@@ -31,7 +31,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Tue Jul 16 2024 22:23:51 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed Jul 17 2024 21:03:50 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -108,13 +108,20 @@ Update your settings.json file with the following configuration:
     "diagnostics": false,
     "metrics": false
   },
-  // File explorer on the right
+  // Move all panel to the right
   "project_panel": {
     "button": true,
     "dock": "right",
     "git_status": true
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -130,7 +137,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Tue Jul 16 2024 22:23:51 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed Jul 17 2024 21:03:50 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -295,6 +302,13 @@ Update your keymap.json file with the following key bindings:
       "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Map VSCode like keybindings
+      "cmd-b": "workspace::ToggleRightDock"
+    }
   }
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
@@ -307,6 +321,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

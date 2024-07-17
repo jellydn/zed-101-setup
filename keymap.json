@@ -162,6 +162,13 @@
       "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Map VSCode like keybindings
+      "cmd-b": "workspace::ToggleRightDock"
+    }
   }
   // Subword motion is not working really nice with `ciw`, disable for now
   // {

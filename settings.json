@@ -74,10 +74,16 @@
     "diagnostics": false,
     "metrics": false
   },
-  // File explorer on the right
+  // Move all panel to the right
   "project_panel": {
     "button": true,
     "dock": "right",
     "git_status": true
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
   }
 }
