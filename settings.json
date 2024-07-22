@@ -46,6 +46,14 @@
   "inlay_hints": {
     "enabled": true
   },
+  // LSP
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass", "styles"]
+      }
+    }
+  },
   "languages": {
     // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
     "TypeScript": {

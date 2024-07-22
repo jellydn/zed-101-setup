@@ -31,7 +31,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```json
-// settings.json, generated at Wed Jul 17 2024 21:03:50 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Mon Jul 22 2024 22:02:16 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -80,6 +80,14 @@ Update your settings.json file with the following configuration:
   "inlay_hints": {
     "enabled": true
   },
+  // LSP
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass", "styles"]
+      }
+    }
+  },
   "languages": {
     // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
     "TypeScript": {
@@ -121,6 +129,7 @@ Update your settings.json file with the following configuration:
     "dock": "right"
   }
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -136,7 +145,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```json
-// keymap.json, generated at Wed Jul 17 2024 21:03:50 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Mon Jul 22 2024 22:02:16 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -180,6 +189,7 @@ Update your keymap.json file with the following key bindings:
 
       // +LSP
       "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
       "space c r": "editor::Rename",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
@@ -320,6 +330,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->

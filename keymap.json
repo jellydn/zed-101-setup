@@ -41,6 +41,7 @@
 
       // +LSP
       "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
       "space c r": "editor::Rename",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
