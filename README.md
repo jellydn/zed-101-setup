@@ -50,20 +50,20 @@ Update your settings.json file with the following configuration:
   // use relative line numbers
   "relative_line_numbers": true,
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   // Indentation, rainbow indentation
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.2,
-    "right_padding": 0.2
+    "right_padding": 0.2,
   },
   // Local AI with Ollama, refer https://zed.dev/docs/assistant-panel#using-ollama-on-macos
   "assistant": {
@@ -73,20 +73,20 @@ Update your settings.json file with the following configuration:
       "type": "openai",
       "default_model": "gpt-4-turbo-preview",
       // make sure ollama is running
-      "api_url": "http://localhost:11434/v1"
-    }
+      "api_url": "http://localhost:11434/v1",
+    },
   },
   // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   // LSP
   "lsp": {
     "tailwindcss-language-server": {
       "settings": {
-        "classAttributes": ["class", "className", "ngClass", "styles"]
-      }
-    }
+        "classAttributes": ["class", "className", "ngClass", "styles"],
+      },
+    },
   },
   "languages": {
     // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
@@ -96,38 +96,38 @@ Update your settings.json file with the following configuration:
         "enabled": true,
         "show_parameter_hints": false,
         "show_other_hints": true,
-        "show_type_hints": true
-      }
-    }
+        "show_type_hints": true,
+      },
+    },
   },
   // Use zed commit editor
   "terminal": {
     "env": {
-      "EDITOR": "zed --wait"
-    }
+      "EDITOR": "zed --wait",
+    },
   },
   // File syntax highlighting
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
-    "JSON": ["json", "jsonc", "*.code-snippets"]
+    "JSON": ["json", "jsonc", "*.code-snippets"],
   },
   // Turn off telemetry
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   // Move all panel to the right
   "project_panel": {
     "button": true,
     "dock": "right",
-    "git_status": true
+    "git_status": true,
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "right"
-  }
+    "dock": "right",
+  },
 }
 ```
 
@@ -172,8 +172,8 @@ Update your keymap.json file with the following key bindings:
       // Search word under cursor
       "space s w": "pane::DeploySearch",
       // Go to file with `gf`
-      "g f": "editor::OpenExcerpts"
-    }
+      "g f": "editor::OpenExcerpts",
+    },
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -230,8 +230,8 @@ Update your keymap.json file with the following key bindings:
       "space space": "file_finder::Toggle",
       // TODO: Open other files
       // Show project panel with current file
-      "space e": "pane::RevealInProjectPanel"
-    }
+      "space e": "pane::RevealInProjectPanel",
+    },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
   {
@@ -240,50 +240,50 @@ Update your keymap.json file with the following key bindings:
       // Open file finder
       "space space": "file_finder::Toggle",
       // Open recent project
-      "space f p": "projects::OpenRecent"
-    }
+      "space f p": "projects::OpenRecent",
+    },
   },
   // Comment code
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
       // visual, visual line & visual block modes
-      "g c": "editor::ToggleComments"
-    }
+      "g c": "editor::ToggleComments",
+    },
   },
   // Better escape
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "j j": "vim::NormalBefore" // remap jj in insert mode to escape
-    }
+      "j j": "vim::NormalBefore", // remap jj in insert mode to escape
+    },
   },
   // Rename
   {
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "r": "editor::Rename" // zed specific
-    }
+      "r": "editor::Rename", // zed specific
+    },
   },
   // Code Action
   {
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "a": "editor::ToggleCodeActions" // zed specific
-    }
+      "a": "editor::ToggleCodeActions", // zed specific
+    },
   },
   // Toggle terminal
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-\\": "terminal_panel::ToggleFocus"
-    }
+      "ctrl-\\": "terminal_panel::ToggleFocus",
+    },
   },
   {
     "context": "Terminal",
-    "bindings": {}
+    "bindings": {},
   },
   // File panel (netrw)
   {
@@ -298,8 +298,8 @@ Update your keymap.json file with the following key bindings:
       "p": "project_panel::Paste",
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
-      "space e": "workspace::ToggleRightDock"
-    }
+      "space e": "workspace::ToggleRightDock",
+    },
   },
   // Panel nagivation
   {
@@ -308,16 +308,16 @@ Update your keymap.json file with the following key bindings:
       "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
-    }
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"],
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
       // Map VSCode like keybindings
-      "cmd-b": "workspace::ToggleRightDock"
-    }
-  }
+      "cmd-b": "workspace::ToggleRightDock",
+    },
+  },
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
   //   "context": "VimControl && !menu",
