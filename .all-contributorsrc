@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "jelly",
+      "name": "Jelle van der Waa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67428?v=4",
+      "profile": "https://vdwaa.nl",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "zed-101-setup",
+  "projectOwner": "jellydn"
+}
