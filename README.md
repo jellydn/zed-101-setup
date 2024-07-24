@@ -34,7 +34,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Mon Jul 22 2024 22:02:16 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed Jul 24 2024 20:08:49 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -147,7 +147,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Mon Jul 22 2024 22:02:16 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed Jul 24 2024 20:08:49 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",

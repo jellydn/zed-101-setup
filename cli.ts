@@ -20,7 +20,7 @@ const readFileSync = (filePath: string) => {
 };
 
 const generateMarkdown = (fileName: string, data: string) => `
-\`\`\`json
+\`\`\`jsonc
 // ${fileName}, generated at ${new Date()}
 ${data}
 \`\`\`
