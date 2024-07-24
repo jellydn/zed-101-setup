@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to zed-101-setup 👋</h1>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p>
   Your ultimate guide to setting up Zed Editor with Vim mode, tailored settings, and key bindings for a seamless coding experience
@@ -382,6 +382,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://productsway.com/"><img src="https://avatars.githubusercontent.com/u/870029?v=4?s=100" width="100px;" alt="Dung Duc Huynh (Kaka)"/><br /><sub><b>Dung Duc Huynh (Kaka)</b></sub></a><br /><a href="https://github.com/jellydn/zed-101-setup/commits?author=jellydn" title="Code">💻</a> <a href="https://github.com/jellydn/zed-101-setup/commits?author=jellydn" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/d1y"><img src="https://avatars.githubusercontent.com/u/45585937?v=4?s=100" width="100px;" alt="d1y"/><br /><sub><b>d1y</b></sub></a><br /><a href="https://github.com/jellydn/zed-101-setup/commits?author=d1y" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

@@ -16,6 +16,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "d1y",
+      "name": "d1y",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45585937?v=4",
+      "profile": "https://github.com/d1y",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
