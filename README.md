@@ -30,7 +30,7 @@ Update your settings.json file with the following configuration:
 
 <!-- ALL-SETTINGS:START -->
 
-```json
+```jsonc
 // settings.json, generated at Mon Jul 22 2024 22:02:16 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
@@ -143,7 +143,7 @@ Update your keymap.json file with the following key bindings:
 
 <!-- ALL-KEYMAPS:START -->
 
-```json
+```jsonc
 // keymap.json, generated at Mon Jul 22 2024 22:02:16 GMT+0800 (Singapore Standard Time)
 [
   {
