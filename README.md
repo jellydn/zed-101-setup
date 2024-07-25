@@ -338,7 +338,7 @@ Update your keymap.json file with the following key bindings:
 
 ## Setup local AI with Ollama
 
-Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions](https://zed.dev/docs/assistant-panel#using-ollama-on-macos).
+Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions](https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos).
 
 ## Resources
 
