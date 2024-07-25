@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "base_keymap": "VSCode",
   "theme": "Dracula",
   "ui_font_size": 16,
   "buffer_font_size": 18,
@@ -31,15 +32,21 @@
     "left_padding": 0.2,
     "right_padding": 0.2
   },
-  // Local AI with Ollama, refer https://zed.dev/docs/assistant-panel#using-ollama-on-macos
+  // Local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
   "assistant": {
     "version": "1",
     "provider": {
-      "name": "openai",
-      "type": "openai",
-      "default_model": "gpt-4-turbo-preview",
-      // make sure ollama is running
-      "api_url": "http://localhost:11434/v1"
+      "default_model": {
+        "name": "gpt-4-turbo-preview:latest",
+        "max_tokens": 2048,
+        "keep_alive": -1
+      },
+      "name": "ollama"
+    }
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434"
     }
   },
   // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
