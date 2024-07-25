@@ -37,7 +37,8 @@
     "version": "1",
     "provider": {
       "default_model": {
-        "name": "gpt-4-turbo-preview:latest",
+        // Run `ollama pull llama3:latest` to download the model
+        "name": "llama3:latest",
         "max_tokens": 2048,
         "keep_alive": -1
       },
@@ -99,6 +100,13 @@
     "dock": "right"
   },
   "collaboration_panel": {
-    "dock": "right"
+    "dock": "left"
+  },
+  // Move some unnecessary panels to the left
+  "notification_panel": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
   }
 }
