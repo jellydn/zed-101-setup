@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu Jul 25 2024 10:50:22 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed Jul 31 2024 10:10:31 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -77,8 +77,8 @@ Update your settings.json file with the following configuration:
     "version": "1",
     "provider": {
       "default_model": {
-        // Run `ollama pull llama3:latest` to download the model
-        "name": "llama3:latest",
+        // Run `ollama pull llama3.1:latest` to download the model
+        "name": "llama3.1:latest",
         "max_tokens": 2048,
         "keep_alive": -1,
       },
@@ -165,7 +165,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu Jul 25 2024 10:50:22 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed Jul 31 2024 10:10:31 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -192,6 +192,9 @@ Update your keymap.json file with the following key bindings:
       "space f p": "projects::OpenRecent",
       // Search word under cursor
       "space s w": "pane::DeploySearch",
+
+      // Chat with AI
+      "space a c": "assistant::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
     },

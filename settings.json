@@ -37,8 +37,8 @@
     "version": "1",
     "provider": {
       "default_model": {
-        // Run `ollama pull llama3:latest` to download the model
-        "name": "llama3:latest",
+        // Run `ollama pull llama3.1:latest` to download the model
+        "name": "llama3.1:latest",
         "max_tokens": 2048,
         "keep_alive": -1
       },

@@ -24,6 +24,9 @@
       "space f p": "projects::OpenRecent",
       // Search word under cursor
       "space s w": "pane::DeploySearch",
+
+      // Chat with AI
+      "space a c": "assistant::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts"
     }
