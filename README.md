@@ -366,6 +366,7 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 - [Text Manipulation Kung Fu for the Aspiring Black Belt](https://zed.dev/blog/text-manipulation)
 - [Vim - Zed](https://zed.dev/docs/vim)
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
+- [Bringing Interactive Computing to Zed: Introducing REPL Support](https://zed.dev/blog/repl)
 - [Other Zed config](https://gist.github.com/search?l=JSON&o=desc&q=Zed+config&s=)
 
 ## How to generate the settings
