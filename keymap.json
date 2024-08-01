@@ -111,7 +111,8 @@
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "j j": "vim::NormalBefore" // remap jj in insert mode to escape
+      "j j": "vim::NormalBefore", // remap jj in insert mode to escape
+      "j k": "vim::NormalBefore" // remap jk in insert mode to escape
     }
   },
   // Rename

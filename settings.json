@@ -34,16 +34,12 @@
   },
   // Local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
   "assistant": {
-    "version": "1",
-    "provider": {
-      "default_model": {
-        // Run `ollama pull llama3.1:latest` to download the model
-        "name": "llama3.1:latest",
-        "max_tokens": 2048,
-        "keep_alive": -1
-      },
-      "name": "ollama"
-    }
+    "default_model": {
+      "provider": "ollama",
+      "model": "llama3.1:latest"
+    },
+    "version": "2",
+    "provider": null
   },
   "language_models": {
     "ollama": {
@@ -72,6 +68,12 @@
         "show_other_hints": true,
         "show_type_hints": true
       }
+    },
+    "Python": {
+      // Search for 'ruff' on zed: extensions
+      "format_on_save": { "language_server": { "name": "ruff" } },
+      "formatter": { "language_server": { "name": "ruff" } },
+      "language_servers": ["pyright", "ruff"]
     }
   },
   // Use zed commit editor
