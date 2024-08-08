@@ -32,15 +32,23 @@
     "left_padding": 0.2,
     "right_padding": 0.2
   },
-  // Local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+  // Use Copilot Chat AI as default
   "assistant": {
     "default_model": {
-      "provider": "ollama",
-      "model": "llama3.1:latest"
+      "provider": "copilot_chat",
+      "model": "gpt-4"
     },
-    "version": "2",
-    "provider": null
+    "version": "2"
   },
+  // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+  // "assistant": {
+  //   "default_model": {
+  //     "provider": "ollama",
+  //     "model": "llama3.1:latest"
+  //   },
+  //   "version": "2",
+  //   "provider": null
+  // },
   "language_models": {
     "ollama": {
       "api_url": "http://localhost:11434"
@@ -70,7 +78,6 @@
       }
     },
     "Python": {
-      // Search for 'ruff' on zed: extensions
       "format_on_save": { "language_server": { "name": "ruff" } },
       "formatter": { "language_server": { "name": "ruff" } },
       "language_servers": ["pyright", "ruff"]

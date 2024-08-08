@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu Aug 01 2024 22:43:08 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu Aug 08 2024 13:17:30 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -72,15 +72,23 @@ Update your settings.json file with the following configuration:
     "left_padding": 0.2,
     "right_padding": 0.2,
   },
-  // Local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+  // Use Copilot Chat AI as default
   "assistant": {
     "default_model": {
-      "provider": "ollama",
-      "model": "llama3.1:latest",
+      "provider": "copilot_chat",
+      "model": "gpt-4",
     },
     "version": "2",
-    "provider": null,
   },
+  // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+  // "assistant": {
+  //   "default_model": {
+  //     "provider": "ollama",
+  //     "model": "llama3.1:latest"
+  //   },
+  //   "version": "2",
+  //   "provider": null
+  // },
   "language_models": {
     "ollama": {
       "api_url": "http://localhost:11434",
@@ -110,7 +118,6 @@ Update your settings.json file with the following configuration:
       },
     },
     "Python": {
-      // Search for 'ruff' on zed: extensions
       "format_on_save": { "language_server": { "name": "ruff" } },
       "formatter": { "language_server": { "name": "ruff" } },
       "language_servers": ["pyright", "ruff"],
@@ -167,7 +174,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu Aug 01 2024 22:43:08 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu Aug 08 2024 13:17:30 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -247,6 +254,7 @@ Update your keymap.json file with the following key bindings:
       "shift-l": "pane::ActivateNextItem",
       // Close active panel
       "shift-q": "pane::CloseActiveItem",
+      "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
       // Close other items
       "space b o": "pane::CloseInactiveItems",
