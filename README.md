@@ -383,6 +383,7 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 - [Vim - Zed](https://zed.dev/docs/vim)
 - [JavaScript - Zed](https://zed.dev/docs/languages/javascript)
 - [Bringing Interactive Computing to Zed: Introducing REPL Support](https://zed.dev/blog/repl)
+- [Leaving Neovim for Zed • Steve Simkins](https://stevedylan.dev/posts/leaving-neovim-for-zed)
 - [Other Zed config](https://gist.github.com/search?l=JSON&o=desc&q=Zed+config&s=)
 
 ## How to generate the settings
