@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu Aug 08 2024 13:17:30 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu Aug 29 2024 17:20:16 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -51,6 +51,7 @@ Update your settings.json file with the following configuration:
   "theme": "Dracula",
   "ui_font_size": 16,
   "buffer_font_size": 18,
+  // NOTE: Change the font family to your preference
   "buffer_font_family": "GeistMono Nerd Font",
   // Vim mode settings
   "vim_mode": true,
@@ -69,8 +70,8 @@ Update your settings.json file with the following configuration:
   },
   // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
-    "left_padding": 0.2,
-    "right_padding": 0.2,
+    "left_padding": 0.15,
+    "right_padding": 0.15,
   },
   // Use Copilot Chat AI as default
   "assistant": {
@@ -174,7 +175,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu Aug 08 2024 13:17:30 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu Aug 29 2024 17:20:16 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",

@@ -11,6 +11,7 @@
   "theme": "Dracula",
   "ui_font_size": 16,
   "buffer_font_size": 18,
+  // NOTE: Change the font family to your preference
   "buffer_font_family": "GeistMono Nerd Font",
   // Vim mode settings
   "vim_mode": true,
@@ -29,8 +30,8 @@
   },
   // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
-    "left_padding": 0.2,
-    "right_padding": 0.2
+    "left_padding": 0.15,
+    "right_padding": 0.15
   },
   // Use Copilot Chat AI as default
   "assistant": {
