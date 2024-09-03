@@ -307,7 +307,6 @@ Update your keymap.json file with the following key bindings:
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "a": "editor::ToggleCodeActions", // zed specific
     },
   },
   // Toggle terminal
