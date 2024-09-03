@@ -318,7 +318,12 @@ Update your keymap.json file with the following key bindings:
   },
   {
     "context": "Terminal",
-    "bindings": {},
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    },
   },
   // File panel (netrw)
   {
