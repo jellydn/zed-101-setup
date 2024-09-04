@@ -303,12 +303,13 @@ Update your keymap.json file with the following key bindings:
     },
   },
   // Code Action
-  {
-    "context": "Editor && vim_operator == c",
-    "bindings": {
-      "c": "vim::CurrentLine",
-    },
-  },
+  // comment due to conflict with built-in vim command
+//  {
+//    "context": "Editor && vim_operator == c",
+//    "bindings": {
+//      "c": "vim::CurrentLine",
+//    },
+//  },
   // Toggle terminal
   {
     "context": "Workspace",
