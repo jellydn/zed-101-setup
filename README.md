@@ -1,7 +1,9 @@
 <h1 align="center">Welcome to zed-101-setup 👋</h1>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p>
   Your ultimate guide to setting up Zed Editor with Vim mode, tailored settings, and key bindings for a seamless coding experience
@@ -35,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu Aug 29 2024 17:20:16 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed Sep 04 2024 20:28:56 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -173,7 +175,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu Aug 29 2024 17:20:16 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed Sep 04 2024 20:28:56 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -301,14 +303,13 @@ Update your keymap.json file with the following key bindings:
     },
   },
   // Code Action
-  // comment due to conflict with built-in vim command
-//  {
-//    "context": "Editor && vim_operator == c",
-//    "bindings": {
-//      "c": "vim::CurrentLine",
-//      "a": "editor::ToggleCodeActions", // zed specific
-//    },
-//  },
+  {
+    "context": "Editor && vim_operator == c",
+    "bindings": {
+      "c": "vim::CurrentLine",
+      "a": "editor::ToggleCodeActions", // zed specific
+    },
+  },
   // Toggle terminal
   {
     "context": "Workspace",
@@ -322,7 +323,7 @@ Update your keymap.json file with the following key bindings:
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
     },
   },
   // File panel (netrw)
@@ -339,6 +340,11 @@ Update your keymap.json file with the following key bindings:
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
       "space e": "workspace::ToggleRightDock",
+      // Navigate between panel
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
     },
   },
   // Panel nagivation
