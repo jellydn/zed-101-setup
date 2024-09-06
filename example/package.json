@@ -12,6 +12,6 @@
 	"devDependencies": {
 		"@antfu/eslint-config": "3.3.2",
 		"@types/bun": "latest",
-		"eslint": "9.9.1"
+		"eslint": "9.10.0"
 	}
 }
