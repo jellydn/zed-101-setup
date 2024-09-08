@@ -10,7 +10,7 @@
 		"typescript": "^5.0.0"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "3.3.2",
+		"@antfu/eslint-config": "3.4.1",
 		"@types/bun": "latest",
 		"eslint": "9.10.0"
 	}
