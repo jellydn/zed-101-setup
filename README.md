@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed Sep 04 2024 20:28:56 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Sep 17 2024 12:50:50 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -77,7 +77,7 @@ Update your settings.json file with the following configuration:
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4",
+      "model": "gpt-4o",
     },
     "version": "2",
   },
@@ -175,7 +175,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed Sep 04 2024 20:28:56 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Sep 17 2024 12:50:50 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
