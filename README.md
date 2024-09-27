@@ -386,6 +386,7 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 ## Recommend extensions
 
 - [biomejs/biome-zed: Biome extension for Zed](https://github.com/biomejs/biome-zed)
+- [oxc-project/zed-oxc: Oxc extension for Zed](https://github.com/oxc-project/zed-oxc)
 - [zed-industries/zed: Ruff](https://github.com/zed-industries/zed/blob/main/extensions/ruff/extension.toml)
 
 ## Resources
