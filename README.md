@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Sep 17 2024 12:50:50 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sun Sep 29 2024 08:42:42 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -135,6 +135,24 @@ Update your settings.json file with the following configuration:
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"],
   },
+  // File scan exclusions, hide on the file explorer and search
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    // above is default from Zed
+    "**/.husky",
+    "**/.turbo",
+    "**/.vscode",
+    "**/.next",
+    "**/.storybook",
+    "**/node_modules",
+  ],
   // Turn off telemetry
   "telemetry": {
     "diagnostics": false,
@@ -175,7 +193,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Sep 17 2024 12:50:50 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sun Sep 29 2024 08:42:42 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
