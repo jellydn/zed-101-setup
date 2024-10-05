@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sun Sep 29 2024 08:42:42 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sun Oct 06 2024 07:32:28 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -146,8 +146,11 @@ Update your settings.json file with the following configuration:
     "**/.classpath",
     "**/.settings",
     // above is default from Zed
+    "**/out",
+    "**/dist",
     "**/.husky",
     "**/.turbo",
+    "**/.vscode-test",
     "**/.vscode",
     "**/.next",
     "**/.storybook",
@@ -193,7 +196,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sun Sep 29 2024 08:42:42 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sun Oct 06 2024 07:32:28 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",

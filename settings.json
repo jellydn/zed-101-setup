@@ -106,8 +106,11 @@
     "**/.classpath",
     "**/.settings",
     // above is default from Zed
+    "**/out",
+    "**/dist",
     "**/.husky",
     "**/.turbo",
+    "**/.vscode-test",
     "**/.vscode",
     "**/.next",
     "**/.storybook",
