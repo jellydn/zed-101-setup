@@ -284,6 +284,8 @@ Update your keymap.json file with the following key bindings:
       "ctrl-s": "workspace::Save",
       // File finder
       "space space": "file_finder::Toggle",
+      // Project search
+      "space /": "pane::DeploySearch",
       // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
