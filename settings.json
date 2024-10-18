@@ -114,6 +114,8 @@
     "**/.vscode",
     "**/.next",
     "**/.storybook",
+    "**/.tap",
+    "**/.nyc_output",
     "**/node_modules"
   ],
   // Turn off telemetry
