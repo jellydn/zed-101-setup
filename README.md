@@ -426,9 +426,7 @@ Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions]
 ## How to generate the settings
 
 ```bash
-cp ~/.config/zed/settings.json settings.json
-cp ~/.config/zed/keymap.json keymap.json
-bun run cli.ts
+sh cli.sh
 ```
 
 ## Author
