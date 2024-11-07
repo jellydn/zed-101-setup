@@ -37,7 +37,7 @@
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "claude-3-5-sonnet"
     },
     "version": "2"
   },
@@ -116,6 +116,7 @@
     "**/.storybook",
     "**/.tap",
     "**/.nyc_output",
+    "**/report",
     "**/node_modules"
   ],
   // Turn off telemetry

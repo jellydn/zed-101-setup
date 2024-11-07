@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Fri Oct 18 2024 16:02:04 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu Nov 07 2024 18:01:50 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -77,7 +77,7 @@ Update your settings.json file with the following configuration:
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o",
+      "model": "claude-3-5-sonnet",
     },
     "version": "2",
   },
@@ -156,6 +156,7 @@ Update your settings.json file with the following configuration:
     "**/.storybook",
     "**/.tap",
     "**/.nyc_output",
+    "**/report",
     "**/node_modules",
   ],
   // Turn off telemetry
@@ -198,7 +199,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Fri Oct 18 2024 16:02:04 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu Nov 07 2024 18:01:50 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -387,6 +388,13 @@ Update your keymap.json file with the following key bindings:
     "bindings": {
       // Map VSCode like keybindings
       "cmd-b": "workspace::ToggleRightDock",
+    },
+  },
+  // Run nearest task
+  {
+    "context": "EmptyPane || SharedScreen || vim_mode == normal",
+    "bindings": {
+      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }],
     },
   },
   // Subword motion is not working really nice with `ciw`, disable for now

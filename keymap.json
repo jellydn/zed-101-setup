@@ -187,6 +187,13 @@
       // Map VSCode like keybindings
       "cmd-b": "workspace::ToggleRightDock"
     }
+  },
+  // Run nearest task
+  {
+    "context": "EmptyPane || SharedScreen || vim_mode == normal",
+    "bindings": {
+      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }]
+    }
   }
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
