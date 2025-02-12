@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu Nov 07 2024 18:01:50 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed Feb 12 2025 20:04:29 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -47,14 +47,25 @@ Update your settings.json file with the following configuration:
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Catppuccin Mocha",
+  "features": {
+    "edit_prediction_provider": "zed",
+  },
   "base_keymap": "VSCode",
   "theme": "Dracula",
-  "ui_font_size": 16,
-  "buffer_font_size": 18,
+  "ui_font_size": 17,
+  "buffer_font_size": 18.5,
+  // Finder model width
+  "file_finder": {
+    "modal_width": "medium",
+  },
   // NOTE: Change the font family to your preference
-  "buffer_font_family": "GeistMono Nerd Font",
+  "buffer_font_family": "OperatorMonoLig Nerd Font",
   // Vim mode settings
   "vim_mode": true,
+  "vim": {
+    "enable_vim_sneak": true,
+  },
   // use relative line numbers
   "relative_line_numbers": true,
   "tab_bar": {
@@ -62,6 +73,10 @@ Update your settings.json file with the following configuration:
   },
   "scrollbar": {
     "show": "never",
+  },
+  // Only show error on tab
+  "tabs": {
+    "show_diagnostics": "errors",
   },
   // Indentation, rainbow indentation
   "indent_guides": {
@@ -126,6 +141,7 @@ Update your settings.json file with the following configuration:
   },
   // Use zed commit editor
   "terminal": {
+    "font_family": "FiraCode Nerd Font Mono",
     "env": {
       "EDITOR": "zed --wait",
     },
@@ -199,7 +215,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu Nov 07 2024 18:01:50 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed Feb 12 2025 20:04:29 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -239,10 +255,10 @@ Update your keymap.json file with the following key bindings:
       // put key-bindings here if you want them to work only in normal mode
       // Window movement bindings
       // Ctrl jklk to move between panes
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
 
       // +LSP
       "space c a": "editor::ToggleCodeActions",
@@ -346,10 +362,10 @@ Update your keymap.json file with the following key bindings:
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
     },
   },
   // File panel (netrw)
@@ -367,20 +383,20 @@ Update your keymap.json file with the following key bindings:
       "q": "workspace::ToggleRightDock",
       "space e": "workspace::ToggleRightDock",
       // Navigate between panel
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
     },
   },
   // Panel nagivation
   {
     "context": "Dock",
     "bindings": {
-      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
     },
   },
   {
@@ -395,6 +411,14 @@ Update your keymap.json file with the following key bindings:
     "context": "EmptyPane || SharedScreen || vim_mode == normal",
     "bindings": {
       "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }],
+    },
+  },
+  // Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": ["vim::PushSneak", {}],
+      "S": ["vim::PushSneakBackward", {}],
     },
   },
   // Subword motion is not working really nice with `ciw`, disable for now

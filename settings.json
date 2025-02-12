@@ -7,14 +7,25 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Catppuccin Mocha",
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "base_keymap": "VSCode",
   "theme": "Dracula",
-  "ui_font_size": 16,
-  "buffer_font_size": 18,
+  "ui_font_size": 17,
+  "buffer_font_size": 18.5,
+  // Finder model width
+  "file_finder": {
+    "modal_width": "medium"
+  },
   // NOTE: Change the font family to your preference
-  "buffer_font_family": "GeistMono Nerd Font",
+  "buffer_font_family": "OperatorMonoLig Nerd Font",
   // Vim mode settings
   "vim_mode": true,
+  "vim": {
+    "enable_vim_sneak": true
+  },
   // use relative line numbers
   "relative_line_numbers": true,
   "tab_bar": {
@@ -22,6 +33,10 @@
   },
   "scrollbar": {
     "show": "never"
+  },
+  // Only show error on tab
+  "tabs": {
+    "show_diagnostics": "errors"
   },
   // Indentation, rainbow indentation
   "indent_guides": {
@@ -86,6 +101,7 @@
   },
   // Use zed commit editor
   "terminal": {
+    "font_family": "FiraCode Nerd Font Mono",
     "env": {
       "EDITOR": "zed --wait"
     }
