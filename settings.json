@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "git_panel": {
+    "dock": "right"
+  },
   "icon_theme": "Catppuccin Mocha",
   "features": {
     "edit_prediction_provider": "zed"
@@ -52,7 +55,7 @@
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
+      "model": "claude-3-7-sonnet"
     },
     "version": "2"
   },
