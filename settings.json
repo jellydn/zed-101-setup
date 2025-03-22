@@ -17,13 +17,13 @@
   "base_keymap": "VSCode",
   "theme": "Dracula",
   "ui_font_size": 17,
-  "buffer_font_size": 18.5,
+  "buffer_font_size": 18,
   // Finder model width
   "file_finder": {
     "modal_width": "medium"
   },
   // NOTE: Change the font family to your preference
-  "buffer_font_family": "OperatorMonoLig Nerd Font",
+  "buffer_font_family": "Maple Mono NF",
   // Vim mode settings
   "vim_mode": true,
   "vim": {
@@ -104,7 +104,7 @@
   },
   // Use zed commit editor
   "terminal": {
-    "font_family": "FiraCode Nerd Font Mono",
+    "font_family": "Maple Mono NF",
     "env": {
       "EDITOR": "zed --wait"
     }

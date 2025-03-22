@@ -5,7 +5,6 @@
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
       "space g h d": "editor::ToggleSelectedDiffHunks",
-      "space g h r": "git::Restore",
       "space g s": "git_panel::ToggleFocus",
 
       // Toggle inlay hints

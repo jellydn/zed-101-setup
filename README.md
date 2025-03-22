@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed Mar 05 2025 10:43:55 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Mar 22 2025 17:00:58 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -57,13 +57,13 @@ Update your settings.json file with the following configuration:
   "base_keymap": "VSCode",
   "theme": "Dracula",
   "ui_font_size": 17,
-  "buffer_font_size": 18.5,
+  "buffer_font_size": 18,
   // Finder model width
   "file_finder": {
     "modal_width": "medium",
   },
   // NOTE: Change the font family to your preference
-  "buffer_font_family": "OperatorMonoLig Nerd Font",
+  "buffer_font_family": "Maple Mono NF",
   // Vim mode settings
   "vim_mode": true,
   "vim": {
@@ -144,7 +144,7 @@ Update your settings.json file with the following configuration:
   },
   // Use zed commit editor
   "terminal": {
-    "font_family": "FiraCode Nerd Font Mono",
+    "font_family": "Maple Mono NF",
     "env": {
       "EDITOR": "zed --wait",
     },
@@ -218,7 +218,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed Mar 05 2025 10:43:55 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Mar 22 2025 17:00:58 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -226,7 +226,6 @@ Update your keymap.json file with the following key bindings:
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
       "space g h d": "editor::ToggleSelectedDiffHunks",
-      "space g h r": "git::Restore",
       "space g s": "git_panel::ToggleFocus",
 
       // Toggle inlay hints
