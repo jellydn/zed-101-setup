@@ -58,9 +58,9 @@ Update your settings.json file with the following configuration:
   "theme": "Dracula",
   "ui_font_size": 17,
   "buffer_font_size": 18,
-  // Finder model width
+  // Finder model max width
   "file_finder": {
-    "modal_width": "medium",
+    "modal_max_width": "medium",
   },
   // NOTE: Change the font family to your preference
   "buffer_font_family": "Maple Mono NF",
