@@ -220,5 +220,5 @@
     "bindings": {
       "space w": "vim::Subword"
     }
-  },
+  }
 ]
