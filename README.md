@@ -424,16 +424,23 @@ Update your keymap.json file with the following key bindings:
       "S": ["vim::PushSneakBackward", {}],
     },
   },
-  // Subword motion is not working really nice with `ciw`, disable for now
-  // {
-  //   "context": "VimControl && !menu",
-  //   "bindings": {
-  //     "w": "vim::NextSubwordStart",
-  //     "b": "vim::PreviousSubwordStart",
-  //     "e": "vim::NextSubwordEnd",
-  //     "g e": "vim::PreviousSubwordEnd"
-  //   }
-  // }
+{
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space w": "vim::NextSubwordStart",
+      "space b": "vim::PreviousSubwordStart",
+      "space e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd"
+    }  
+  },
+  // subword motion with space as leader key
+  // fixes "[operator]i w" -> operates on subword
+  {
+    "context": "vim_mode == operator && vim_operator == i",
+    "bindings": {
+      "space w": "vim::Subword"
+    }
+  }
 ]
 ```
 
