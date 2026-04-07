@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Mar 22 2025 17:00:58 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Apr 07 2026 10:06:53 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -47,162 +47,231 @@ Update your settings.json file with the following configuration:
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "git_panel": {
-    "dock": "right",
-  },
-  "icon_theme": "Catppuccin Mocha",
-  "features": {
-    "edit_prediction_provider": "zed",
-  },
-  "base_keymap": "VSCode",
-  "theme": "Dracula",
-  "ui_font_size": 17,
-  "buffer_font_size": 18,
-  // Finder model width
-  "file_finder": {
-    "modal_width": "medium",
-  },
-  // NOTE: Change the font family to your preference
-  "buffer_font_family": "Maple Mono NF",
-  // Vim mode settings
-  "vim_mode": true,
-  "vim": {
-    "enable_vim_sneak": true,
-  },
-  // use relative line numbers
-  "relative_line_numbers": true,
-  "tab_bar": {
-    "show": true,
-  },
-  "scrollbar": {
-    "show": "never",
-  },
-  // Only show error on tab
-  "tabs": {
-    "show_diagnostics": "errors",
-  },
-  // Indentation, rainbow indentation
-  "indent_guides": {
-    "enabled": true,
-    "coloring": "indent_aware",
-  },
-  // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
-  "centered_layout": {
-    "left_padding": 0.15,
-    "right_padding": 0.15,
-  },
-  // Use Copilot Chat AI as default
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet",
-    },
-    "version": "2",
-  },
-  // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
-  // "assistant": {
-  //   "default_model": {
-  //     "provider": "ollama",
-  //     "model": "llama3.1:latest"
-  //   },
-  //   "version": "2",
-  //   "provider": null
-  // },
-  "language_models": {
-    "ollama": {
-      "api_url": "http://localhost:11434",
-    },
-  },
-  // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
-  "inlay_hints": {
-    "enabled": true,
-  },
-  // LSP
-  "lsp": {
-    "tailwindcss-language-server": {
-      "settings": {
-        "classAttributes": ["class", "className", "ngClass", "styles"],
-      },
-    },
-  },
-  "languages": {
-    // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
-    "TypeScript": {
-      // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
-    },
-    "Python": {
-      "format_on_save": { "language_server": { "name": "ruff" } },
-      "formatter": { "language_server": { "name": "ruff" } },
-      "language_servers": ["pyright", "ruff"],
-    },
-  },
-  // Use zed commit editor
-  "terminal": {
-    "font_family": "Maple Mono NF",
-    "env": {
-      "EDITOR": "zed --wait",
-    },
-  },
-  // File syntax highlighting
-  "file_types": {
-    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
-    "JSON": ["json", "jsonc", "*.code-snippets"],
-  },
-  // File scan exclusions, hide on the file explorer and search
-  "file_scan_exclusions": [
-    "**/.git",
-    "**/.svn",
-    "**/.hg",
-    "**/CVS",
-    "**/.DS_Store",
-    "**/Thumbs.db",
-    "**/.classpath",
-    "**/.settings",
-    // above is default from Zed
-    "**/out",
-    "**/dist",
-    "**/.husky",
-    "**/.turbo",
-    "**/.vscode-test",
-    "**/.vscode",
-    "**/.next",
-    "**/.storybook",
-    "**/.tap",
-    "**/.nyc_output",
-    "**/report",
-    "**/node_modules",
-  ],
-  // Turn off telemetry
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false,
-  },
-  // Move all panel to the right
-  "project_panel": {
-    "button": true,
-    "dock": "right",
-    "git_status": true,
-  },
-  "outline_panel": {
-    "dock": "right",
-  },
-  "collaboration_panel": {
-    "dock": "left",
-  },
-  // Move some unnecessary panels to the left
-  "notification_panel": {
-    "dock": "left",
-  },
-  "chat_panel": {
-    "dock": "left",
-  },
+	"edit_predictions": {
+		"provider": "zed",
+	},
+	"agent_servers": {
+		"factory-droid": {
+			"type": "registry",
+		},
+		"github-copilot": {
+			"type": "registry",
+		},
+		"opencode": {
+			"type": "registry",
+		},
+	},
+	"session": {
+		"trust_all_worktrees": true,
+	},
+	"git": {
+		"inline_blame": {
+			"enabled": true,
+		},
+	},
+	"status_bar": {
+		"experimental.show": false,
+	},
+	"gutter": {
+		"line_numbers": true,
+	},
+	"cursor_shape": "bar",
+	"cursor_blink": false,
+	"use_system_window_tabs": true,
+	"buffer_font_fallbacks": [
+		"Maple Mono NF",
+		"OperatorMonoLig Nerd Font",
+		"JetBrainsMono Nerd Font Mono",
+		"Menlo",
+		"Monaco",
+		"Courier New",
+	],
+	"show_whitespaces": "all",
+	"show_edit_predictions": true,
+	"hard_tabs": true,
+	"git_panel": {
+		"tree_view": true,
+		"dock": "right",
+	},
+	"icon_theme": {
+		"mode": "dark",
+		"light": "Catppuccin Mocha",
+		"dark": "Catppuccin Mocha",
+	},
+	"base_keymap": "VSCode",
+	"theme": {
+		"mode": "dark",
+		"light": "Dracula",
+		"dark": "Maple Dark",
+	},
+	"ui_font_size": 17,
+	"buffer_font_size": 18.5,
+	// Finder model width
+	"file_finder": {
+		"modal_max_width": "medium",
+	},
+	// NOTE: Change the font family to your preference
+	"buffer_font_family": "Maple Mono NF",
+	// Vim mode settings
+	"vim_mode": true,
+	"vim": {},
+	"which_key": {
+		"enabled": true,
+	},
+	// use relative line numbers
+	"relative_line_numbers": "enabled",
+	"tab_bar": {
+		"show": true,
+	},
+	"scrollbar": {
+		"show": "never",
+	},
+	// Only show error on tab
+	"tabs": {
+		"show_diagnostics": "errors",
+	},
+	// Indentation, rainbow indentation
+	"indent_guides": {
+		"enabled": true,
+		"coloring": "indent_aware",
+	},
+	// NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
+	"centered_layout": {
+		"left_padding": 0.15,
+		"right_padding": 0.15,
+	},
+	// Use Copilot Chat AI as default
+	"agent": {
+		"inline_assistant_model": {
+			"provider": "ollama",
+			"model": "gpt-oss:120b-cloud",
+		},
+		"default_model": {
+			"provider": "copilot_chat",
+			"model": "gpt-5",
+		},
+	},
+	// Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+	// "assistant": {
+	//   "default_model": {
+	//     "provider": "ollama",
+	//     "model": "llama3.1:latest"
+	//   },
+	//   "version": "2",
+	//   "provider": null
+	// },
+	"language_models": {
+		"ollama": {
+			"api_url": "http://localhost:11434",
+		},
+	},
+	// Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
+	"inlay_hints": {
+		"enabled": true,
+	},
+	// LSP
+	"lsp": {
+		"tailwindcss-language-server": {
+			"settings": {
+				"classAttributes": ["class", "className", "ngClass", "styles"],
+			},
+		},
+	},
+	"languages": {
+		// Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
+		"TypeScript": {
+			// Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
+			"show_whitespaces": "all",
+			"show_edit_predictions": true,
+			"hard_tabs": true,
+			"inlay_hints": {
+				"enabled": true,
+				"show_parameter_hints": false,
+				"show_other_hints": true,
+				"show_type_hints": true,
+			},
+		},
+		"Python": {
+			"show_whitespaces": "all",
+			"show_edit_predictions": true,
+			"hard_tabs": true,
+			"format_on_save": "on",
+			"formatter": {
+				"language_server": {
+					"name": "ruff",
+				},
+			},
+			"language_servers": [
+				"ty",
+				"ruff",
+				"!basedpyright",
+				"!pyrefly",
+				"!pyright",
+				"!pylsp",
+			],
+		},
+	},
+	// Use zed commit editor
+	"terminal": {
+		"font_size": 17.0,
+		"font_family": "Maple Mono NF",
+		"env": {
+			"EDITOR": "zed --wait",
+		},
+	},
+	// File syntax highlighting
+	"file_types": {
+		"Dockerfile": ["Dockerfile", "Dockerfile.*"],
+		"JSON": ["json", "jsonc", "*.code-snippets"],
+	},
+	// File scan exclusions, hide on the file explorer and search
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.svn",
+		"**/.hg",
+		"**/CVS",
+		"**/.DS_Store",
+		"**/Thumbs.db",
+		"**/.classpath",
+		"**/.settings",
+		// above is default from Zed
+		"**/out",
+		"**/dist",
+		"**/.husky",
+		"**/.turbo",
+		"**/.vscode-test",
+		"**/.vscode",
+		"**/.next",
+		"**/.storybook",
+		"**/.tap",
+		"**/.nyc_output",
+		"**/report",
+		"**/node_modules",
+	],
+	// Turn off telemetry
+	"telemetry": {
+		"diagnostics": true,
+		"metrics": false,
+	},
+	// Move all panel to the right
+	"project_panel": {
+		"auto_fold_dirs": false,
+		"button": true,
+		"dock": "right",
+		"git_status": true,
+	},
+	"outline_panel": {
+		"dock": "right",
+	},
+	"collaboration_panel": {
+		"dock": "left",
+	},
+	// Move some unnecessary panels to the left
+	"notification_panel": {
+		"dock": "left",
+	},
 }
+
 ```
 
 <!-- ALL-SETTINGS:END -->
@@ -218,7 +287,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Mar 22 2025 17:00:58 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Apr 07 2026 10:06:53 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -227,27 +296,23 @@ Update your keymap.json file with the following key bindings:
       // Git
       "space g h d": "editor::ToggleSelectedDiffHunks",
       "space g s": "git_panel::ToggleFocus",
-
       // Toggle inlay hints
       "space t i": "editor::ToggleInlayHints",
-
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
-
       // NOTE: Toggle Zen mode, not fully working yet
       "space c z": "workspace::ToggleCenteredLayout",
-
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide",
-
       // Open recent project
       "space f p": "projects::OpenRecent",
       // Search word under cursor
       "space s w": "pane::DeploySearch",
-
+      // Search on current buffer
+      "space s b": "buffer_search::Deploy",
       // Chat with AI
-      "space a c": "assistant::ToggleFocus",
+      "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
     },
@@ -262,7 +327,6 @@ Update your keymap.json file with the following key bindings:
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-
       // +LSP
       "space c a": "editor::ToggleCodeActions",
       "space .": "editor::ToggleCodeActions",
@@ -284,14 +348,11 @@ Update your keymap.json file with the following key bindings:
       "s S": "project_symbols::Toggle",
       // Diagnostic
       "space x x": "diagnostics::Deploy",
-
       // +Git
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
-
       // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
-
       // + Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePreviousItem",
@@ -301,7 +362,7 @@ Update your keymap.json file with the following key bindings:
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
       // Close other items
-      "space b o": "pane::CloseInactiveItems",
+      "space b o": "pane::CloseOtherItems",
       // Save file
       "ctrl-s": "workspace::Save",
       // File finder
@@ -413,15 +474,33 @@ Update your keymap.json file with the following key bindings:
   {
     "context": "EmptyPane || SharedScreen || vim_mode == normal",
     "bindings": {
-      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }],
+      "space r t": [
+        "editor::SpawnNearestTask",
+        {
+          "reveal": "no_focus"
+        }
+      ],
     },
   },
   // Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
-      "s": ["vim::PushSneak", {}],
-      "S": ["vim::PushSneakBackward", {}],
+      "s": [
+        "vim::PushSneak",
+        {}
+      ],
+      "S": [
+        "vim::PushSneakBackward",
+        {}
+      ],
+    },
+  },
+  // Which key, refer to https://github.com/zed-industries/zed/pull/43618
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space": null, // Disable the default action vim::WrappingRight
     },
   },
   // Subword motion is not working really nice with `ciw`, disable for now
@@ -435,6 +514,7 @@ Update your keymap.json file with the following key bindings:
   //   }
   // }
 ]
+
 ```
 
 <!-- ALL-KEYMAPS:END -->
