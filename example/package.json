@@ -7,7 +7,7 @@
 		"lint:fix": "eslint . --fix"
 	},
 	"peerDependencies": {
-		"typescript": "^5.0.0"
+		"typescript": "^5.0.0 || ^6.0.0"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "8.2.0",
