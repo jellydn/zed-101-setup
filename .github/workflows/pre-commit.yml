@@ -13,8 +13,8 @@ jobs:
       # added or changed files to the repository.
       contents: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-python@v6.2.0
       - name: Install pre-commit
         run: pip install pre-commit
 
@@ -23,4 +23,4 @@ jobs:
         continue-on-error: true # Continue even if pre-commit fails
 
       # Commit all changed files back to the repository
-      - uses: stefanzweifel/git-auto-commit-action@v7
+      - uses: stefanzweifel/git-auto-commit-action@v7.1.0
