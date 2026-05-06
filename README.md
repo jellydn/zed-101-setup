@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Apr 07 2026 10:06:53 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 06 2026 07:46:59 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -47,10 +47,43 @@ Update your settings.json file with the following configuration:
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "colorize_brackets": true,
+  "code_lens": "on",
+  "toolbar": {
+    "code_actions": true,
+  },
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
+  "redact_private_values": true,
+  "cli_default_open_behavior": "existing_window",
   "edit_predictions": {
     "provider": "zed",
   },
   "agent_servers": {
+    "pi-acp": {
+      "type": "registry",
+    },
+    "kilo": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "gemini": {
+      "type": "registry",
+    },
+    "cursor": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+    "amp-acp": {
+      "type": "registry",
+    },
     "factory-droid": {
       "type": "registry",
     },
@@ -58,6 +91,9 @@ Update your settings.json file with the following configuration:
       "type": "registry",
     },
     "opencode": {
+      "favorite_config_option_values": {
+        "model": ["opencode-go/glm-5.1"],
+      },
       "type": "registry",
     },
   },
@@ -76,7 +112,7 @@ Update your settings.json file with the following configuration:
     "line_numbers": true,
   },
   "cursor_shape": "bar",
-  "cursor_blink": false,
+  "cursor_blink": true,
   "use_system_window_tabs": true,
   "buffer_font_fallbacks": [
     "Maple Mono NF",
@@ -101,7 +137,7 @@ Update your settings.json file with the following configuration:
   "base_keymap": "VSCode",
   "theme": {
     "mode": "dark",
-    "light": "Dracula",
+    "light": "Maple Light",
     "dark": "Maple Dark",
   },
   "ui_font_size": 17,
@@ -116,6 +152,7 @@ Update your settings.json file with the following configuration:
   "vim_mode": true,
   "vim": {},
   "which_key": {
+    "delay_ms": 500,
     "enabled": true,
   },
   // use relative line numbers
@@ -142,13 +179,47 @@ Update your settings.json file with the following configuration:
   },
   // Use Copilot Chat AI as default
   "agent": {
+    "default_profile": "write",
+    "favorite_models": [
+      {
+        "provider": "opencode",
+        "model": "go/minimax-m2.7",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "opencode",
+        "model": "go/glm-5.1",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "CrofAI",
+        "model": "kimi-k2.6",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "CrofAI",
+        "model": "glm-5.1",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "CrofAI",
+        "model": "deepseek-v4-pro",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "opencode",
+        "model": "go/kimi-k2.6",
+        "enable_thinking": false,
+      },
+    ],
+    "dock": "left",
     "inline_assistant_model": {
       "provider": "ollama",
       "model": "gpt-oss:120b-cloud",
     },
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5",
+      "provider": "opencode",
+      "model": "free/minimax-m2.5-free",
     },
   },
   // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
@@ -161,8 +232,82 @@ Update your settings.json file with the following configuration:
   //   "provider": null
   // },
   "language_models": {
+    "opencode": {
+      "show_zen_models": false,
+    },
     "ollama": {
       "api_url": "http://localhost:11434",
+    },
+    "openai_compatible": {
+      "CrofAI": {
+        "api_url": "https://crof.ai/v1",
+        "available_models": [
+          {
+            "name": "kimi-k2.6",
+            "display_name": "Kimi K2.6",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
+          },
+          {
+            "name": "kimi-k2.6-precision",
+            "display_name": "Kimi K2.6 Precision",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
+          },
+          {
+            "name": "qwen3.5-397b-a17b",
+            "display_name": "Qwen 3.5",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
+          },
+          {
+            "name": "deepseek-v4-pro",
+            "display_name": "Deepseek V4 Pro",
+            "max_tokens": 10000000,
+          },
+          {
+            "name": "deepseek-v4-pro-precision",
+            "display_name": "Deepseek V4 Pro Precision",
+            "max_tokens": 10000000,
+          },
+          {
+            "name": "glm-5.1-precision",
+            "display_name": "GLM 5.1 Precision",
+            "max_tokens": 202752,
+          },
+          {
+            "name": "glm-5.1",
+            "display_name": "GLM 5.1",
+            "max_tokens": 202752,
+          },
+          {
+            "name": "qwen3.6-27b",
+            "display_name": "Qwen 3.6",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
+          },
+        ],
+      },
     },
   },
   // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
@@ -213,6 +358,10 @@ Update your settings.json file with the following configuration:
   },
   // Use zed commit editor
   "terminal": {
+    "shell": {
+      "program": "/Users/huynhdung/.cargo/bin/codemux",
+    },
+    "show_count_badge": true,
     "font_size": 17.0,
     "font_family": "Maple Mono NF",
     "env": {
@@ -264,11 +413,18 @@ Update your settings.json file with the following configuration:
     "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   // Move some unnecessary panels to the left
   "notification_panel": {
     "dock": "left",
+  },
+  "context_servers": {
+    "react-grab-mcp": {
+      "command": "npx",
+      "args": ["-y", "@react-grab/mcp", "--stdio"],
+      "env": {},
+    },
   },
 }
 ```
@@ -286,7 +442,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Apr 07 2026 10:06:53 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 06 2026 07:46:59 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
