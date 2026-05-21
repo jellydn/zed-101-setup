@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu May 21 2026 12:59:21 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Fri May 22 2026 06:36:22 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -437,7 +437,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu May 21 2026 12:59:21 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Fri May 22 2026 06:36:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -669,6 +669,55 @@ Update your keymap.json file with the following key bindings:
 ```
 
 <!-- ALL-KEYMAPS:END -->
+
+## Tasks
+
+Update your tasks.json file with the following task definitions:
+
+<!-- ALL-TASKS:START -->
+
+```jsonc
+// tasks.json, generated at Fri May 22 2026 06:36:22 GMT+0800 (Singapore Standard Time)
+[
+  {
+    "label": "fff-gpui: Files",
+    "command": "fff-gpui --open .",
+    "env": { "EDITOR": "zed" },
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "reveal_target": "dock",
+    "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "none",
+  },
+  {
+    "label": "fff-gpui: Grep",
+    "command": "fff-gpui --open . --grep",
+    "env": { "EDITOR": "zed" },
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "reveal_target": "dock",
+    "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "none",
+  },
+]
+```
+
+<!-- ALL-TASKS:END -->
+
+### Task Markers for FFF GUI
+
+The tasks above enable the `space f f` and `space f g` keybindings defined in Keymaps. They spawn `fff-gpui` with the current directory as root.
+
+- `fff-gpui: Files` — Opens an interactive file picker using [fff-gpui](https://github.com/th0jensen/fff-gpui)
+- `fff-gpui: Grep` — Opens an interactive grep search across project files
 
 ## Setup local AI with Ollama
 

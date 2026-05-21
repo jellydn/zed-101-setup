@@ -1,0 +1,30 @@
+[
+	{
+		"label": "fff-gpui: Files",
+		"command": "fff-gpui --open .",
+		"env": { "EDITOR": "zed" },
+		"use_new_terminal": false,
+		"allow_concurrent_runs": false,
+		"reveal": "never",
+		"reveal_target": "dock",
+		"hide": "always",
+		"shell": "system",
+		"show_summary": false,
+		"show_command": false,
+		"save": "none"
+	},
+	{
+		"label": "fff-gpui: Grep",
+		"command": "fff-gpui --open . --grep",
+		"env": { "EDITOR": "zed" },
+		"use_new_terminal": false,
+		"allow_concurrent_runs": false,
+		"reveal": "never",
+		"reveal_target": "dock",
+		"hide": "always",
+		"shell": "system",
+		"show_summary": false,
+		"show_command": false,
+		"save": "none"
+	}
+]
