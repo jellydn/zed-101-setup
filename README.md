@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 06 2026 07:46:59 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu May 21 2026 12:59:21 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -116,7 +116,6 @@ Update your settings.json file with the following configuration:
   "use_system_window_tabs": true,
   "buffer_font_fallbacks": [
     "Maple Mono NF",
-    "OperatorMonoLig Nerd Font",
     "JetBrainsMono Nerd Font Mono",
     "Menlo",
     "Monaco",
@@ -415,10 +414,6 @@ Update your settings.json file with the following configuration:
   "collaboration_panel": {
     "dock": "right",
   },
-  // Move some unnecessary panels to the left
-  "notification_panel": {
-    "dock": "left",
-  },
   "context_servers": {
     "react-grab-mcp": {
       "command": "npx",
@@ -442,7 +437,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 06 2026 07:46:59 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu May 21 2026 12:59:21 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -650,6 +645,14 @@ Update your keymap.json file with the following key bindings:
     "context": "(VimControl && !menu)",
     "bindings": {
       "space": null, // Disable the default action vim::WrappingRight
+    },
+  },
+  // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
+      "space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
     },
   },
   // Subword motion is not working really nice with `ciw`, disable for now
