@@ -467,7 +467,7 @@
 	},
 	"context_servers": {
 		"react-grab-mcp": {
-   "command": "npx",
+			"command": "npx",
 			"args": ["-y", "@react-grab/mcp", "--stdio"],
 			"env": {},
 		},
