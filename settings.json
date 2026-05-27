@@ -319,6 +319,12 @@
 			"show_edit_predictions": true,
 			"hard_tabs": true,
 			"format_on_save": "on",
+			"inlay_hints": {
+				"enabled": true,
+				"show_parameter_hints": true,
+				"show_other_hints": true,
+				"show_type_hints": true,
+			},
 			"formatter": {
 				"language_server": {
 					"name": "ruff",
@@ -332,6 +338,48 @@
 				"!pyright",
 				"!pylsp",
 			],
+		},
+		"Rust": {
+			"show_whitespaces": "all",
+			"show_edit_predictions": true,
+			"hard_tabs": false,
+			"format_on_save": "on",
+			"inlay_hints": {
+				"enabled": true,
+				"show_parameter_hints": true,
+				"show_other_hints": true,
+				"show_type_hints": true,
+			},
+		},
+		"Go": {
+			"show_whitespaces": "all",
+			"show_edit_predictions": true,
+			"hard_tabs": true,
+			"format_on_save": "on",
+			"inlay_hints": {
+				"enabled": true,
+				"show_parameter_hints": true,
+				"show_other_hints": true,
+				"show_type_hints": true,
+			},
+		},
+		"Markdown": {
+			"show_whitespaces": "all",
+			"show_edit_predictions": true,
+			"hard_tabs": true,
+			"preferred_line_length": 80,
+		},
+		"JSON": {
+			"show_whitespaces": "all",
+			"show_edit_predictions": true,
+			"hard_tabs": false,
+			"format_on_save": "on",
+			"inlay_hints": {
+				"enabled": true,
+				"show_parameter_hints": false,
+				"show_other_hints": true,
+				"show_type_hints": true,
+			},
 		},
 	},
 	// Use zed commit editor

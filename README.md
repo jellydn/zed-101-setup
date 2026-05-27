@@ -72,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 12:48:47 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 12:50:48 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -394,6 +394,12 @@ Update your settings.json file with the following configuration:
       "show_edit_predictions": true,
       "hard_tabs": true,
       "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
       "formatter": {
         "language_server": {
           "name": "ruff",
@@ -407,6 +413,48 @@ Update your settings.json file with the following configuration:
         "!pyright",
         "!pylsp",
       ],
+    },
+    "Rust": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
+    },
+    "Go": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": true,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
+    },
+    "Markdown": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": true,
+      "preferred_line_length": 80,
+    },
+    "JSON": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
     },
   },
   // Use zed commit editor
@@ -491,7 +539,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 12:48:47 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 12:50:48 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -594,6 +642,8 @@ Update your keymap.json file with the following key bindings:
       "ctrl-Down": "vim::ResizePaneDown",
       "ctrl-Left": "vim::ResizePaneLeft",
       "ctrl-Right": "vim::ResizePaneRight",
+      // From nvim — close window
+      "space w d": "pane::CloseActiveItem",
     },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
@@ -749,7 +799,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 12:48:47 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 12:50:48 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
