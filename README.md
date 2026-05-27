@@ -72,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 12:52:58 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 12:55:00 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -551,7 +551,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 12:52:58 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 12:55:00 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -815,7 +815,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 12:52:58 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 12:55:00 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -842,6 +842,54 @@ Update your tasks.json file with the following task definitions:
     "show_summary": false,
     "show_command": false,
     "save": "none",
+  },
+  {
+    "label": "lint",
+    "command": "bun run lint",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+    "save": "all",
+  },
+  {
+    "label": "lint:fix",
+    "command": "bun run lint:fix",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+    "save": "all",
+  },
+  {
+    "label": "typecheck",
+    "command": "bun run typecheck",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+    "save": "all",
+  },
+  {
+    "label": "generate:readme",
+    "command": "bun run start",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "all",
   },
 ]
 ```
