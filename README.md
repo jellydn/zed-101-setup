@@ -73,7 +73,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu May 28 2026 00:17:19 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu May 28 2026 00:22:25 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -549,12 +549,11 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu May 28 2026 00:17:19 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu May 28 2026 00:22:25 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in normal & visual mode
       // Git
       "space g h d": "editor::ToggleSelectedDiffHunks",
       "space g s": "git_panel::ToggleFocus",
@@ -577,21 +576,19 @@ Update your keymap.json file with the following key bindings:
       "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
-      // From nvim — search/replace (opens search with replace)
+      // Search/replace
       "space s r": "pane::DeploySearch",
     },
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work only in normal mode
-      // Window movement bindings
       // Ctrl hjkl to move between panes
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-      // +LSP
+      // LSP
       "space c a": "editor::ToggleCodeActions",
       "space .": "editor::ToggleCodeActions",
       "space c r": "editor::Rename",
@@ -619,7 +616,7 @@ Update your keymap.json file with the following key bindings:
       "s S": "project_symbols::Toggle",
       // Diagnostic
       "space x x": "diagnostics::Deploy",
-      // +Git
+      // Git
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
@@ -627,8 +624,7 @@ Update your keymap.json file with the following key bindings:
       "space g d": "git::Diff",
       "space g b": "editor::ToggleGitBlameInline",
       "space g h e": "editor::ExpandAllDiffHunks",
-      // git diff is now supported — edit predictions, inline blame, hunk navigation and diff view are all available
-      // + Buffers
+      // Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
@@ -636,9 +632,9 @@ Update your keymap.json file with the following key bindings:
       "shift-q": "pane::CloseActiveItem",
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
-      // From nvim — buffer switch alias
+      // Buffer switch alias
       "space b b": "pane::ActivatePreviousItem",
-      // From nvim — close other items
+      // Close other items
       "space b o": "pane::CloseOtherItems",
       // Save file
       "ctrl-s": "workspace::Save",
@@ -648,26 +644,26 @@ Update your keymap.json file with the following key bindings:
       "space /": "pane::DeploySearch",
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
-      // From nvim — move lines up/down
+      // Move lines up/down
       "alt-k": "editor::MoveLineUp",
       "alt-j": "editor::MoveLineDown",
-      // From nvim — buffer prev/next aliases
+      // Buffer prev/next aliases
       "[b": "pane::ActivatePreviousItem",
       "]b": "pane::ActivateNextItem",
-      // From nvim — window management
+      // Window management
       "space w w": "workspace::ActivatePreviousPane",
       "space w -": "pane::SplitDown",
       "space w |": "pane::SplitRight",
-      // From nvim — new file
+      // New file
       "space f n": "workspace::NewFile",
-      // From nvim — quit all
+      // Quit all
       "space q q": "workspace::CloseWindow",
-      // From nvim — window resize
+      // Window resize
       "ctrl-shift-k": "vim::ResizePaneUp",
       "ctrl-shift-j": "vim::ResizePaneDown",
       "ctrl-shift-h": "vim::ResizePaneLeft",
       "ctrl-shift-l": "vim::ResizePaneRight",
-      // From nvim — close window
+      // Close window
       "space w d": "pane::CloseActiveItem",
     },
   },
@@ -824,7 +820,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Thu May 28 2026 00:17:19 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Thu May 28 2026 00:22:25 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -851,54 +847,6 @@ Update your tasks.json file with the following task definitions:
     "show_summary": false,
     "show_command": false,
     "save": "none",
-  },
-  {
-    "label": "lint",
-    "command": "bun run lint",
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "always",
-    "hide": "never",
-    "shell": "system",
-    "show_summary": true,
-    "show_command": true,
-    "save": "all",
-  },
-  {
-    "label": "lint:fix",
-    "command": "bun run lint:fix",
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "always",
-    "hide": "never",
-    "shell": "system",
-    "show_summary": true,
-    "show_command": true,
-    "save": "all",
-  },
-  {
-    "label": "typecheck",
-    "command": "bun run typecheck",
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "always",
-    "hide": "never",
-    "shell": "system",
-    "show_summary": true,
-    "show_command": true,
-    "save": "all",
-  },
-  {
-    "label": "generate:readme",
-    "command": "bun run start",
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "never",
-    "hide": "always",
-    "shell": "system",
-    "show_summary": false,
-    "show_command": false,
-    "save": "all",
   },
 ]
 ```

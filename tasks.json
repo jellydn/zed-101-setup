@@ -24,53 +24,5 @@
 		"show_summary": false,
 		"show_command": false,
 		"save": "none"
-	},
-	{
-		"label": "lint",
-		"command": "bun run lint",
-		"use_new_terminal": false,
-		"allow_concurrent_runs": false,
-		"reveal": "always",
-		"hide": "never",
-		"shell": "system",
-		"show_summary": true,
-		"show_command": true,
-		"save": "all"
-	},
-	{
-		"label": "lint:fix",
-		"command": "bun run lint:fix",
-		"use_new_terminal": false,
-		"allow_concurrent_runs": false,
-		"reveal": "always",
-		"hide": "never",
-		"shell": "system",
-		"show_summary": true,
-		"show_command": true,
-		"save": "all"
-	},
-	{
-		"label": "typecheck",
-		"command": "bun run typecheck",
-		"use_new_terminal": false,
-		"allow_concurrent_runs": false,
-		"reveal": "always",
-		"hide": "never",
-		"shell": "system",
-		"show_summary": true,
-		"show_command": true,
-		"save": "all"
-	},
-	{
-		"label": "generate:readme",
-		"command": "bun run start",
-		"use_new_terminal": false,
-		"allow_concurrent_runs": false,
-		"reveal": "never",
-		"hide": "always",
-		"shell": "system",
-		"show_summary": false,
-		"show_command": false,
-		"save": "all"
 	}
 ]

@@ -6,7 +6,7 @@ This repo is a **Zed Editor configuration bundle** — `settings.json`, `keymap.
 
 ## Developer commands
 
-```
+```bash
 bun run lint          # biome check .
 bun run lint:fix      # biome check --write .
 bun run typecheck     # tsc --noEmit
