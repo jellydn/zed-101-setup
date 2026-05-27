@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -55,6 +56,24 @@ try {
 	);
 
 	fs.writeFileSync(filePath, result);
+
+	// Format with prettier to pass pre-commit hooks
+	try {
+		execSync(`prettier --write ${JSON.stringify(filePath)}`, {
+			stdio: "pipe",
+			timeout: 10000,
+		});
+	} catch {
+		try {
+			execSync(`npx -y prettier --write ${JSON.stringify(filePath)}`, {
+				stdio: "pipe",
+				timeout: 15000,
+			});
+		} catch {
+			// prettier not available, skip formatting
+		}
+	}
+
 	console.log("Done");
 } catch (error) {
 	console.error(new Error("An error occurred", { cause: error }));
