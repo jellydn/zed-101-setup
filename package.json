@@ -9,7 +9,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.15",
+		"@biomejs/biome": "2.4.16",
 		"@types/bun": "1.3.14",
 		"typescript": "6"
 	}
