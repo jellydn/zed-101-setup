@@ -8,14 +8,14 @@
 // from the command palette or from `Zed` application menu.
 {
 	"colorize_brackets": true,
- "code_lens": "on",
- "toolbar": {
-  "code_actions": true
- },
- "show_signature_help_after_edits": true,
- "auto_signature_help": true,
- "redact_private_values": true,
- "cli_default_open_behavior": "existing_window",
+	"code_lens": "on",
+	"toolbar": {
+		"code_actions": true,
+	},
+	"show_signature_help_after_edits": true,
+	"auto_signature_help": true,
+	"redact_private_values": true,
+	"cli_default_open_behavior": "existing_window",
 	"edit_predictions": {
 		"provider": "zed",
 	},
@@ -76,7 +76,6 @@
 	"use_system_window_tabs": true,
 	"buffer_font_fallbacks": [
 		"Maple Mono NF",
-		"OperatorMonoLig Nerd Font",
 		"JetBrainsMono Nerd Font Mono",
 		"Menlo",
 		"Monaco",
@@ -113,7 +112,7 @@
 	"vim": {},
 	"which_key": {
 		"delay_ms": 500,
-  "enabled": true,
+		"enabled": true,
 	},
 	// use relative line numbers
 	"relative_line_numbers": "enabled",
@@ -140,39 +139,39 @@
 	// Use Copilot Chat AI as default
 	"agent": {
 		"default_profile": "write",
-  "favorite_models": [
-   {
-    "provider": "opencode",
-    "model": "go/minimax-m2.7",
-    "enable_thinking": false
-   },
-   {
-    "provider": "opencode",
-    "model": "go/glm-5.1",
-    "enable_thinking": false
-   },
-   {
-    "provider": "CrofAI",
-    "model": "kimi-k2.6",
-    "enable_thinking": false
-   },
-   {
-    "provider": "CrofAI",
-    "model": "glm-5.1",
-    "enable_thinking": false
-   },
-   {
-    "provider": "CrofAI",
-    "model": "deepseek-v4-pro",
-    "enable_thinking": false
-   },
-   {
-    "provider": "opencode",
-    "model": "go/kimi-k2.6",
-    "enable_thinking": false
-   }
-  ],
-  "dock": "left",
+		"favorite_models": [
+			{
+				"provider": "opencode",
+				"model": "go/minimax-m2.7",
+				"enable_thinking": false,
+			},
+			{
+				"provider": "opencode",
+				"model": "go/glm-5.1",
+				"enable_thinking": false,
+			},
+			{
+				"provider": "CrofAI",
+				"model": "kimi-k2.6",
+				"enable_thinking": false,
+			},
+			{
+				"provider": "CrofAI",
+				"model": "glm-5.1",
+				"enable_thinking": false,
+			},
+			{
+				"provider": "CrofAI",
+				"model": "deepseek-v4-pro",
+				"enable_thinking": false,
+			},
+			{
+				"provider": "opencode",
+				"model": "go/kimi-k2.6",
+				"enable_thinking": false,
+			},
+		],
+		"dock": "left",
 		"inline_assistant_model": {
 			"provider": "ollama",
 			"model": "gpt-oss:120b-cloud",
@@ -374,10 +373,6 @@
 	},
 	"collaboration_panel": {
 		"dock": "right",
-	},
-	// Move some unnecessary panels to the left
-	"notification_panel": {
-		"dock": "left",
 	},
 	"context_servers": {
 		"react-grab-mcp": {

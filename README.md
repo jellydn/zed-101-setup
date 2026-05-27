@@ -24,6 +24,43 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 getnf
 ```
 
+## zed-codemux
+
+This setup uses [zed-codemux](https://github.com/jellydn/zed-codemux) as the default terminal shell, providing a multiplexer experience within Zed Editor. Install via:
+
+```sh
+cargo install zed-codemux
+```
+
+Then configure in `settings.json`:
+
+```jsonc
+"terminal": {
+  "shell": {
+    "program": "/path/to/codemux"
+  }
+}
+```
+
+## FFF GUI
+
+This setup integrates [fff-gpui](https://github.com/th0jensen/fff-gpui), a native-GUI fuzzy file finder and grep tool for Zed. It provides quick file navigation and project-wide search with a minimal TUI interface.
+
+Install via:
+
+```sh
+brew tap th0jensen/fff-gpui
+brew install fff-gpui
+brew services start fff-gpui
+```
+
+Keybindings:
+
+| Keybinding  | Action                       |
+| ----------- | ---------------------------- |
+| `space f f` | Open interactive file picker |
+| `space f g` | Open interactive grep search |
+
 ## Vim mode
 
 For detailed Vim mode setup instructions, refer to the [Zed Vim Mode Documentation](https://zed.dev/docs/vim).
@@ -37,7 +74,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 06 2026 07:46:59 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -116,7 +153,6 @@ Update your settings.json file with the following configuration:
   "use_system_window_tabs": true,
   "buffer_font_fallbacks": [
     "Maple Mono NF",
-    "OperatorMonoLig Nerd Font",
     "JetBrainsMono Nerd Font Mono",
     "Menlo",
     "Monaco",
@@ -415,10 +451,6 @@ Update your settings.json file with the following configuration:
   "collaboration_panel": {
     "dock": "right",
   },
-  // Move some unnecessary panels to the left
-  "notification_panel": {
-    "dock": "left",
-  },
   "context_servers": {
     "react-grab-mcp": {
       "command": "npx",
@@ -442,7 +474,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 06 2026 07:46:59 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -652,6 +684,14 @@ Update your keymap.json file with the following key bindings:
       "space": null, // Disable the default action vim::WrappingRight
     },
   },
+  // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
+      "space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
+    },
+  },
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
   //   "context": "VimControl && !menu",
@@ -666,6 +706,53 @@ Update your keymap.json file with the following key bindings:
 ```
 
 <!-- ALL-KEYMAPS:END -->
+
+## Tasks
+
+Update your tasks.json file with the following task definitions:
+
+<!-- ALL-TASKS:START -->
+
+```jsonc
+// tasks.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+[
+  {
+    "label": "fff-gpui: Files",
+    "command": "EDITOR=zed fff-gpui --open .",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "reveal_target": "dock",
+    "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "none",
+  },
+  {
+    "label": "fff-gpui: Grep",
+    "command": "EDITOR=zed fff-gpui --open . --grep",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "reveal_target": "dock",
+    "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "none",
+  },
+]
+```
+
+<!-- ALL-TASKS:END -->
+
+### Task Markers for FFF GUI
+
+The tasks above enable the `space f f` and `space f g` keybindings defined in Keymaps. They spawn `fff-gpui` with the current directory as root.
+
+- `fff-gpui: Files` — Opens an interactive file picker using [fff-gpui](https://github.com/th0jensen/fff-gpui)
+- `fff-gpui: Grep` — Opens an interactive grep search across project files
 
 ## Setup local AI with Ollama
 

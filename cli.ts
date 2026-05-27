@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
  * ```bash
  * cp ~/.config/zed/keymap.json keymap.json
  * cp ~/.config/zed/settings.json settings.json
+ * cp ~/.config/zed/tasks.json tasks.json
  * ```
  */
 
@@ -33,10 +34,12 @@ ${data}
 try {
 	const settings = readFileSync(path.join(__dirname, "settings.json"));
 	const keymap = readFileSync(path.join(__dirname, "keymap.json"));
+	const tasks = readFileSync(path.join(__dirname, "tasks.json"));
 	const data = readFileSync(filePath);
 
 	const settingsMarkdown = generateMarkdown("settings.json", settings);
 	const keymapsMarkdown = generateMarkdown("keymap.json", keymap);
+	const tasksMarkdown = generateMarkdown("tasks.json", tasks);
 
 	let result = data.replace(
 		/(<!-- ALL-SETTINGS:START -->)[\s\S]*?(<!-- ALL-SETTINGS:END -->)/gs,
@@ -45,6 +48,10 @@ try {
 	result = result.replace(
 		/(<!-- ALL-KEYMAPS:START -->)[\s\S]*?(<!-- ALL-KEYMAPS:END -->)/gs,
 		`$1\n${keymapsMarkdown}\n$2`,
+	);
+	result = result.replace(
+		/(<!-- ALL-TASKS:START -->)[\s\S]*?(<!-- ALL-TASKS:END -->)/gs,
+		`$1\n${tasksMarkdown}\n$2`,
 	);
 
 	fs.writeFileSync(filePath, result);
