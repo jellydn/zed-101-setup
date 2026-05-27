@@ -32,6 +32,11 @@ ${data}
 \`\`\`
 `;
 
+const isMissingExecutableError = (error: unknown) =>
+	error instanceof Error &&
+	(("code" in error && error.code === "ENOENT") ||
+		("status" in error && error.status === 127));
+
 try {
 	const settings = readFileSync(path.join(__dirname, "settings.json"));
 	const keymap = readFileSync(path.join(__dirname, "keymap.json"));
@@ -63,19 +68,15 @@ try {
 			stdio: "pipe",
 			timeout: 10000,
 		});
-	} catch (error) {
+	} catch {
 		// prettier not available or failed — try via npx
 		try {
 			execFileSync("npx", ["-y", "prettier", "--write", filePath], {
 				stdio: "pipe",
 				timeout: 15000,
 			});
-		} catch {
-			const isMissing =
-				error instanceof Error &&
-				"code" in error &&
-				(error.code === "ENOENT" || error.code === 127);
-			if (isMissing) {
+		} catch (npxError) {
+			if (isMissingExecutableError(npxError)) {
 				console.warn(
 					"Warning: prettier not found — README.md may not match pre-commit style",
 				);
