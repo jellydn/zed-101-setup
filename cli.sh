@@ -1,17 +1,22 @@
 #!/bin/bash
+set -euo pipefail
 
-# Copy settings.json
-echo "Copying settings.json..."
-cp ~/.config/zed/settings.json settings.json
+ZED_CONFIG_DIR="${HOME}/.config/zed"
 
-# Copy keymap.json
-echo "Copying keymap.json..."
-cp ~/.config/zed/keymap.json keymap.json
-
-# Copy tasks.json
-echo "Copying tasks.json..."
-cp ~/.config/zed/tasks.json tasks.json
+# Check that Zed config files exist before copying
+for f in settings.json keymap.json tasks.json; do
+	if [ ! -f "${ZED_CONFIG_DIR}/${f}" ]; then
+		echo "Warning: ${ZED_CONFIG_DIR}/${f} not found — skipping"
+		continue
+	fi
+	echo "Copying ${f}..."
+	cp "${ZED_CONFIG_DIR}/${f}" "${f}"
+done
 
 # Run cli.ts
-echo "Running cli.ts..."
-bun run cli.ts
+if [ -f cli.ts ]; then
+	echo "Running cli.ts..."
+	bun run cli.ts
+else
+	echo "Warning: cli.ts not found — skipping README generation"
+fi
