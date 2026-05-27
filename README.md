@@ -24,6 +24,41 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 getnf
 ```
 
+## zed-codemux
+
+This setup uses [zed-codemux](https://github.com/jellydn/zed-codemux) as the default terminal shell, providing a multiplexer experience within Zed Editor. Install via:
+
+```sh
+cargo install zed-codemux
+```
+
+Then configure in `settings.json`:
+
+```jsonc
+"terminal": {
+  "shell": {
+    "program": "/path/to/codemux"
+  }
+}
+```
+
+## FFF GUI
+
+This setup integrates [fff-gpui](https://github.com/th0jensen/fff-gpui), a native-GUI fuzzy file finder and grep tool for Zed. It provides quick file navigation and project-wide search with a minimal TUI interface.
+
+Install via:
+
+```sh
+brew install fff-gpui
+```
+
+Keybindings:
+
+| Keybinding  | Action                       |
+| ----------- | ---------------------------- |
+| `space f f` | Open interactive file picker |
+| `space f g` | Open interactive grep search |
+
 ## Vim mode
 
 For detailed Vim mode setup instructions, refer to the [Zed Vim Mode Documentation](https://zed.dev/docs/vim).
