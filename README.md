@@ -49,6 +49,7 @@ This setup integrates [fff-gpui](https://github.com/th0jensen/fff-gpui), a nativ
 Install via:
 
 ```sh
+brew tap th0jensen/fff-gpui
 brew install fff-gpui
 ```
 
