@@ -37,7 +37,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Fri May 22 2026 06:36:22 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -437,7 +437,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Fri May 22 2026 06:36:22 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -677,12 +677,11 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Fri May 22 2026 06:36:22 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
-    "command": "fff-gpui --open .",
-    "env": { "EDITOR": "zed" },
+    "command": "EDITOR=zed fff-gpui --open .",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "never",
@@ -695,8 +694,7 @@ Update your tasks.json file with the following task definitions:
   },
   {
     "label": "fff-gpui: Grep",
-    "command": "fff-gpui --open . --grep",
-    "env": { "EDITOR": "zed" },
+    "command": "EDITOR=zed fff-gpui --open . --grep",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "never",

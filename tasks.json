@@ -1,8 +1,7 @@
 [
 	{
 		"label": "fff-gpui: Files",
-		"command": "fff-gpui --open .",
-		"env": { "EDITOR": "zed" },
+		"command": "EDITOR=zed fff-gpui --open .",
 		"use_new_terminal": false,
 		"allow_concurrent_runs": false,
 		"reveal": "never",
@@ -15,8 +14,7 @@
 	},
 	{
 		"label": "fff-gpui: Grep",
-		"command": "fff-gpui --open . --grep",
-		"env": { "EDITOR": "zed" },
+		"command": "EDITOR=zed fff-gpui --open . --grep",
 		"use_new_terminal": false,
 		"allow_concurrent_runs": false,
 		"reveal": "never",
