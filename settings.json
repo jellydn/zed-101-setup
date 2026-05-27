@@ -193,6 +193,15 @@
 			"model": "free/minimax-m2.5-free",
 		},
 	},
+	// Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+	// "assistant": {
+	//   "default_model": {
+	//     "provider": "ollama",
+	//     "model": "llama3.1:latest"
+	//   },
+	//   "version": "2",
+	//   "provider": null
+	// },
 	"language_models": {
 		"opencode": {
 			"show_zen_models": false,

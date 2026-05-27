@@ -2,6 +2,7 @@
 	{
 		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
 		"bindings": {
+			// put key-bindings here if you want them to work in normal & visual mode
 			// Git
 			"space g h d": "editor::ToggleSelectedDiffHunks",
 			"space g s": "git_panel::ToggleFocus",
@@ -31,6 +32,7 @@
 	{
 		"context": "Editor && vim_mode == normal && !VimWaiting && !menu",
 		"bindings": {
+			// put key-bindings here if you want them to work only in normal mode
 			// Ctrl hjkl to move between panes
 			"ctrl-h": "workspace::ActivatePaneLeft",
 			"ctrl-l": "workspace::ActivatePaneRight",
@@ -68,9 +70,11 @@
 			// Git prev/next hunk
 			"] h": "editor::GoToHunk",
 			"[ h": "editor::GoToPreviousHunk",
-			// Git project diff, inline blame, expand hunks
+			// Git project diff
 			"space g d": "git::Diff",
+			// Toggle inline blame
 			"space g b": "editor::ToggleGitBlameInline",
+			// Expand all diff hunks
 			"space g h e": "editor::ExpandAllDiffHunks",
 			// Buffers
 			// Switch between buffers
