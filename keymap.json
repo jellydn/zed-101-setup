@@ -34,7 +34,7 @@
 		"bindings": {
 			// put key-bindings here if you want them to work only in normal mode
 			// Window movement bindings
-			// Ctrl jklk to move between panes
+			// Ctrl hjkl to move between panes
 			"ctrl-h": "workspace::ActivatePaneLeft",
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",

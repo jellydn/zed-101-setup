@@ -125,7 +125,7 @@
 	// Editor vertical scroll margin (nvim's scrolloff=4) — lines to keep above/below cursor
 	"vertical_scroll_margin": 4,
 	// Editor horizontal scroll margin (nvim's sidescrolloff=8) — columns to keep left/right of cursor
-	"horizontal_scroll_margin": 8.0,
+	"horizontal_scroll_margin": 8,
 	// Confirm before quitting with unsaved changes (nvim's confirm=true)
 	"confirm_quit": true,
 	"tab_bar": {
