@@ -110,10 +110,10 @@
 			// From nvim — quit all
 			"space q q": "workspace::CloseWindow",
 			// From nvim — window resize
-			"ctrl-Up": "vim::ResizePaneUp",
-			"ctrl-Down": "vim::ResizePaneDown",
-			"ctrl-Left": "vim::ResizePaneLeft",
-			"ctrl-Right": "vim::ResizePaneRight",
+			"ctrl-shift-k": "vim::ResizePaneUp",
+			"ctrl-shift-j": "vim::ResizePaneDown",
+			"ctrl-shift-h": "vim::ResizePaneLeft",
+			"ctrl-shift-l": "vim::ResizePaneRight",
 			// From nvim — close window
 			"space w d": "pane::CloseActiveItem",
 		},
