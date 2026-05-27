@@ -103,8 +103,8 @@
 			"]b": "pane::ActivateNextItem",
 			// From nvim — window management
 			"space w w": "workspace::ActivatePreviousPane",
-			"space w -": "workspace::SplitDown",
-			"space w |": "workspace::SplitRight",
+			"space w -": "pane::SplitDown",
+			"space w |": "pane::SplitRight",
 			// From nvim — new file
 			"space f n": "workspace::NewFile",
 			// From nvim — quit all
