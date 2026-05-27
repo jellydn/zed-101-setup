@@ -49,9 +49,7 @@ This setup integrates [fff-gpui](https://github.com/th0jensen/fff-gpui), a nativ
 Install via:
 
 ```sh
-brew tap th0jensen/fff-gpui
 brew install fff-gpui
-brew services start fff-gpui
 ```
 
 Keybindings:
@@ -74,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 13:13:22 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -193,6 +191,18 @@ Update your settings.json file with the following configuration:
   },
   // use relative line numbers
   "relative_line_numbers": "enabled",
+  // Auto-save after delay (matches nvim's autowrite behavior)
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  // Editor vertical scroll margin (nvim's scrolloff=4) — lines to keep above/below cursor
+  "vertical_scroll_margin": 4,
+  // Editor horizontal scroll margin (nvim's sidescrolloff=8) — columns to keep left/right of cursor
+  "horizontal_scroll_margin": 8.0,
+  // Confirm before quitting with unsaved changes (nvim's confirm=true)
+  "confirm_quit": true,
   "tab_bar": {
     "show": true,
   },
@@ -258,15 +268,6 @@ Update your settings.json file with the following configuration:
       "model": "free/minimax-m2.5-free",
     },
   },
-  // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
-  // "assistant": {
-  //   "default_model": {
-  //     "provider": "ollama",
-  //     "model": "llama3.1:latest"
-  //   },
-  //   "version": "2",
-  //   "provider": null
-  // },
   "language_models": {
     "opencode": {
       "show_zen_models": false,
@@ -365,6 +366,19 @@ Update your settings.json file with the following configuration:
       "show_whitespaces": "all",
       "show_edit_predictions": true,
       "hard_tabs": true,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
+    },
+    "JavaScript": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": true,
+      "format_on_save": "on",
       "inlay_hints": {
         "enabled": true,
         "show_parameter_hints": false,
@@ -377,6 +391,12 @@ Update your settings.json file with the following configuration:
       "show_edit_predictions": true,
       "hard_tabs": true,
       "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
       "formatter": {
         "language_server": {
           "name": "ruff",
@@ -390,6 +410,60 @@ Update your settings.json file with the following configuration:
         "!pyright",
         "!pylsp",
       ],
+    },
+    "Rust": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
+      "formatter": {
+        "language_server": {
+          "name": "rust-analyzer",
+        },
+      },
+      "language_servers": ["rust-analyzer", "!rustc"],
+    },
+    "Go": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": true,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
+      "formatter": {
+        "language_server": {
+          "name": "gopls",
+        },
+      },
+      "language_servers": ["gopls", "!goimports"],
+    },
+    "Markdown": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": true,
+      "preferred_line_length": 80,
+    },
+    "JSON": {
+      "show_whitespaces": "all",
+      "show_edit_predictions": true,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
     },
   },
   // Use zed commit editor
@@ -474,7 +548,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 13:13:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -502,6 +576,8 @@ Update your keymap.json file with the following key bindings:
       "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
+      // From nvim — search/replace (opens search with replace)
+      "space s r": "pane::DeploySearch",
     },
   },
   {
@@ -527,7 +603,7 @@ Update your keymap.json file with the following key bindings:
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
-      // TODO: Go to next/prev error
+      // Go to next/prev error (GoToDiagnostic covers errors, warnings, and hints)
       "] e": "editor::GoToDiagnostic",
       "[ e": "editor::GoToPreviousDiagnostic",
       // Symbol search
@@ -539,7 +615,7 @@ Update your keymap.json file with the following key bindings:
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
-      // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
+      // git diff is now supported — edit predictions, inline blame, hunk navigation and diff view are all available
       // + Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePreviousItem",
@@ -548,7 +624,9 @@ Update your keymap.json file with the following key bindings:
       "shift-q": "pane::CloseActiveItem",
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
-      // Close other items
+      // From nvim — buffer switch alias
+      "space b b": "pane::ActivatePreviousItem",
+      // From nvim — close other items
       "space b o": "pane::CloseOtherItems",
       // Save file
       "ctrl-s": "workspace::Save",
@@ -556,9 +634,29 @@ Update your keymap.json file with the following key bindings:
       "space space": "file_finder::Toggle",
       // Project search
       "space /": "pane::DeploySearch",
-      // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
+      // From nvim — move lines up/down
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+      // From nvim — buffer prev/next aliases
+      "[b": "pane::ActivatePreviousItem",
+      "]b": "pane::ActivateNextItem",
+      // From nvim — window management
+      "space w w": "workspace::ActivatePreviousPane",
+      "space w -": "workspace::SplitDown",
+      "space w |": "workspace::SplitRight",
+      // From nvim — new file
+      "space f n": "workspace::NewFile",
+      // From nvim — quit all
+      "space q q": "workspace::CloseWindow",
+      // From nvim — window resize
+      "ctrl-Up": "vim::ResizePaneUp",
+      "ctrl-Down": "vim::ResizePaneDown",
+      "ctrl-Left": "vim::ResizePaneLeft",
+      "ctrl-Right": "vim::ResizePaneRight",
+      // From nvim — close window
+      "space w d": "pane::CloseActiveItem",
     },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
@@ -640,7 +738,7 @@ Update your keymap.json file with the following key bindings:
       "ctrl-j": "workspace::ActivatePaneDown",
     },
   },
-  // Panel nagivation
+  // Panel navigation
   {
     "context": "Dock",
     "bindings": {
@@ -714,7 +812,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 13:13:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -741,6 +839,54 @@ Update your tasks.json file with the following task definitions:
     "show_summary": false,
     "show_command": false,
     "save": "none",
+  },
+  {
+    "label": "lint",
+    "command": "bun run lint",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+    "save": "all",
+  },
+  {
+    "label": "lint:fix",
+    "command": "bun run lint:fix",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+    "save": "all",
+  },
+  {
+    "label": "typecheck",
+    "command": "bun run typecheck",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+    "save": "all",
+  },
+  {
+    "label": "generate:readme",
+    "command": "bun run start",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "all",
   },
 ]
 ```
