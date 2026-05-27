@@ -72,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 13:07:25 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 13:08:49 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -268,15 +268,6 @@ Update your settings.json file with the following configuration:
       "model": "free/minimax-m2.5-free",
     },
   },
-  // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
-  // "assistant": {
-  //   "default_model": {
-  //     "provider": "ollama",
-  //     "model": "llama3.1:latest"
-  //   },
-  //   "version": "2",
-  //   "provider": null
-  // },
   "language_models": {
     "opencode": {
       "show_zen_models": false,
@@ -557,7 +548,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 13:07:25 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 13:08:49 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -821,7 +812,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 13:07:25 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 13:08:49 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
