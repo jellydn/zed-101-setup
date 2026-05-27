@@ -64,14 +64,9 @@ try {
 			timeout: 10000,
 		});
 	} catch {
-		try {
-			execSync(`npx -y prettier --write ${JSON.stringify(filePath)}`, {
-				stdio: "pipe",
-				timeout: 15000,
-			});
-		} catch {
-			// prettier not available, skip formatting
-		}
+		console.warn(
+			"Warning: prettier not available — README.md may not be formatted",
+		);
 	}
 
 	console.log("Done");

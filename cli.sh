@@ -14,15 +14,15 @@ for f in settings.json keymap.json; do
 done
 
 # Copy tasks.json if it exists
-if [ -f ~/.config/zed/tasks.json ]; then
+if [ -f "${ZED_CONFIG_DIR}/tasks.json" ]; then
 	echo "Copying tasks.json..."
-	cp ~/.config/zed/tasks.json tasks.json
+	cp "${ZED_CONFIG_DIR}/tasks.json" tasks.json
 fi
 
 # Run cli.ts
 if [ -f cli.ts ]; then
 	echo "Running cli.ts..."
-	bun run cli.ts
+	bun run start
 else
 	echo "Warning: cli.ts not found — skipping README generation"
 fi

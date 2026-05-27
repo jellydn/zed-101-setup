@@ -72,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 13:51:29 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 21:03:06 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -548,7 +548,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 13:51:29 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 21:03:06 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -812,7 +812,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 13:51:29 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 21:03:06 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
