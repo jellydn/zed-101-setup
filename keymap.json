@@ -43,6 +43,7 @@
 			"space c a": "editor::ToggleCodeActions",
 			"space .": "editor::ToggleCodeActions",
 			"space c r": "editor::Rename",
+			"space c f": "editor::Format",
 			"g d": "editor::GoToDefinition",
 			"g D": "editor::GoToDefinitionSplit",
 			"g i": "editor::GoToImplementation",
@@ -243,7 +244,7 @@
 	},
 	// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
 	{
-		"context": "Workspace",
+		"context": "VimControl && !menu",
 		"bindings": {
 			"space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
 			"space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],

@@ -73,7 +73,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu May 28 2026 00:11:19 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu May 28 2026 00:17:19 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -193,11 +193,11 @@ Update your settings.json file with the following configuration:
   // use relative line numbers
   "relative_line_numbers": "enabled",
   // Auto-save after delay (matches nvim's autowrite behavior)
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000,
-    },
-  },
+  // "autosave": {
+  // 	"after_delay": {
+  // 		"milliseconds": 1000,
+  // 	},
+  // },
   // Editor vertical scroll margin (nvim's scrolloff=4) — lines to keep above/below cursor
   "vertical_scroll_margin": 4,
   // Editor horizontal scroll margin (nvim's sidescrolloff=8) — columns to keep left/right of cursor
@@ -549,7 +549,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu May 28 2026 00:11:19 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu May 28 2026 00:17:19 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -595,6 +595,7 @@ Update your keymap.json file with the following key bindings:
       "space c a": "editor::ToggleCodeActions",
       "space .": "editor::ToggleCodeActions",
       "space c r": "editor::Rename",
+      "space c f": "editor::Format",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
       "g i": "editor::GoToImplementation",
@@ -795,7 +796,7 @@ Update your keymap.json file with the following key bindings:
   },
   // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
   {
-    "context": "Workspace",
+    "context": "VimControl && !menu",
     "bindings": {
       "space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
       "space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
@@ -823,7 +824,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Thu May 28 2026 00:11:19 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Thu May 28 2026 00:17:19 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

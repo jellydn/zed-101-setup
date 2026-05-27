@@ -117,11 +117,11 @@
 	// use relative line numbers
 	"relative_line_numbers": "enabled",
 	// Auto-save after delay (matches nvim's autowrite behavior)
-	"autosave": {
-		"after_delay": {
-			"milliseconds": 1000,
-		},
-	},
+	// "autosave": {
+	// 	"after_delay": {
+	// 		"milliseconds": 1000,
+	// 	},
+	// },
 	// Editor vertical scroll margin (nvim's scrolloff=4) — lines to keep above/below cursor
 	"vertical_scroll_margin": 4,
 	// Editor horizontal scroll margin (nvim's sidescrolloff=8) — columns to keep left/right of cursor
