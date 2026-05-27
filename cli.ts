@@ -1,4 +1,4 @@
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -59,14 +59,34 @@ try {
 
 	// Format with prettier to pass pre-commit hooks
 	try {
-		execSync(`prettier --write ${JSON.stringify(filePath)}`, {
+		execFileSync("prettier", ["--write", filePath], {
 			stdio: "pipe",
 			timeout: 10000,
 		});
-	} catch {
-		console.warn(
-			"Warning: prettier not available — README.md may not be formatted",
-		);
+	} catch (error) {
+		// prettier not available or failed — try via npx
+		try {
+			execFileSync("npx", ["-y", "prettier", "--write", filePath], {
+				stdio: "pipe",
+				timeout: 15000,
+			});
+		} catch {
+			const isMissing =
+				error instanceof Error &&
+				"code" in error &&
+				(error.code === "ENOENT" || error.code === 127);
+			if (isMissing) {
+				console.warn(
+					"Warning: prettier not found — README.md may not match pre-commit style",
+				);
+			} else {
+				// prettier ran but failed — signal failure
+				console.error(
+					"Error: prettier formatting failed — README.md may not match pre-commit style",
+				);
+				process.exitCode = 1;
+			}
+		}
 	}
 
 	console.log("Done");

@@ -72,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 21:03:06 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 22:10:31 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -548,7 +548,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 21:03:06 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 22:10:31 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -603,9 +603,15 @@ Update your keymap.json file with the following key bindings:
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
-      // Go to next/prev error (GoToDiagnostic covers errors, warnings, and hints)
-      "] e": "editor::GoToDiagnostic",
-      "[ e": "editor::GoToPreviousDiagnostic",
+      // Next/prev error
+      "] e": ["editor::GoToDiagnostic", { "severity": "error" }],
+      "[ e": ["editor::GoToPreviousDiagnostic", { "severity": "error" }],
+      // Next/prev warning
+      "] w": ["editor::GoToDiagnostic", { "severity": "warning" }],
+      "[ w": ["editor::GoToPreviousDiagnostic", { "severity": "warning" }],
+      // Next/prev hint
+      "] H": ["editor::GoToDiagnostic", { "severity": "hint" }],
+      "[ H": ["editor::GoToPreviousDiagnostic", { "severity": "hint" }],
       // Symbol search
       "s s": "outline::Toggle",
       "s S": "project_symbols::Toggle",
@@ -615,6 +621,10 @@ Update your keymap.json file with the following key bindings:
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
+      // Git project diff, inline blame, expand hunks
+      "space g d": "git::Diff",
+      "space g b": "editor::ToggleGitBlameInline",
+      "space g h e": "editor::ExpandAllDiffHunks",
       // git diff is now supported — edit predictions, inline blame, hunk navigation and diff view are all available
       // + Buffers
       // Switch between buffers
@@ -812,7 +822,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 21:03:06 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 22:10:31 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -902,7 +912,15 @@ The tasks above enable the `space f f` and `space f g` keybindings defined in Ke
 
 ## Setup local AI with Ollama
 
-Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions](https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos).
+This config already includes Ollama support via the `language_models.ollama` setting pointing at `http://localhost:11434`. To use local AI:
+
+1. **Install Ollama** — https://ollama.com
+2. **Pull a model** — e.g., `ollama pull llama3.2`
+3. **Start the server** — `ollama serve` (or launch the app)
+
+Zed automatically discovers pulled Ollama models through the `api_url` setting. No additional config is needed — the models appear in the agent model picker alongside cloud providers.
+
+Refer to [Zed's Ollama docs](https://zed.dev/docs/ai/llm-providers#ollama) for more details.
 
 ## Recommend extensions
 

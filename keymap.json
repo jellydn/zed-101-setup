@@ -52,9 +52,15 @@
 			"g r": "editor::FindAllReferences",
 			"] d": "editor::GoToDiagnostic",
 			"[ d": "editor::GoToPreviousDiagnostic",
-			// Go to next/prev error (GoToDiagnostic covers errors, warnings, and hints)
-			"] e": "editor::GoToDiagnostic",
-			"[ e": "editor::GoToPreviousDiagnostic",
+			// Next/prev error
+			"] e": ["editor::GoToDiagnostic", { "severity": "error" }],
+			"[ e": ["editor::GoToPreviousDiagnostic", { "severity": "error" }],
+			// Next/prev warning
+			"] w": ["editor::GoToDiagnostic", { "severity": "warning" }],
+			"[ w": ["editor::GoToPreviousDiagnostic", { "severity": "warning" }],
+			// Next/prev hint
+			"] H": ["editor::GoToDiagnostic", { "severity": "hint" }],
+			"[ H": ["editor::GoToPreviousDiagnostic", { "severity": "hint" }],
 			// Symbol search
 			"s s": "outline::Toggle",
 			"s S": "project_symbols::Toggle",
@@ -64,6 +70,10 @@
 			// Git prev/next hunk
 			"] h": "editor::GoToHunk",
 			"[ h": "editor::GoToPreviousHunk",
+			// Git project diff, inline blame, expand hunks
+			"space g d": "git::Diff",
+			"space g b": "editor::ToggleGitBlameInline",
+			"space g h e": "editor::ExpandAllDiffHunks",
 			// git diff is now supported — edit predictions, inline blame, hunk navigation and diff view are all available
 			// + Buffers
 			// Switch between buffers

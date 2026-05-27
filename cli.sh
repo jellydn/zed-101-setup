@@ -17,6 +17,8 @@ done
 if [ -f "${ZED_CONFIG_DIR}/tasks.json" ]; then
 	echo "Copying tasks.json..."
 	cp "${ZED_CONFIG_DIR}/tasks.json" tasks.json
+else
+	echo "Warning: ${ZED_CONFIG_DIR}/tasks.json not found — skipping"
 fi
 
 # Run cli.ts
