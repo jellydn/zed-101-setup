@@ -72,7 +72,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 12:50:48 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed May 27 2026 12:52:58 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -425,6 +425,12 @@ Update your settings.json file with the following configuration:
         "show_other_hints": true,
         "show_type_hints": true,
       },
+      "formatter": {
+        "language_server": {
+          "name": "rust-analyzer",
+        },
+      },
+      "language_servers": ["rust-analyzer", "!rustc"],
     },
     "Go": {
       "show_whitespaces": "all",
@@ -437,6 +443,12 @@ Update your settings.json file with the following configuration:
         "show_other_hints": true,
         "show_type_hints": true,
       },
+      "formatter": {
+        "language_server": {
+          "name": "gopls",
+        },
+      },
+      "language_servers": ["gopls", "!goimports"],
     },
     "Markdown": {
       "show_whitespaces": "all",
@@ -539,7 +551,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 12:50:48 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed May 27 2026 12:52:58 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -567,6 +579,8 @@ Update your keymap.json file with the following key bindings:
       "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
+      // From nvim — search/replace (opens search with replace)
+      "space s r": "pane::DeploySearch",
     },
   },
   {
@@ -613,7 +627,9 @@ Update your keymap.json file with the following key bindings:
       "shift-q": "pane::CloseActiveItem",
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
-      // Close other items
+      // From nvim — buffer switch alias
+      "space b b": "pane::ActivatePreviousItem",
+      // From nvim — close other items
       "space b o": "pane::CloseOtherItems",
       // Save file
       "ctrl-s": "workspace::Save",
@@ -799,7 +815,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 12:50:48 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed May 27 2026 12:52:58 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

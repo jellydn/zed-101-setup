@@ -350,6 +350,15 @@
 				"show_other_hints": true,
 				"show_type_hints": true,
 			},
+			"formatter": {
+				"language_server": {
+					"name": "rust-analyzer",
+				},
+			},
+			"language_servers": [
+				"rust-analyzer",
+				"!rustc",
+			],
 		},
 		"Go": {
 			"show_whitespaces": "all",
@@ -362,6 +371,15 @@
 				"show_other_hints": true,
 				"show_type_hints": true,
 			},
+			"formatter": {
+				"language_server": {
+					"name": "gopls",
+				},
+			},
+			"language_servers": [
+				"gopls",
+				"!goimports",
+			],
 		},
 		"Markdown": {
 			"show_whitespaces": "all",

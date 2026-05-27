@@ -25,6 +25,8 @@
 			"space a c": "agent::ToggleFocus",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
+			// From nvim — search/replace (opens search with replace)
+			"space s r": "pane::DeploySearch",
 		},
 	},
 	{
@@ -71,7 +73,9 @@
 			"shift-q": "pane::CloseActiveItem",
 			"ctrl-q": "pane::CloseActiveItem",
 			"space b d": "pane::CloseActiveItem",
-			// Close other items
+			// From nvim — buffer switch alias
+			"space b b": "pane::ActivatePreviousItem",
+			// From nvim — close other items
 			"space b o": "pane::CloseOtherItems",
 			// Save file
 			"ctrl-s": "workspace::Save",
