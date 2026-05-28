@@ -73,7 +73,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu May 28 2026 00:29:48 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu May 28 2026 09:19:15 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -558,7 +558,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu May 28 2026 00:29:48 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu May 28 2026 09:19:15 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -805,10 +805,20 @@ Update your keymap.json file with the following key bindings:
   },
   // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
   {
-    "context": "VimControl && !menu",
+    "context": "(VimControl && !menu)",
     "bindings": {
-      "space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
-      "space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
+      "space f f": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Files",
+        },
+      ],
+      "space f g": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Grep",
+        },
+      ],
     },
   },
   // Subword motion is not working really nice with `ciw`, disable for now
@@ -833,7 +843,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Thu May 28 2026 00:29:48 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Thu May 28 2026 09:19:15 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
