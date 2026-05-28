@@ -73,7 +73,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu May 28 2026 09:19:15 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu May 28 2026 09:20:04 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -361,13 +361,93 @@ Update your settings.json file with the following configuration:
   "inlay_hints": {
     "enabled": true,
   },
-  // LSP
+  // LSP — uncomment & customize examples below for testing
   "lsp": {
     "tailwindcss-language-server": {
       "settings": {
         "classAttributes": ["class", "className", "ngClass", "styles"],
       },
     },
+    // Example 1: rust-analyzer — cargo features, proc macros, check-on-save
+    // "rust-analyzer": {
+    // 	"settings": {
+    // 		"checkOnSave": true,
+    // 		"check": {"command": "clippy"},
+    // 		"cargo": {"features": "all"},
+    // 		"procMacro": {"enable": true},
+    // 		"inlayHints": {
+    // 			"bindingModeHints": { "enable": true },
+    // 			"chainingHints": { "enable": true },
+    // 			"closingBraceHints": { "enable": true },
+    // 			"lifetimeElisionHints": { "enable": "skip_trivial" },
+    // 			"typeHints": { "enable": true },
+    // 			"parameterHints": { "enable": true },
+    // 			"reborrowHints": { "enable": "keep" },
+    // 		},
+    // 	},
+    // },
+    // Example 2: gopls — formatting, imports, staticcheck
+    // "gopls": {
+    // 	"settings": {
+    // 		"gofumpt": true,
+    // 		"staticcheck": true,
+    // 		"usePlaceholders": true,
+    // 		"semanticTokens": true,
+    // 		"analyses": {
+    // 			"unusedparams": true,
+    // 			"unusedwrite": true,
+    // 			"fieldalignment": true,
+    // 			"nilness": true,
+    // 		},
+    // 		"hints": {
+    // 			"assignVariableTypes": true,
+    // 			"compositeLiteralFields": true,
+    // 			"compositeLiteralTypes": true,
+    // 			"constantTypeValues": true,
+    // 			"functionDocParameters": true,
+    // 			"parameterNames": true,
+    // 			"rangeVariableTypes": true,
+    // 		},
+    // 	},
+    // },
+    // Example 3: vtsls — TypeScript/JavaScript LSP (requires vtsls extension)
+    // "vtsls": {
+    // 	"settings": {
+    // 		"typescript": {
+    // 			"suggest": { "autoImports": true, "completeFunctionCalls": true },
+    // 			"inlayHints": {
+    // 				"parameterNames": { "enabled": "all" },
+    // 				"parameterTypes": { "enabled": true },
+    // 				"variableTypes": { "enabled": true },
+    // 				"returnType": { "enabled": true },
+    // 				"propertyDeclarationTypes": { "enabled": true },
+    // 			},
+    // 			"preferences": {
+    // 				"includePackageJsonAutoImports": "on",
+    // 				"organizeImports": { "ignoreCase": false },
+    // 			},
+    // 			"format": { "indentSize": 2, "tabSize": 2 },
+    // 		},
+    // 	},
+    // },
+    // Example 4: biome — formatter & linter for JS/TS/JSON/CSS (requires biome extension)
+    // "biome": {
+    // 	"settings": {
+    // 		"lineWidth": 100,
+    // 		"indentStyle": "tab",
+    // 		"indentWidth": 2,
+    // 		"organizeImports": { "enabled": true },
+    // 		"linter": { "enabled": true },
+    // 		"formatter": { "enabled": true },
+    // 		"javascript": {
+    // 			"formatter": {
+    // 				"quoteStyle": "double",
+    // 				"semicolons": "always",
+    // 				"trailingCommas": "all",
+    // 			},
+    // 		},
+    // 	},
+    // },
   },
   "languages": {
     // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
@@ -403,7 +483,7 @@ Update your settings.json file with the following configuration:
       "format_on_save": "on",
       "inlay_hints": {
         "enabled": true,
-        "show_parameter_hints": true,
+        "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true,
       },
@@ -428,7 +508,7 @@ Update your settings.json file with the following configuration:
       "format_on_save": "on",
       "inlay_hints": {
         "enabled": true,
-        "show_parameter_hints": true,
+        "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true,
       },
@@ -446,7 +526,7 @@ Update your settings.json file with the following configuration:
       "format_on_save": "on",
       "inlay_hints": {
         "enabled": true,
-        "show_parameter_hints": true,
+        "show_parameter_hints": false,
         "show_other_hints": true,
         "show_type_hints": true,
       },
@@ -535,17 +615,32 @@ Update your settings.json file with the following configuration:
   "collaboration_panel": {
     "dock": "right",
   },
-  "context_servers": {
-    "react-grab-mcp": {
-      "command": "npx",
-      "args": ["-y", "@react-grab/mcp", "--stdio"],
-      "env": {},
-    },
-  },
+  // The react-grab MCP server is kept as a recipe only. Leaving an active
+  // custom context server makes Zed Preview show a no-op migration banner.
+  // "context_servers": {
+  // 	"react-grab-mcp": {
+  // 		"command": "npx",
+  // 		"args": ["-y", "@react-grab/mcp", "--stdio"],
+  // 		"env": {},
+  // 	},
+  // },
 }
 ```
 
 <!-- ALL-SETTINGS:END -->
+
+### LSP Testing Examples
+
+The `lsp` section in settings above includes 4 commented example configurations for testing popular LSP servers:
+
+| #   | LSP Server        | Language              | Key Settings Demonstrated                                                                                         |
+| --- | ----------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 1   | **rust-analyzer** | Rust                  | `checkOnSave`, `clippy` checks, proc macros, inlay hints (binding, chaining, lifetime, type, parameter, reborrow) |
+| 2   | **gopls**         | Go                    | `gofumpt`, `staticcheck`, semantic tokens, analyses (nilness, fieldalignment), inlay hints                        |
+| 3   | **vtsls**         | TypeScript/JavaScript | Auto imports, inlay hints (parameter names, types, return types), organize imports, format config                 |
+| 4   | **biome**         | JS/TS/JSON/CSS        | Formatter settings (indent, quotes, semicolons), linter, organize imports                                         |
+
+Uncomment the desired block in `settings.json` to enable. Each example showcases different LSP capabilities — diagnostics, formatting, code actions, inlay hints, and refactoring — useful for testing LSP integrations in Zed.
 
 [![Demo](https://i.gyazo.com/28f24b1bd9f0f49658862ca406104c75.png)](https://gyazo.com/28f24b1bd9f0f49658862ca406104c75)
 
@@ -558,7 +653,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu May 28 2026 09:19:15 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu May 28 2026 09:20:04 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -843,7 +938,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Thu May 28 2026 09:19:15 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Thu May 28 2026 09:20:04 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

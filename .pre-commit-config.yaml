@@ -5,6 +5,7 @@ repos:
       - id: prettier
         # Those are not supported by biomejs yet, refer https://biomejs.dev/internals/language-support/
         types_or: [html, css, markdown]
+        exclude: ^example/biome\.css$
         description: "Prettify files for the files which Biomejs doesn't support yet"
   - repo: https://github.com/biomejs/pre-commit
     rev: "v0.5.0"

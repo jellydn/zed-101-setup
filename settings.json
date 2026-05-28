@@ -285,13 +285,93 @@
 	"inlay_hints": {
 		"enabled": true,
 	},
-	// LSP
+	// LSP — uncomment & customize examples below for testing
 	"lsp": {
 		"tailwindcss-language-server": {
 			"settings": {
 				"classAttributes": ["class", "className", "ngClass", "styles"],
 			},
 		},
+		// Example 1: rust-analyzer — cargo features, proc macros, check-on-save
+		// "rust-analyzer": {
+		// 	"settings": {
+		// 		"checkOnSave": true,
+		// 		"check": {"command": "clippy"},
+		// 		"cargo": {"features": "all"},
+		// 		"procMacro": {"enable": true},
+		// 		"inlayHints": {
+		// 			"bindingModeHints": { "enable": true },
+		// 			"chainingHints": { "enable": true },
+		// 			"closingBraceHints": { "enable": true },
+		// 			"lifetimeElisionHints": { "enable": "skip_trivial" },
+		// 			"typeHints": { "enable": true },
+		// 			"parameterHints": { "enable": true },
+		// 			"reborrowHints": { "enable": "keep" },
+		// 		},
+		// 	},
+		// },
+		// Example 2: gopls — formatting, imports, staticcheck
+		// "gopls": {
+		// 	"settings": {
+		// 		"gofumpt": true,
+		// 		"staticcheck": true,
+		// 		"usePlaceholders": true,
+		// 		"semanticTokens": true,
+		// 		"analyses": {
+		// 			"unusedparams": true,
+		// 			"unusedwrite": true,
+		// 			"fieldalignment": true,
+		// 			"nilness": true,
+		// 		},
+		// 		"hints": {
+		// 			"assignVariableTypes": true,
+		// 			"compositeLiteralFields": true,
+		// 			"compositeLiteralTypes": true,
+		// 			"constantTypeValues": true,
+		// 			"functionDocParameters": true,
+		// 			"parameterNames": true,
+		// 			"rangeVariableTypes": true,
+		// 		},
+		// 	},
+		// },
+		// Example 3: vtsls — TypeScript/JavaScript LSP (requires vtsls extension)
+		// "vtsls": {
+		// 	"settings": {
+		// 		"typescript": {
+		// 			"suggest": { "autoImports": true, "completeFunctionCalls": true },
+		// 			"inlayHints": {
+		// 				"parameterNames": { "enabled": "all" },
+		// 				"parameterTypes": { "enabled": true },
+		// 				"variableTypes": { "enabled": true },
+		// 				"returnType": { "enabled": true },
+		// 				"propertyDeclarationTypes": { "enabled": true },
+		// 			},
+		// 			"preferences": {
+		// 				"includePackageJsonAutoImports": "on",
+		// 				"organizeImports": { "ignoreCase": false },
+		// 			},
+		// 			"format": { "indentSize": 2, "tabSize": 2 },
+		// 		},
+		// 	},
+		// },
+		// Example 4: biome — formatter & linter for JS/TS/JSON/CSS (requires biome extension)
+		// "biome": {
+		// 	"settings": {
+		// 		"lineWidth": 100,
+		// 		"indentStyle": "tab",
+		// 		"indentWidth": 2,
+		// 		"organizeImports": { "enabled": true },
+		// 		"linter": { "enabled": true },
+		// 		"formatter": { "enabled": true },
+		// 		"javascript": {
+		// 			"formatter": {
+		// 				"quoteStyle": "double",
+		// 				"semicolons": "always",
+		// 				"trailingCommas": "all",
+		// 			},
+		// 		},
+		// 	},
+		// },
 	},
 	"languages": {
 		// Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
@@ -327,7 +407,7 @@
 			"format_on_save": "on",
 			"inlay_hints": {
 				"enabled": true,
-				"show_parameter_hints": true,
+				"show_parameter_hints": false,
 				"show_other_hints": true,
 				"show_type_hints": true,
 			},
@@ -352,7 +432,7 @@
 			"format_on_save": "on",
 			"inlay_hints": {
 				"enabled": true,
-				"show_parameter_hints": true,
+				"show_parameter_hints": false,
 				"show_other_hints": true,
 				"show_type_hints": true,
 			},
@@ -373,7 +453,7 @@
 			"format_on_save": "on",
 			"inlay_hints": {
 				"enabled": true,
-				"show_parameter_hints": true,
+				"show_parameter_hints": false,
 				"show_other_hints": true,
 				"show_type_hints": true,
 			},
@@ -465,11 +545,13 @@
 	"collaboration_panel": {
 		"dock": "right",
 	},
-	"context_servers": {
-		"react-grab-mcp": {
-			"command": "npx",
-			"args": ["-y", "@react-grab/mcp", "--stdio"],
-			"env": {},
-		},
-	},
+	// The react-grab MCP server is kept as a recipe only. Leaving an active
+	// custom context server makes Zed Preview show a no-op migration banner.
+	// "context_servers": {
+	// 	"react-grab-mcp": {
+	// 		"command": "npx",
+	// 		"args": ["-y", "@react-grab/mcp", "--stdio"],
+	// 		"env": {},
+	// 	},
+	// },
 }
