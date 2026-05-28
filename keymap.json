@@ -196,8 +196,14 @@
 	{
 		"context": "vim_mode == normal || vim_mode == visual",
 		"bindings": {
-			"s": ["vim::PushSneak", {}],
-			"S": ["vim::PushSneakBackward", {}],
+			"s": [
+				"vim::PushSneak",
+				{}
+			],
+			"S": [
+				"vim::PushSneakBackward",
+				{}
+			],
 		},
 	},
 	// Which key, refer to https://github.com/zed-industries/zed/pull/43618
@@ -209,10 +215,20 @@
 	},
 	// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
 	{
-		"context": "Workspace",
+		"context": "(VimControl && !menu)",
 		"bindings": {
-			"space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
-			"space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
+			"space f f": [
+				"task::Spawn",
+				{
+					"task_name": "fff-gpui: Files"
+				}
+			],
+			"space f g": [
+				"task::Spawn",
+				{
+					"task_name": "fff-gpui: Grep"
+				}
+			],
 		},
 	},
 	// Subword motion is not working really nice with `ciw`, disable for now

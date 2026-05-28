@@ -686,7 +686,7 @@ Update your keymap.json file with the following key bindings:
   },
   // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
   {
-    "context": "Workspace",
+    "context": "(VimControl && !menu)",
     "bindings": {
       "space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
       "space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
