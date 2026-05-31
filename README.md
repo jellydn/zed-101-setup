@@ -15,6 +15,16 @@
 
 The Zed Editor 101 setup guide is designed to help you configure Zed Editor to enhance your development workflow. Whether you’re a Vim enthusiast or looking to boost your productivity with custom settings and key bindings, this guide provides all the necessary steps and resources. Follow along to get your Zed Editor configured with Nerd Font, Vim mode, local AI assistance, and more.
 
+## Quick Install
+
+Deploy the entire Zed configuration with a single command:
+
+```sh
+sh install.sh
+```
+
+This backs up your existing `settings.json`, `keymap.json`, and `tasks.json` to a timestamped directory, then copies the repo versions into `~/.config/zed`. To restore, run the `cp` command printed at the end.
+
 ## Nerd Font
 
 Install Nerd Font using the following command:
@@ -641,6 +651,8 @@ The `lsp` section in settings above includes 4 commented example configurations 
 | 4   | **biome**         | JS/TS/JSON/CSS        | Formatter settings (indent, quotes, semicolons), linter, organize imports                                         |
 
 Uncomment the desired block in `settings.json` to enable. Each example showcases different LSP capabilities — diagnostics, formatting, code actions, inlay hints, and refactoring — useful for testing LSP integrations in Zed.
+
+Example code files for each LSP server are available in the [`example/`](example/) directory to verify the features listed above.
 
 [![Demo](https://i.gyazo.com/28f24b1bd9f0f49658862ca406104c75.png)](https://gyazo.com/28f24b1bd9f0f49658862ca406104c75)
 
