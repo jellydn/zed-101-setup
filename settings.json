@@ -127,7 +127,7 @@
 	// Editor horizontal scroll margin (nvim's sidescrolloff=8) — columns to keep left/right of cursor
 	"horizontal_scroll_margin": 8,
 	// Confirm before quitting with unsaved changes (nvim's confirm=true)
-	"confirm_quit": true,
+	// "confirm_quit": true,
 	"tab_bar": {
 		"show": true,
 	},

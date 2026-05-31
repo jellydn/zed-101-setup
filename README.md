@@ -73,7 +73,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Thu May 28 2026 09:20:04 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sun May 31 2026 16:25:29 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -203,7 +203,7 @@ Update your settings.json file with the following configuration:
   // Editor horizontal scroll margin (nvim's sidescrolloff=8) — columns to keep left/right of cursor
   "horizontal_scroll_margin": 8,
   // Confirm before quitting with unsaved changes (nvim's confirm=true)
-  "confirm_quit": true,
+  // "confirm_quit": true,
   "tab_bar": {
     "show": true,
   },
@@ -653,7 +653,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Thu May 28 2026 09:20:04 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sun May 31 2026 16:25:29 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -938,7 +938,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Thu May 28 2026 09:20:04 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sun May 31 2026 16:25:29 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
