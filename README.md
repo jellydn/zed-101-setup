@@ -39,7 +39,7 @@ getnf
 This setup uses [zed-codemux](https://github.com/jellydn/zed-codemux) as the default terminal shell, providing a multiplexer experience within Zed Editor. Install via:
 
 ```sh
-cargo install zed-codemux
+cargo install codemux
 ```
 
 Then configure in `settings.json`:
