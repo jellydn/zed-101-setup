@@ -51,6 +51,10 @@
 			"type": "registry",
 		},
 		"opencode": {
+			"default_config_options": {
+				"model": "opencode/minimax-m3-free",
+				"mode": "build"
+			},
 			"favorite_config_option_values": {
 				"model": ["opencode-go/glm-5.1"],
 			},
