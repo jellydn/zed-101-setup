@@ -174,6 +174,5 @@ dist
 # Finder (MacOS) folder config
 .DS_Store
 
-# Zed editor config (JSONC format, not valid JSON for linters)
-settings.json
-keymap.json
+# Agent session debris
+autoresearch.*
