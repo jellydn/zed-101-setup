@@ -10,7 +10,7 @@
 			"space t i": "editor::ToggleInlayHints",
 			// Toggle soft wrap
 			"space u w": "editor::ToggleSoftWrap",
-			// NOTE: Toggle Zen mode, not fully working yet
+			// NOTE: Toggle Zen mode, partially with nvim plugin like no-neck-pain
 			"space c z": "workspace::ToggleCenteredLayout",
 			// Open markdown preview
 			"space m p": "markdown::OpenPreview",
@@ -24,10 +24,8 @@
 			// Chat with AI
 			"space a c": "agent::ToggleFocus",
 			// Go to file with `gf`
-			"g f": "editor::OpenExcerpts",
-			// Search/replace
-			"space s r": "pane::DeploySearch",
-		},
+			"g f": "editor::OpenExcerpts"
+		}
 	},
 	{
 		"context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -115,9 +113,9 @@
 			"ctrl-shift-j": "vim::ResizePaneDown",
 			"ctrl-shift-h": "vim::ResizePaneLeft",
 			"ctrl-shift-l": "vim::ResizePaneRight",
-			// Close window
-			"space w d": "pane::CloseActiveItem",
-		},
+			// Close active buffer
+			"space w d": "pane::CloseActiveItem"
+		}
 	},
 	// Empty pane, set of keybindings that are available when there is no active editor
 	{
@@ -126,47 +124,47 @@
 			// Open file finder
 			"space space": "file_finder::Toggle",
 			// Open recent project
-			"space f p": "projects::OpenRecent",
-		},
+			"space f p": "projects::OpenRecent"
+		}
 	},
 	// Comment code
 	{
 		"context": "Editor && vim_mode == visual && !VimWaiting && !menu",
 		"bindings": {
 			// visual, visual line & visual block modes
-			"g c": "editor::ToggleComments",
-		},
+			"g c": "editor::ToggleComments"
+		}
 	},
 	// Better escape
 	{
 		"context": "Editor && vim_mode == insert && !menu",
 		"bindings": {
 			"j j": "vim::NormalBefore", // remap jj in insert mode to escape
-			"j k": "vim::NormalBefore", // remap jk in insert mode to escape
-		},
+			"j k": "vim::NormalBefore" // remap jk in insert mode to escape
+		}
 	},
 	// Rename
 	{
 		"context": "Editor && vim_operator == c",
 		"bindings": {
 			"c": "vim::CurrentLine",
-			"r": "editor::Rename", // zed specific
-		},
+			"r": "editor::Rename" // zed specific
+		}
 	},
 	// Code Action
 	{
 		"context": "Editor && vim_operator == c",
 		"bindings": {
 			"c": "vim::CurrentLine",
-			"a": "editor::ToggleCodeActions", // zed specific
-		},
+			"a": "editor::ToggleCodeActions" // zed specific
+		}
 	},
 	// Toggle terminal
 	{
 		"context": "Workspace",
 		"bindings": {
-			"ctrl-\\": "terminal_panel::ToggleFocus",
-		},
+			"ctrl-\\": "terminal_panel::ToggleFocus"
+		}
 	},
 	{
 		"context": "Terminal",
@@ -174,8 +172,8 @@
 			"ctrl-h": "workspace::ActivatePaneLeft",
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",
-			"ctrl-j": "workspace::ActivatePaneDown",
-		},
+			"ctrl-j": "workspace::ActivatePaneDown"
+		}
 	},
 	// File panel (netrw)
 	{
@@ -195,8 +193,8 @@
 			"ctrl-h": "workspace::ActivatePaneLeft",
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",
-			"ctrl-j": "workspace::ActivatePaneDown",
-		},
+			"ctrl-j": "workspace::ActivatePaneDown"
+		}
 	},
 	// Panel navigation
 	{
@@ -205,15 +203,15 @@
 			"ctrl-w h": "workspace::ActivatePaneLeft",
 			"ctrl-w l": "workspace::ActivatePaneRight",
 			"ctrl-w k": "workspace::ActivatePaneUp",
-			"ctrl-w j": "workspace::ActivatePaneDown",
-		},
+			"ctrl-w j": "workspace::ActivatePaneDown"
+		}
 	},
 	{
 		"context": "Workspace",
 		"bindings": {
 			// Map VSCode like keybindings
-			"cmd-b": "workspace::ToggleRightDock",
-		},
+			"cmd-b": "workspace::ToggleRightDock"
+		}
 	},
 	// Run nearest task
 	{
@@ -222,31 +220,25 @@
 			"space r t": [
 				"editor::SpawnNearestTask",
 				{
-					"reveal": "no_focus",
-				},
-			],
-		},
+					"reveal": "no_focus"
+				}
+			]
+		}
 	},
 	// Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
 	{
 		"context": "vim_mode == normal || vim_mode == visual",
 		"bindings": {
-			"s": [
-				"vim::PushSneak",
-				{}
-			],
-			"S": [
-				"vim::PushSneakBackward",
-				{}
-			],
-		},
+			"s": ["vim::PushSneak", {}],
+			"S": ["vim::PushSneakBackward", {}]
+		}
 	},
 	// Which key, refer to https://github.com/zed-industries/zed/pull/43618
 	{
 		"context": "(VimControl && !menu)",
 		"bindings": {
-			"space": null, // Disable the default action vim::WrappingRight
-		},
+			"space": null // Disable the default action vim::WrappingRight
+		}
 	},
 	// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
 	{
@@ -263,9 +255,9 @@
 				{
 					"task_name": "fff-gpui: Grep"
 				}
-			],
-		},
-	},
+			]
+		}
+	}
 	// Subword motion is not working really nice with `ciw`, disable for now
 	// {
 	//   "context": "VimControl && !menu",
