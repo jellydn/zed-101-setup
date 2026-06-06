@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 02 2026 11:20:39 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 06 2026 09:59:50 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -509,154 +509,29 @@ Update your settings.json file with the following configuration:
 
   // LSP (Language Server Protocol) configuration
   // https://zed.dev/docs/configuring-languages#configuring-language-servers
-  // Examples below for rust-analyzer, gopls, vtsls, biome:
+  // Recipes (rust-analyzer, gopls, vtsls, biome) → example/lsp-settings.jsonc
   "lsp": {
     "tailwindcss-language-server": {
       "settings": {
         "classAttributes": ["class", "className", "ngClass", "styles"],
       },
     },
-    // Example 1: rust-analyzer — cargo features, proc macros, check-on-save
-    // https://zed.dev/docs/languages/rust
-    // NOTE: rust-analyzer requires "initialization_options" (not "settings")
-    // because these options are sent at server startup
-    // "rust-analyzer": {
-    // 	"initialization_options": {
-    // 		"checkOnSave": true,
-    // 		"check": {"command": "clippy"},
-    // 		"cargo": {"features": "all"},
-    // 		"procMacro": {"enable": true},
-    // 		"inlayHints": {
-    // 			"bindingModeHints": { "enable": true },
-    // 			"chainingHints": { "enable": true },
-    // 			"closingBraceHints": { "enable": true },
-    // 			"lifetimeElisionHints": { "enable": "skip_trivial" },
-    // 			"typeHints": { "enable": true },
-    // 			"parameterHints": { "enable": true },
-    // 			"reborrowHints": { "enable": "keep" },
-    // 		},
-    // 	},
-    // },
-    // Example 2: gopls — formatting, imports, staticcheck
-    // https://zed.dev/docs/languages/go
-    // NOTE: gopls requires "initialization_options" (not "settings")
-    // because these options are sent at server startup
-    // "gopls": {
-    // 	"initialization_options": {
-    // 		"gofumpt": true,
-    // 		"staticcheck": true,
-    // 		"usePlaceholders": true,
-    // 		"semanticTokens": true,
-    // 		"analyses": {
-    // 			"unusedparams": true,
-    // 			"unusedwrite": true,
-    // 			"fieldalignment": true,
-    // 			"nilness": true,
-    // 		},
-    // 		"hints": {
-    // 			"assignVariableTypes": true,
-    // 			"compositeLiteralFields": true,
-    // 			"compositeLiteralTypes": true,
-    // 			"constantTypeValues": true,
-    // 			"functionDocParameters": true,
-    // 			"parameterNames": true,
-    // 			"rangeVariableTypes": true,
-    // 		},
-    // 	},
-    // },
-    // Example 3: vtsls — TypeScript/JavaScript LSP (requires vtsls extension)
-    // https://zed.dev/docs/languages/javascript
-    // https://zed.dev/docs/languages/typescript
-    // NOTE: vtsls uses "settings" (not "initialization_options")
-    // because these options can be changed at runtime
-    // "vtsls": {
-    // 	"settings": {
-    // 		"typescript": {
-    // 			"suggest": { "autoImports": true, "completeFunctionCalls": true },
-    // 			"inlayHints": {
-    // 				"parameterNames": { "enabled": "all" },
-    // 				"parameterTypes": { "enabled": true },
-    // 				"variableTypes": { "enabled": true },
-    // 				"returnType": { "enabled": true },
-    // 				"propertyDeclarationTypes": { "enabled": true },
-    // 			},
-    // 			"preferences": {
-    // 				"includePackageJsonAutoImports": "on",
-    // 				"organizeImports": { "ignoreCase": false },
-    // 			},
-    // 			"format": { "indentSize": 2, "tabSize": 2 },
-    // 		},
-    // 	},
-    // },
-    // Example 4: biome — formatter & linter for JS/TS/JSON/CSS (requires biome extension)
-    // https://zed.dev/docs/languages/javascript
-    // NOTE: biome uses "settings" (not "initialization_options")
-    // because these options can be changed at runtime
-    // "biome": {
-    // 	"settings": {
-    // 		"lineWidth": 100,
-    // 		"indentStyle": "tab",
-    // 		"indentWidth": 2,
-    // 		"organizeImports": { "enabled": true },
-    // 		"linter": { "enabled": true },
-    // 		"formatter": { "enabled": true },
-    // 		"javascript": {
-    // 			"formatter": {
-    // 				"quoteStyle": "double",
-    // 				"semicolons": "always",
-    // 				"trailingCommas": "all",
-    // 			},
-    // 		},
-    // 	},
-    // },
   },
 
   // Language-specific settings
   // https://zed.dev/docs/configuring-languages#language-specific-settings
+  //
+  // Base profile shared by most languages (TypeScript, JavaScript inherit as-is):
+  //   show_whitespaces: "all", show_edit_predictions: true,
+  //   hard_tabs: true, format_on_save: "on",
+  //   inlay_hints: { enabled: true, show_parameter_hints: false,
+  //                  show_other_hints: true, show_type_hints: true }
+  //
+  // Only overrides from the base are listed below.
   "languages": {
-    // TypeScript configuration
-    // https://zed.dev/docs/languages/typescript
-    "TypeScript": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
-      "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
-    },
-
-    // JavaScript configuration
-    // https://zed.dev/docs/languages/javascript
-    "JavaScript": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
-      "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
-    },
-
-    // Python configuration
+    // Python — ruff formatter, ty type-checker
     // https://zed.dev/docs/languages/python
     "Python": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
-      "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
       "formatter": {
         "language_server": {
           "name": "ruff",
@@ -672,19 +547,10 @@ Update your settings.json file with the following configuration:
       ],
     },
 
-    // Rust configuration
+    // Rust — spaces + rust-analyzer formatter
     // https://zed.dev/docs/languages/rust
     "Rust": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
       "hard_tabs": false,
-      "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
       "formatter": {
         "language_server": {
           "name": "rust-analyzer",
@@ -693,19 +559,9 @@ Update your settings.json file with the following configuration:
       "language_servers": ["rust-analyzer", "!rustc"],
     },
 
-    // Go configuration
+    // Go — gopls formatter
     // https://zed.dev/docs/languages/go
     "Go": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
-      "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
       "formatter": {
         "language_server": {
           "name": "gopls",
@@ -714,28 +570,17 @@ Update your settings.json file with the following configuration:
       "language_servers": ["gopls", "!goimports"],
     },
 
-    // Markdown configuration
+    // Markdown — no format_on_save, preferred line length
     // https://zed.dev/docs/languages/markdown
     "Markdown": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
+      "format_on_save": "off",
       "preferred_line_length": 80,
     },
 
-    // JSON configuration
+    // JSON — spaces, no formatter override
     // https://zed.dev/docs/languages/json
     "JSON": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
       "hard_tabs": false,
-      "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
     },
   },
 
@@ -743,7 +588,8 @@ Update your settings.json file with the following configuration:
   // https://zed.dev/docs/reference/all-settings#terminal
   "terminal": {
     "shell": {
-      "program": "/Users/huynhdung/.cargo/bin/codemux",
+      // Edit this path to match your local codemux binary location
+      "program": "~/.cargo/bin/codemux",
     },
     "show_count_badge": true,
     "font_size": 17.0,
@@ -856,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 02 2026 11:20:39 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 06 2026 09:59:50 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -869,7 +715,7 @@ Update your keymap.json file with the following key bindings:
       "space t i": "editor::ToggleInlayHints",
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
-      // NOTE: Toggle Zen mode, not fully working yet
+      // NOTE: Toggle Zen mode, partially with nvim plugin like no-neck-pain
       "space c z": "workspace::ToggleCenteredLayout",
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
@@ -884,8 +730,6 @@ Update your keymap.json file with the following key bindings:
       "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
-      // Search/replace
-      "space s r": "pane::DeploySearch",
     },
   },
   {
@@ -974,7 +818,7 @@ Update your keymap.json file with the following key bindings:
       "ctrl-shift-j": "vim::ResizePaneDown",
       "ctrl-shift-h": "vim::ResizePaneLeft",
       "ctrl-shift-l": "vim::ResizePaneRight",
-      // Close window
+      // Close active buffer
       "space w d": "pane::CloseActiveItem",
     },
   },
@@ -1141,7 +985,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 02 2026 11:20:39 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 06 2026 09:59:50 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
