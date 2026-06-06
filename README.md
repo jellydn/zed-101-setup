@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 06 2026 09:59:50 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -678,7 +678,7 @@ Update your settings.json file with the following configuration:
 
 ### LSP Testing Examples
 
-The `lsp` section in settings above includes 4 commented example configurations for testing popular LSP servers:
+LSP configuration recipes for rust-analyzer, gopls, vtsls, and biome are in [`example/lsp-settings.jsonc`](example/lsp-settings.jsonc). Copy the relevant block into the `"lsp"` section of your `settings.json` to enable it.
 
 | #   | LSP Server        | Language              | Key Settings Demonstrated                                                                                         |
 | --- | ----------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -687,7 +687,7 @@ The `lsp` section in settings above includes 4 commented example configurations 
 | 3   | **vtsls**         | TypeScript/JavaScript | Auto imports, inlay hints (parameter names, types, return types), organize imports, format config                 |
 | 4   | **biome**         | JS/TS/JSON/CSS        | Formatter settings (indent, quotes, semicolons), linter, organize imports                                         |
 
-Uncomment the desired block in `settings.json` to enable. Each example showcases different LSP capabilities — diagnostics, formatting, code actions, inlay hints, and refactoring — useful for testing LSP integrations in Zed.
+Each example showcases different LSP capabilities — diagnostics, formatting, code actions, inlay hints, and refactoring — useful for testing LSP integrations in Zed.
 
 Example code files for each LSP server are available in the [`example/`](example/) directory to verify the features listed above.
 
@@ -702,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 06 2026 09:59:50 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -985,7 +985,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 06 2026 09:59:50 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

@@ -27,4 +27,4 @@ These files exercise the LSP configurations in `settings.json`:
 | [`biome-config-example.json`](./biome-config-example.json) | biome         | Mirrors the `lsp.biome.settings` from the parent settings.json — validates against Biome 2.4.x              |
 | [`biome.css`](./biome.css)                                 | biome         | CSS formatter (indentation, nesting, color functions, keyframes)                                            |
 
-Uncomment the corresponding `lsp` block in `settings.json` to enable each LSP before testing.
+Copy the relevant LSP block from [`lsp-settings.jsonc`](./lsp-settings.jsonc) into your `settings.json` `"lsp"` section to enable each LSP before testing.
