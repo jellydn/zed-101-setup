@@ -11,5 +11,35 @@
 		}
 	],
 	"dictionaries": ["cspell-tool"],
-	"ignorePaths": ["node_modules", "dist", "build", "/cspell-tool.txt"]
+	"ignorePaths": ["node_modules", "dist", "build", "/cspell-tool.txt"],
+	"words": [
+		"autowrite",
+		"basedpyright",
+		"Catppuccin",
+		"codemux",
+		"Crof",
+		"Deepseek",
+		"fff",
+		"getnf",
+		"goimports",
+		"gopls",
+		"gpui",
+		"huynhdung",
+		"keymaps",
+		"kimi",
+		"Lubojacký",
+		"Menlo",
+		"Naadiyaar",
+		"nvim",
+		"opencode",
+		"pyrefly",
+		"pylsp",
+		"Qwen",
+		"rustc",
+		"scrolloff",
+		"sidescrolloff",
+		"Simkins",
+		"Subword",
+		"worktrees"
+	]
 }

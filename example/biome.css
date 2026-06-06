@@ -1,0 +1,60 @@
+/* CSS example for testing Biome LSP features */
+/* Uncomment the biome block in settings.json's "lsp" section to test. */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+}
+
+.card {
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.badge {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+
+	.item {
+		margin-bottom: 0.5rem;
+		font-size: 0.9rem;
+
+		.title {
+			font-weight: 600;
+			color: #333;
+		}
+	}
+}
+
+.theme {
+	--primary: oklch(0.5 0.2 240);
+	--accent: color-mix(in oklch, var(--primary), white 20%);
+	background: var(--primary);
+	color: var(--accent);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 0.3s ease-out;
+}

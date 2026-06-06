@@ -15,6 +15,16 @@
 
 The Zed Editor 101 setup guide is designed to help you configure Zed Editor to enhance your development workflow. Whether you’re a Vim enthusiast or looking to boost your productivity with custom settings and key bindings, this guide provides all the necessary steps and resources. Follow along to get your Zed Editor configured with Nerd Font, Vim mode, local AI assistance, and more.
 
+## Quick Install
+
+Deploy the entire Zed configuration with a single command:
+
+```sh
+sh install.sh
+```
+
+This backs up your existing `settings.json`, `keymap.json`, and `tasks.json` to a timestamped directory, then copies the repo versions into `~/.config/zed`. To restore, run the `cp` command printed at the end.
+
 ## Nerd Font
 
 Install Nerd Font using the following command:
@@ -51,7 +61,6 @@ Install via:
 ```sh
 brew tap th0jensen/fff-gpui
 brew install fff-gpui
-brew services start fff-gpui
 ```
 
 Keybindings:
@@ -74,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -83,19 +92,51 @@ Update your settings.json file with the following configuration:
 // To see all of Zed's default settings without changing your
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
+//
+// Full reference: https://zed.dev/docs/reference/all-settings
+// Visual customization: https://zed.dev/docs/visual-customization
+// Key bindings: https://zed.dev/docs/key-bindings
+// Themes: https://zed.dev/docs/themes
+
 {
+  // Whether to colorize matching brackets (rainbow brackets)
+  // https://zed.dev/docs/reference/all-settings#colorize-brackets
   "colorize_brackets": true,
+
+  // Whether and how to display code lenses from language servers
+  // https://zed.dev/docs/reference/all-settings#code-lens
   "code_lens": "on",
+
+  // Editor toolbar settings
+  // https://zed.dev/docs/reference/all-settings#editor-toolbar
   "toolbar": {
     "code_actions": true,
   },
+
+  // Whether to show signature help after completion or bracket pair inserted
+  // https://zed.dev/docs/reference/all-settings#show-signature-help-after-edits
   "show_signature_help_after_edits": true,
+
+  // Show method signatures when inside parentheses
+  // https://zed.dev/docs/reference/all-settings#auto-signature-help
   "auto_signature_help": true,
+
+  // Hide variable values in private files (e.g., .env, .pem)
+  // https://zed.dev/docs/reference/all-settings#redact-private-values
   "redact_private_values": true,
+
+  // Default behavior for opening files via CLI
+  // https://zed.dev/docs/reference/all-settings#cli-default-open-behavior
   "cli_default_open_behavior": "existing_window",
+
+  // Edit predictions settings (AI autocomplete)
+  // https://zed.dev/docs/reference/all-settings#edit-predictions
   "edit_predictions": {
     "provider": "zed",
   },
+
+  // Agent servers configuration (MCP servers)
+  // https://zed.dev/docs/remote-development#mcp
   "agent_servers": {
     "pi-acp": {
       "type": "registry",
@@ -128,29 +169,57 @@ Update your settings.json file with the following configuration:
       "type": "registry",
     },
     "opencode": {
+      "default_config_options": {
+        "model": "opencode/minimax-m3-free",
+        "mode": "build",
+      },
       "favorite_config_option_values": {
         "model": ["opencode-go/glm-5.1"],
       },
       "type": "registry",
     },
   },
+
+  // Session settings
+  // https://zed.dev/docs/reference/all-settings#session
   "session": {
     "trust_all_worktrees": true,
   },
+
+  // Git settings
+  // https://zed.dev/docs/reference/all-settings#git
   "git": {
     "inline_blame": {
       "enabled": true,
     },
   },
+
+  // Status bar settings
+  // https://zed.dev/docs/reference/all-settings#status-bar
   "status_bar": {
     "experimental.show": false,
   },
+
+  // Gutter settings
+  // https://zed.dev/docs/reference/all-settings#gutter
   "gutter": {
     "line_numbers": true,
   },
+
+  // Cursor shape: bar, block, underline, hollow
+  // https://zed.dev/docs/reference/all-settings#cursor-shape
   "cursor_shape": "bar",
+
+  // Whether the cursor blinks
+  // https://zed.dev/docs/reference/all-settings#cursor-blink
   "cursor_blink": true,
+
+  // Use macOS native window tabs
+  // https://zed.dev/docs/reference/all-settings#use-system-tabs
   "use_system_window_tabs": true,
+
+  // Fallback fonts for editor buffer
+  // https://zed.dev/docs/reference/all-settings#buffer-font-fallbacks
   "buffer_font_fallbacks": [
     "Maple Mono NF",
     "JetBrainsMono Nerd Font Mono",
@@ -158,62 +227,140 @@ Update your settings.json file with the following configuration:
     "Monaco",
     "Courier New",
   ],
+
+  // Show whitespace characters: all, selection, none, boundary
+  // https://zed.dev/docs/reference/all-settings#show-whitespaces
   "show_whitespaces": "all",
+
+  // Show AI edit predictions in the editor
+  // https://zed.dev/docs/reference/all-settings#show-edit-predictions
   "show_edit_predictions": true,
+
+  // Use tab characters instead of spaces
+  // https://zed.dev/docs/reference/all-settings#hard-tabs
   "hard_tabs": true,
+
+  // Git panel settings
+  // https://zed.dev/docs/reference/all-settings#git-panel
   "git_panel": {
     "tree_view": true,
     "dock": "right",
   },
+
+  // Icon theme settings
+  // https://zed.dev/docs/reference/all-settings#icon-theme
   "icon_theme": {
     "mode": "dark",
     "light": "Catppuccin Mocha",
     "dark": "Catppuccin Mocha",
   },
+
+  // Base keymap: VSCode, Atom, JetBrains, SublimeText, TextMate, None
+  // https://zed.dev/docs/key-bindings#predefined-keymaps
   "base_keymap": "VSCode",
+
+  // Theme settings
+  // https://zed.dev/docs/themes
   "theme": {
     "mode": "dark",
     "light": "Maple Light",
     "dark": "Maple Dark",
   },
+
+  // UI font size (for menus, panels, etc.)
+  // https://zed.dev/docs/reference/all-settings#ui-font-size
   "ui_font_size": 17,
+
+  // Editor buffer font size
+  // https://zed.dev/docs/reference/all-settings#buffer-font-size
   "buffer_font_size": 18.5,
+
   // Finder model width
+  // https://zed.dev/docs/reference/all-settings#file-finder
   "file_finder": {
     "modal_max_width": "medium",
   },
-  // NOTE: Change the font family to your preference
+
+  // Buffer font family (editor font)
+  // https://zed.dev/docs/reference/all-settings#buffer-font-family
   "buffer_font_family": "Maple Mono NF",
+
   // Vim mode settings
+  // https://zed.dev/docs/reference/all-settings#vim
   "vim_mode": true,
+
+  // Vim settings (empty = use defaults)
+  // https://zed.dev/docs/reference/all-settings#vim
   "vim": {},
+
+  // Which-key (vim keybinding helper) settings
+  // https://zed.dev/docs/visual-customization#vim-mode
   "which_key": {
     "delay_ms": 500,
     "enabled": true,
   },
-  // use relative line numbers
+
+  // Use relative line numbers in gutter
+  // https://zed.dev/docs/reference/all-settings#relative-line-numbers
   "relative_line_numbers": "enabled",
+
+  // Auto-save after delay (matches nvim's autowrite behavior)
+  // https://zed.dev/docs/reference/all-settings#autosave
+  // "autosave": {
+  // 	"after_delay": {
+  // 		"milliseconds": 1000,
+  // 	},
+  // },
+
+  // Editor vertical scroll margin (nvim's scrolloff=4)
+  // Lines to keep above/below cursor
+  // https://zed.dev/docs/reference/all-settings#vertical-scroll-margin
+  "vertical_scroll_margin": 4,
+
+  // Editor horizontal scroll margin (nvim's sidescrolloff=8)
+  // Columns to keep left/right of cursor
+  // https://zed.dev/docs/reference/all-settings#horizontal-scroll-margin
+  "horizontal_scroll_margin": 8,
+
+  // Confirm before quitting with unsaved changes (nvim's confirm=true)
+  // https://zed.dev/docs/reference/all-settings#confirm-quit
+  // "confirm_quit": true,
+
+  // Tab bar settings
+  // https://zed.dev/docs/reference/all-settings#editor-tab-bar
   "tab_bar": {
     "show": true,
   },
+
+  // Scrollbar settings
+  // https://zed.dev/docs/reference/all-settings#editor-scrollbar
   "scrollbar": {
     "show": "never",
   },
+
   // Only show error on tab
+  // https://zed.dev/docs/reference/all-settings#editor-tabs
   "tabs": {
     "show_diagnostics": "errors",
   },
-  // Indentation, rainbow indentation
+
+  // Indentation guides (rainbow indentation)
+  // https://zed.dev/docs/reference/all-settings#indent-guides
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware",
   },
-  // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
+
+  // Zen mode / centered layout
+  // https://zed.dev/docs/reference/all-settings#centered-layout
+  // NOTE: Refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.15,
     "right_padding": 0.15,
   },
-  // Use Copilot Chat AI as default
+
+  // Agent (AI) panel settings
+  // https://zed.dev/docs/ai/agent-settings
   "agent": {
     "default_profile": "write",
     "favorite_models": [
@@ -258,7 +405,10 @@ Update your settings.json file with the following configuration:
       "model": "free/minimax-m2.5-free",
     },
   },
-  // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+
+  // Assistant settings (for local AI with Ollama)
+  // https://zed.dev/docs/language-model-integration
+  // Uncomment below to use local AI with Ollama:
   // "assistant": {
   //   "default_model": {
   //     "provider": "ollama",
@@ -267,6 +417,9 @@ Update your settings.json file with the following configuration:
   //   "version": "2",
   //   "provider": null
   // },
+
+  // Language models configuration
+  // https://zed.dev/docs/language-model-integration
   "language_models": {
     "opencode": {
       "show_zen_models": false,
@@ -346,11 +499,17 @@ Update your settings.json file with the following configuration:
       },
     },
   },
-  // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
+
+  // Inlay hints (parameter names, types, etc.)
+  // https://zed.dev/docs/reference/all-settings#inlay-hints
+  // Preconfigured for: Go, Rust, TypeScript, Svelte
   "inlay_hints": {
     "enabled": true,
   },
-  // LSP
+
+  // LSP (Language Server Protocol) configuration
+  // https://zed.dev/docs/configuring-languages#configuring-language-servers
+  // Recipes (rust-analyzer, gopls, vtsls, biome) → example/lsp-settings.jsonc
   "lsp": {
     "tailwindcss-language-server": {
       "settings": {
@@ -358,25 +517,21 @@ Update your settings.json file with the following configuration:
       },
     },
   },
+
+  // Language-specific settings
+  // https://zed.dev/docs/configuring-languages#language-specific-settings
+  //
+  // Base profile shared by most languages (TypeScript, JavaScript inherit as-is):
+  //   show_whitespaces: "all", show_edit_predictions: true,
+  //   hard_tabs: true, format_on_save: "on",
+  //   inlay_hints: { enabled: true, show_parameter_hints: false,
+  //                  show_other_hints: true, show_type_hints: true }
+  //
+  // Only overrides from the base are listed below.
   "languages": {
-    // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
-    "TypeScript": {
-      // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      },
-    },
+    // Python — ruff formatter, ty type-checker
+    // https://zed.dev/docs/languages/python
     "Python": {
-      "show_whitespaces": "all",
-      "show_edit_predictions": true,
-      "hard_tabs": true,
-      "format_on_save": "on",
       "formatter": {
         "language_server": {
           "name": "ruff",
@@ -391,11 +546,50 @@ Update your settings.json file with the following configuration:
         "!pylsp",
       ],
     },
+
+    // Rust — spaces + rust-analyzer formatter
+    // https://zed.dev/docs/languages/rust
+    "Rust": {
+      "hard_tabs": false,
+      "formatter": {
+        "language_server": {
+          "name": "rust-analyzer",
+        },
+      },
+      "language_servers": ["rust-analyzer", "!rustc"],
+    },
+
+    // Go — gopls formatter
+    // https://zed.dev/docs/languages/go
+    "Go": {
+      "formatter": {
+        "language_server": {
+          "name": "gopls",
+        },
+      },
+      "language_servers": ["gopls", "!goimports"],
+    },
+
+    // Markdown — no format_on_save, preferred line length
+    // https://zed.dev/docs/languages/markdown
+    "Markdown": {
+      "format_on_save": "off",
+      "preferred_line_length": 80,
+    },
+
+    // JSON — spaces, no formatter override
+    // https://zed.dev/docs/languages/json
+    "JSON": {
+      "hard_tabs": false,
+    },
   },
-  // Use zed commit editor
+
+  // Terminal settings
+  // https://zed.dev/docs/reference/all-settings#terminal
   "terminal": {
     "shell": {
-      "program": "/Users/huynhdung/.cargo/bin/codemux",
+      // Edit this path to match your local codemux binary location
+      "program": "~/.cargo/bin/codemux",
     },
     "show_count_badge": true,
     "font_size": 17.0,
@@ -404,12 +598,16 @@ Update your settings.json file with the following configuration:
       "EDITOR": "zed --wait",
     },
   },
-  // File syntax highlighting
+
+  // File type associations
+  // https://zed.dev/docs/configuring-languages#file-associations
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"],
   },
-  // File scan exclusions, hide on the file explorer and search
+
+  // File scan exclusions (files to hide from file explorer and search)
+  // https://zed.dev/docs/reference/all-settings#file-scan-exclusions
   "file_scan_exclusions": [
     "**/.git",
     "**/.svn",
@@ -419,7 +617,7 @@ Update your settings.json file with the following configuration:
     "**/Thumbs.db",
     "**/.classpath",
     "**/.settings",
-    // above is default from Zed
+    // Above is default from Zed
     "**/out",
     "**/dist",
     "**/.husky",
@@ -433,35 +631,65 @@ Update your settings.json file with the following configuration:
     "**/report",
     "**/node_modules",
   ],
-  // Turn off telemetry
+
+  // Telemetry settings
+  // https://zed.dev/docs/reference/all-settings#telemetry
   "telemetry": {
     "diagnostics": true,
     "metrics": false,
   },
-  // Move all panel to the right
+
+  // Project panel settings
+  // https://zed.dev/docs/reference/all-settings#project-panel
   "project_panel": {
     "auto_fold_dirs": false,
     "button": true,
     "dock": "right",
     "git_status": true,
   },
+
+  // Outline panel settings
+  // https://zed.dev/docs/reference/all-settings#outline-panel
   "outline_panel": {
     "dock": "right",
   },
+
+  // Collaboration panel settings
+  // https://zed.dev/docs/reference/all-settings#collaboration-panel
   "collaboration_panel": {
     "dock": "right",
   },
-  "context_servers": {
-    "react-grab-mcp": {
-      "command": "npx",
-      "args": ["-y", "@react-grab/mcp", "--stdio"],
-      "env": {},
-    },
-  },
+
+  // Context servers (MCP servers) - kept as recipe only
+  // https://zed.dev/docs/remote-development#mcp
+  // The react-grab MCP server is kept as a recipe only. Leaving an active
+  // custom context server makes Zed Preview show a no-op migration banner.
+  // "context_servers": {
+  // 	"react-grab-mcp": {
+  // 		"command": "npx",
+  // 		"args": ["-y", "@react-grab/mcp", "--stdio"],
+  // 		"env": {},
+  // 	},
+  // },
 }
 ```
 
 <!-- ALL-SETTINGS:END -->
+
+### LSP Testing Examples
+
+LSP configuration recipes for rust-analyzer, gopls, vtsls, and biome are in [`example/lsp-settings.jsonc`](example/lsp-settings.jsonc). Copy the relevant block into the `"lsp"` section of your `settings.json` to enable it.
+
+| #   | LSP Server        | Language              | Key Settings Demonstrated                                                                                         |
+| --- | ----------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 1   | **rust-analyzer** | Rust                  | `checkOnSave`, `clippy` checks, proc macros, inlay hints (binding, chaining, lifetime, type, parameter, reborrow) |
+| 2   | **gopls**         | Go                    | `gofumpt`, `staticcheck`, semantic tokens, analyses (nilness, fieldalignment), inlay hints                        |
+| 3   | **vtsls**         | TypeScript/JavaScript | Auto imports, inlay hints (parameter names, types, return types), organize imports, format config                 |
+| 4   | **biome**         | JS/TS/JSON/CSS        | Formatter settings (indent, quotes, semicolons), linter, organize imports                                         |
+
+Each example showcases different LSP capabilities — diagnostics, formatting, code actions, inlay hints, and refactoring — useful for testing LSP integrations in Zed.
+
+Example code files for each LSP server are available in the [`example/`](example/) directory to verify the features listed above.
 
 [![Demo](https://i.gyazo.com/28f24b1bd9f0f49658862ca406104c75.png)](https://gyazo.com/28f24b1bd9f0f49658862ca406104c75)
 
@@ -474,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -487,7 +715,7 @@ Update your keymap.json file with the following key bindings:
       "space t i": "editor::ToggleInlayHints",
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
-      // NOTE: Toggle Zen mode, not fully working yet
+      // NOTE: Toggle Zen mode, partially with nvim plugin like no-neck-pain
       "space c z": "workspace::ToggleCenteredLayout",
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
@@ -508,16 +736,16 @@ Update your keymap.json file with the following key bindings:
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work only in normal mode
-      // Window movement bindings
-      // Ctrl jklk to move between panes
+      // Ctrl hjkl to move between panes
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-      // +LSP
+      // LSP
       "space c a": "editor::ToggleCodeActions",
       "space .": "editor::ToggleCodeActions",
       "space c r": "editor::Rename",
+      "space c f": "editor::Format",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
       "g i": "editor::GoToImplementation",
@@ -527,20 +755,31 @@ Update your keymap.json file with the following key bindings:
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
-      // TODO: Go to next/prev error
-      "] e": "editor::GoToDiagnostic",
-      "[ e": "editor::GoToPreviousDiagnostic",
+      // Next/prev error
+      "] e": ["editor::GoToDiagnostic", { "severity": "error" }],
+      "[ e": ["editor::GoToPreviousDiagnostic", { "severity": "error" }],
+      // Next/prev warning
+      "] w": ["editor::GoToDiagnostic", { "severity": "warning" }],
+      "[ w": ["editor::GoToPreviousDiagnostic", { "severity": "warning" }],
+      // Next/prev hint
+      "] H": ["editor::GoToDiagnostic", { "severity": "hint" }],
+      "[ H": ["editor::GoToPreviousDiagnostic", { "severity": "hint" }],
       // Symbol search
       "s s": "outline::Toggle",
       "s S": "project_symbols::Toggle",
       // Diagnostic
       "space x x": "diagnostics::Deploy",
-      // +Git
+      // Git
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
-      // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
-      // + Buffers
+      // Git project diff
+      "space g d": "git::Diff",
+      // Toggle inline blame
+      "space g b": "editor::ToggleGitBlameInline",
+      // Expand all diff hunks
+      "space g h e": "editor::ExpandAllDiffHunks",
+      // Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
@@ -548,6 +787,8 @@ Update your keymap.json file with the following key bindings:
       "shift-q": "pane::CloseActiveItem",
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
+      // Buffer switch alias
+      "space b b": "pane::ActivatePreviousItem",
       // Close other items
       "space b o": "pane::CloseOtherItems",
       // Save file
@@ -556,9 +797,29 @@ Update your keymap.json file with the following key bindings:
       "space space": "file_finder::Toggle",
       // Project search
       "space /": "pane::DeploySearch",
-      // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
+      // Move lines up/down
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+      // Buffer prev/next aliases
+      "[b": "pane::ActivatePreviousItem",
+      "]b": "pane::ActivateNextItem",
+      // Window management
+      "space w w": "workspace::ActivatePreviousPane",
+      "space w -": "pane::SplitDown",
+      "space w |": "pane::SplitRight",
+      // New file
+      "space f n": "workspace::NewFile",
+      // Quit all
+      "space q q": "workspace::CloseWindow",
+      // Window resize
+      "ctrl-shift-k": "vim::ResizePaneUp",
+      "ctrl-shift-j": "vim::ResizePaneDown",
+      "ctrl-shift-h": "vim::ResizePaneLeft",
+      "ctrl-shift-l": "vim::ResizePaneRight",
+      // Close active buffer
+      "space w d": "pane::CloseActiveItem",
     },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
@@ -640,7 +901,7 @@ Update your keymap.json file with the following key bindings:
       "ctrl-j": "workspace::ActivatePaneDown",
     },
   },
-  // Panel nagivation
+  // Panel navigation
   {
     "context": "Dock",
     "bindings": {
@@ -688,8 +949,18 @@ Update your keymap.json file with the following key bindings:
   {
     "context": "(VimControl && !menu)",
     "bindings": {
-      "space f f": ["task::Spawn", { "task_name": "fff-gpui: Files" }],
-      "space f g": ["task::Spawn", { "task_name": "fff-gpui: Grep" }],
+      "space f f": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Files",
+        },
+      ],
+      "space f g": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Grep",
+        },
+      ],
     },
   },
   // Subword motion is not working really nice with `ciw`, disable for now
@@ -714,7 +985,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Wed May 27 2026 12:34:47 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -756,7 +1027,15 @@ The tasks above enable the `space f f` and `space f g` keybindings defined in Ke
 
 ## Setup local AI with Ollama
 
-Refer to the [Ollama](https://ollama.ai) Setup Guide for detailed [instructions](https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos).
+This config already includes Ollama support via the `language_models.ollama` setting pointing at `http://localhost:11434`. To use local AI:
+
+1. **Install Ollama** — https://ollama.com
+2. **Pull a model** — e.g., `ollama pull llama3.2`
+3. **Start the server** — `ollama serve` (or launch the app)
+
+Zed automatically discovers pulled Ollama models through the `api_url` setting. No additional config is needed — the models appear in the agent model picker alongside cloud providers.
+
+Refer to [Zed's Ollama docs](https://zed.dev/docs/ai/llm-providers#ollama) for more details.
 
 ## Recommend extensions
 

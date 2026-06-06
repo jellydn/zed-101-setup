@@ -1,0 +1,98 @@
+{
+	// LSP configuration recipes
+	// Copy relevant blocks into your settings.json "lsp" section.
+	// Docs: https://zed.dev/docs/configuring-languages#configuring-language-servers
+
+	// Example 1: rust-analyzer — cargo features, proc macros, check-on-save
+	// https://zed.dev/docs/languages/rust
+	// NOTE: rust-analyzer requires "initialization_options" (not "settings")
+	"rust-analyzer": {
+		"initialization_options": {
+			"checkOnSave": true,
+			"check": { "command": "clippy" },
+			"cargo": { "features": "all" },
+			"procMacro": { "enable": true },
+			"inlayHints": {
+				"bindingModeHints": { "enable": true },
+				"chainingHints": { "enable": true },
+				"closingBraceHints": { "enable": true },
+				"lifetimeElisionHints": { "enable": "skip_trivial" },
+				"typeHints": { "enable": true },
+				"parameterHints": { "enable": true },
+				"reborrowHints": { "enable": "keep" }
+			}
+		}
+	},
+
+	// Example 2: gopls — formatting, imports, staticcheck
+	// https://zed.dev/docs/languages/go
+	// NOTE: gopls requires "initialization_options" (not "settings")
+	"gopls": {
+		"initialization_options": {
+			"gofumpt": true,
+			"staticcheck": true,
+			"usePlaceholders": true,
+			"semanticTokens": true,
+			"analyses": {
+				"unusedparams": true,
+				"unusedwrite": true,
+				"fieldalignment": true,
+				"nilness": true
+			},
+			"hints": {
+				"assignVariableTypes": true,
+				"compositeLiteralFields": true,
+				"compositeLiteralTypes": true,
+				"constantTypeValues": true,
+				"functionDocParameters": true,
+				"parameterNames": true,
+				"rangeVariableTypes": true
+			}
+		}
+	},
+
+	// Example 3: vtsls — TypeScript/JavaScript LSP (requires vtsls extension)
+	// https://zed.dev/docs/languages/javascript
+	// https://zed.dev/docs/languages/typescript
+	// NOTE: vtsls uses "settings" (not "initialization_options")
+	"vtsls": {
+		"settings": {
+			"typescript": {
+				"suggest": { "autoImports": true, "completeFunctionCalls": true },
+				"inlayHints": {
+					"parameterNames": { "enabled": "all" },
+					"parameterTypes": { "enabled": true },
+					"variableTypes": { "enabled": true },
+					"returnType": { "enabled": true },
+					"propertyDeclarationTypes": { "enabled": true }
+				},
+				"preferences": {
+					"includePackageJsonAutoImports": "on",
+					"organizeImports": { "ignoreCase": false }
+				},
+				"format": { "indentSize": 2, "tabSize": 2 }
+			}
+		}
+	},
+
+	// Example 4: biome — formatter & linter for JS/TS/JSON/CSS (requires biome extension)
+	// https://zed.dev/docs/languages/javascript
+	// NOTE: biome uses "settings" (not "initialization_options")
+	"biome": {
+		"settings": {
+			"lineWidth": 100,
+			"indentStyle": "tab",
+			"indentWidth": 2,
+			"organizeImports": { "enabled": true },
+			"linter": { "enabled": true },
+			"formatter": { "enabled": true },
+			"javascript": {
+				"formatter": {
+					"quoteStyle": "double",
+					"semicolons": "always",
+					"trailingCommas": "all"
+				}
+			}
+		}
+	}
+}
