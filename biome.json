@@ -6,6 +6,11 @@
 		"useIgnoreFile": true,
 		"defaultBranch": "main"
 	},
+	"json": {
+		"parser": {
+			"allowComments": true
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
