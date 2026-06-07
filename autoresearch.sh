@@ -75,6 +75,8 @@ checks = {
     'space a ?': 2,
     'space a $': 2,
     'space a ^': 2,
+    'space a @': 2,
+    'space a &': 3,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,

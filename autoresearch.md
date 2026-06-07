@@ -49,4 +49,5 @@ Expand `keymap.json` with a `space a` prefix map analogous to Neovim Code Compan
 - **Win (131)**: `space a U` undo reject; `space a ~` cycle mode; README regenerated.
 - **Win (137)**: `space a *` new-thread menu; `space a !` send immediately; `space a #` thread from summary.
 - **Win (143)**: `space a ?` focus agent; `space a $` clear queue; `space a ^` chat with follow.
+- **Win (148)**: `space a @` toggle agent panel; `space a &` resolve conflicts with agent.
 - Fixed unrelated `biome` format on `.claude/settings.local.json` so checks pass.

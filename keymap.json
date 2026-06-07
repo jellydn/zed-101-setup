@@ -117,6 +117,8 @@
 			"space a ?": "agent::FocusAgent",
 			"space a $": "agent::ClearMessageQueue",
 			"space a ^": "agent::ChatWithFollow",
+			"space a @": "agent::Toggle",
+			"space a &": "agent::ResolveConflictsWithAgent",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
