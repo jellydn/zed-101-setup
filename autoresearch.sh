@@ -28,6 +28,8 @@ checks = {
     'space a s': 2,
     'space a S': 3,
     'space a g': 2,
+    'space a N': 2,
+    'space a o': 2,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,

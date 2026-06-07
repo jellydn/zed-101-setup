@@ -31,6 +31,8 @@
 				[["agent::AddSelectionToThread", "agent::ToggleFocus"]]
 			],
 			"space a g": "agent::OpenRulesLibrary",
+			"space a N": "agent::NewThread",
+			"space a o": "agent::OpenAgentDiff",
 			"space a m": [
 				"assistant::InlineAssist",
 				{

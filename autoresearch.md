@@ -34,5 +34,6 @@ Expand `keymap.json` with a `space a` prefix map analogous to Neovim Code Compan
 
 - **Win (score 33/33)**: `space a` prefix — `c`/`v` toggle agent; `a` open add-context menu; `m`/`l` inline assist (commit, LSP); visual-only `e f t d D r R n` with Code Companion–aligned prompts via `assistant::InlineAssist`.
 - Checklist also scores `space a s` → `agent::AddSelectionToThread` (max score 35).
-- **Iter 3 target**: `space a S` sequence (selection → agent focus), `space a g` rules library (max 40).
+- **Win (40/40)**: `space a S` → `action::Sequence` `[AddSelectionToThread, ToggleFocus]`; `space a g` → `agent::OpenRulesLibrary`.
+- **Win (44/44)**: `space a N` → `agent::NewThread`; `space a o` → `agent::OpenAgentDiff`.
 - Fixed unrelated `biome` format on `.claude/settings.local.json` so checks pass.
