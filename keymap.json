@@ -22,7 +22,7 @@
 			// Search on current buffer
 			"space s b": "buffer_search::Deploy",
 			// Chat with AI
-			"space a c": "agent::ToggleFocus",
+			"space a f": "agent::ToggleFocus",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts"
 		}
