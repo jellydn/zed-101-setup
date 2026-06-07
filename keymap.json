@@ -105,6 +105,12 @@
 			"space a +": "agent::ExpandMessageEditor",
 			"space a ]": "agent::Keep",
 			"space a [": "agent::Reject",
+			"space a >": "agent::KeepAll",
+			"space a <": "agent::RejectAll",
+			"space a '": "agent::CycleNextInlineAssist",
+			"space a `": "agent::CyclePreviousInlineAssist",
+			"space a U": "agent::UndoLastReject",
+			"space a ~": "agent::CycleModeSelector",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
