@@ -41,6 +41,15 @@
 			"space a P": "agent::OpenProjectAGENTS.mdRules",
 			"space a /": "agent::ToggleModelSelector",
 			"space a w": "agent::Follow",
+			"space a u": "agent::OpenSettings",
+			"space a j": "agent::NewExternalAgentThread",
+			"space a x": "agent::OpenActiveThreadAsMarkdown",
+			"space a E": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior."
+				}
+			],
 			"space a m": [
 				"assistant::InlineAssist",
 				{
