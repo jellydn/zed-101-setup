@@ -119,6 +119,8 @@
 			"space a ^": "agent::ChatWithFollow",
 			"space a @": "agent::Toggle",
 			"space a &": "agent::ResolveConflictsWithAgent",
+			"space a 0": "edit_prediction::ToggleMenu",
+			"space a 1": "agent::OpenSkillCreator",
 			"space a m": [
 				"assistant::InlineAssist",
 				{

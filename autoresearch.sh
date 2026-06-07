@@ -77,6 +77,8 @@ checks = {
     'space a ^': 2,
     'space a @': 2,
     'space a &': 3,
+    'space a 0': 2,
+    'space a 1': 2,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,
@@ -103,5 +105,11 @@ print(f'ai_bindings={ai_bindings}')
 PY
 )"
 
+doc_lines=0
+if [[ -f "$ROOT/AI-KEYMAP.md" ]]; then
+  doc_lines=$(wc -l < "$ROOT/AI-KEYMAP.md" | tr -d ' ')
+fi
+
 echo "METRIC companion_score=${companion_score}"
 echo "METRIC ai_bindings=${ai_bindings}"
+echo "METRIC ai_keymap_doc_lines=${doc_lines}"

@@ -50,4 +50,5 @@ Expand `keymap.json` with a `space a` prefix map analogous to Neovim Code Compan
 - **Win (137)**: `space a *` new-thread menu; `space a !` send immediately; `space a #` thread from summary.
 - **Win (143)**: `space a ?` focus agent; `space a $` clear queue; `space a ^` chat with follow.
 - **Win (148)**: `space a @` toggle agent panel; `space a &` resolve conflicts with agent.
+- **Win (150)**: `AI-KEYMAP.md` reference; `space a 0` edit prediction menu; secondary `ai_keymap_doc_lines`.
 - Fixed unrelated `biome` format on `.claude/settings.local.json` so checks pass.
