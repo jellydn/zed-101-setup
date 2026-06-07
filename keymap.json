@@ -111,6 +111,9 @@
 			"space a `": "agent::CyclePreviousInlineAssist",
 			"space a U": "agent::UndoLastReject",
 			"space a ~": "agent::CycleModeSelector",
+			"space a *": "agent::ToggleNewThreadMenu",
+			"space a !": "agent::SendImmediately",
+			"space a #": "agent::NewNativeAgentThreadFromSummary",
 			"space a m": [
 				"assistant::InlineAssist",
 				{

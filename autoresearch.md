@@ -45,5 +45,7 @@ Expand `keymap.json` with a `space a` prefix map analogous to Neovim Code Compan
 - **Win (102)**: `space a J`/`L` doc assists (normal+visual); `space a ;` terminal thread; `space a ,` thinking mode.
 - **Win (109)**: `space a .` options menu; `space a B` `ReviewBranchDiff`; `space a -` cycle favorites.
 - **Win (119)**: `space a =` fast mode, `%` thinking effort, `+` expand editor; `]`/`[` keep/reject.
-- **Win (127)**: `space a >`/`<` keep/reject all; `'`/``cycle inline assists; benchmark`\u0060` fix for bash.
+- **Win (127)**: `space a >`/`<` keep/reject all; `'`/`` ` `` cycle inline assists; benchmark `\u0060` fix for bash.
+- **Win (131)**: `space a U` undo reject; `space a ~` cycle mode; README regenerated.
+- **Win (137)**: `space a *` new-thread menu; `space a !` send immediately; `space a #` thread from summary.
 - Fixed unrelated `biome` format on `.claude/settings.local.json` so checks pass.
