@@ -25,6 +25,7 @@ text = re.sub(r'/\*.*?\*/', '', text, flags=re.S)
 data = json.loads(text)
 checks = {
     'space a a': 2,
+    'space a s': 2,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,
