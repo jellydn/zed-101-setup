@@ -26,6 +26,11 @@
 			"space a v": "agent::ToggleFocus",
 			"space a a": "agent::OpenAddContextMenu",
 			"space a s": "agent::AddSelectionToThread",
+			"space a S": [
+				"action::Sequence",
+				[["agent::AddSelectionToThread", "agent::ToggleFocus"]]
+			],
+			"space a g": "agent::OpenRulesLibrary",
 			"space a m": [
 				"assistant::InlineAssist",
 				{

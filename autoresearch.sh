@@ -26,6 +26,8 @@ data = json.loads(text)
 checks = {
     'space a a': 2,
     'space a s': 2,
+    'space a S': 3,
+    'space a g': 2,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,
