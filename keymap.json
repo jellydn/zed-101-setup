@@ -121,6 +121,7 @@
 			"space a &": "agent::ResolveConflictsWithAgent",
 			"space a 0": "edit_prediction::ToggleMenu",
 			"space a 1": "agent::OpenSkillCreator",
+			"space a 2": "agent::CreateSkillFromUrl",
 			"space a m": [
 				"assistant::InlineAssist",
 				{

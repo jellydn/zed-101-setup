@@ -79,6 +79,7 @@ checks = {
     'space a &': 3,
     'space a 0': 2,
     'space a 1': 2,
+    'space a 2': 2,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,

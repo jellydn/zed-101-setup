@@ -15,6 +15,7 @@ Source: `keymap.json` (sync with `bun run start` for README embed).
 | `i`       | Inline assist (blank prompt)     | Like `ctrl-enter`                  |
 | `0`       | Edit prediction menu             | Automatic inline suggestions       |
 | `1`       | Open skill creator               | Author / import agent skills       |
+| `2`       | Create skill from URL            | Import skill from GitHub URL       |
 
 ## Code Companion inline (visual selection)
 
