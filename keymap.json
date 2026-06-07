@@ -64,6 +64,25 @@
 			],
 			"space a k": "agent::ToggleProfileSelector",
 			"space a y": "git::GenerateCommitMessage",
+			"space a q": "agent::Chat",
+			"space a O": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior."
+				}
+			],
+			"space a Q": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions."
+				}
+			],
+			"space a z": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code."
+				}
+			],
 			"space a m": [
 				"assistant::InlineAssist",
 				{
