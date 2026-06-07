@@ -114,6 +114,9 @@
 			"space a *": "agent::ToggleNewThreadMenu",
 			"space a !": "agent::SendImmediately",
 			"space a #": "agent::NewNativeAgentThreadFromSummary",
+			"space a ?": "agent::FocusAgent",
+			"space a $": "agent::ClearMessageQueue",
+			"space a ^": "agent::ChatWithFollow",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
