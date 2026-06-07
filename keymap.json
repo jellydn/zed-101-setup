@@ -97,6 +97,9 @@
 			],
 			"space a ;": "agent::NewTerminalThread",
 			"space a ,": "agent::ToggleThinkingMode",
+			"space a .": "agent::ToggleOptionsMenu",
+			"space a B": "agent::ReviewBranchDiff",
+			"space a -": "agent::CycleFavoriteModels",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
