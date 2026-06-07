@@ -38,4 +38,5 @@ Expand `keymap.json` with a `space a` prefix map analogous to Neovim Code Compan
 - **Win (44/44)**: `space a N` → `agent::NewThread`; `space a o` → `agent::OpenAgentDiff`.
 - **Win (49/49)**: `space a b` → `git::ReviewDiff`; `space a i` → `assistant::InlineAssist` (no prefilled prompt).
 - **Win (56)**: `space a p` profiles, `space a h` send review to agent, `space a G` global AGENTS.md; checklist includes `space a c`.
+- **Win (62)**: `space a P` project AGENTS.md, `space a /` model selector, `space a w` follow agent.
 - Fixed unrelated `biome` format on `.claude/settings.local.json` so checks pass.

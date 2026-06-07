@@ -38,6 +38,9 @@
 			"space a p": "agent::ManageProfiles",
 			"space a h": "editor::SendReviewToAgent",
 			"space a G": "agent::OpenGlobalAGENTS.mdRules",
+			"space a P": "agent::OpenProjectAGENTS.mdRules",
+			"space a /": "agent::ToggleModelSelector",
+			"space a w": "agent::Follow",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
