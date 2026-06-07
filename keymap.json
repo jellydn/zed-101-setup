@@ -35,6 +35,9 @@
 			"space a o": "agent::OpenAgentDiff",
 			"space a b": "git::ReviewDiff",
 			"space a i": "assistant::InlineAssist",
+			"space a p": "agent::ManageProfiles",
+			"space a h": "editor::SendReviewToAgent",
+			"space a G": "agent::OpenGlobalAGENTS.mdRules",
 			"space a m": [
 				"assistant::InlineAssist",
 				{

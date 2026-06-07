@@ -24,6 +24,7 @@ text = '\n'.join(lines)
 text = re.sub(r'/\*.*?\*/', '', text, flags=re.S)
 data = json.loads(text)
 checks = {
+    'space a c': 1,
     'space a a': 2,
     'space a s': 2,
     'space a S': 3,
@@ -32,6 +33,9 @@ checks = {
     'space a o': 2,
     'space a b': 3,
     'space a i': 2,
+    'space a p': 2,
+    'space a h': 2,
+    'space a G': 2,
     'space a v': 2,
     'space a e': 3,
     'space a f': 3,
