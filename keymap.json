@@ -50,6 +50,20 @@
 					"prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior."
 				}
 			],
+			"space a F": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style."
+				}
+			],
+			"space a T": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions."
+				}
+			],
+			"space a k": "agent::ToggleProfileSelector",
+			"space a y": "git::GenerateCommitMessage",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
