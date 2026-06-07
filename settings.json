@@ -24,7 +24,7 @@
 	// Editor toolbar settings
 	// https://zed.dev/docs/reference/all-settings#editor-toolbar
 	"toolbar": {
-		"code_actions": true
+		"code_actions": true,
 	},
 
 	// Whether to show signature help after completion or bracket pair inserted
@@ -46,78 +46,78 @@
 	// Edit predictions settings (AI autocomplete)
 	// https://zed.dev/docs/reference/all-settings#edit-predictions
 	"edit_predictions": {
-		"provider": "zed"
+		"provider": "zed",
 	},
 
 	// Agent servers configuration (MCP servers)
 	// https://zed.dev/docs/remote-development#mcp
 	"agent_servers": {
 		"pi-acp": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"kilo": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"github-copilot-cli": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"gemini": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"cursor": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"codex-acp": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"claude-acp": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"amp-acp": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"factory-droid": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"github-copilot": {
-			"type": "registry"
+			"type": "registry",
 		},
 		"opencode": {
 			"default_config_options": {
 				"model": "opencode/minimax-m3-free",
-				"mode": "build"
+				"mode": "build",
 			},
 			"favorite_config_option_values": {
-				"model": ["opencode-go/glm-5.1"]
+				"model": ["opencode-go/glm-5.1"],
 			},
-			"type": "registry"
-		}
+			"type": "registry",
+		},
 	},
 
 	// Session settings
 	// https://zed.dev/docs/reference/all-settings#session
 	"session": {
-		"trust_all_worktrees": true
+		"trust_all_worktrees": true,
 	},
 
 	// Git settings
 	// https://zed.dev/docs/reference/all-settings#git
 	"git": {
 		"inline_blame": {
-			"enabled": true
-		}
+			"enabled": true,
+		},
 	},
 
 	// Status bar settings
 	// https://zed.dev/docs/reference/all-settings#status-bar
 	"status_bar": {
-		"experimental.show": false
+		"experimental.show": false,
 	},
 
 	// Gutter settings
 	// https://zed.dev/docs/reference/all-settings#gutter
 	"gutter": {
-		"line_numbers": true
+		"line_numbers": true,
 	},
 
 	// Cursor shape: bar, block, underline, hollow
@@ -139,7 +139,7 @@
 		"JetBrainsMono Nerd Font Mono",
 		"Menlo",
 		"Monaco",
-		"Courier New"
+		"Courier New",
 	],
 
 	// Show whitespace characters: all, selection, none, boundary
@@ -158,7 +158,7 @@
 	// https://zed.dev/docs/reference/all-settings#git-panel
 	"git_panel": {
 		"tree_view": true,
-		"dock": "right"
+		"dock": "right",
 	},
 
 	// Icon theme settings
@@ -166,7 +166,7 @@
 	"icon_theme": {
 		"mode": "dark",
 		"light": "Catppuccin Mocha",
-		"dark": "Catppuccin Mocha"
+		"dark": "Catppuccin Mocha",
 	},
 
 	// Base keymap: VSCode, Atom, JetBrains, SublimeText, TextMate, None
@@ -178,7 +178,7 @@
 	"theme": {
 		"mode": "dark",
 		"light": "Maple Light",
-		"dark": "Maple Dark"
+		"dark": "Maple Dark",
 	},
 
 	// UI font size (for menus, panels, etc.)
@@ -192,7 +192,7 @@
 	// Finder model width
 	// https://zed.dev/docs/reference/all-settings#file-finder
 	"file_finder": {
-		"modal_max_width": "medium"
+		"modal_max_width": "medium",
 	},
 
 	// Buffer font family (editor font)
@@ -211,7 +211,7 @@
 	// https://zed.dev/docs/visual-customization#vim-mode
 	"which_key": {
 		"delay_ms": 500,
-		"enabled": true
+		"enabled": true,
 	},
 
 	// Use relative line numbers in gutter
@@ -243,26 +243,26 @@
 	// Tab bar settings
 	// https://zed.dev/docs/reference/all-settings#editor-tab-bar
 	"tab_bar": {
-		"show": true
+		"show": true,
 	},
 
 	// Scrollbar settings
 	// https://zed.dev/docs/reference/all-settings#editor-scrollbar
 	"scrollbar": {
-		"show": "never"
+		"show": "never",
 	},
 
 	// Only show error on tab
 	// https://zed.dev/docs/reference/all-settings#editor-tabs
 	"tabs": {
-		"show_diagnostics": "errors"
+		"show_diagnostics": "errors",
 	},
 
 	// Indentation guides (rainbow indentation)
 	// https://zed.dev/docs/reference/all-settings#indent-guides
 	"indent_guides": {
 		"enabled": true,
-		"coloring": "indent_aware"
+		"coloring": "indent_aware",
 	},
 
 	// Zen mode / centered layout
@@ -270,7 +270,7 @@
 	// NOTE: Refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
 	"centered_layout": {
 		"left_padding": 0.15,
-		"right_padding": 0.15
+		"right_padding": 0.15,
 	},
 
 	// Agent (AI) panel settings
@@ -281,43 +281,43 @@
 			{
 				"provider": "opencode",
 				"model": "go/minimax-m2.7",
-				"enable_thinking": false
+				"enable_thinking": false,
 			},
 			{
 				"provider": "opencode",
 				"model": "go/glm-5.1",
-				"enable_thinking": false
+				"enable_thinking": false,
 			},
 			{
 				"provider": "CrofAI",
 				"model": "kimi-k2.6",
-				"enable_thinking": false
+				"enable_thinking": false,
 			},
 			{
 				"provider": "CrofAI",
 				"model": "glm-5.1",
-				"enable_thinking": false
+				"enable_thinking": false,
 			},
 			{
 				"provider": "CrofAI",
 				"model": "deepseek-v4-pro",
-				"enable_thinking": false
+				"enable_thinking": false,
 			},
 			{
 				"provider": "opencode",
 				"model": "go/kimi-k2.6",
-				"enable_thinking": false
-			}
+				"enable_thinking": false,
+			},
 		],
 		"dock": "left",
 		"inline_assistant_model": {
 			"provider": "ollama",
-			"model": "gpt-oss:120b-cloud"
+			"model": "gpt-oss:120b-cloud",
 		},
 		"default_model": {
 			"provider": "opencode",
-			"model": "free/minimax-m2.5-free"
-		}
+			"model": "free/minimax-m2.5-free",
+		},
 	},
 
 	// Assistant settings (for local AI with Ollama)
@@ -336,10 +336,10 @@
 	// https://zed.dev/docs/language-model-integration
 	"language_models": {
 		"opencode": {
-			"show_zen_models": false
+			"show_zen_models": false,
 		},
 		"ollama": {
-			"api_url": "http://localhost:11434"
+			"api_url": "http://localhost:11434",
 		},
 		"openai_compatible": {
 			"CrofAI": {
@@ -353,8 +353,8 @@
 							"tools": true,
 							"images": true,
 							"parallel_tool_calls": true,
-							"prompt_cache_key": true
-						}
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "kimi-k2.6-precision",
@@ -364,8 +364,8 @@
 							"tools": true,
 							"images": true,
 							"parallel_tool_calls": true,
-							"prompt_cache_key": true
-						}
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "qwen3.5-397b-a17b",
@@ -375,28 +375,28 @@
 							"tools": true,
 							"images": true,
 							"parallel_tool_calls": true,
-							"prompt_cache_key": true
-						}
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "deepseek-v4-pro",
 						"display_name": "Deepseek V4 Pro",
-						"max_tokens": 10000000
+						"max_tokens": 10000000,
 					},
 					{
 						"name": "deepseek-v4-pro-precision",
 						"display_name": "Deepseek V4 Pro Precision",
-						"max_tokens": 10000000
+						"max_tokens": 10000000,
 					},
 					{
 						"name": "glm-5.1-precision",
 						"display_name": "GLM 5.1 Precision",
-						"max_tokens": 202752
+						"max_tokens": 202752,
 					},
 					{
 						"name": "glm-5.1",
 						"display_name": "GLM 5.1",
-						"max_tokens": 202752
+						"max_tokens": 202752,
 					},
 					{
 						"name": "qwen3.6-27b",
@@ -406,19 +406,19 @@
 							"tools": true,
 							"images": true,
 							"parallel_tool_calls": true,
-							"prompt_cache_key": true
-						}
-					}
-				]
-			}
-		}
+							"prompt_cache_key": true,
+						},
+					},
+				],
+			},
+		},
 	},
 
 	// Inlay hints (parameter names, types, etc.)
 	// https://zed.dev/docs/reference/all-settings#inlay-hints
 	// Preconfigured for: Go, Rust, TypeScript, Svelte
 	"inlay_hints": {
-		"enabled": true
+		"enabled": true,
 	},
 
 	// LSP (Language Server Protocol) configuration
@@ -427,9 +427,9 @@
 	"lsp": {
 		"tailwindcss-language-server": {
 			"settings": {
-				"classAttributes": ["class", "className", "ngClass", "styles"]
-			}
-		}
+				"classAttributes": ["class", "className", "ngClass", "styles"],
+			},
+		},
 	},
 
 	// Language-specific settings
@@ -448,8 +448,8 @@
 		"Python": {
 			"formatter": {
 				"language_server": {
-					"name": "ruff"
-				}
+					"name": "ruff",
+				},
 			},
 			"language_servers": [
 				"ty",
@@ -457,8 +457,8 @@
 				"!basedpyright",
 				"!pyrefly",
 				"!pyright",
-				"!pylsp"
-			]
+				"!pylsp",
+			],
 		},
 
 		// Rust — spaces + rust-analyzer formatter
@@ -467,10 +467,10 @@
 			"hard_tabs": false,
 			"formatter": {
 				"language_server": {
-					"name": "rust-analyzer"
-				}
+					"name": "rust-analyzer",
+				},
 			},
-			"language_servers": ["rust-analyzer", "!rustc"]
+			"language_servers": ["rust-analyzer", "!rustc"],
 		},
 
 		// Go — gopls formatter
@@ -478,24 +478,24 @@
 		"Go": {
 			"formatter": {
 				"language_server": {
-					"name": "gopls"
-				}
+					"name": "gopls",
+				},
 			},
-			"language_servers": ["gopls", "!goimports"]
+			"language_servers": ["gopls", "!goimports"],
 		},
 
 		// Markdown — no format_on_save, preferred line length
 		// https://zed.dev/docs/languages/markdown
 		"Markdown": {
 			"format_on_save": "off",
-			"preferred_line_length": 80
+			"preferred_line_length": 80,
 		},
 
 		// JSON — spaces, no formatter override
 		// https://zed.dev/docs/languages/json
 		"JSON": {
-			"hard_tabs": false
-		}
+			"hard_tabs": false,
+		},
 	},
 
 	// Terminal settings
@@ -503,21 +503,21 @@
 	"terminal": {
 		"shell": {
 			// Edit this path to match your local codemux binary location
-			"program": "~/.cargo/bin/codemux"
+			"program": "/Users/huynhdung/.cargo/bin/codemux",
 		},
 		"show_count_badge": true,
 		"font_size": 17.0,
 		"font_family": "Maple Mono NF",
 		"env": {
-			"EDITOR": "zed --wait"
-		}
+			"EDITOR": "zed --wait",
+		},
 	},
 
 	// File type associations
 	// https://zed.dev/docs/configuring-languages#file-associations
 	"file_types": {
 		"Dockerfile": ["Dockerfile", "Dockerfile.*"],
-		"JSON": ["json", "jsonc", "*.code-snippets"]
+		"JSON": ["json", "jsonc", "*.code-snippets"],
 	},
 
 	// File scan exclusions (files to hide from file explorer and search)
@@ -543,14 +543,14 @@
 		"**/.tap",
 		"**/.nyc_output",
 		"**/report",
-		"**/node_modules"
+		"**/node_modules",
 	],
 
 	// Telemetry settings
 	// https://zed.dev/docs/reference/all-settings#telemetry
 	"telemetry": {
 		"diagnostics": true,
-		"metrics": false
+		"metrics": false,
 	},
 
 	// Project panel settings
@@ -559,20 +559,20 @@
 		"auto_fold_dirs": false,
 		"button": true,
 		"dock": "right",
-		"git_status": true
+		"git_status": true,
 	},
 
 	// Outline panel settings
 	// https://zed.dev/docs/reference/all-settings#outline-panel
 	"outline_panel": {
-		"dock": "right"
+		"dock": "right",
 	},
 
 	// Collaboration panel settings
 	// https://zed.dev/docs/reference/all-settings#collaboration-panel
 	"collaboration_panel": {
-		"dock": "right"
-	}
+		"dock": "right",
+	},
 
 	// Context servers (MCP servers) - kept as recipe only
 	// https://zed.dev/docs/remote-development#mcp

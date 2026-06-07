@@ -16,6 +16,10 @@ Source: `keymap.json` (sync with `bun run start` for README embed).
 | `0`       | Edit prediction menu             | Automatic inline suggestions       |
 | `1`       | Open skill creator               | Author / import agent skills       |
 | `2`       | Create skill from URL            | Import skill from GitHub URL       |
+| `j`       | Restart context server           |                                    |
+| `#`       | Archive selected thread          |                                    |
+| `B`       | Rename selected thread           |                                    |
+| `&`       | Remove selected thread           |                                    |
 
 ## Code Companion inline (visual selection)
 
@@ -46,11 +50,14 @@ Source: `keymap.json` (sync with `bun run start` for README embed).
 | `m`       | Inline staged commit message         |
 | `y`       | `git::GenerateCommitMessage`         |
 | `b`       | `git::ReviewDiff`                    |
-| `B`       | `agent::ReviewBranchDiff`            |
+| `B`       | Rename selected thread               |
 | `h`       | Send editor review comments to agent |
 | `]` / `[` | Keep / reject hunk                   |
 | `>` / `<` | Keep all / reject all                |
 | `U`       | Undo last reject                     |
+| `j`       | Restart context server               |
+| `#`       | Archive selected thread              |
+| `&`       | Remove selected thread               |
 
 ## Agent panel
 

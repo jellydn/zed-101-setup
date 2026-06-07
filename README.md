@@ -85,7 +85,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sun Jun 07 2026 11:54:22 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sun Jun 07 2026 12:25:20 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -591,7 +591,7 @@ Update your settings.json file with the following configuration:
   "terminal": {
     "shell": {
       // Edit this path to match your local codemux binary location
-      "program": "~/.cargo/bin/codemux",
+      "program": "/Users/huynhdung/.cargo/bin/codemux",
     },
     "show_count_badge": true,
     "font_size": 17.0,
@@ -704,7 +704,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sun Jun 07 2026 11:54:22 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sun Jun 07 2026 12:25:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -749,7 +749,7 @@ Update your keymap.json file with the following key bindings:
       "space a /": "agent::ToggleModelSelector",
       "space a w": "agent::Follow",
       "space a u": "agent::OpenSettings",
-      "space a j": "agent::NewExternalAgentThread",
+      "space a j": "context_server::Restart",
       "space a x": "agent::OpenActiveThreadAsMarkdown",
       "space a E": [
         "assistant::InlineAssist",
@@ -805,7 +805,7 @@ Update your keymap.json file with the following key bindings:
       "space a ;": "agent::NewTerminalThread",
       "space a ,": "agent::ToggleThinkingMode",
       "space a .": "agent::ToggleOptionsMenu",
-      "space a B": "agent::ReviewBranchDiff",
+      "space a B": "agent::RenameSelectedThread",
       "space a -": "agent::CycleFavoriteModels",
       "space a =": "agent::ToggleFastMode",
       "space a %": "agent::CycleThinkingEffort",
@@ -820,12 +820,12 @@ Update your keymap.json file with the following key bindings:
       "space a ~": "agent::CycleModeSelector",
       "space a *": "agent::ToggleNewThreadMenu",
       "space a !": "agent::SendImmediately",
-      "space a #": "agent::NewNativeAgentThreadFromSummary",
+      "space a #": "agent::ArchiveSelectedThread",
       "space a ?": "agent::FocusAgent",
       "space a $": "agent::ClearMessageQueue",
       "space a ^": "agent::ChatWithFollow",
       "space a @": "agent::Toggle",
-      "space a &": "agent::ResolveConflictsWithAgent",
+      "space a &": "agent::RemoveSelectedThread",
       "space a 0": "edit_prediction::ToggleMenu",
       "space a 1": "agent::OpenSkillCreator",
       "space a 2": "agent::CreateSkillFromUrl",
@@ -1147,7 +1147,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sun Jun 07 2026 11:54:22 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sun Jun 07 2026 12:25:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
