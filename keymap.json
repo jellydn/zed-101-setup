@@ -83,6 +83,20 @@
 					"prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code."
 				}
 			],
+			"space a J": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Add concise inline documentation comments to the selected code or current line without changing logic."
+				}
+			],
+			"space a L": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate)."
+				}
+			],
+			"space a ;": "agent::NewTerminalThread",
+			"space a ,": "agent::ToggleThinkingMode",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
