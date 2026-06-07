@@ -100,6 +100,11 @@
 			"space a .": "agent::ToggleOptionsMenu",
 			"space a B": "agent::ReviewBranchDiff",
 			"space a -": "agent::CycleFavoriteModels",
+			"space a =": "agent::ToggleFastMode",
+			"space a %": "agent::CycleThinkingEffort",
+			"space a +": "agent::ExpandMessageEditor",
+			"space a ]": "agent::Keep",
+			"space a [": "agent::Reject",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
