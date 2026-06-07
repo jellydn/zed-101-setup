@@ -36,4 +36,5 @@ Expand `keymap.json` with a `space a` prefix map analogous to Neovim Code Compan
 - Checklist also scores `space a s` → `agent::AddSelectionToThread` (max score 35).
 - **Win (40/40)**: `space a S` → `action::Sequence` `[AddSelectionToThread, ToggleFocus]`; `space a g` → `agent::OpenRulesLibrary`.
 - **Win (44/44)**: `space a N` → `agent::NewThread`; `space a o` → `agent::OpenAgentDiff`.
+- **Win (49/49)**: `space a b` → `git::ReviewDiff`; `space a i` → `assistant::InlineAssist` (no prefilled prompt).
 - Fixed unrelated `biome` format on `.claude/settings.local.json` so checks pass.

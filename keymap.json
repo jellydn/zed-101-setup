@@ -33,6 +33,8 @@
 			"space a g": "agent::OpenRulesLibrary",
 			"space a N": "agent::NewThread",
 			"space a o": "agent::OpenAgentDiff",
+			"space a b": "git::ReviewDiff",
+			"space a i": "assistant::InlineAssist",
 			"space a m": [
 				"assistant::InlineAssist",
 				{
