@@ -88,7 +88,10 @@
 				"mode": "build",
 			},
 			"favorite_config_option_values": {
-				"model": ["opencode-go/glm-5.1"],
+				"model": [
+     "opencode/deepseek-v4-flash-free",
+     "opencode/mimo-v2.5-free"
+    ],
 			},
 			"type": "registry",
 		},
@@ -311,8 +314,8 @@
 		],
 		"dock": "left",
 		"inline_assistant_model": {
-			"provider": "ollama",
-			"model": "gpt-oss:120b-cloud",
+			"provider": "opencode",
+			"model": "free/big-pickle",
 		},
 		"default_model": {
 			"provider": "opencode",
