@@ -15,8 +15,6 @@
 
 The Zed Editor 101 setup guide is designed to help you configure Zed Editor to enhance your development workflow. Whether you’re a Vim enthusiast or looking to boost your productivity with custom settings and key bindings, this guide provides all the necessary steps and resources. Follow along to get your Zed Editor configured with Nerd Font, Vim mode, local AI assistance, and more.
 
-**AI keymap:** Code Companion–style `space a` bindings are documented in [AI-KEYMAP.md](./AI-KEYMAP.md) (source: `keymap.json`).
-
 ## Quick Install
 
 Deploy the entire Zed configuration with a single command:
@@ -85,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sun Jun 07 2026 12:25:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -176,7 +174,7 @@ Update your settings.json file with the following configuration:
         "mode": "build",
       },
       "favorite_config_option_values": {
-        "model": ["opencode-go/glm-5.1"],
+        "model": ["opencode/deepseek-v4-flash-free", "opencode/mimo-v2.5-free"],
       },
       "type": "registry",
     },
@@ -399,8 +397,8 @@ Update your settings.json file with the following configuration:
     ],
     "dock": "left",
     "inline_assistant_model": {
-      "provider": "ollama",
-      "model": "gpt-oss:120b-cloud",
+      "provider": "opencode",
+      "model": "free/big-pickle",
     },
     "default_model": {
       "provider": "opencode",
@@ -704,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sun Jun 07 2026 12:25:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -730,109 +728,57 @@ Update your keymap.json file with the following key bindings:
       "space s b": "buffer_search::Deploy",
       // Chat with AI (Code Companion–style: space a + letter)
       "space a c": "agent::ToggleFocus",
-      "space a v": "agent::ToggleFocus",
-      "space a a": "agent::OpenAddContextMenu",
-      "space a s": "agent::AddSelectionToThread",
-      "space a S": [
-        "action::Sequence",
-        [["agent::AddSelectionToThread", "agent::ToggleFocus"]],
-      ],
-      "space a g": "agent::OpenRulesLibrary",
-      "space a N": "agent::NewThread",
-      "space a o": "agent::OpenAgentDiff",
-      "space a b": "git::ReviewDiff",
-      "space a i": "assistant::InlineAssist",
-      "space a p": "agent::ManageProfiles",
-      "space a h": "editor::SendReviewToAgent",
-      "space a G": "agent::OpenGlobalAGENTS.mdRules",
-      "space a P": "agent::OpenProjectAGENTS.mdRules",
+      "space a n": "agent::NewThread",
+      "space a p": "agent::ToggleProfileSelector",
       "space a /": "agent::ToggleModelSelector",
-      "space a w": "agent::Follow",
       "space a u": "agent::OpenSettings",
-      "space a j": "context_server::Restart",
-      "space a x": "agent::OpenActiveThreadAsMarkdown",
-      "space a E": [
+      "space a i": "assistant::InlineAssist",
+      "space a e": [
         "assistant::InlineAssist",
         {
           "prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior.",
         },
       ],
-      "space a F": [
+      "space a f": [
         "assistant::InlineAssist",
         {
           "prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style.",
         },
       ],
-      "space a T": [
+      "space a t": [
         "assistant::InlineAssist",
         {
           "prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions.",
         },
       ],
-      "space a k": "agent::ToggleProfileSelector",
-      "space a y": "git::GenerateCommitMessage",
-      "space a q": "agent::Chat",
-      "space a O": [
+      "space a r": [
         "assistant::InlineAssist",
         {
           "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior.",
         },
       ],
-      "space a Q": [
+      "space a R": [
         "assistant::InlineAssist",
         {
           "prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions.",
         },
       ],
-      "space a z": [
+      "space a s": [
         "assistant::InlineAssist",
         {
           "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
         },
       ],
-      "space a J": [
+      "space a d": [
         "assistant::InlineAssist",
         {
           "prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
         },
       ],
-      "space a L": [
+      "space a D": [
         "assistant::InlineAssist",
         {
           "prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate).",
-        },
-      ],
-      "space a ;": "agent::NewTerminalThread",
-      "space a ,": "agent::ToggleThinkingMode",
-      "space a .": "agent::ToggleOptionsMenu",
-      "space a B": "agent::RenameSelectedThread",
-      "space a -": "agent::CycleFavoriteModels",
-      "space a =": "agent::ToggleFastMode",
-      "space a %": "agent::CycleThinkingEffort",
-      "space a +": "agent::ExpandMessageEditor",
-      "space a ]": "agent::Keep",
-      "space a [": "agent::Reject",
-      "space a >": "agent::KeepAll",
-      "space a <": "agent::RejectAll",
-      "space a '": "agent::CycleNextInlineAssist",
-      "space a `": "agent::CyclePreviousInlineAssist",
-      "space a U": "agent::UndoLastReject",
-      "space a ~": "agent::CycleModeSelector",
-      "space a *": "agent::ToggleNewThreadMenu",
-      "space a !": "agent::SendImmediately",
-      "space a #": "agent::ArchiveSelectedThread",
-      "space a ?": "agent::FocusAgent",
-      "space a $": "agent::ClearMessageQueue",
-      "space a ^": "agent::ChatWithFollow",
-      "space a @": "agent::Toggle",
-      "space a &": "agent::RemoveSelectedThread",
-      "space a 0": "edit_prediction::ToggleMenu",
-      "space a 1": "agent::OpenSkillCreator",
-      "space a 2": "agent::CreateSkillFromUrl",
-      "space a m": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Write a concise git commit message for the currently staged changes. Output only the commit message subject and body, following conventional commits when appropriate.",
         },
       ],
       "space a l": [
@@ -1147,7 +1093,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sun Jun 07 2026 12:25:20 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
