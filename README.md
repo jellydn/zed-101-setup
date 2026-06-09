@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 09:34:37 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 09:37:41 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -702,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 09:34:37 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 09:37:41 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -732,6 +732,8 @@ Update your keymap.json file with the following key bindings:
       "space a p": "agent::ToggleProfileSelector",
       "space a /": "agent::ToggleModelSelector",
       "space a u": "agent::OpenSettings",
+      "space a T": "agent::NewTerminalThread",
+      "space a O": "agent::ToggleOptionsMenu",
       "space a i": "assistant::InlineAssist",
       "space a e": [
         "assistant::InlineAssist",
@@ -809,6 +811,18 @@ Update your keymap.json file with the following key bindings:
         "assistant::InlineAssist",
         {
           "prompt": "Review the selected code or current line for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
+        },
+      ],
+      "space a v": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Convert or transform the selected code or current line. Migrate to a different approach, pattern, or API as appropriate. Show the transformed version.",
+        },
+      ],
+      "space a m": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
         },
       ],
       // Go to file with `gf`
@@ -994,6 +1008,18 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Review the selected code for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
         },
       ],
+      "space a v": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Convert or transform the selected code. Migrate to a different approach, pattern, or API as appropriate. Show the transformed version.",
+        },
+      ],
+      "space a m": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
+        },
+      ],
     },
   },
   // Better escape
@@ -1141,7 +1167,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 09:34:37 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 09:37:41 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

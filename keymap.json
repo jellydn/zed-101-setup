@@ -27,6 +27,8 @@
 			"space a p": "agent::ToggleProfileSelector",
 			"space a /": "agent::ToggleModelSelector",
 			"space a u": "agent::OpenSettings",
+			"space a T": "agent::NewTerminalThread",
+			"space a O": "agent::ToggleOptionsMenu",
 			"space a i": "assistant::InlineAssist",
 			"space a e": [
 				"assistant::InlineAssist",
@@ -104,6 +106,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Review the selected code or current line for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
+				},
+			],
+			"space a v": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Convert or transform the selected code or current line. Migrate to a different approach, pattern, or API as appropriate. Show the transformed version.",
+				},
+			],
+			"space a m": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
 				},
 			],
 			// Go to file with `gf`
@@ -287,6 +301,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Review the selected code for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
+				},
+			],
+			"space a v": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Convert or transform the selected code. Migrate to a different approach, pattern, or API as appropriate. Show the transformed version.",
+				},
+			],
+			"space a m": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
 				},
 			],
 		},
