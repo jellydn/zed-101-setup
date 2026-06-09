@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -174,7 +174,7 @@ Update your settings.json file with the following configuration:
         "mode": "build",
       },
       "favorite_config_option_values": {
-        "model": ["opencode-go/glm-5.1"],
+        "model": ["opencode/deepseek-v4-flash-free", "opencode/mimo-v2.5-free"],
       },
       "type": "registry",
     },
@@ -397,8 +397,8 @@ Update your settings.json file with the following configuration:
     ],
     "dock": "left",
     "inline_assistant_model": {
-      "provider": "ollama",
-      "model": "gpt-oss:120b-cloud",
+      "provider": "opencode",
+      "model": "free/big-pickle",
     },
     "default_model": {
       "provider": "opencode",
@@ -589,7 +589,7 @@ Update your settings.json file with the following configuration:
   "terminal": {
     "shell": {
       // Edit this path to match your local codemux binary location
-      "program": "~/.cargo/bin/codemux",
+      "program": "/Users/huynhdung/.cargo/bin/codemux",
     },
     "show_count_badge": true,
     "font_size": 17.0,
@@ -702,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -726,8 +726,67 @@ Update your keymap.json file with the following key bindings:
       "space s w": "pane::DeploySearch",
       // Search on current buffer
       "space s b": "buffer_search::Deploy",
-      // Chat with AI
+      // Chat with AI (Code Companion–style: space a + letter)
       "space a c": "agent::ToggleFocus",
+      "space a n": "agent::NewThread",
+      "space a p": "agent::ToggleProfileSelector",
+      "space a /": "agent::ToggleModelSelector",
+      "space a u": "agent::OpenSettings",
+      "space a i": "assistant::InlineAssist",
+      "space a e": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior.",
+        },
+      ],
+      "space a f": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style.",
+        },
+      ],
+      "space a t": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions.",
+        },
+      ],
+      "space a r": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior.",
+        },
+      ],
+      "space a R": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions.",
+        },
+      ],
+      "space a s": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
+        },
+      ],
+      "space a d": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
+        },
+      ],
+      "space a D": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate).",
+        },
+      ],
+      "space a l": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
+        },
+      ],
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
     },
@@ -838,6 +897,55 @@ Update your keymap.json file with the following key bindings:
     "bindings": {
       // visual, visual line & visual block modes
       "g c": "editor::ToggleComments",
+      // Code Companion–style inline assists (selection required)
+      "space a e": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior.",
+        },
+      ],
+      "space a f": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style.",
+        },
+      ],
+      "space a t": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions.",
+        },
+      ],
+      "space a d": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
+        },
+      ],
+      "space a D": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate).",
+        },
+      ],
+      "space a r": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior.",
+        },
+      ],
+      "space a R": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Review the selected code. List issues by severity with concrete improvement suggestions.",
+        },
+      ],
+      "space a n": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
+        },
+      ],
     },
   },
   // Better escape
@@ -985,7 +1093,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 06 2026 10:04:33 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

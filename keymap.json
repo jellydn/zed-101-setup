@@ -21,11 +21,70 @@
 			"space s w": "pane::DeploySearch",
 			// Search on current buffer
 			"space s b": "buffer_search::Deploy",
-			// Chat with AI
+			// Chat with AI (Code Companion–style: space a + letter)
 			"space a c": "agent::ToggleFocus",
+			"space a n": "agent::NewThread",
+			"space a p": "agent::ToggleProfileSelector",
+			"space a /": "agent::ToggleModelSelector",
+			"space a u": "agent::OpenSettings",
+			"space a i": "assistant::InlineAssist",
+			"space a e": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior.",
+				},
+			],
+			"space a f": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style.",
+				},
+			],
+			"space a t": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions.",
+				},
+			],
+			"space a r": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior.",
+				},
+			],
+			"space a R": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions.",
+				},
+			],
+			"space a s": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
+				},
+			],
+			"space a d": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
+				},
+			],
+			"space a D": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate).",
+				},
+			],
+			"space a l": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
+				},
+			],
 			// Go to file with `gf`
-			"g f": "editor::OpenExcerpts"
-		}
+			"g f": "editor::OpenExcerpts",
+		},
 	},
 	{
 		"context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -114,8 +173,8 @@
 			"ctrl-shift-h": "vim::ResizePaneLeft",
 			"ctrl-shift-l": "vim::ResizePaneRight",
 			// Close active buffer
-			"space w d": "pane::CloseActiveItem"
-		}
+			"space w d": "pane::CloseActiveItem",
+		},
 	},
 	// Empty pane, set of keybindings that are available when there is no active editor
 	{
@@ -124,47 +183,96 @@
 			// Open file finder
 			"space space": "file_finder::Toggle",
 			// Open recent project
-			"space f p": "projects::OpenRecent"
-		}
+			"space f p": "projects::OpenRecent",
+		},
 	},
 	// Comment code
 	{
 		"context": "Editor && vim_mode == visual && !VimWaiting && !menu",
 		"bindings": {
 			// visual, visual line & visual block modes
-			"g c": "editor::ToggleComments"
-		}
+			"g c": "editor::ToggleComments",
+			// Code Companion–style inline assists (selection required)
+			"space a e": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior.",
+				},
+			],
+			"space a f": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style.",
+				},
+			],
+			"space a t": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions.",
+				},
+			],
+			"space a d": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
+				},
+			],
+			"space a D": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate).",
+				},
+			],
+			"space a r": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior.",
+				},
+			],
+			"space a R": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the selected code. List issues by severity with concrete improvement suggestions.",
+				},
+			],
+			"space a n": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
+				},
+			],
+		},
 	},
 	// Better escape
 	{
 		"context": "Editor && vim_mode == insert && !menu",
 		"bindings": {
 			"j j": "vim::NormalBefore", // remap jj in insert mode to escape
-			"j k": "vim::NormalBefore" // remap jk in insert mode to escape
-		}
+			"j k": "vim::NormalBefore", // remap jk in insert mode to escape
+		},
 	},
 	// Rename
 	{
 		"context": "Editor && vim_operator == c",
 		"bindings": {
 			"c": "vim::CurrentLine",
-			"r": "editor::Rename" // zed specific
-		}
+			"r": "editor::Rename", // zed specific
+		},
 	},
 	// Code Action
 	{
 		"context": "Editor && vim_operator == c",
 		"bindings": {
 			"c": "vim::CurrentLine",
-			"a": "editor::ToggleCodeActions" // zed specific
-		}
+			"a": "editor::ToggleCodeActions", // zed specific
+		},
 	},
 	// Toggle terminal
 	{
 		"context": "Workspace",
 		"bindings": {
-			"ctrl-\\": "terminal_panel::ToggleFocus"
-		}
+			"ctrl-\\": "terminal_panel::ToggleFocus",
+		},
 	},
 	{
 		"context": "Terminal",
@@ -172,8 +280,8 @@
 			"ctrl-h": "workspace::ActivatePaneLeft",
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",
-			"ctrl-j": "workspace::ActivatePaneDown"
-		}
+			"ctrl-j": "workspace::ActivatePaneDown",
+		},
 	},
 	// File panel (netrw)
 	{
@@ -193,8 +301,8 @@
 			"ctrl-h": "workspace::ActivatePaneLeft",
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",
-			"ctrl-j": "workspace::ActivatePaneDown"
-		}
+			"ctrl-j": "workspace::ActivatePaneDown",
+		},
 	},
 	// Panel navigation
 	{
@@ -203,15 +311,15 @@
 			"ctrl-w h": "workspace::ActivatePaneLeft",
 			"ctrl-w l": "workspace::ActivatePaneRight",
 			"ctrl-w k": "workspace::ActivatePaneUp",
-			"ctrl-w j": "workspace::ActivatePaneDown"
-		}
+			"ctrl-w j": "workspace::ActivatePaneDown",
+		},
 	},
 	{
 		"context": "Workspace",
 		"bindings": {
 			// Map VSCode like keybindings
-			"cmd-b": "workspace::ToggleRightDock"
-		}
+			"cmd-b": "workspace::ToggleRightDock",
+		},
 	},
 	// Run nearest task
 	{
@@ -220,25 +328,25 @@
 			"space r t": [
 				"editor::SpawnNearestTask",
 				{
-					"reveal": "no_focus"
-				}
-			]
-		}
+					"reveal": "no_focus",
+				},
+			],
+		},
 	},
 	// Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
 	{
 		"context": "vim_mode == normal || vim_mode == visual",
 		"bindings": {
 			"s": ["vim::PushSneak", {}],
-			"S": ["vim::PushSneakBackward", {}]
-		}
+			"S": ["vim::PushSneakBackward", {}],
+		},
 	},
 	// Which key, refer to https://github.com/zed-industries/zed/pull/43618
 	{
 		"context": "(VimControl && !menu)",
 		"bindings": {
-			"space": null // Disable the default action vim::WrappingRight
-		}
+			"space": null, // Disable the default action vim::WrappingRight
+		},
 	},
 	// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
 	{
@@ -247,17 +355,17 @@
 			"space f f": [
 				"task::Spawn",
 				{
-					"task_name": "fff-gpui: Files"
-				}
+					"task_name": "fff-gpui: Files",
+				},
 			],
 			"space f g": [
 				"task::Spawn",
 				{
-					"task_name": "fff-gpui: Grep"
-				}
-			]
-		}
-	}
+					"task_name": "fff-gpui: Grep",
+				},
+			],
+		},
+	},
 	// Subword motion is not working really nice with `ciw`, disable for now
 	// {
 	//   "context": "VimControl && !menu",
