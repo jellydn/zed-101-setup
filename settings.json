@@ -89,9 +89,9 @@
 			},
 			"favorite_config_option_values": {
 				"model": [
-     "opencode/deepseek-v4-flash-free",
-     "opencode/mimo-v2.5-free"
-    ],
+					"opencode/deepseek-v4-flash-free",
+					"opencode/mimo-v2.5-free",
+				],
 			},
 			"type": "registry",
 		},
