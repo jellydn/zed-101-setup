@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 12:13:43 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 12:20:20 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -442,6 +442,133 @@ Update your settings.json file with the following configuration:
         "model": "free/big-pickle",
       },
     ],
+    // Agent profiles (like sidekick.nvim profiles)
+    // https://zed.dev/docs/ai/agent-settings#agent-profiles
+    "profiles": {
+      "write": {
+        "name": "Write Code",
+        "tools": {
+          "edit_file": true,
+          "create_file": true,
+          "delete_file": true,
+          "rename_file": true,
+          "find_file": true,
+          "terminal": true,
+          "search": true,
+          "fetch": true,
+          "run_command": true,
+          "copy_path": true,
+          "move_path": true,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": false,
+          "create_task": false,
+        },
+        "enable_all_context_servers": true,
+      },
+      "review": {
+        "name": "Code Review",
+        "tools": {
+          "edit_file": false,
+          "create_file": false,
+          "delete_file": false,
+          "rename_file": false,
+          "find_file": true,
+          "terminal": false,
+          "search": true,
+          "fetch": true,
+          "run_command": false,
+          "copy_path": true,
+          "move_path": false,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": false,
+          "create_task": false,
+        },
+        "enable_all_context_servers": true,
+        "default_model": {
+          "provider": "opencode",
+          "model": "free/minimax-m2.5-free",
+        },
+      },
+      "debug": {
+        "name": "Debug",
+        "tools": {
+          "edit_file": true,
+          "create_file": false,
+          "delete_file": false,
+          "rename_file": false,
+          "find_file": true,
+          "terminal": true,
+          "search": true,
+          "fetch": true,
+          "run_command": true,
+          "copy_path": true,
+          "move_path": false,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": true,
+          "create_task": false,
+        },
+        "enable_all_context_servers": false,
+        "default_model": {
+          "provider": "opencode",
+          "model": "free/minimax-m2.5-free",
+        },
+      },
+    },
+    // Tool permission defaults
+    // https://zed.dev/docs/ai/agent-settings#tool-permissions
+    "tool_permissions": {
+      "default": "confirm",
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
+            },
+            {
+              "pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd])",
+            },
+            {
+              "pattern": "^(ls|cat|head|tail|wc|echo|pwd|which|type|file)",
+            },
+          ],
+          "always_deny": [
+            {
+              "pattern": "^(sudo|su|doas)\\s",
+            },
+            {
+              "pattern": "^rm\\s+-[rf]\\s+/",
+            },
+          ],
+        },
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https://(api\\.)?github\\.com",
+            },
+            {
+              "pattern": "^https://raw\\.githubusercontent\\.com",
+            },
+          ],
+        },
+      },
+    },
+    // Persistent sandbox permission grants
+    // https://zed.dev/docs/ai/agent-settings#sandbox-permissions
+    "sandbox_permissions": {
+      "allow_network": true,
+      "write_paths": [
+        "/Users/huynhdung/conductor/workspaces/2026-04-07-jellydn-zed-101-setup/belo-horizonte",
+      ],
+    },
   },
 
   // Assistant settings (for local AI with Ollama)
@@ -763,7 +890,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 12:13:43 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 12:20:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1364,7 +1491,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 12:13:43 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 12:20:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
