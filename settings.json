@@ -415,21 +415,43 @@
 						"name": "deepseek-v4-pro",
 						"display_name": "Deepseek V4 Pro",
 						"max_tokens": 10000000,
+						"capabilities": {
+							"tools": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "deepseek-v4-pro-precision",
 						"display_name": "Deepseek V4 Pro Precision",
 						"max_tokens": 10000000,
+						"capabilities": {
+							"tools": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "glm-5.1-precision",
 						"display_name": "GLM 5.1 Precision",
 						"max_tokens": 202752,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "glm-5.1",
 						"display_name": "GLM 5.1",
 						"max_tokens": 202752,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "qwen3.6-27b",
