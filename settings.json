@@ -552,6 +552,7 @@
 						"max_tokens": 10000000,
 						"capabilities": {
 							"tools": true,
+							"images": false,
 							"parallel_tool_calls": true,
 							"prompt_cache_key": true,
 						},

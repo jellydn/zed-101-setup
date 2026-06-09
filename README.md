@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 12:51:49 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 22:06:40 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -635,6 +635,7 @@ Update your settings.json file with the following configuration:
             "max_tokens": 10000000,
             "capabilities": {
               "tools": true,
+              "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
             },
@@ -891,7 +892,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 12:51:49 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 22:06:40 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -918,7 +919,6 @@ Update your keymap.json file with the following key bindings:
       // Chat with AI (Code Companion–style: space a + letter)
       "space a 1": "agent::Chat",
       "space a 2": "agent::ChatWithFollow",
-      "space a 3": "agent::NewExternalAgentThread",
       "space a 4": "agent::FocusAgent",
       "space a a": "agent::Toggle",
       "space a L": "agent::OpenProjectAGENTS.mdRules",
@@ -934,11 +934,9 @@ Update your keymap.json file with the following key bindings:
       "space a n": "agent::NewThread",
       "space a p": "agent::ToggleProfileSelector",
       "space a /": "agent::ToggleModelSelector",
-      "space a y": "agent::ResolveConflictsWithAgent",
       "space a V": "agent::SendImmediately",
       "space a !": "agent::SendNextQueuedMessage",
       "space a =": "agents_sidebar::ToggleThreadSwitcher",
-      "space a #": "agent::ResolveConflictedFilesWithAgent",
       "space a &": "agent::CycleModeSelector",
       "space a <": "agent::ScrollOutputToPreviousMessage",
       "space a ?": "agent::ScrollOutputToNextMessage",
@@ -953,7 +951,6 @@ Update your keymap.json file with the following key bindings:
       "space a A": "agent::Toggle",
       "space a T": "agent::NewTerminalThread",
       "space a O": "agent::ToggleOptionsMenu",
-      "space a H": "agent::ReviewBranchDiff",
       "space a M": "agent::CycleFavoriteModels",
       "space a F": "agent::ToggleFastMode",
       "space a G": "agent::OpenGlobalAGENTS.mdRules",
@@ -1383,7 +1380,6 @@ Update your keymap.json file with the following key bindings:
       "space a a": "agent::Toggle",
       "space a 1": "agent::Chat",
       "space a 2": "agent::ChatWithFollow",
-      "space a 3": "agent::NewExternalAgentThread",
       "space a 4": "agent::FocusAgent",
       "space a p": "agent::ToggleProfileSelector",
       "space a /": "agent::ToggleModelSelector",
@@ -1498,7 +1494,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 12:51:49 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 22:06:40 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
