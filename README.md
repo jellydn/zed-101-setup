@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 10:04:45 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 10:06:42 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -713,7 +713,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 10:04:45 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 10:06:42 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -740,6 +740,7 @@ Update your keymap.json file with the following key bindings:
       // Chat with AI (Code Companion–style: space a + letter)
       "space a 1": "agent::Chat",
       "space a 2": "agent::ChatWithFollow",
+      "space a 3": "agent::NewExternalAgentThread",
       "space a a": "agent::Toggle",
       "space a L": "agent::OpenProjectAGENTS.mdRules",
       "space a E": "agent::AddSelectionToThread",
@@ -796,7 +797,7 @@ Update your keymap.json file with the following key bindings:
       "space a e": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior.",
+          "prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior. Format output with concise bullet points and inline code examples.",
         },
       ],
       "space a f": [
@@ -808,7 +809,7 @@ Update your keymap.json file with the following key bindings:
       "space a t": [
         "assistant::InlineAssist",
         {
-          "prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions.",
+          "prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions. Output each test as a formatted code block with a descriptive name and arrange/act/assert sections.",
         },
       ],
       "space a r": [
@@ -880,7 +881,7 @@ Update your keymap.json file with the following key bindings:
       "space a j": [
         "assistant::InlineAssist",
         {
-          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions.",
+          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added.",
         },
       ],
       "space a x": [
@@ -1033,7 +1034,7 @@ Update your keymap.json file with the following key bindings:
       "space a e": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior.",
+          "prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior. Format output with concise bullet points and inline code examples.",
         },
       ],
       "space a f": [
@@ -1045,7 +1046,7 @@ Update your keymap.json file with the following key bindings:
       "space a t": [
         "assistant::InlineAssist",
         {
-          "prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions.",
+          "prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions. Output each test as a formatted code block with a descriptive name and arrange/act/assert sections.",
         },
       ],
       "space a d": [
@@ -1123,7 +1124,7 @@ Update your keymap.json file with the following key bindings:
       "space a j": [
         "assistant::InlineAssist",
         {
-          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions.",
+          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added.",
         },
       ],
       "space a x": [
@@ -1313,7 +1314,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 10:04:45 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 10:06:42 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
