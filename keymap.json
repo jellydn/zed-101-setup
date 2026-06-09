@@ -82,6 +82,30 @@
 					"prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
 				},
 			],
+			"space a o": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "How can the selected code or the current line be optimized for performance and readability? Suggest concrete improvements with before/after examples.",
+				},
+			],
+			"space a C": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the recent changes or the selected code. Summarize the changes, explain the rationale, and flag any concerns.",
+				},
+			],
+			"space a x": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Fix diagnostics and lint errors in the selected code or on the current line. Address each issue without changing the intended logic.",
+				},
+			],
+			"space a S": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the selected code or current line for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
+				},
+			],
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
 		},
@@ -239,6 +263,30 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
+				},
+			],
+			"space a o": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "How can the selected code be optimized for performance and readability? Suggest concrete improvements with before/after examples.",
+				},
+			],
+			"space a C": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the selected code changes. Summarize the changes, explain the rationale, and flag any concerns.",
+				},
+			],
+			"space a x": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Fix diagnostics and lint errors in the selected code. Address each issue without changing the intended logic.",
+				},
+			],
+			"space a S": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Review the selected code for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
 				},
 			],
 		},
