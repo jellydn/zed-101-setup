@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 12:20:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 12:21:48 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -890,7 +890,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 12:20:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 12:21:48 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1384,6 +1384,17 @@ Update your keymap.json file with the following key bindings:
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
       "space a t": "agent::NewTerminalThread",
+      "space a a": "agent::Toggle",
+      "space a 1": "agent::Chat",
+      "space a 2": "agent::ChatWithFollow",
+      "space a 3": "agent::NewExternalAgentThread",
+      "space a 4": "agent::FocusAgent",
+      "space a p": "agent::ToggleProfileSelector",
+      "space a /": "agent::ToggleModelSelector",
+      "space a M": "agent::CycleFavoriteModels",
+      "space a F": "agent::ToggleFastMode",
+      "space a K": "agent::ToggleThinkingMode",
+      "space a u": "agent::OpenSettings",
     },
   },
   // File panel (netrw)
@@ -1491,7 +1502,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 12:20:20 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 12:21:48 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
