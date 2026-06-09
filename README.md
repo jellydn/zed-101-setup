@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 12:06:57 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 12:13:43 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -763,7 +763,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 12:06:57 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 12:13:43 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -865,37 +865,37 @@ Update your keymap.json file with the following key bindings:
       "space a r": [
         "assistant::InlineAssist",
         {
-          "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle.",
+          "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle. Show the refactored code as a unified diff.",
         },
       ],
       "space a R": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code or current line. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions in a structured format.",
+          "prompt": "Review the selected code or current line. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions in a structured format. Use severity tags: [HIGH], [MEDIUM], [LOW].",
         },
       ],
       "space a s": [
         "assistant::InlineAssist",
         {
-          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
+          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code with renamed identifiers. Explain each rename in a bullet point.",
         },
       ],
       "space a d": [
         "assistant::InlineAssist",
         {
-          "prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
+          "prompt": "Add concise inline documentation comments to the selected code or current line without changing logic. Output the commented code diff showing only added comment lines.",
         },
       ],
       "space a k": [
         "assistant::InlineAssist",
         {
-          "prompt": "Summarize the selected code or current line. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
+          "prompt": "Summarize the selected code or current line. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior. End with a bullet list of key takeaways.",
         },
       ],
       "space a q": [
         "assistant::InlineAssist",
         {
-          "prompt": "Debug the selected code or current line. Identify potential bugs, edge cases, and logic errors. Suggest fixes that preserve the intended behavior.",
+          "prompt": "Debug the selected code or current line. Identify potential bugs, edge cases, and logic errors. For each issue, show the problematic code snippet, explain the root cause, and propose a fix. Use tags: [BUG], [EDGE_CASE], [PERF].",
         },
       ],
       "space a D": [
@@ -907,67 +907,67 @@ Update your keymap.json file with the following key bindings:
       "space a l": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
+          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause, why it matters, and how to fix it. Provide a code example of the fix in a fenced code block.",
         },
       ],
       "space a o": [
         "assistant::InlineAssist",
         {
-          "prompt": "How can the selected code or the current line be optimized for performance and readability? Suggest concrete improvements with before/after examples.",
+          "prompt": "How can the selected code or the current line be optimized for performance and readability? For each suggestion, show the before/after code in a fenced code block. Prioritize suggestions by impact.",
         },
       ],
       "space a C": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the recent changes or the selected code. Summarize the changes, explain the rationale, and flag any concerns.",
+          "prompt": "Review the recent changes or the selected code. Summarize the changes, explain the rationale, and flag any concerns. Structure the output as: Summary, Rationale, Concerns (with severity).",
         },
       ],
       "space a b": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the behavior and control flow of the selected code or current line. Describe how data moves through the logic, edge cases, and non-obvious interactions.",
+          "prompt": "Explain the behavior and control flow of the selected code or current line. Describe how data moves through the logic, edge cases, and non-obvious interactions. Structure the explanation as a numbered flow sequence.",
         },
       ],
       "space a j": [
         "assistant::InlineAssist",
         {
-          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added.",
+          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added as a unified diff.",
         },
       ],
       "space a x": [
         "assistant::InlineAssist",
         {
-          "prompt": "Fix diagnostics and lint errors in the selected code or on the current line. Address each issue without changing the intended logic.",
+          "prompt": "Fix diagnostics and lint errors in the selected code or on the current line. Address each issue without changing the intended logic. Show the fixed code as a unified diff with each fix explained.",
         },
       ],
       "space a S": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code or current line for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
+          "prompt": "Review the selected code or current line for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. For each finding, show the vulnerable code, explain the risk, and suggest a fix in a code block. Tag findings: [CRITICAL], [HIGH], [MEDIUM], [LOW].",
         },
       ],
       "space a v": [
         "assistant::InlineAssist",
         {
-          "prompt": "Convert or transform the selected code or current line. Migrate to a different approach, pattern, or API as appropriate. Show the transformed version.",
+          "prompt": "Convert or transform the selected code or current line. Migrate to a different approach, pattern, or API as appropriate. Show the full transformed code as a unified diff with a brief explanation of what changed and why.",
         },
       ],
       "space a m": [
         "assistant::InlineAssist",
         {
-          "prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
+          "prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely. Show the simplified version as a unified diff.",
         },
       ],
       "space a g": [
         "assistant::InlineAssist",
         {
-          "prompt": "Generate or scaffold code for the selected context or cursor position. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns.",
+          "prompt": "Generate or scaffold code for the selected context or cursor position. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns. Output the generated code as a fenced code block with a brief description.",
         },
       ],
       "space a h": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the coding concept, pattern, or API at the cursor or in the selection. Provide context, use cases, and examples suitable for a developer learning this topic.",
+          "prompt": "Explain the coding concept, pattern, or API at the cursor or in the selection. Provide context, use cases, and examples suitable for a developer learning this topic. Structure as: What it is, When to use it, How to use it (with code example), Common pitfalls.",
         },
       ],
       // Go to file with `gf`
@@ -1102,25 +1102,25 @@ Update your keymap.json file with the following key bindings:
       "space a d": [
         "assistant::InlineAssist",
         {
-          "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
+          "prompt": "Add concise inline documentation comments to the selected code without changing logic. Output the commented code diff showing only added comment lines.",
         },
       ],
       "space a k": [
         "assistant::InlineAssist",
         {
-          "prompt": "Summarize the selected code. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
+          "prompt": "Summarize the selected code. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior. End with a bullet list of key takeaways.",
         },
       ],
       "space a l": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
+          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause, why it matters, and how to fix it. Provide a code example of the fix in a fenced code block.",
         },
       ],
       "space a q": [
         "assistant::InlineAssist",
         {
-          "prompt": "Debug the selected code. Identify potential bugs, edge cases, and logic errors. Suggest fixes that preserve the intended behavior.",
+          "prompt": "Debug the selected code. Identify potential bugs, edge cases, and logic errors. For each issue, show the problematic code snippet, explain the root cause, and propose a fix. Use tags: [BUG], [EDGE_CASE], [PERF].",
         },
       ],
       "space a D": [
@@ -1132,13 +1132,13 @@ Update your keymap.json file with the following key bindings:
       "space a r": [
         "assistant::InlineAssist",
         {
-          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle.",
+          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle. Show the refactored code as a unified diff.",
         },
       ],
       "space a R": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions.",
+          "prompt": "Review the selected code. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions. Use severity tags: [HIGH], [MEDIUM], [LOW].",
         },
       ],
       "space a n": [
@@ -1150,67 +1150,67 @@ Update your keymap.json file with the following key bindings:
       "space a s": [
         "assistant::InlineAssist",
         {
-          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
+          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code with renamed identifiers. Explain each rename in a bullet point.",
         },
       ],
       "space a o": [
         "assistant::InlineAssist",
         {
-          "prompt": "How can the selected code be optimized for performance and readability? Suggest concrete improvements with before/after examples.",
+          "prompt": "How can the selected code be optimized for performance and readability? For each suggestion, show the before/after code in a fenced code block. Prioritize suggestions by impact.",
         },
       ],
       "space a C": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code changes. Summarize the changes, explain the rationale, and flag any concerns.",
+          "prompt": "Review the selected code changes. Summarize the changes, explain the rationale, and flag any concerns. Structure the output as: Summary, Rationale, Concerns (with severity).",
         },
       ],
       "space a b": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the behavior and control flow of the selected code. Describe how data moves through the logic, edge cases, and non-obvious interactions.",
+          "prompt": "Explain the behavior and control flow of the selected code. Describe how data moves through the logic, edge cases, and non-obvious interactions. Structure the explanation as a numbered flow sequence.",
         },
       ],
       "space a j": [
         "assistant::InlineAssist",
         {
-          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added.",
+          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added as a unified diff.",
         },
       ],
       "space a x": [
         "assistant::InlineAssist",
         {
-          "prompt": "Fix diagnostics and lint errors in the selected code. Address each issue without changing the intended logic.",
+          "prompt": "Fix diagnostics and lint errors in the selected code. Address each issue without changing the intended logic. Show the fixed code as a unified diff with each fix explained.",
         },
       ],
       "space a S": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. Suggest fixes.",
+          "prompt": "Review the selected code for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. For each finding, show the vulnerable code, explain the risk, and suggest a fix in a code block. Tag findings: [CRITICAL], [HIGH], [MEDIUM], [LOW].",
         },
       ],
       "space a v": [
         "assistant::InlineAssist",
         {
-          "prompt": "Convert or transform the selected code. Migrate to a different approach, pattern, or API as appropriate. Show the transformed version.",
+          "prompt": "Convert or transform the selected code. Migrate to a different approach, pattern, or API as appropriate. Show the full transformed code as a unified diff with a brief explanation of what changed and why.",
         },
       ],
       "space a m": [
         "assistant::InlineAssist",
         {
-          "prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
+          "prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely. Show the simplified version as a unified diff.",
         },
       ],
       "space a g": [
         "assistant::InlineAssist",
         {
-          "prompt": "Generate or scaffold code for the selected context. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns.",
+          "prompt": "Generate or scaffold code for the selected context. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns. Output the generated code as a fenced code block with a brief description.",
         },
       ],
       "space a h": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the coding concept, pattern, or API in the selected code. Provide context, use cases, and examples suitable for a developer learning this topic.",
+          "prompt": "Explain the coding concept, pattern, or API in the selected code. Provide context, use cases, and examples suitable for a developer learning this topic. Structure as: What it is, When to use it, How to use it (with code example), Common pitfalls.",
         },
       ],
     },
@@ -1364,7 +1364,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 12:06:57 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 12:13:43 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
