@@ -29,6 +29,7 @@
 			"space a u": "agent::OpenSettings",
 			"space a T": "agent::NewTerminalThread",
 			"space a O": "agent::ToggleOptionsMenu",
+			"space a H": "agent::ReviewBranchDiff",
 			"space a i": "assistant::InlineAssist",
 			"space a e": [
 				"assistant::InlineAssist",
@@ -118,6 +119,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
+				},
+			],
+			"space a g": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Generate or scaffold code for the selected context or cursor position. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns.",
+				},
+			],
+			"space a h": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the coding concept, pattern, or API at the cursor or in the selection. Provide context, use cases, and examples suitable for a developer learning this topic.",
 				},
 			],
 			// Go to file with `gf`
@@ -313,6 +326,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
+				},
+			],
+			"space a g": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Generate or scaffold code for the selected context. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns.",
+				},
+			],
+			"space a h": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the coding concept, pattern, or API in the selected code. Provide context, use cases, and examples suitable for a developer learning this topic.",
 				},
 			],
 		},

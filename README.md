@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 09:37:41 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 09:40:51 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -702,7 +702,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 09:37:41 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 09:40:51 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -734,6 +734,7 @@ Update your keymap.json file with the following key bindings:
       "space a u": "agent::OpenSettings",
       "space a T": "agent::NewTerminalThread",
       "space a O": "agent::ToggleOptionsMenu",
+      "space a H": "agent::ReviewBranchDiff",
       "space a i": "assistant::InlineAssist",
       "space a e": [
         "assistant::InlineAssist",
@@ -823,6 +824,18 @@ Update your keymap.json file with the following key bindings:
         "assistant::InlineAssist",
         {
           "prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
+        },
+      ],
+      "space a g": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Generate or scaffold code for the selected context or cursor position. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns.",
+        },
+      ],
+      "space a h": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the coding concept, pattern, or API at the cursor or in the selection. Provide context, use cases, and examples suitable for a developer learning this topic.",
         },
       ],
       // Go to file with `gf`
@@ -1020,6 +1033,18 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely.",
         },
       ],
+      "space a g": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Generate or scaffold code for the selected context. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns.",
+        },
+      ],
+      "space a h": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the coding concept, pattern, or API in the selected code. Provide context, use cases, and examples suitable for a developer learning this topic.",
+        },
+      ],
     },
   },
   // Better escape
@@ -1167,7 +1192,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 09:37:41 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 09:40:51 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
