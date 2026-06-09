@@ -323,10 +323,12 @@
 		},
 		// Notify when the agent finishes work while Zed is in background
 		// https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
-		"notify_when_agent_waiting": true,
+		// Options: "primary_screen", "all_screens", "never"
+		"notify_when_agent_waiting": "primary_screen",
 		// Play a sound when the agent is done
 		// https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
-		"play_sound_when_agent_done": false,
+		// Options: "never", "when_hidden", "always"
+		"play_sound_when_agent_done": "never",
 		// Show inline diff review for agent edits in the active buffer
 		// https://zed.dev/docs/ai/agent-settings#single-file-review
 		"single_file_review": true,
@@ -347,10 +349,16 @@
 		],
 		// Show multiple inline assist alternatives
 		// https://zed.dev/docs/ai/agent-settings#inline-alternatives
-		"inline_alternatives": {
-			"enabled": true,
-			"count": 3,
-		},
+		"inline_alternatives": [
+			{
+				"provider": "opencode",
+				"model": "free/minimax-m2.5-free",
+			},
+			{
+				"provider": "opencode",
+				"model": "free/big-pickle",
+			},
+		],
 	},
 
 	// Assistant settings (for local AI with Ollama)

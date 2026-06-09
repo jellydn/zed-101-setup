@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 11:18:41 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 12:06:57 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -406,10 +406,12 @@ Update your settings.json file with the following configuration:
     },
     // Notify when the agent finishes work while Zed is in background
     // https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
-    "notify_when_agent_waiting": true,
+    // Options: "primary_screen", "all_screens", "never"
+    "notify_when_agent_waiting": "primary_screen",
     // Play a sound when the agent is done
     // https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
-    "play_sound_when_agent_done": false,
+    // Options: "never", "when_hidden", "always"
+    "play_sound_when_agent_done": "never",
     // Show inline diff review for agent edits in the active buffer
     // https://zed.dev/docs/ai/agent-settings#single-file-review
     "single_file_review": true,
@@ -430,10 +432,16 @@ Update your settings.json file with the following configuration:
     ],
     // Show multiple inline assist alternatives
     // https://zed.dev/docs/ai/agent-settings#inline-alternatives
-    "inline_alternatives": {
-      "enabled": true,
-      "count": 3,
-    },
+    "inline_alternatives": [
+      {
+        "provider": "opencode",
+        "model": "free/minimax-m2.5-free",
+      },
+      {
+        "provider": "opencode",
+        "model": "free/big-pickle",
+      },
+    ],
   },
 
   // Assistant settings (for local AI with Ollama)
@@ -755,7 +763,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 11:18:41 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 12:06:57 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1054,67 +1062,6 @@ Update your keymap.json file with the following key bindings:
       "ctrl-shift-l": "vim::ResizePaneRight",
       // Close active buffer
       "space w d": "pane::CloseActiveItem",
-      // AI agent panel actions
-      "space a c": "agent::ToggleFocus",
-      "space a n": "agent::NewThread",
-      "space a p": "agent::ToggleProfileSelector",
-      "space a /": "agent::ToggleModelSelector",
-      "space a u": "agent::OpenSettings",
-      "space a T": "agent::NewTerminalThread",
-      "space a O": "agent::ToggleOptionsMenu",
-      "space a H": "agent::ReviewBranchDiff",
-      "space a M": "agent::CycleFavoriteModels",
-      "space a F": "agent::ToggleFastMode",
-      "space a K": "agent::ToggleThinkingMode",
-      "space a N": "agent::ToggleNewThreadMenu",
-      "space a A": "agent::Toggle",
-      "space a a": "agent::Toggle",
-      "space a >": "agent::OpenAgentDiff",
-      "space a Y": "agent::Keep",
-      "space a P": "agent::KeepAll",
-      "space a w": "agent::Reject",
-      "space a W": "agent::RejectAll",
-      "space a ,": "agent::CyclePreviousInlineAssist",
-      "space a .": "agent::CycleNextInlineAssist",
-      // Edit predictions (like sidekick Next Edit Suggestions — NES)
-      "alt-.": "editor::AcceptEditPrediction",
-      "alt-,": "editor::ToggleEditPrediction",
-      "space a 1": "agent::Chat",
-      "space a 2": "agent::ChatWithFollow",
-      "space a 3": "agent::NewExternalAgentThread",
-      "space a 4": "agent::FocusAgent",
-      "space a +": "inline_assistant::ThumbsUpResult",
-      "space a -": "inline_assistant::ThumbsDownResult",
-      "space a G": "agent::OpenGlobalAGENTS.mdRules",
-      "space a L": "agent::OpenProjectAGENTS.mdRules",
-      "space a Q": "agent::ManageProfiles",
-      "space a J": "agent::RenameSelectedThread",
-      "space a E": "agent::AddSelectionToThread",
-      "space a @": "agent::OpenAddContextMenu",
-      "space a z": "agent::ExpandMessageEditor",
-      "space a [": "agent::EditFirstQueuedMessage",
-      "space a ]": "agent::RemoveFirstQueuedMessage",
-      "space a ~": "agent::LoadThreadFromClipboard",
-      "space a !": "agent::SendNextQueuedMessage",
-      "space a V": "agent::SendImmediately",
-      "space a =": "agents_sidebar::ToggleThreadSwitcher",
-      "space a #": "agent::ResolveConflictedFilesWithAgent",
-      "space a y": "agent::ResolveConflictsWithAgent",
-      "space a B": "agent::CycleThinkingEffort",
-      "space a I": "agent::ClearMessageQueue",
-      "space a X": "agent::ArchiveSelectedThread",
-      "space a Z": "agent::OpenActiveThreadAsMarkdown",
-      "space a &": "agent::CycleModeSelector",
-      "space a <": "agent::ScrollOutputToPreviousMessage",
-      "space a ?": "agent::ScrollOutputToNextMessage",
-      "space a $": "agent::ScrollOutputToBottom",
-      "space a ^": "agent::ScrollOutputToTop",
-      "space a (": "agent::OpenRulesLibrary",
-      "space a U": "agent::UndoLastReject",
-      "space a `": "agent::CopyThreadToClipboard",
-      "space a f2": "agent::Follow",
-      // Inline assist
-      "space a i": "assistant::InlineAssist",
     },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
@@ -1417,7 +1364,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 11:18:41 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 12:06:57 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
