@@ -37,6 +37,8 @@
 			"space a K": "agent::ToggleThinkingMode",
 			"space a >": "agent::OpenAgentDiff",
 			"space a i": "assistant::InlineAssist",
+			"space a +": "inline_assistant::ThumbsUpResult",
+			"space a -": "inline_assistant::ThumbsDownResult",
 			"space a e": [
 				"assistant::InlineAssist",
 				{

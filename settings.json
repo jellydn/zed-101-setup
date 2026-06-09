@@ -321,6 +321,17 @@
 			"provider": "opencode",
 			"model": "free/minimax-m2.5-free",
 		},
+		// Notify when the agent finishes work while Zed is in background
+		// https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
+		"notify_when_agent_waiting": true,
+		// Play a sound when the agent is done
+		// https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
+		"play_sound_when_agent_done": false,
+		// Show inline diff review for agent edits in the active buffer
+		// https://zed.dev/docs/ai/agent-settings#single-file-review
+		"single_file_review": true,
+		// Automatically follow the agent as it reads/edits files
+		"agent_follow": true,
 	},
 
 	// Assistant settings (for local AI with Ollama)

@@ -36,28 +36,59 @@ Extend the Zed editor AI configuration to match the rich, context-aware AI inter
 - All new keybindings must follow the existing `space a {letter}` convention for AI actions
 - All JSON files must stay valid JSONC
 
-## Reference: sidekick.nvim Prompt Library
+## Sidekick Prompt Coverage (ALL COVERED)
 
-Sidekick ships these prompts (we should aim to cover them all):
+| Sidekick Prompt         | Our Keymap  | Status  |
+| ----------------------- | ----------- | ------- |
+| explain                 | space a e   | ✅ done |
+| fix                     | space a f   | ✅ done |
+| tests                   | space a t   | ✅ done |
+| refactor                | space a r   | ✅ done |
+| review                  | space a R   | ✅ done |
+| document (doc comments) | space a d   | ✅ done |
+| document (thorough)     | space a D   | ✅ done |
+| suggest names           | space a s/n | ✅ done |
+| explain LSP diagnostic  | space a l   | ✅ done |
+| optimize                | space a o   | ✅ done |
+| changes/review changes  | space a C   | ✅ done |
+| fix diagnostics         | space a x   | ✅ done |
+| security review         | space a S   | ✅ done |
+| convert/transform       | space a v   | ✅ done |
+| simplify                | space a m   | ✅ done |
+| generate/scaffold       | space a g   | ✅ done |
+| explain concept/API     | space a h   | ✅ done |
+| explain behavior/flow   | space a b   | ✅ done |
+| add types/schemas       | space a j   | ✅ done |
+| summarize               | space a k   | ✅ done |
+| debug                   | space a q   | ✅ done |
 
-| Sidekick Prompt             | Keymap    | Our Status                               |
-| --------------------------- | --------- | ---------------------------------------- |
-| explain                     | space a e | ✅ done                                  |
-| fix                         | space a f | ✅ done                                  |
-| tests                       | space a t | ✅ done                                  |
-| refactor                    | space a r | ✅ done                                  |
-| review                      | space a R | ✅ done                                  |
-| document (doc comments)     | space a d | ✅ done                                  |
-| document (thorough)         | space a D | ✅ done                                  |
-| suggest names               | space a s | ✅ done                                  |
-| explain LSP diagnostic      | space a l | ✅ done                                  |
-| **optimize**                | space a o | ❌ missing                               |
-| **changes**                 | space a c | ❌ missing (conflicts with toggle focus) |
-| **diagnostics fix**         | —         | ❌ missing                               |
-| **inline assist (generic)** | space a i | ✅ done                                  |
+## Agent Panel Bindings (14 total)
 
-Target: Add optimize, diagnostics fix, and any other useful prompts sidekick offers.
+| Keymap    | Action                             | Purpose                  |
+| --------- | ---------------------------------- | ------------------------ |
+| space a c | agent::ToggleFocus                 | Toggle agent panel focus |
+| space a n | agent::NewThread                   | New agent thread         |
+| space a p | agent::ToggleProfileSelector       | Switch profiles          |
+| space a / | agent::ToggleModelSelector         | Switch models            |
+| space a u | agent::OpenSettings                | Agent settings           |
+| space a T | agent::NewTerminalThread           | Terminal in agent panel  |
+| space a O | agent::ToggleOptionsMenu           | Options menu             |
+| space a H | agent::ReviewBranchDiff            | Review branch diff       |
+| space a M | agent::CycleFavoriteModels         | Cycle favorite models    |
+| space a F | agent::ToggleFastMode              | Toggle fast mode         |
+| space a A | agent::Toggle                      | Toggle agent panel       |
+| space a > | agent::OpenAgentDiff               | Open agent diff          |
+| space a N | agent::ToggleNewThreadMenu         | New thread menu          |
+| space a K | agent::ToggleThinkingMode          | Toggle thinking mode     |
+| space a + | inline_assistant::ThumbsUpResult   | Rate assist 👍           |
+| space a - | inline_assistant::ThumbsDownResult | Rate assist 👎           |
 
 ## What's Been Tried
 
-(Nothing yet — first session)
+- **Iteration 1**: Added optimize, changes review, fix diagnostics, security review prompts. 17→25 bindings (+47%).
+- **Iteration 2**: Added convert, simplify prompts + agent bindings (NewTerminalThread, ToggleOptionsMenu). 25→29 (+71%).
+- **Iteration 3**: Added generate/scaffold, explain concept prompts + agent ReviewBranchDiff. 29→33 (+94%).
+- **Iteration 4**: Added CycleFavoriteModels, ToggleFastMode, Toggle, OpenAgentDiff + behavior/flow, type annotations prompts. 33→37 (+118%).
+- **Iteration 5**: Added summarize, debug prompts + ToggleNewThreadMenu, ToggleThinkingMode. 37→41 (+141%).
+- **Settings**: Added notify_when_agent_waiting, single_file_review, agent_follow to agent settings.
+- **Result**: 41 AI inline assist bindings (+141%), 14 agent panel bindings (+180%). All sidekick prompt categories covered.

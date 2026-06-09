@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 09:40:51 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 09:45:08 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -404,6 +404,17 @@ Update your settings.json file with the following configuration:
       "provider": "opencode",
       "model": "free/minimax-m2.5-free",
     },
+    // Notify when the agent finishes work while Zed is in background
+    // https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
+    "notify_when_agent_waiting": true,
+    // Play a sound when the agent is done
+    // https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
+    "play_sound_when_agent_done": false,
+    // Show inline diff review for agent edits in the active buffer
+    // https://zed.dev/docs/ai/agent-settings#single-file-review
+    "single_file_review": true,
+    // Automatically follow the agent as it reads/edits files
+    "agent_follow": true,
   },
 
   // Assistant settings (for local AI with Ollama)
@@ -702,7 +713,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 09:40:51 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 09:45:08 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -732,10 +743,18 @@ Update your keymap.json file with the following key bindings:
       "space a p": "agent::ToggleProfileSelector",
       "space a /": "agent::ToggleModelSelector",
       "space a u": "agent::OpenSettings",
+      "space a N": "agent::ToggleNewThreadMenu",
+      "space a A": "agent::Toggle",
       "space a T": "agent::NewTerminalThread",
       "space a O": "agent::ToggleOptionsMenu",
       "space a H": "agent::ReviewBranchDiff",
+      "space a M": "agent::CycleFavoriteModels",
+      "space a F": "agent::ToggleFastMode",
+      "space a K": "agent::ToggleThinkingMode",
+      "space a >": "agent::OpenAgentDiff",
       "space a i": "assistant::InlineAssist",
+      "space a +": "inline_assistant::ThumbsUpResult",
+      "space a -": "inline_assistant::ThumbsDownResult",
       "space a e": [
         "assistant::InlineAssist",
         {
@@ -778,6 +797,18 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
         },
       ],
+      "space a k": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Summarize the selected code or current line. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
+        },
+      ],
+      "space a q": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Debug the selected code or current line. Identify potential bugs, edge cases, and logic errors. Suggest fixes that preserve the intended behavior.",
+        },
+      ],
       "space a D": [
         "assistant::InlineAssist",
         {
@@ -800,6 +831,18 @@ Update your keymap.json file with the following key bindings:
         "assistant::InlineAssist",
         {
           "prompt": "Review the recent changes or the selected code. Summarize the changes, explain the rationale, and flag any concerns.",
+        },
+      ],
+      "space a b": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the behavior and control flow of the selected code or current line. Describe how data moves through the logic, edge cases, and non-obvious interactions.",
+        },
+      ],
+      "space a j": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions.",
         },
       ],
       "space a x": [
@@ -973,6 +1016,18 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
         },
       ],
+      "space a k": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Summarize the selected code. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
+        },
+      ],
+      "space a q": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Debug the selected code. Identify potential bugs, edge cases, and logic errors. Suggest fixes that preserve the intended behavior.",
+        },
+      ],
       "space a D": [
         "assistant::InlineAssist",
         {
@@ -1007,6 +1062,18 @@ Update your keymap.json file with the following key bindings:
         "assistant::InlineAssist",
         {
           "prompt": "Review the selected code changes. Summarize the changes, explain the rationale, and flag any concerns.",
+        },
+      ],
+      "space a b": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the behavior and control flow of the selected code. Describe how data moves through the logic, edge cases, and non-obvious interactions.",
+        },
+      ],
+      "space a j": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions.",
         },
       ],
       "space a x": [
@@ -1192,7 +1259,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 09:40:51 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 09:45:08 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
