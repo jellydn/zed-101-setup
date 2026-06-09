@@ -22,6 +22,7 @@
 			// Search on current buffer
 			"space s b": "buffer_search::Deploy",
 			// Chat with AI (Code Companion–style: space a + letter)
+			"space a a": "agent::Toggle",
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
 			"space a p": "agent::ToggleProfileSelector",
