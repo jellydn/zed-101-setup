@@ -27,9 +27,13 @@
 			"space a p": "agent::ToggleProfileSelector",
 			"space a /": "agent::ToggleModelSelector",
 			"space a u": "agent::OpenSettings",
+			"space a A": "agent::Toggle",
 			"space a T": "agent::NewTerminalThread",
 			"space a O": "agent::ToggleOptionsMenu",
 			"space a H": "agent::ReviewBranchDiff",
+			"space a M": "agent::CycleFavoriteModels",
+			"space a F": "agent::ToggleFastMode",
+			"space a >": "agent::OpenAgentDiff",
 			"space a i": "assistant::InlineAssist",
 			"space a e": [
 				"assistant::InlineAssist",
