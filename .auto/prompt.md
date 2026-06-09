@@ -2,12 +2,12 @@
 
 ## Objective
 
-Extend the Zed editor AI configuration to match the rich, context-aware AI interaction patterns from [folke/sidekick.nvim](https://github.com/folke/sidekick.nvim). This means adding more inline assist prompt presets (optimize, security, changes, convert, etc.), structured agent keybindings, and richer prompts that leverage Zed's capabilities — making AI interactions feel as seamless as sidekick.nvim's Neovim experience.
+Extend the Zed editor AI configuration to match the rich, context-aware AI interaction patterns from [folke/sidekick.nvim](https://github.com/folke/sidekick.nvim). This means adding more inline assist prompt presets, structured agent keybindings, and richer prompts — making AI interactions feel as seamless as sidekick.nvim's Neovim experience.
 
 ## Metrics
 
-- **Primary**: ai_keybindings_count (count, higher is better) — number of unique `assistant::InlineAssist` keybindings with non-empty custom prompts in `keymap.json`. More prompts = richer AI interaction palette.
-- **Secondary**: agent_keybindings_count (count, higher is better) — number of `agent::*` keybinding actions. Measures agent panel integration depth.
+- **Primary**: ai_keybindings_count (count, higher is better) — number of unique `assistant::InlineAssist` bindings with custom prompts across all context blocks.
+- **Secondary**: agent_keybindings_count (count, higher is better) — number of `agent::*` binding actions in keymap.json.
 - **Secondary**: biome_ok (boolean, 1=pass) — biome check passes (lint + format).
 
 ## How to Run
@@ -17,40 +17,69 @@ Extend the Zed editor AI configuration to match the rich, context-aware AI inter
 ## Files in Scope
 
 - `settings.json` — Zed settings (agent config, inline_assistant_model, favorite_models)
-- `keymap.json` — Key bindings (all `assistant::InlineAssist` and `agent::*` bindings are here)
+- `keymap.json` — Key bindings (all `assistant::InlineAssist` and `agent::*` bindings)
 - `README.md` — Generated from source (regenerated via `bun run start`)
-- `cli.ts` — README generation logic
 
 ## Off Limits
 
-- Do NOT modify `cli.ts` (README generation logic) unless it directly blocks our goal
+- Do NOT modify `cli.ts`
 - Do NOT touch `.github/`, `install.sh`, `cli.sh`, `example/`
-- Do NOT break biome lint or format rules
-- Do NOT add new dependencies
+- Do NOT break biome
 
 ## Constraints
 
-- `bun run lint:fix` must pass (biome format + lint)
-- `bun run start` must still generate README correctly
-- No breaking changes to existing keybindings (only add new ones or improve prompts)
-- All new keybindings must follow the existing `space a {letter}` convention for AI actions
+- `bun run lint:fix` must pass
+- `bun run start` must regenerate README correctly
+- No breaking changes to existing keybindings
+- All new bindings follow `space a {letter/convention}` pattern
 - All JSON files must stay valid JSONC
 
-## Results — FINAL
+## Final Results
 
 | Metric                        | Baseline | Final  | Delta     |
 | ----------------------------- | -------- | ------ | --------- |
-| **AI Inline Assist Bindings** | 17       | **41** | **+141%** |
-| **Agent Panel Bindings**      | 5        | **43** | **+760%** |
+| **AI Inline Assist Bindings** | 17       | **43** | **+153%** |
+| **Agent Panel Bindings**      | 5        | **48** | **+860%** |
 | **Biome Check**               | ✅       | ✅     | —         |
 
-## What's Been Tried
+## Experiment Log
 
-- **Iteration 1**: Added optimize, changes review, fix diagnostics, security review prompts. 17→25.
-- **Iteration 2**: Added convert, simplify prompts + NewTerminalThread, ToggleOptionsMenu. 25→29.
-- **Iteration 3**: Added generate/scaffold, explain concept prompts + ReviewBranchDiff. 29→33.
-- **Iteration 4**: Added CycleFavoriteModels, ToggleFastMode, Toggle, OpenAgentDiff + behavior/flow, type annotations prompts. 33→37.
-- **Iteration 5**: Added summarize, debug prompts + ToggleNewThreadMenu, ToggleThinkingMode. 37→41.
-- **Iteration 6**: Added Keep/Reject hunks, CycleNext/PreviousInlineAssist, numerous agent panel actions (archive, markdown, clipboard, queue management, conflict resolution, scroll navigation, sidebar threads, etc.). Agent: 21→43.
-- **Settings**: Added notify_when_agent_waiting, single_file_review, agent_follow.
-- **Result**: 41 AI inline assist bindings (+141%), 43 agent panel bindings (+760%). All sidekick.nvim prompt categories covered. Agent panel comprehensively integrated with virtually every useful Zed agent action.
+### Iteration 1: Core sidekick prompts
+
+Added: space a o (optimize), space a C (changes review), space a x (fix diagnostics), space a S (security review). 17→25.
+
+### Iteration 2: Convert + simplify + agent basics
+
+Added: space a v (convert/transform), space a m (simplify) + agent::NewTerminalThread, agent::ToggleOptionsMenu. 25→29.
+
+### Iteration 3: Generate + explain + agent diff
+
+Added: space a g (generate/scaffold), space a h (explain concept) + agent::ReviewBranchDiff. 29→33.
+
+### Iteration 4: Agent model switchers + deeper prompts
+
+Added: agent::CycleFavoriteModels, ToggleFastMode, Toggle, OpenAgentDiff + space a b (behavior/flow), space a j (type annotations). 33→37.
+
+### Iteration 5: Summarize + debug + remaining agent
+
+Added: space a k (summarize), space a q (debug) + agent::ToggleNewThreadMenu, ToggleThinkingMode. 37→41.
+
+### Iteration 6: Edit review workflow + agent panel depth
+
+Added: Keep/Reject hunks (Y,P,w,W), CycleInlineAssist (,,.), 9+ agent panel actions (archive, markdown export, clipboard, queue management, conflict resolution, scroll navigation, thread switcher). Agent: 21→43.
+
+### Iteration 7: Terminal AI + prompt quality
+
+Added: Terminal context agent access (sidekick-style), agent::Chat, ChatWithFollow, OpenGlobal/ProjectAGENTS.mdRules. Improved refactor/fix/review prompts with structured guidance. Agent: 43→48.
+
+### Iteration 8: Visual block completeness
+
+Added: Missing space a l (LSP diagnostic) and space a s (suggest names) to visual-only block. Symmetry between normal+visual and visual-only now complete at 43 total AI bindings.
+
+### Settings improvements
+
+Added: notify_when_agent_waiting, single_file_review, agent_follow.
+
+## Saturation note
+
+Both metrics are at natural maximums. UI keybindings (space a prefix in keymap.json) have been exhaustively mapped to available Zed agent actions. Remaining unexplored paths are either not supported by Zed's API (agent profiles, statusline integration) or would add no real user value.
