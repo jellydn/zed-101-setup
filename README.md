@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 23:12:35 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 23:29:24 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -170,8 +170,9 @@ Update your settings.json file with the following configuration:
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/minimax-m3-free",
-        "mode": "build",
+        "effort": "max",
+        "model": "opencode/mimo-v2.5-free",
+        "mode": "plan",
       },
       "favorite_config_option_values": {
         "model": ["opencode/deepseek-v4-flash-free", "opencode/mimo-v2.5-free"],
@@ -362,7 +363,7 @@ Update your settings.json file with the following configuration:
   // Agent (AI) panel settings
   // https://zed.dev/docs/ai/agent-settings
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "favorite_models": [
       {
         "provider": "opencode",
@@ -891,7 +892,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 23:12:35 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 23:29:24 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -954,22 +955,15 @@ Update your keymap.json file with the following key bindings:
         },
       ],
       // Agent panel (chat panel)
-      "space a 1": "agent::Chat",
-      "space a a": "agent::Toggle",
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
-      "space a T": "agent::NewTerminalThread",
       "space a p": "agent::ToggleProfileSelector",
       "space a /": "agent::ToggleModelSelector",
       "space a M": "agent::CycleFavoriteModels",
       "space a u": "agent::OpenSettings",
-      "space a L": "agent::OpenProjectAGENTS.mdRules",
-      "space a E": "agent::AddSelectionToThread",
-      "space a Y": "agent::Keep",
-      "space a w": "agent::Reject",
-      "space a >": "agent::OpenAgentDiff",
-      "space a +": "inline_assistant::ThumbsUpResult",
-      "space a -": "inline_assistant::ThumbsDownResult",
+      "space a A": "agent::OpenProjectAGENTS.mdRules",
+      "space a s": "agent::AddSelectionToThread",
+      "space a D": "agent::OpenAgentDiff",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
     },
@@ -1111,13 +1105,12 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
         },
       ],
-      "space a k": [
+      "space a s": [
         "assistant::InlineAssist",
         {
           "prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
         },
       ],
-      "space a n": "agent::NewThread",
     },
   },
   // Better escape
@@ -1158,12 +1151,6 @@ Update your keymap.json file with the following key bindings:
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-      // AI agent access from terminal
-      "space a c": "agent::ToggleFocus",
-      "space a n": "agent::NewThread",
-      "space a a": "agent::Toggle",
-      "space a 1": "agent::Chat",
-      "space a p": "agent::ToggleProfileSelector",
     },
   },
   // File panel (netrw)
@@ -1271,7 +1258,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 23:12:35 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 23:29:24 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
