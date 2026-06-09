@@ -101,6 +101,18 @@
 					"prompt": "Review the recent changes or the selected code. Summarize the changes, explain the rationale, and flag any concerns.",
 				},
 			],
+			"space a b": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the behavior and control flow of the selected code or current line. Describe how data moves through the logic, edge cases, and non-obvious interactions.",
+				},
+			],
+			"space a j": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions.",
+				},
+			],
 			"space a x": [
 				"assistant::InlineAssist",
 				{
@@ -306,6 +318,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Review the selected code changes. Summarize the changes, explain the rationale, and flag any concerns.",
+				},
+			],
+			"space a b": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Explain the behavior and control flow of the selected code. Describe how data moves through the logic, edge cases, and non-obvious interactions.",
+				},
+			],
+			"space a j": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions.",
 				},
 			],
 			"space a x": [
