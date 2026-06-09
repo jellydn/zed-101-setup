@@ -27,12 +27,14 @@
 			"space a p": "agent::ToggleProfileSelector",
 			"space a /": "agent::ToggleModelSelector",
 			"space a u": "agent::OpenSettings",
+			"space a N": "agent::ToggleNewThreadMenu",
 			"space a A": "agent::Toggle",
 			"space a T": "agent::NewTerminalThread",
 			"space a O": "agent::ToggleOptionsMenu",
 			"space a H": "agent::ReviewBranchDiff",
 			"space a M": "agent::CycleFavoriteModels",
 			"space a F": "agent::ToggleFastMode",
+			"space a K": "agent::ToggleThinkingMode",
 			"space a >": "agent::OpenAgentDiff",
 			"space a i": "assistant::InlineAssist",
 			"space a e": [
@@ -75,6 +77,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
+				},
+			],
+			"space a k": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Summarize the selected code or current line. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
+				},
+			],
+			"space a q": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Debug the selected code or current line. Identify potential bugs, edge cases, and logic errors. Suggest fixes that preserve the intended behavior.",
 				},
 			],
 			"space a D": [
@@ -282,6 +296,18 @@
 				"assistant::InlineAssist",
 				{
 					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
+				},
+			],
+			"space a k": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Summarize the selected code. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
+				},
+			],
+			"space a q": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Debug the selected code. Identify potential bugs, edge cases, and logic errors. Suggest fixes that preserve the intended behavior.",
 				},
 			],
 			"space a D": [
