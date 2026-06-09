@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 09:52:45 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 09:59:14 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -713,7 +713,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 09:52:45 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 09:59:14 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -738,6 +738,8 @@ Update your keymap.json file with the following key bindings:
       // Search on current buffer
       "space s b": "buffer_search::Deploy",
       // Chat with AI (Code Companion–style: space a + letter)
+      "space a 1": "agent::Chat",
+      "space a 2": "agent::ChatWithFollow",
       "space a a": "agent::Toggle",
       "space a L": "agent::OpenProjectAGENTS.mdRules",
       "space a E": "agent::AddSelectionToThread",
@@ -797,7 +799,7 @@ Update your keymap.json file with the following key bindings:
       "space a f": [
         "assistant::InlineAssist",
         {
-          "prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style.",
+          "prompt": "Fix bugs and issues in the selected code or on the current line. Identify root causes, not just symptoms. Preserve behavior unless the fix requires a behavior change; match local style and add minimal comments explaining each fix.",
         },
       ],
       "space a t": [
@@ -809,13 +811,13 @@ Update your keymap.json file with the following key bindings:
       "space a r": [
         "assistant::InlineAssist",
         {
-          "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior.",
+          "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle.",
         },
       ],
       "space a R": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions.",
+          "prompt": "Review the selected code or current line. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions.",
         },
       ],
       "space a s": [
@@ -1055,6 +1057,12 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Summarize the selected code. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior.",
         },
       ],
+      "space a l": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
+        },
+      ],
       "space a q": [
         "assistant::InlineAssist",
         {
@@ -1070,19 +1078,25 @@ Update your keymap.json file with the following key bindings:
       "space a r": [
         "assistant::InlineAssist",
         {
-          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior.",
+          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle.",
         },
       ],
       "space a R": [
         "assistant::InlineAssist",
         {
-          "prompt": "Review the selected code. List issues by severity with concrete improvement suggestions.",
+          "prompt": "Review the selected code. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions.",
         },
       ],
       "space a n": [
         "assistant::InlineAssist",
         {
           "prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
+        },
+      ],
+      "space a s": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
         },
       ],
       "space a o": [
@@ -1185,6 +1199,10 @@ Update your keymap.json file with the following key bindings:
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
+      // AI agent access from terminal (sidekick-style)
+      "space a c": "agent::ToggleFocus",
+      "space a n": "agent::NewThread",
+      "space a t": "agent::NewTerminalThread",
     },
   },
   // File panel (netrw)
@@ -1292,7 +1310,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 09:52:45 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 09:59:14 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
