@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 22:06:40 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 23:03:17 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -778,7 +778,6 @@ Update your settings.json file with the following configuration:
   "terminal": {
     "shell": {
       // Edit this path to match your local codemux binary location
-      // Edit this path to match your local codemux binary location
       "program": "/Users/huynhdung/.cargo/bin/codemux",
     },
     "show_count_badge": true,
@@ -892,7 +891,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 22:06:40 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 23:03:17 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1494,7 +1493,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 22:06:40 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 23:03:17 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
