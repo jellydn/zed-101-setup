@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 09:45:08 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 09:49:22 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -713,7 +713,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 09:45:08 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 09:49:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -738,6 +738,11 @@ Update your keymap.json file with the following key bindings:
       // Search on current buffer
       "space s b": "buffer_search::Deploy",
       // Chat with AI (Code Companion–style: space a + letter)
+      "space a a": "agent::Toggle",
+      "space a L": "agent::OpenProjectAGENTS.mdRules",
+      "space a E": "agent::AddSelectionToThread",
+      "space a @": "agent::OpenAddContextMenu",
+      "space a z": "agent::ExpandMessageEditor",
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
       "space a p": "agent::ToggleProfileSelector",
@@ -750,8 +755,16 @@ Update your keymap.json file with the following key bindings:
       "space a H": "agent::ReviewBranchDiff",
       "space a M": "agent::CycleFavoriteModels",
       "space a F": "agent::ToggleFastMode",
+      "space a G": "agent::OpenGlobalAGENTS.mdRules",
+      "space a U": "agent::UndoLastReject",
       "space a K": "agent::ToggleThinkingMode",
       "space a >": "agent::OpenAgentDiff",
+      "space a Y": "agent::Keep",
+      "space a P": "agent::KeepAll",
+      "space a w": "agent::Reject",
+      "space a W": "agent::RejectAll",
+      "space a ,": "agent::CyclePreviousInlineAssist",
+      "space a .": "agent::CycleNextInlineAssist",
       "space a i": "assistant::InlineAssist",
       "space a +": "inline_assistant::ThumbsUpResult",
       "space a -": "inline_assistant::ThumbsDownResult",
@@ -1259,7 +1272,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 09:45:08 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 09:49:22 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
