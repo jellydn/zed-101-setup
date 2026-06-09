@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 10:06:42 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 10:08:32 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -415,6 +415,25 @@ Update your settings.json file with the following configuration:
     "single_file_review": true,
     // Automatically follow the agent as it reads/edits files
     "agent_follow": true,
+    // Model-specific generation parameters
+    // https://zed.dev/docs/ai/agent-settings#model-temperature
+    "model_parameters": [
+      {
+        "provider": "opencode",
+        // Lower temperature for code editing (more deterministic)
+        "temperature": 0.3,
+      },
+      {
+        "provider": "CrofAI",
+        "temperature": 0.4,
+      },
+    ],
+    // Show multiple inline assist alternatives
+    // https://zed.dev/docs/ai/agent-settings#inline-alternatives
+    "inline_alternatives": {
+      "enabled": true,
+      "count": 3,
+    },
   },
 
   // Assistant settings (for local AI with Ollama)
@@ -713,7 +732,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 10:06:42 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 10:08:32 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -741,6 +760,7 @@ Update your keymap.json file with the following key bindings:
       "space a 1": "agent::Chat",
       "space a 2": "agent::ChatWithFollow",
       "space a 3": "agent::NewExternalAgentThread",
+      "space a 4": "agent::FocusAgent",
       "space a a": "agent::Toggle",
       "space a L": "agent::OpenProjectAGENTS.mdRules",
       "space a E": "agent::AddSelectionToThread",
@@ -1314,7 +1334,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 10:06:42 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 10:08:32 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

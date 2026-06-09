@@ -25,6 +25,7 @@
 			"space a 1": "agent::Chat",
 			"space a 2": "agent::ChatWithFollow",
 			"space a 3": "agent::NewExternalAgentThread",
+			"space a 4": "agent::FocusAgent",
 			"space a a": "agent::Toggle",
 			"space a L": "agent::OpenProjectAGENTS.mdRules",
 			"space a E": "agent::AddSelectionToThread",

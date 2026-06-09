@@ -332,6 +332,25 @@
 		"single_file_review": true,
 		// Automatically follow the agent as it reads/edits files
 		"agent_follow": true,
+		// Model-specific generation parameters
+		// https://zed.dev/docs/ai/agent-settings#model-temperature
+		"model_parameters": [
+			{
+				"provider": "opencode",
+				// Lower temperature for code editing (more deterministic)
+				"temperature": 0.3,
+			},
+			{
+				"provider": "CrofAI",
+				"temperature": 0.4,
+			},
+		],
+		// Show multiple inline assist alternatives
+		// https://zed.dev/docs/ai/agent-settings#inline-alternatives
+		"inline_alternatives": {
+			"enabled": true,
+			"count": 3,
+		},
 	},
 
 	// Assistant settings (for local AI with Ollama)
