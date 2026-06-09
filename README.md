@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 12:25:47 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Tue Jun 09 2026 12:51:49 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -534,7 +534,7 @@ Update your settings.json file with the following configuration:
               "pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
             },
             {
-              "pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd])",
+              "pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd]))",
             },
             {
               "pattern": "^(ls|cat|head|tail|wc|echo|pwd|which|type|file)",
@@ -645,6 +645,7 @@ Update your settings.json file with the following configuration:
             "max_tokens": 10000000,
             "capabilities": {
               "tools": true,
+              "images": true,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
             },
@@ -890,7 +891,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 12:25:47 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Tue Jun 09 2026 12:51:49 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1497,7 +1498,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 12:25:47 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Tue Jun 09 2026 12:51:49 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",

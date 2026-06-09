@@ -451,7 +451,7 @@
 							"pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
 						},
 						{
-							"pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd])",
+							"pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd]))",
 						},
 						{
 							"pattern": "^(ls|cat|head|tail|wc|echo|pwd|which|type|file)",
@@ -562,6 +562,7 @@
 						"max_tokens": 10000000,
 						"capabilities": {
 							"tools": true,
+							"images": true,
 							"parallel_tool_calls": true,
 							"prompt_cache_key": true,
 						},
