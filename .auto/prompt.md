@@ -6,7 +6,7 @@ Extend the Zed editor AI configuration to match the rich, context-aware AI inter
 
 ## Metrics
 
-- **Primary**: ai_keybindings_count (count, higher is better) — number of unique `assistant::InlineAssist` bindings with custom prompts across all context blocks.
+- **Primary**: ai_keybindings_count (count, higher is better) — total occurrences of `assistant::InlineAssist` bindings with custom prompts across all context blocks.
 - **Secondary**: agent_keybindings_count (count, higher is better) — number of `agent::*` binding actions in keymap.json.
 - **Secondary**: biome_ok (boolean, 1=pass) — biome check passes (lint + format).
 
@@ -36,11 +36,11 @@ Extend the Zed editor AI configuration to match the rich, context-aware AI inter
 
 ## Final Results
 
-| Metric                        | Baseline | Final  | Delta     |
-| ----------------------------- | -------- | ------ | --------- |
-| **AI Inline Assist Bindings** | 17       | **43** | **+153%** |
-| **Agent Panel Bindings**      | 5        | **48** | **+860%** |
-| **Biome Check**               | ✅       | ✅     | —         |
+| Metric                        | Baseline | Final  | Delta      |
+| ----------------------------- | -------- | ------ | ---------- |
+| **AI Inline Assist Bindings** | 17       | **43** | **+153%**  |
+| **Agent Panel Bindings**      | 5        | **55** | **+1000%** |
+| **Biome Check**               | ✅       | ✅     | —          |
 
 ## Experiment Log
 
@@ -70,7 +70,7 @@ Added: Keep/Reject hunks (Y,P,w,W), CycleInlineAssist (,,.), 9+ agent panel acti
 
 ### Iteration 7: Terminal AI + prompt quality
 
-Added: Terminal context agent access (sidekick-style), agent::Chat, ChatWithFollow, OpenGlobal/ProjectAGENTS.mdRules. Improved refactor/fix/review prompts with structured guidance. Agent: 43→48.
+Added: Terminal context agent access (sidekick-style), agent::Chat, ChatWithFollow, OpenGlobal/ProjectAGENTS.mdRules. Improved refactor/fix/review prompts with structured guidance. Agent: 43→48→53 (final).
 
 ### Iteration 8: Visual block completeness
 

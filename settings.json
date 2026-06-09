@@ -558,7 +558,8 @@
 	"terminal": {
 		"shell": {
 			// Edit this path to match your local codemux binary location
-			"program": "/Users/huynhdung/.cargo/bin/codemux",
+			// Edit this path to match your local codemux binary location
+		"program": "/Users/huynhdung/.cargo/bin/codemux",
 		},
 		"show_count_badge": true,
 		"font_size": 17.0,

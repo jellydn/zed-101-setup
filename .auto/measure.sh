@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Measure: AI keybindings and agent bindings count
-# Handles JSONC (JSON with Comments, trailing commas) for keymap.json and settings.json
+# Handles JSONC (comments, trailing commas) for keymap.json only
 
 cd "$(dirname "$0")/.."
 
