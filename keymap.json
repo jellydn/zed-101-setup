@@ -21,185 +21,61 @@
 			"space s w": "pane::DeploySearch",
 			// Search on current buffer
 			"space s b": "buffer_search::Deploy",
-			// Chat with AI (Code Companion–style: space a + letter)
-			"space a 1": "agent::Chat",
-			"space a 2": "agent::ChatWithFollow",
-			"space a 4": "agent::FocusAgent",
-			"space a a": "agent::Toggle",
-			"space a L": "agent::OpenProjectAGENTS.mdRules",
-			"space a E": "agent::AddSelectionToThread",
-			"space a @": "agent::OpenAddContextMenu",
-			"space a I": "agent::ClearMessageQueue",
-			"space a z": "agent::ExpandMessageEditor",
-			"space a [": "agent::EditFirstQueuedMessage",
-			"space a ]": "agent::RemoveFirstQueuedMessage",
-			"space a `": "agent::CopyThreadToClipboard",
-			"space a ~": "agent::LoadThreadFromClipboard",
-			"space a c": "agent::ToggleFocus",
-			"space a n": "agent::NewThread",
-			"space a p": "agent::ToggleProfileSelector",
-			"space a /": "agent::ToggleModelSelector",
-			"space a V": "agent::SendImmediately",
-			"space a !": "agent::SendNextQueuedMessage",
-			"space a =": "agents_sidebar::ToggleThreadSwitcher",
-			"space a &": "agent::CycleModeSelector",
-			"space a <": "agent::ScrollOutputToPreviousMessage",
-			"space a ?": "agent::ScrollOutputToNextMessage",
-			"space a $": "agent::ScrollOutputToBottom",
-			"space a ^": "agent::ScrollOutputToTop",
-			"space a (": "agent::OpenRulesLibrary",
-			"space a B": "agent::CycleThinkingEffort",
-			"space a X": "agent::ArchiveSelectedThread",
-			"space a Z": "agent::OpenActiveThreadAsMarkdown",
-			"space a u": "agent::OpenSettings",
-			"space a N": "agent::ToggleNewThreadMenu",
-			"space a A": "agent::Toggle",
-			"space a T": "agent::NewTerminalThread",
-			"space a O": "agent::ToggleOptionsMenu",
-			"space a M": "agent::CycleFavoriteModels",
-			"space a F": "agent::ToggleFastMode",
-			"space a G": "agent::OpenGlobalAGENTS.mdRules",
-			"space a U": "agent::UndoLastReject",
-			"space a K": "agent::ToggleThinkingMode",
-			"space a >": "agent::OpenAgentDiff",
-			"space a Y": "agent::Keep",
-			"space a P": "agent::KeepAll",
-			"space a w": "agent::Reject",
-			"space a W": "agent::RejectAll",
-			"space a ,": "agent::CyclePreviousInlineAssist",
-			"space a .": "agent::CycleNextInlineAssist",
-			"space a f2": "agent::Follow",
-			"space a Q": "agent::ManageProfiles",
-			"space a J": "agent::RenameSelectedThread",
+			// Chat with AI — inline assists (editor buffer)
 			"space a i": "assistant::InlineAssist",
-			"space a +": "inline_assistant::ThumbsUpResult",
-			"space a -": "inline_assistant::ThumbsDownResult",
 			"space a e": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior. Format output with concise bullet points and inline code examples.",
+					"prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
 				},
 			],
 			"space a f": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Fix bugs and issues in the selected code or on the current line. Identify root causes, not just symptoms. Preserve behavior unless the fix requires a behavior change; match local style and add minimal comments explaining each fix. Show the fixed code as a unified diff.",
+					"prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
 				},
 			],
 			"space a t": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions. Output each test as a formatted code block with a descriptive name and arrange/act/assert sections.",
+					"prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
 				},
 			],
 			"space a r": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle. Show the refactored code as a unified diff.",
-				},
-			],
-			"space a R": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the selected code or current line. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions in a structured format. Use severity tags: [HIGH], [MEDIUM], [LOW].",
-				},
-			],
-			"space a s": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code with renamed identifiers. Explain each rename in a bullet point.",
+					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
 				},
 			],
 			"space a d": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Add concise inline documentation comments to the selected code or current line without changing logic. Output the commented code diff showing only added comment lines.",
+					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
 				},
 			],
 			"space a k": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Summarize the selected code or current line. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior. End with a bullet list of key takeaways.",
+					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
 				},
 			],
-			"space a q": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Debug the selected code or current line. Identify potential bugs, edge cases, and logic errors. For each issue, show the problematic code snippet, explain the root cause, and propose a fix. Use tags: [BUG], [EDGE_CASE], [PERF].",
-				},
-			],
-			"space a D": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate). Include param descriptions, return values, and usage examples in code blocks.",
-				},
-			],
-			"space a l": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause, why it matters, and how to fix it. Provide a code example of the fix in a fenced code block.",
-				},
-			],
-			"space a o": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "How can the selected code or the current line be optimized for performance and readability? For each suggestion, show the before/after code in a fenced code block. Prioritize suggestions by impact.",
-				},
-			],
-			"space a C": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the recent changes or the selected code. Summarize the changes, explain the rationale, and flag any concerns. Structure the output as: Summary, Rationale, Concerns (with severity).",
-				},
-			],
-			"space a b": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the behavior and control flow of the selected code or current line. Describe how data moves through the logic, edge cases, and non-obvious interactions. Structure the explanation as a numbered flow sequence.",
-				},
-			],
-			"space a j": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code or current line. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added as a unified diff.",
-				},
-			],
-			"space a x": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Fix diagnostics and lint errors in the selected code or on the current line. Address each issue without changing the intended logic. Show the fixed code as a unified diff with each fix explained.",
-				},
-			],
-			"space a S": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the selected code or current line for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. For each finding, show the vulnerable code, explain the risk, and suggest a fix in a code block. Tag findings: [CRITICAL], [HIGH], [MEDIUM], [LOW].",
-				},
-			],
-			"space a v": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Convert or transform the selected code or current line. Migrate to a different approach, pattern, or API as appropriate. Show the full transformed code as a unified diff with a brief explanation of what changed and why.",
-				},
-			],
-			"space a m": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Simplify the selected code or current line for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely. Show the simplified version as a unified diff.",
-				},
-			],
-			"space a g": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Generate or scaffold code for the selected context or cursor position. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns. Output the generated code as a fenced code block with a brief description.",
-				},
-			],
-			"space a h": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the coding concept, pattern, or API at the cursor or in the selection. Provide context, use cases, and examples suitable for a developer learning this topic. Structure as: What it is, When to use it, How to use it (with code example), Common pitfalls.",
-				},
-			],
+			// Agent panel (chat panel)
+			"space a 1": "agent::Chat",
+			"space a a": "agent::Toggle",
+			"space a c": "agent::ToggleFocus",
+			"space a n": "agent::NewThread",
+			"space a T": "agent::NewTerminalThread",
+			"space a p": "agent::ToggleProfileSelector",
+			"space a /": "agent::ToggleModelSelector",
+			"space a M": "agent::CycleFavoriteModels",
+			"space a u": "agent::OpenSettings",
+			"space a L": "agent::OpenProjectAGENTS.mdRules",
+			"space a E": "agent::AddSelectionToThread",
+			"space a Y": "agent::Keep",
+			"space a w": "agent::Reject",
+			"space a >": "agent::OpenAgentDiff",
+			"space a +": "inline_assistant::ThumbsUpResult",
+			"space a -": "inline_assistant::ThumbsDownResult",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
 		},
@@ -310,134 +186,44 @@
 		"bindings": {
 			// visual, visual line & visual block modes
 			"g c": "editor::ToggleComments",
-			// Code Companion–style inline assists (selection required)
+			// Inline assists (selection required — runs in editor buffer)
 			"space a e": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior. Format output with concise bullet points and inline code examples.",
+					"prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
 				},
 			],
 			"space a f": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style. Show the fixed code as a unified diff.",
+					"prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
 				},
 			],
 			"space a t": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions. Output each test as a formatted code block with a descriptive name and arrange/act/assert sections.",
-				},
-			],
-			"space a d": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Add concise inline documentation comments to the selected code without changing logic. Output the commented code diff showing only added comment lines.",
-				},
-			],
-			"space a k": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Summarize the selected code. Provide a one-paragraph summary of what it does, its inputs/outputs, and any side effects or non-obvious behavior. End with a bullet list of key takeaways.",
-				},
-			],
-			"space a l": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause, why it matters, and how to fix it. Provide a code example of the fix in a fenced code block.",
-				},
-			],
-			"space a q": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Debug the selected code. Identify potential bugs, edge cases, and logic errors. For each issue, show the problematic code snippet, explain the root cause, and propose a fix. Use tags: [BUG], [EDGE_CASE], [PERF].",
-				},
-			],
-			"space a D": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate). Include param descriptions, return values, and usage examples in code blocks.",
+					"prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
 				},
 			],
 			"space a r": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication, and improve naming. Follow the Single Responsibility Principle. Show the refactored code as a unified diff.",
+					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
 				},
 			],
-			"space a R": [
+			"space a d": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Review the selected code. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions. Use severity tags: [HIGH], [MEDIUM], [LOW].",
+					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
+				},
+			],
+			"space a k": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
 				},
 			],
 			"space a n": "agent::NewThread",
-			"space a s": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code with renamed identifiers. Explain each rename in a bullet point.",
-				},
-			],
-			"space a o": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "How can the selected code be optimized for performance and readability? For each suggestion, show the before/after code in a fenced code block. Prioritize suggestions by impact.",
-				},
-			],
-			"space a C": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the selected code changes. Summarize the changes, explain the rationale, and flag any concerns. Structure the output as: Summary, Rationale, Concerns (with severity).",
-				},
-			],
-			"space a b": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the behavior and control flow of the selected code. Describe how data moves through the logic, edge cases, and non-obvious interactions. Structure the explanation as a numbered flow sequence.",
-				},
-			],
-			"space a j": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Add type annotations, interfaces, schemas, or JSDoc to the selected code. Infer types from usage where possible and match project conventions. Show the full rewritten code with types added as a unified diff.",
-				},
-			],
-			"space a x": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Fix diagnostics and lint errors in the selected code. Address each issue without changing the intended logic. Show the fixed code as a unified diff with each fix explained.",
-				},
-			],
-			"space a S": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the selected code for security vulnerabilities. Check for injection flaws, data exposure, auth issues, and unsafe patterns. For each finding, show the vulnerable code, explain the risk, and suggest a fix in a code block. Tag findings: [CRITICAL], [HIGH], [MEDIUM], [LOW].",
-				},
-			],
-			"space a v": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Convert or transform the selected code. Migrate to a different approach, pattern, or API as appropriate. Show the full transformed code as a unified diff with a brief explanation of what changed and why.",
-				},
-			],
-			"space a m": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Simplify the selected code for clarity. Reduce nesting, eliminate dead code, and express the same logic more concisely. Show the simplified version as a unified diff.",
-				},
-			],
-			"space a g": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Generate or scaffold code for the selected context. Flesh out stubs, implement TODO regions, and add missing boilerplate following the project patterns. Output the generated code as a fenced code block with a brief description.",
-				},
-			],
-			"space a h": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the coding concept, pattern, or API in the selected code. Provide context, use cases, and examples suitable for a developer learning this topic. Structure as: What it is, When to use it, How to use it (with code example), Common pitfalls.",
-				},
-			],
 		},
 	},
 	// Better escape
@@ -478,20 +264,12 @@
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",
 			"ctrl-j": "workspace::ActivatePaneDown",
-			// AI agent access from terminal (sidekick-style)
+			// AI agent access from terminal
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
-			"space a t": "agent::NewTerminalThread",
 			"space a a": "agent::Toggle",
 			"space a 1": "agent::Chat",
-			"space a 2": "agent::ChatWithFollow",
-			"space a 4": "agent::FocusAgent",
 			"space a p": "agent::ToggleProfileSelector",
-			"space a /": "agent::ToggleModelSelector",
-			"space a M": "agent::CycleFavoriteModels",
-			"space a F": "agent::ToggleFastMode",
-			"space a K": "agent::ToggleThinkingMode",
-			"space a u": "agent::OpenSettings",
 		},
 	},
 	// File panel (netrw)
