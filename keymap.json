@@ -375,12 +375,7 @@
 					"prompt": "Review the selected code. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions. Use severity tags: [HIGH], [MEDIUM], [LOW].",
 				},
 			],
-			"space a n": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
-				},
-			],
+			"space a n": "agent::NewThread",
 			"space a s": [
 				"assistant::InlineAssist",
 				{
