@@ -88,7 +88,7 @@
 			"space a f": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Fix bugs and issues in the selected code or on the current line. Identify root causes, not just symptoms. Preserve behavior unless the fix requires a behavior change; match local style and add minimal comments explaining each fix.",
+					"prompt": "Fix bugs and issues in the selected code or on the current line. Identify root causes, not just symptoms. Preserve behavior unless the fix requires a behavior change; match local style and add minimal comments explaining each fix. Show the fixed code as a unified diff.",
 				},
 			],
 			"space a t": [
@@ -106,7 +106,7 @@
 			"space a R": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Review the selected code or current line. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions.",
+					"prompt": "Review the selected code or current line. Check for: correctness, edge cases, error handling, performance, security, readability, and adherence to project patterns. List issues by severity with concrete fix suggestions in a structured format.",
 				},
 			],
 			"space a s": [
@@ -136,7 +136,7 @@
 			"space a D": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate).",
+					"prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate). Include param descriptions, return values, and usage examples in code blocks.",
 				},
 			],
 			"space a l": [
@@ -325,7 +325,7 @@
 			"space a f": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style.",
+					"prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style. Show the fixed code as a unified diff.",
 				},
 			],
 			"space a t": [
@@ -361,7 +361,7 @@
 			"space a D": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate).",
+					"prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate). Include param descriptions, return values, and usage examples in code blocks.",
 				},
 			],
 			"space a r": [
