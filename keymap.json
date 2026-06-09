@@ -60,22 +60,15 @@
 				},
 			],
 			// Agent panel (chat panel)
-			"space a 1": "agent::Chat",
-			"space a a": "agent::Toggle",
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
-			"space a T": "agent::NewTerminalThread",
 			"space a p": "agent::ToggleProfileSelector",
 			"space a /": "agent::ToggleModelSelector",
 			"space a M": "agent::CycleFavoriteModels",
 			"space a u": "agent::OpenSettings",
-			"space a L": "agent::OpenProjectAGENTS.mdRules",
-			"space a E": "agent::AddSelectionToThread",
-			"space a Y": "agent::Keep",
-			"space a w": "agent::Reject",
-			"space a >": "agent::OpenAgentDiff",
-			"space a +": "inline_assistant::ThumbsUpResult",
-			"space a -": "inline_assistant::ThumbsDownResult",
+			"space a A": "agent::OpenProjectAGENTS.mdRules",
+			"space a s": "agent::AddSelectionToThread",
+			"space a D": "agent::OpenAgentDiff",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
 		},
@@ -217,13 +210,12 @@
 					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
 				},
 			],
-			"space a k": [
+			"space a s": [
 				"assistant::InlineAssist",
 				{
 					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
 				},
 			],
-			"space a n": "agent::NewThread",
 		},
 	},
 	// Better escape
@@ -264,12 +256,6 @@
 			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-k": "workspace::ActivatePaneUp",
 			"ctrl-j": "workspace::ActivatePaneDown",
-			// AI agent access from terminal
-			"space a c": "agent::ToggleFocus",
-			"space a n": "agent::NewThread",
-			"space a a": "agent::Toggle",
-			"space a 1": "agent::Chat",
-			"space a p": "agent::ToggleProfileSelector",
 		},
 	},
 	// File panel (netrw)
