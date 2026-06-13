@@ -757,7 +757,11 @@
 	// Project panel settings
 	// https://zed.dev/docs/reference/all-settings#project-panel
 	"project_panel": {
-		"auto_fold_dirs": false,
+		"hide_root": true,
+  "git_status_indicator": true,
+  "diagnostic_badges": true,
+  "show_diagnostics": "errors",
+  "auto_fold_dirs": false,
 		"button": true,
 		"dock": "right",
 		"git_status": true,
