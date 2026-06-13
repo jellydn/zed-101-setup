@@ -28,6 +28,14 @@ for f in "${FILES[@]}"; do
 	fi
 done
 
+# Install agent rules
+RULES_DIR=".zed/rules"
+if [ -d "${RULES_DIR}" ]; then
+	mkdir -p "${ZED_CONFIG_DIR}/.zed/rules"
+	cp -p "${RULES_DIR}"/*.md "${ZED_CONFIG_DIR}/.zed/rules/"
+	echo "  Installed .zed/rules/"
+fi
+
 echo ""
 echo "Done! Backup saved to: ${BACKUP_DIR}"
 echo "To restore, run: cp -p \"${BACKUP_DIR}\"/* \"${ZED_CONFIG_DIR}/\""
