@@ -23,52 +23,15 @@
 			"space s b": "buffer_search::Deploy",
 			// Chat with AI — inline assists (editor buffer)
 			"space a i": "assistant::InlineAssist",
-			"space a e": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
-				},
-			],
-			"space a f": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
-				},
-			],
-			"space a t": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
-				},
-			],
-			"space a r": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
-				},
-			],
-			"space a d": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
-				},
-			],
-			"space a k": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
-				},
-			],
+			// Prompt/rules library picker — sidekick `<leader>ap`
+			"space a p": "agent::OpenRulesLibrary",
 			// Agent panel (chat panel)
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
-			"space a p": "agent::ToggleProfileSelector",
-			"space a /": "agent::ToggleModelSelector",
-			"space a M": "agent::CycleFavoriteModels",
-			"space a u": "agent::OpenSettings",
-			"space a A": "agent::OpenProjectAGENTS.mdRules",
-			"space a s": "agent::AddSelectionToThread",
-			"space a D": "agent::OpenAgentDiff",
+			"space a m": "agent::ToggleModelSelector",
+			"space a s": "agent::OpenSettings",
+			"space a a": "agent::OpenProjectAGENTS.mdRules",
+			"space a d": "agent::OpenAgentDiff",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
 		},
@@ -210,11 +173,17 @@
 					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
 				},
 			],
-			"space a s": [
+			"space a k": [
 				"assistant::InlineAssist",
 				{
 					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
 				},
+			],
+			"space a n": "agent::NewThread",
+			// Focus agent panel, attach visual selection — sidekick `<leader>av`
+			"space a v": [
+				"action::Sequence",
+				["agent::ToggleFocus", "agent::AddSelectionToThread"],
 			],
 		},
 	},
