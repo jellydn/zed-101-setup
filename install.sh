@@ -28,9 +28,14 @@ for f in "${FILES[@]}"; do
 	fi
 done
 
-# Install agent rules
+# Back up and install agent rules
 RULES_DIR=".zed/rules"
 if [ -d "${RULES_DIR}" ]; then
+	if [ -d "${ZED_CONFIG_DIR}/.zed/rules" ]; then
+		mkdir -p "${BACKUP_DIR}/.zed-rules"
+		cp -p "${ZED_CONFIG_DIR}/.zed/rules"/*.md "${BACKUP_DIR}/.zed-rules/" 2>/dev/null || true
+		echo "  Backed up .zed/rules/"
+	fi
 	mkdir -p "${ZED_CONFIG_DIR}/.zed/rules"
 	cp -p "${RULES_DIR}"/*.md "${ZED_CONFIG_DIR}/.zed/rules/"
 	echo "  Installed .zed/rules/"
@@ -38,4 +43,5 @@ fi
 
 echo ""
 echo "Done! Backup saved to: ${BACKUP_DIR}"
-echo "To restore, run: cp -p \"${BACKUP_DIR}\"/* \"${ZED_CONFIG_DIR}/\""
+echo "To restore configs: cp -p \"${BACKUP_DIR}\"/*.json \"${ZED_CONFIG_DIR}/\""
+echo "To restore rules:   cp -p \"${BACKUP_DIR}/.zed-rules\"/*.md \"${ZED_CONFIG_DIR}/.zed/rules/\""
