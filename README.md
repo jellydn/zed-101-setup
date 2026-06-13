@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 13 2026 13:55:59 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -99,6 +99,10 @@ Update your settings.json file with the following configuration:
 // Themes: https://zed.dev/docs/themes
 
 {
+  // UI font family (for menus, panels, etc.)
+  // https://zed.dev/docs/reference/all-settings#ui-font-family
+  "ui_font_family": "Maple UI",
+
   // Whether to colorize matching brackets (rainbow brackets)
   // https://zed.dev/docs/reference/all-settings#colorize-brackets
   "colorize_brackets": true,
@@ -198,6 +202,7 @@ Update your settings.json file with the following configuration:
   // Status bar settings
   // https://zed.dev/docs/reference/all-settings#status-bar
   "status_bar": {
+    "show_active_file": false,
     "experimental.show": false,
   },
 
@@ -244,6 +249,10 @@ Update your settings.json file with the following configuration:
   // Git panel settings
   // https://zed.dev/docs/reference/all-settings#git-panel
   "git_panel": {
+    "collapse_untracked_diff": true,
+    "show_count_badge": true,
+    "diff_stats": true,
+    "file_icons": true,
     "tree_view": true,
     "dock": "right",
   },
@@ -342,6 +351,8 @@ Update your settings.json file with the following configuration:
   // Only show error on tab
   // https://zed.dev/docs/reference/all-settings#editor-tabs
   "tabs": {
+    "file_icons": true,
+    "git_status": true,
     "show_diagnostics": "errors",
   },
 
@@ -362,6 +373,7 @@ Update your settings.json file with the following configuration:
   // Agent (AI) panel settings
   // https://zed.dev/docs/ai/agent-settings
   "agent": {
+    "sidebar_side": "right",
     "default_profile": "ask",
     "favorite_models": [
       {
@@ -395,7 +407,7 @@ Update your settings.json file with the following configuration:
         "enable_thinking": false,
       },
     ],
-    "dock": "left",
+    "dock": "right",
     "inline_assistant_model": {
       "provider": "opencode",
       "model": "free/big-pickle",
@@ -831,6 +843,10 @@ Update your settings.json file with the following configuration:
   // Project panel settings
   // https://zed.dev/docs/reference/all-settings#project-panel
   "project_panel": {
+    "hide_root": true,
+    "git_status_indicator": true,
+    "diagnostic_badges": true,
+    "show_diagnostics": "errors",
     "auto_fold_dirs": false,
     "button": true,
     "dock": "right",
@@ -891,7 +907,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 13 2026 13:55:59 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -917,8 +933,6 @@ Update your keymap.json file with the following key bindings:
       "space s b": "buffer_search::Deploy",
       // Chat with AI — inline assists (editor buffer)
       "space a i": "assistant::InlineAssist",
-      // Prompt/rules library picker — sidekick `<leader>ap`
-      "space a p": "agent::ManageSkills",
       // Agent panel (chat panel)
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
@@ -1028,6 +1042,23 @@ Update your keymap.json file with the following key bindings:
       "space space": "file_finder::Toggle",
       // Open recent project
       "space f p": "projects::OpenRecent",
+      // Open AI chat
+      "space a c": "agent::ToggleFocus",
+      // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
+      "space f f": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Files",
+        },
+      ],
+      "space f g": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Grep",
+        },
+      ],
+      // Git status
+      "space g s": "git_panel::ToggleFocus",
     },
   },
   // Comment code
@@ -1037,7 +1068,6 @@ Update your keymap.json file with the following key bindings:
       // visual, visual line & visual block modes
       "g c": "editor::ToggleComments",
       // Inline assists (selection required — runs in editor buffer)
-      // NOTE: These prompts mirror .zed/rules/ content; keep both in sync.
       "space a e": [
         "assistant::InlineAssist",
         {
@@ -1185,12 +1215,7 @@ Update your keymap.json file with the following key bindings:
     "context": "(VimControl && !menu)",
     "bindings": {
       "space": null, // Disable the default action vim::WrappingRight
-    },
-  },
-  // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
-  {
-    "context": "(VimControl && !menu)",
-    "bindings": {
+      // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
       "space f f": [
         "task::Spawn",
         {
@@ -1227,7 +1252,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 13 2026 13:55:59 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
