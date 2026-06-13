@@ -163,7 +163,11 @@
 	// Git panel settings
 	// https://zed.dev/docs/reference/all-settings#git-panel
 	"git_panel": {
-		"tree_view": true,
+		"collapse_untracked_diff": true,
+  "show_count_badge": true,
+  "diff_stats": true,
+  "file_icons": true,
+  "tree_view": true,
 		"dock": "right",
 	},
 
