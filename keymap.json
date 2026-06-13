@@ -21,67 +21,15 @@
 			"space s w": "pane::DeploySearch",
 			// Search on current buffer
 			"space s b": "buffer_search::Deploy",
-			// Chat with AI (Code Companion–style: space a + letter)
+			// Chat with AI — inline assists (editor buffer)
+			"space a i": "assistant::InlineAssist",
+			// Agent panel (chat panel)
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
-			"space a p": "agent::ToggleProfileSelector",
-			"space a /": "agent::ToggleModelSelector",
-			"space a u": "agent::OpenSettings",
-			"space a i": "assistant::InlineAssist",
-			"space a e": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior.",
-				},
-			],
-			"space a f": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style.",
-				},
-			],
-			"space a t": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions.",
-				},
-			],
-			"space a r": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior.",
-				},
-			],
-			"space a R": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions.",
-				},
-			],
-			"space a s": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
-				},
-			],
-			"space a d": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
-				},
-			],
-			"space a D": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate).",
-				},
-			],
-			"space a l": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
-				},
-			],
+			"space a m": "agent::ToggleModelSelector",
+			"space a s": "agent::OpenSettings",
+			"space a a": "agent::OpenProjectAGENTS.mdRules",
+			"space a d": "agent::OpenAgentDiff",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
 		},
@@ -184,6 +132,23 @@
 			"space space": "file_finder::Toggle",
 			// Open recent project
 			"space f p": "projects::OpenRecent",
+			// Open AI chat
+			"space a c": "agent::ToggleFocus",
+			// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
+			"space f f": [
+				"task::Spawn",
+				{
+					"task_name": "fff-gpui: Files",
+				},
+			],
+			"space f g": [
+				"task::Spawn",
+				{
+					"task_name": "fff-gpui: Grep",
+				},
+			],
+			// Git status
+			"space g s": "git_panel::ToggleFocus",
 		},
 	},
 	// Comment code
@@ -192,23 +157,29 @@
 		"bindings": {
 			// visual, visual line & visual block modes
 			"g c": "editor::ToggleComments",
-			// Code Companion–style inline assists (selection required)
+			// Inline assists (selection required — runs in editor buffer)
 			"space a e": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior.",
+					"prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
 				},
 			],
 			"space a f": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style.",
+					"prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
 				},
 			],
 			"space a t": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions.",
+					"prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
+				},
+			],
+			"space a r": [
+				"assistant::InlineAssist",
+				{
+					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
 				},
 			],
 			"space a d": [
@@ -217,29 +188,17 @@
 					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
 				},
 			],
-			"space a D": [
+			"space a k": [
 				"assistant::InlineAssist",
 				{
-					"prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate).",
+					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
 				},
 			],
-			"space a r": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior.",
-				},
-			],
-			"space a R": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Review the selected code. List issues by severity with concrete improvement suggestions.",
-				},
-			],
-			"space a n": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
-				},
+			"space a n": "agent::NewThread",
+			// Focus agent panel, attach visual selection — sidekick `<leader>av`
+			"space a v": [
+				"action::Sequence",
+				["agent::ToggleFocus", "agent::AddSelectionToThread"],
 			],
 		},
 	},
@@ -346,12 +305,7 @@
 		"context": "(VimControl && !menu)",
 		"bindings": {
 			"space": null, // Disable the default action vim::WrappingRight
-		},
-	},
-	// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
-	{
-		"context": "(VimControl && !menu)",
-		"bindings": {
+			// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
 			"space f f": [
 				"task::Spawn",
 				{

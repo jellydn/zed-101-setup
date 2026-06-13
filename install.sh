@@ -30,4 +30,4 @@ done
 
 echo ""
 echo "Done! Backup saved to: ${BACKUP_DIR}"
-echo "To restore, run: cp -p \"${BACKUP_DIR}\"/* \"${ZED_CONFIG_DIR}/\""
+echo "To restore: cp -p \"${BACKUP_DIR}\"/*.json \"${ZED_CONFIG_DIR}/\""

@@ -13,13 +13,17 @@
 // Themes: https://zed.dev/docs/themes
 
 {
+	// UI font family (for menus, panels, etc.)
+	// https://zed.dev/docs/reference/all-settings#ui-font-family
+	"ui_font_family": "Maple UI",
+
 	// Whether to colorize matching brackets (rainbow brackets)
 	// https://zed.dev/docs/reference/all-settings#colorize-brackets
 	"colorize_brackets": true,
 
 	// Whether and how to display code lenses from language servers
 	// https://zed.dev/docs/reference/all-settings#code-lens
-	"code_lens": "on",
+	"code_lens": "menu",
 
 	// Editor toolbar settings
 	// https://zed.dev/docs/reference/all-settings#editor-toolbar
@@ -29,11 +33,11 @@
 
 	// Whether to show signature help after completion or bracket pair inserted
 	// https://zed.dev/docs/reference/all-settings#show-signature-help-after-edits
-	"show_signature_help_after_edits": true,
+	"show_signature_help_after_edits": false,
 
 	// Show method signatures when inside parentheses
 	// https://zed.dev/docs/reference/all-settings#auto-signature-help
-	"auto_signature_help": true,
+	"auto_signature_help": false,
 
 	// Hide variable values in private files (e.g., .env, .pem)
 	// https://zed.dev/docs/reference/all-settings#redact-private-values
@@ -84,14 +88,12 @@
 		},
 		"opencode": {
 			"default_config_options": {
-				"model": "opencode/minimax-m3-free",
-				"mode": "build",
+				"effort": "max",
+				"model": "opencode/mimo-v2.5-free",
+				"mode": "plan",
 			},
 			"favorite_config_option_values": {
-				"model": [
-					"opencode/deepseek-v4-flash-free",
-					"opencode/mimo-v2.5-free",
-				],
+				"model": ["opencode/deepseek-v4-flash-free", "opencode/mimo-v2.5-free"],
 			},
 			"type": "registry",
 		},
@@ -114,7 +116,8 @@
 	// Status bar settings
 	// https://zed.dev/docs/reference/all-settings#status-bar
 	"status_bar": {
-		"experimental.show": false,
+		"show_active_file": false,
+  "experimental.show": false,
 	},
 
 	// Gutter settings
@@ -160,7 +163,11 @@
 	// Git panel settings
 	// https://zed.dev/docs/reference/all-settings#git-panel
 	"git_panel": {
-		"tree_view": true,
+		"collapse_untracked_diff": true,
+  "show_count_badge": true,
+  "diff_stats": true,
+  "file_icons": true,
+  "tree_view": true,
 		"dock": "right",
 	},
 
@@ -258,7 +265,9 @@
 	// Only show error on tab
 	// https://zed.dev/docs/reference/all-settings#editor-tabs
 	"tabs": {
-		"show_diagnostics": "errors",
+		"file_icons": true,
+  "git_status": true,
+  "show_diagnostics": "errors",
 	},
 
 	// Indentation guides (rainbow indentation)
@@ -270,7 +279,6 @@
 
 	// Zen mode / centered layout
 	// https://zed.dev/docs/reference/all-settings#centered-layout
-	// NOTE: Refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
 	"centered_layout": {
 		"left_padding": 0.15,
 		"right_padding": 0.15,
@@ -279,7 +287,8 @@
 	// Agent (AI) panel settings
 	// https://zed.dev/docs/ai/agent-settings
 	"agent": {
-		"default_profile": "write",
+		"sidebar_side": "right",
+  "default_profile": "ask",
 		"favorite_models": [
 			{
 				"provider": "opencode",
@@ -312,14 +321,179 @@
 				"enable_thinking": false,
 			},
 		],
-		"dock": "left",
+		"dock": "right",
 		"inline_assistant_model": {
 			"provider": "opencode",
 			"model": "free/big-pickle",
 		},
 		"default_model": {
-			"provider": "opencode",
-			"model": "free/minimax-m2.5-free",
+			"provider": "CrofAI",
+			"model": "kimi-k2.6",
+		},
+		// Notify when the agent finishes work while Zed is in background
+		// https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
+		// Options: "primary_screen", "all_screens", "never"
+		"notify_when_agent_waiting": "primary_screen",
+		// Play a sound when the agent is done
+		// https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
+		// Options: "never", "when_hidden", "always"
+		"play_sound_when_agent_done": "never",
+		// Show inline diff review for agent edits in the active buffer
+		// https://zed.dev/docs/ai/agent-settings#single-file-review
+		"single_file_review": true,
+		// Automatically follow the agent as it reads/edits files
+		"agent_follow": true,
+		// Model-specific generation parameters
+		// https://zed.dev/docs/ai/agent-settings#model-temperature
+		"model_parameters": [
+			{
+				"provider": "opencode",
+				// Lower temperature for code editing (more deterministic)
+				"temperature": 0.3,
+			},
+			{
+				"provider": "CrofAI",
+				"temperature": 0.4,
+			},
+		],
+		// Show multiple inline assist alternatives
+		// https://zed.dev/docs/ai/agent-settings#inline-alternatives
+		"inline_alternatives": [
+			{
+				"provider": "opencode",
+				"model": "free/minimax-m2.5-free",
+			},
+			{
+				"provider": "opencode",
+				"model": "free/big-pickle",
+			},
+		],
+		// Agent profiles (like sidekick.nvim profiles)
+		// https://zed.dev/docs/ai/agent-settings#agent-profiles
+		"profiles": {
+			"write": {
+				"name": "Write Code",
+				"tools": {
+					"edit_file": true,
+					"create_file": true,
+					"delete_file": true,
+					"rename_file": true,
+					"find_file": true,
+					"terminal": true,
+					"search": true,
+					"fetch": true,
+					"run_command": true,
+					"copy_path": true,
+					"move_path": true,
+					"open_file": true,
+					"go_to_file": true,
+					"set_context": true,
+					"set_files": true,
+					"spawn_agent": false,
+					"create_task": false,
+				},
+				"enable_all_context_servers": true,
+			},
+			"review": {
+				"name": "Code Review",
+				"tools": {
+					"edit_file": false,
+					"create_file": false,
+					"delete_file": false,
+					"rename_file": false,
+					"find_file": true,
+					"terminal": false,
+					"search": true,
+					"fetch": true,
+					"run_command": false,
+					"copy_path": true,
+					"move_path": false,
+					"open_file": true,
+					"go_to_file": true,
+					"set_context": true,
+					"set_files": true,
+					"spawn_agent": false,
+					"create_task": false,
+				},
+				"enable_all_context_servers": true,
+				"default_model": {
+					"provider": "opencode",
+					"model": "free/minimax-m2.5-free",
+				},
+			},
+			"debug": {
+				"name": "Debug",
+				"tools": {
+					"edit_file": true,
+					"create_file": false,
+					"delete_file": false,
+					"rename_file": false,
+					"find_file": true,
+					"terminal": true,
+					"search": true,
+					"fetch": true,
+					"run_command": true,
+					"copy_path": true,
+					"move_path": false,
+					"open_file": true,
+					"go_to_file": true,
+					"set_context": true,
+					"set_files": true,
+					"spawn_agent": true,
+					"create_task": false,
+				},
+				"enable_all_context_servers": false,
+				"default_model": {
+					"provider": "opencode",
+					"model": "free/minimax-m2.5-free",
+				},
+			},
+		},
+		// Tool permission defaults
+		// https://zed.dev/docs/ai/agent-settings#tool-permissions
+		"tool_permissions": {
+			"default": "confirm",
+			"tools": {
+				"terminal": {
+					"always_allow": [
+						{
+							"pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
+						},
+						{
+							"pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd]))",
+						},
+						{
+							"pattern": "^(ls|cat|head|tail|wc|echo|pwd|which|type|file)",
+						},
+					],
+					"always_deny": [
+						{
+							"pattern": "^(sudo|su|doas)\\s",
+						},
+						{
+							"pattern": "^rm\\s+-[rf]\\s+/",
+						},
+					],
+				},
+				"fetch": {
+					"always_allow": [
+						{
+							"pattern": "^https://(api\\.)?github\\.com",
+						},
+						{
+							"pattern": "^https://raw\\.githubusercontent\\.com",
+						},
+					],
+				},
+			},
+		},
+		// Persistent sandbox permission grants
+		// https://zed.dev/docs/ai/agent-settings#sandbox-permissions
+		"sandbox_permissions": {
+			"allow_network": true,
+			"write_paths": [
+				"/Users/huynhdung/conductor/workspaces/2026-04-07-jellydn-zed-101-setup/belo-horizonte",
+			],
 		},
 	},
 
@@ -385,21 +559,45 @@
 						"name": "deepseek-v4-pro",
 						"display_name": "Deepseek V4 Pro",
 						"max_tokens": 10000000,
+						"capabilities": {
+							"tools": true,
+							"images": false,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "deepseek-v4-pro-precision",
 						"display_name": "Deepseek V4 Pro Precision",
 						"max_tokens": 10000000,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "glm-5.1-precision",
 						"display_name": "GLM 5.1 Precision",
 						"max_tokens": 202752,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "glm-5.1",
 						"display_name": "GLM 5.1",
 						"max_tokens": 202752,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true,
+						},
 					},
 					{
 						"name": "qwen3.6-27b",
@@ -559,7 +757,11 @@
 	// Project panel settings
 	// https://zed.dev/docs/reference/all-settings#project-panel
 	"project_panel": {
-		"auto_fold_dirs": false,
+		"hide_root": true,
+  "git_status_indicator": true,
+  "diagnostic_badges": true,
+  "show_diagnostics": "errors",
+  "auto_fold_dirs": false,
 		"button": true,
 		"dock": "right",
 		"git_status": true,

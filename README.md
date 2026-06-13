@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -99,13 +99,17 @@ Update your settings.json file with the following configuration:
 // Themes: https://zed.dev/docs/themes
 
 {
+  // UI font family (for menus, panels, etc.)
+  // https://zed.dev/docs/reference/all-settings#ui-font-family
+  "ui_font_family": "Maple UI",
+
   // Whether to colorize matching brackets (rainbow brackets)
   // https://zed.dev/docs/reference/all-settings#colorize-brackets
   "colorize_brackets": true,
 
   // Whether and how to display code lenses from language servers
   // https://zed.dev/docs/reference/all-settings#code-lens
-  "code_lens": "on",
+  "code_lens": "menu",
 
   // Editor toolbar settings
   // https://zed.dev/docs/reference/all-settings#editor-toolbar
@@ -115,11 +119,11 @@ Update your settings.json file with the following configuration:
 
   // Whether to show signature help after completion or bracket pair inserted
   // https://zed.dev/docs/reference/all-settings#show-signature-help-after-edits
-  "show_signature_help_after_edits": true,
+  "show_signature_help_after_edits": false,
 
   // Show method signatures when inside parentheses
   // https://zed.dev/docs/reference/all-settings#auto-signature-help
-  "auto_signature_help": true,
+  "auto_signature_help": false,
 
   // Hide variable values in private files (e.g., .env, .pem)
   // https://zed.dev/docs/reference/all-settings#redact-private-values
@@ -170,8 +174,9 @@ Update your settings.json file with the following configuration:
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/minimax-m3-free",
-        "mode": "build",
+        "effort": "max",
+        "model": "opencode/mimo-v2.5-free",
+        "mode": "plan",
       },
       "favorite_config_option_values": {
         "model": ["opencode/deepseek-v4-flash-free", "opencode/mimo-v2.5-free"],
@@ -197,6 +202,7 @@ Update your settings.json file with the following configuration:
   // Status bar settings
   // https://zed.dev/docs/reference/all-settings#status-bar
   "status_bar": {
+    "show_active_file": false,
     "experimental.show": false,
   },
 
@@ -243,6 +249,10 @@ Update your settings.json file with the following configuration:
   // Git panel settings
   // https://zed.dev/docs/reference/all-settings#git-panel
   "git_panel": {
+    "collapse_untracked_diff": true,
+    "show_count_badge": true,
+    "diff_stats": true,
+    "file_icons": true,
     "tree_view": true,
     "dock": "right",
   },
@@ -341,6 +351,8 @@ Update your settings.json file with the following configuration:
   // Only show error on tab
   // https://zed.dev/docs/reference/all-settings#editor-tabs
   "tabs": {
+    "file_icons": true,
+    "git_status": true,
     "show_diagnostics": "errors",
   },
 
@@ -353,7 +365,6 @@ Update your settings.json file with the following configuration:
 
   // Zen mode / centered layout
   // https://zed.dev/docs/reference/all-settings#centered-layout
-  // NOTE: Refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.15,
     "right_padding": 0.15,
@@ -362,7 +373,8 @@ Update your settings.json file with the following configuration:
   // Agent (AI) panel settings
   // https://zed.dev/docs/ai/agent-settings
   "agent": {
-    "default_profile": "write",
+    "sidebar_side": "right",
+    "default_profile": "ask",
     "favorite_models": [
       {
         "provider": "opencode",
@@ -395,14 +407,179 @@ Update your settings.json file with the following configuration:
         "enable_thinking": false,
       },
     ],
-    "dock": "left",
+    "dock": "right",
     "inline_assistant_model": {
       "provider": "opencode",
       "model": "free/big-pickle",
     },
     "default_model": {
-      "provider": "opencode",
-      "model": "free/minimax-m2.5-free",
+      "provider": "CrofAI",
+      "model": "kimi-k2.6",
+    },
+    // Notify when the agent finishes work while Zed is in background
+    // https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
+    // Options: "primary_screen", "all_screens", "never"
+    "notify_when_agent_waiting": "primary_screen",
+    // Play a sound when the agent is done
+    // https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
+    // Options: "never", "when_hidden", "always"
+    "play_sound_when_agent_done": "never",
+    // Show inline diff review for agent edits in the active buffer
+    // https://zed.dev/docs/ai/agent-settings#single-file-review
+    "single_file_review": true,
+    // Automatically follow the agent as it reads/edits files
+    "agent_follow": true,
+    // Model-specific generation parameters
+    // https://zed.dev/docs/ai/agent-settings#model-temperature
+    "model_parameters": [
+      {
+        "provider": "opencode",
+        // Lower temperature for code editing (more deterministic)
+        "temperature": 0.3,
+      },
+      {
+        "provider": "CrofAI",
+        "temperature": 0.4,
+      },
+    ],
+    // Show multiple inline assist alternatives
+    // https://zed.dev/docs/ai/agent-settings#inline-alternatives
+    "inline_alternatives": [
+      {
+        "provider": "opencode",
+        "model": "free/minimax-m2.5-free",
+      },
+      {
+        "provider": "opencode",
+        "model": "free/big-pickle",
+      },
+    ],
+    // Agent profiles (like sidekick.nvim profiles)
+    // https://zed.dev/docs/ai/agent-settings#agent-profiles
+    "profiles": {
+      "write": {
+        "name": "Write Code",
+        "tools": {
+          "edit_file": true,
+          "create_file": true,
+          "delete_file": true,
+          "rename_file": true,
+          "find_file": true,
+          "terminal": true,
+          "search": true,
+          "fetch": true,
+          "run_command": true,
+          "copy_path": true,
+          "move_path": true,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": false,
+          "create_task": false,
+        },
+        "enable_all_context_servers": true,
+      },
+      "review": {
+        "name": "Code Review",
+        "tools": {
+          "edit_file": false,
+          "create_file": false,
+          "delete_file": false,
+          "rename_file": false,
+          "find_file": true,
+          "terminal": false,
+          "search": true,
+          "fetch": true,
+          "run_command": false,
+          "copy_path": true,
+          "move_path": false,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": false,
+          "create_task": false,
+        },
+        "enable_all_context_servers": true,
+        "default_model": {
+          "provider": "opencode",
+          "model": "free/minimax-m2.5-free",
+        },
+      },
+      "debug": {
+        "name": "Debug",
+        "tools": {
+          "edit_file": true,
+          "create_file": false,
+          "delete_file": false,
+          "rename_file": false,
+          "find_file": true,
+          "terminal": true,
+          "search": true,
+          "fetch": true,
+          "run_command": true,
+          "copy_path": true,
+          "move_path": false,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": true,
+          "create_task": false,
+        },
+        "enable_all_context_servers": false,
+        "default_model": {
+          "provider": "opencode",
+          "model": "free/minimax-m2.5-free",
+        },
+      },
+    },
+    // Tool permission defaults
+    // https://zed.dev/docs/ai/agent-settings#tool-permissions
+    "tool_permissions": {
+      "default": "confirm",
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
+            },
+            {
+              "pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd]))",
+            },
+            {
+              "pattern": "^(ls|cat|head|tail|wc|echo|pwd|which|type|file)",
+            },
+          ],
+          "always_deny": [
+            {
+              "pattern": "^(sudo|su|doas)\\s",
+            },
+            {
+              "pattern": "^rm\\s+-[rf]\\s+/",
+            },
+          ],
+        },
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https://(api\\.)?github\\.com",
+            },
+            {
+              "pattern": "^https://raw\\.githubusercontent\\.com",
+            },
+          ],
+        },
+      },
+    },
+    // Persistent sandbox permission grants
+    // https://zed.dev/docs/ai/agent-settings#sandbox-permissions
+    "sandbox_permissions": {
+      "allow_network": true,
+      "write_paths": [
+        "/Users/huynhdung/conductor/workspaces/2026-04-07-jellydn-zed-101-setup/belo-horizonte",
+      ],
     },
   },
 
@@ -468,21 +645,45 @@ Update your settings.json file with the following configuration:
             "name": "deepseek-v4-pro",
             "display_name": "Deepseek V4 Pro",
             "max_tokens": 10000000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
           },
           {
             "name": "deepseek-v4-pro-precision",
             "display_name": "Deepseek V4 Pro Precision",
             "max_tokens": 10000000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
           },
           {
             "name": "glm-5.1-precision",
             "display_name": "GLM 5.1 Precision",
             "max_tokens": 202752,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
           },
           {
             "name": "glm-5.1",
             "display_name": "GLM 5.1",
             "max_tokens": 202752,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+            },
           },
           {
             "name": "qwen3.6-27b",
@@ -642,6 +843,10 @@ Update your settings.json file with the following configuration:
   // Project panel settings
   // https://zed.dev/docs/reference/all-settings#project-panel
   "project_panel": {
+    "hide_root": true,
+    "git_status_indicator": true,
+    "diagnostic_badges": true,
+    "show_diagnostics": "errors",
     "auto_fold_dirs": false,
     "button": true,
     "dock": "right",
@@ -702,7 +907,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -726,67 +931,15 @@ Update your keymap.json file with the following key bindings:
       "space s w": "pane::DeploySearch",
       // Search on current buffer
       "space s b": "buffer_search::Deploy",
-      // Chat with AI (Code Companion–style: space a + letter)
+      // Chat with AI — inline assists (editor buffer)
+      "space a i": "assistant::InlineAssist",
+      // Agent panel (chat panel)
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
-      "space a p": "agent::ToggleProfileSelector",
-      "space a /": "agent::ToggleModelSelector",
-      "space a u": "agent::OpenSettings",
-      "space a i": "assistant::InlineAssist",
-      "space a e": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Explain the selected code or the current line clearly. Cover purpose, control flow, and non-obvious behavior.",
-        },
-      ],
-      "space a f": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Fix bugs and issues in the selected code or on the current line. Preserve behavior unless the fix requires a behavior change; match local style.",
-        },
-      ],
-      "space a t": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Generate focused unit tests for the selected code or symbol at the cursor. Use the project's existing test framework and conventions.",
-        },
-      ],
-      "space a r": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Refactor the selected code or the current line for clarity and maintainability without changing external behavior.",
-        },
-      ],
-      "space a R": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Review the selected code or current line. List issues by severity with concrete improvement suggestions.",
-        },
-      ],
-      "space a s": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Suggest better names for identifiers in the selection or at the cursor. Show an improved version of the code.",
-        },
-      ],
-      "space a d": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Add concise inline documentation comments to the selected code or current line without changing logic.",
-        },
-      ],
-      "space a D": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Write thorough documentation for the selected code or current line (doc comments / module-level docs as appropriate).",
-        },
-      ],
-      "space a l": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Explain the LSP diagnostic at the cursor or on the selected code. Describe the cause and how to fix it.",
-        },
-      ],
+      "space a m": "agent::ToggleModelSelector",
+      "space a s": "agent::OpenSettings",
+      "space a a": "agent::OpenProjectAGENTS.mdRules",
+      "space a d": "agent::OpenAgentDiff",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
     },
@@ -889,6 +1042,23 @@ Update your keymap.json file with the following key bindings:
       "space space": "file_finder::Toggle",
       // Open recent project
       "space f p": "projects::OpenRecent",
+      // Open AI chat
+      "space a c": "agent::ToggleFocus",
+      // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
+      "space f f": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Files",
+        },
+      ],
+      "space f g": [
+        "task::Spawn",
+        {
+          "task_name": "fff-gpui: Grep",
+        },
+      ],
+      // Git status
+      "space g s": "git_panel::ToggleFocus",
     },
   },
   // Comment code
@@ -897,23 +1067,29 @@ Update your keymap.json file with the following key bindings:
     "bindings": {
       // visual, visual line & visual block modes
       "g c": "editor::ToggleComments",
-      // Code Companion–style inline assists (selection required)
+      // Inline assists (selection required — runs in editor buffer)
       "space a e": [
         "assistant::InlineAssist",
         {
-          "prompt": "Explain the selected code clearly. Cover purpose, control flow, and non-obvious behavior.",
+          "prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
         },
       ],
       "space a f": [
         "assistant::InlineAssist",
         {
-          "prompt": "Fix bugs and issues in the selected code. Preserve behavior unless the fix requires a behavior change; match local style.",
+          "prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
         },
       ],
       "space a t": [
         "assistant::InlineAssist",
         {
-          "prompt": "Generate focused unit tests for the selected code. Use the project's existing test framework and conventions.",
+          "prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
+        },
+      ],
+      "space a r": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
         },
       ],
       "space a d": [
@@ -922,29 +1098,17 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
         },
       ],
-      "space a D": [
+      "space a k": [
         "assistant::InlineAssist",
         {
-          "prompt": "Write thorough documentation for the selected code (doc comments / module-level docs as appropriate).",
+          "prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
         },
       ],
-      "space a r": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior.",
-        },
-      ],
-      "space a R": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Review the selected code. List issues by severity with concrete improvement suggestions.",
-        },
-      ],
-      "space a n": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Suggest better names for identifiers in the selection. Show a renamed version of the code.",
-        },
+      "space a n": "agent::NewThread",
+      // Focus agent panel, attach visual selection — sidekick `<leader>av`
+      "space a v": [
+        "action::Sequence",
+        ["agent::ToggleFocus", "agent::AddSelectionToThread"],
       ],
     },
   },
@@ -1051,12 +1215,7 @@ Update your keymap.json file with the following key bindings:
     "context": "(VimControl && !menu)",
     "bindings": {
       "space": null, // Disable the default action vim::WrappingRight
-    },
-  },
-  // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
-  {
-    "context": "(VimControl && !menu)",
-    "bindings": {
+      // FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
       "space f f": [
         "task::Spawn",
         {
@@ -1093,7 +1252,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Mon Jun 08 2026 22:28:35 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
