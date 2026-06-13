@@ -287,7 +287,8 @@
 	// Agent (AI) panel settings
 	// https://zed.dev/docs/ai/agent-settings
 	"agent": {
-		"default_profile": "ask",
+		"sidebar_side": "right",
+  "default_profile": "ask",
 		"favorite_models": [
 			{
 				"provider": "opencode",
@@ -320,7 +321,7 @@
 				"enable_thinking": false,
 			},
 		],
-		"dock": "left",
+		"dock": "right",
 		"inline_assistant_model": {
 			"provider": "opencode",
 			"model": "free/big-pickle",
