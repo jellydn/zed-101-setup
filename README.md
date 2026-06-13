@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 13 2026 13:42:01 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 13 2026 13:47:23 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -891,7 +891,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 13 2026 13:42:01 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 13 2026 13:47:23 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1037,6 +1037,7 @@ Update your keymap.json file with the following key bindings:
       // visual, visual line & visual block modes
       "g c": "editor::ToggleComments",
       // Inline assists (selection required — runs in editor buffer)
+      // NOTE: These prompts mirror .zed/rules/ content; keep both in sync.
       "space a e": [
         "assistant::InlineAssist",
         {
@@ -1226,7 +1227,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 13 2026 13:42:01 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 13 2026 13:47:23 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
