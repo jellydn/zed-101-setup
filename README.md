@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Tue Jun 09 2026 23:29:24 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 13 2026 13:42:01 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -105,7 +105,7 @@ Update your settings.json file with the following configuration:
 
   // Whether and how to display code lenses from language servers
   // https://zed.dev/docs/reference/all-settings#code-lens
-  "code_lens": "on",
+  "code_lens": "menu",
 
   // Editor toolbar settings
   // https://zed.dev/docs/reference/all-settings#editor-toolbar
@@ -115,11 +115,11 @@ Update your settings.json file with the following configuration:
 
   // Whether to show signature help after completion or bracket pair inserted
   // https://zed.dev/docs/reference/all-settings#show-signature-help-after-edits
-  "show_signature_help_after_edits": true,
+  "show_signature_help_after_edits": false,
 
   // Show method signatures when inside parentheses
   // https://zed.dev/docs/reference/all-settings#auto-signature-help
-  "auto_signature_help": true,
+  "auto_signature_help": false,
 
   // Hide variable values in private files (e.g., .env, .pem)
   // https://zed.dev/docs/reference/all-settings#redact-private-values
@@ -354,7 +354,6 @@ Update your settings.json file with the following configuration:
 
   // Zen mode / centered layout
   // https://zed.dev/docs/reference/all-settings#centered-layout
-  // NOTE: Refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.15,
     "right_padding": 0.15,
@@ -402,8 +401,8 @@ Update your settings.json file with the following configuration:
       "model": "free/big-pickle",
     },
     "default_model": {
-      "provider": "opencode",
-      "model": "free/minimax-m2.5-free",
+      "provider": "CrofAI",
+      "model": "kimi-k2.6",
     },
     // Notify when the agent finishes work while Zed is in background
     // https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
@@ -892,7 +891,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Tue Jun 09 2026 23:29:24 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 13 2026 13:42:01 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -918,52 +917,15 @@ Update your keymap.json file with the following key bindings:
       "space s b": "buffer_search::Deploy",
       // Chat with AI — inline assists (editor buffer)
       "space a i": "assistant::InlineAssist",
-      "space a e": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
-        },
-      ],
-      "space a f": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
-        },
-      ],
-      "space a t": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
-        },
-      ],
-      "space a r": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
-        },
-      ],
-      "space a d": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
-        },
-      ],
-      "space a k": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
-        },
-      ],
+      // Prompt/rules library picker — sidekick `<leader>ap`
+      "space a p": "agent::OpenRulesLibrary",
       // Agent panel (chat panel)
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
-      "space a p": "agent::ToggleProfileSelector",
-      "space a /": "agent::ToggleModelSelector",
-      "space a M": "agent::CycleFavoriteModels",
-      "space a u": "agent::OpenSettings",
-      "space a A": "agent::OpenProjectAGENTS.mdRules",
-      "space a s": "agent::AddSelectionToThread",
-      "space a D": "agent::OpenAgentDiff",
+      "space a m": "agent::ToggleModelSelector",
+      "space a s": "agent::OpenSettings",
+      "space a a": "agent::OpenProjectAGENTS.mdRules",
+      "space a d": "agent::OpenAgentDiff",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
     },
@@ -1105,11 +1067,17 @@ Update your keymap.json file with the following key bindings:
           "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
         },
       ],
-      "space a s": [
+      "space a k": [
         "assistant::InlineAssist",
         {
           "prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
         },
+      ],
+      "space a n": "agent::NewThread",
+      // Focus agent panel, attach visual selection — sidekick `<leader>av`
+      "space a v": [
+        "action::Sequence",
+        ["agent::ToggleFocus", "agent::AddSelectionToThread"],
       ],
     },
   },
@@ -1258,7 +1226,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Tue Jun 09 2026 23:29:24 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 13 2026 13:42:01 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
