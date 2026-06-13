@@ -116,7 +116,8 @@
 	// Status bar settings
 	// https://zed.dev/docs/reference/all-settings#status-bar
 	"status_bar": {
-		"experimental.show": false,
+		"show_active_file": false,
+  "experimental.show": false,
 	},
 
 	// Gutter settings
