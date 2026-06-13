@@ -13,6 +13,10 @@
 // Themes: https://zed.dev/docs/themes
 
 {
+	// UI font family (for menus, panels, etc.)
+	// https://zed.dev/docs/reference/all-settings#ui-font-family
+	"ui_font_family": "Maple UI",
+
 	// Whether to colorize matching brackets (rainbow brackets)
 	// https://zed.dev/docs/reference/all-settings#colorize-brackets
 	"colorize_brackets": true,
