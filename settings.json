@@ -265,7 +265,9 @@
 	// Only show error on tab
 	// https://zed.dev/docs/reference/all-settings#editor-tabs
 	"tabs": {
-		"show_diagnostics": "errors",
+		"file_icons": true,
+  "git_status": true,
+  "show_diagnostics": "errors",
 	},
 
 	// Indentation guides (rainbow indentation)
