@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 13 2026 13:47:23 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Jun 13 2026 13:55:59 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -891,7 +891,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 13 2026 13:47:23 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Jun 13 2026 13:55:59 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -918,7 +918,7 @@ Update your keymap.json file with the following key bindings:
       // Chat with AI — inline assists (editor buffer)
       "space a i": "assistant::InlineAssist",
       // Prompt/rules library picker — sidekick `<leader>ap`
-      "space a p": "agent::OpenRulesLibrary",
+      "space a p": "agent::ManageSkills",
       // Agent panel (chat panel)
       "space a c": "agent::ToggleFocus",
       "space a n": "agent::NewThread",
@@ -1227,7 +1227,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 13 2026 13:47:23 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Jun 13 2026 13:55:59 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
