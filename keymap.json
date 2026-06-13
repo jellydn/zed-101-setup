@@ -143,6 +143,7 @@
 			// visual, visual line & visual block modes
 			"g c": "editor::ToggleComments",
 			// Inline assists (selection required — runs in editor buffer)
+			// NOTE: These prompts mirror .zed/rules/ content; keep both in sync.
 			"space a e": [
 				"assistant::InlineAssist",
 				{
