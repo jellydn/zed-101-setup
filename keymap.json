@@ -24,7 +24,7 @@
 			// Chat with AI — inline assists (editor buffer)
 			"space a i": "assistant::InlineAssist",
 			// Prompt/rules library picker — sidekick `<leader>ap`
-			"space a p": "agent::OpenRulesLibrary",
+			"space a p": "agent::ManageSkills",
 			// Agent panel (chat panel)
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
