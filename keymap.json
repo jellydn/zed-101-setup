@@ -23,8 +23,6 @@
 			"space s b": "buffer_search::Deploy",
 			// Chat with AI — inline assists (editor buffer)
 			"space a i": "assistant::InlineAssist",
-			// Prompt/rules library picker — sidekick `<leader>ap`
-			"space a p": "agent::ManageSkills",
 			// Agent panel (chat panel)
 			"space a c": "agent::ToggleFocus",
 			"space a n": "agent::NewThread",
@@ -134,6 +132,23 @@
 			"space space": "file_finder::Toggle",
 			// Open recent project
 			"space f p": "projects::OpenRecent",
+			// Open AI chat
+			"space a c": "agent::ToggleFocus",
+			// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
+			"space f f": [
+				"task::Spawn",
+				{
+					"task_name": "fff-gpui: Files",
+				},
+			],
+			"space f g": [
+				"task::Spawn",
+				{
+					"task_name": "fff-gpui: Grep",
+				},
+			],
+			// Git status
+			"space g s": "git_panel::ToggleFocus",
 		},
 	},
 	// Comment code
@@ -143,7 +158,6 @@
 			// visual, visual line & visual block modes
 			"g c": "editor::ToggleComments",
 			// Inline assists (selection required — runs in editor buffer)
-			// NOTE: These prompts mirror .zed/rules/ content; keep both in sync.
 			"space a e": [
 				"assistant::InlineAssist",
 				{
@@ -291,12 +305,7 @@
 		"context": "(VimControl && !menu)",
 		"bindings": {
 			"space": null, // Disable the default action vim::WrappingRight
-		},
-	},
-	// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
-	{
-		"context": "(VimControl && !menu)",
-		"bindings": {
+			// FFF GUI, refer https://github.com/th0jensen/fff-gpui#configuration
 			"space f f": [
 				"task::Spawn",
 				{
