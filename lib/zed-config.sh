@@ -47,6 +47,11 @@ copy_managed_file() {
 	local source="$1"
 	local destination="$2"
 
+	if [[ -e "$destination" && "$source" -ef "$destination" ]]; then
+		printf 'Skipped (already current): %s\n' "$source"
+		return
+	fi
+
 	if [[ "${DRY_RUN:-false}" == "true" ]]; then
 		printf 'Would copy: %s -> %s\n' "$source" "$destination"
 		return

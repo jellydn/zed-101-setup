@@ -242,6 +242,20 @@ EOF
 	[[ $'\n'"$output"$'\n' != *$'\nDone\n'* ]] || fail "cli.ts reported success after a formatter failure"
 }
 
+test_same_file_copy() {
+	local source="$TEST_DIRECTORY/same file source"
+	local destination="$TEST_DIRECTORY/same file destination"
+
+	printf 'unchanged' >"$source"
+	ln "$source" "$destination"
+	(
+		source "$ROOT_DIRECTORY/lib/zed-config.sh"
+		DRY_RUN=false
+		copy_managed_file "$source" "$destination" >/dev/null
+	)
+	assert_content "unchanged" "$source"
+}
+
 bash -n "$ROOT_DIRECTORY/install.sh" "$ROOT_DIRECTORY/generate.sh" "$ROOT_DIRECTORY/lib/zed-config.sh"
 test_install_and_backup
 test_install_dry_run
@@ -252,5 +266,6 @@ test_generate
 test_generate_dry_run_and_failures
 test_cli_failure_status
 test_cli_formatter_failure
+test_same_file_copy
 
 echo "Script tests passed."
