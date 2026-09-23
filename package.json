@@ -4,9 +4,11 @@
 	"scripts": {
 		"start": "bun run cli.ts",
 		"dev": "bun run --hot cli.ts",
+		"test": "bash tests/scripts.sh",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"check": "bun run test && bun run typecheck && bun run lint"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.14",

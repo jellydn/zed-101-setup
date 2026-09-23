@@ -15,15 +15,29 @@
 
 The Zed Editor 101 setup guide is designed to help you configure Zed Editor to enhance your development workflow. Whether you’re a Vim enthusiast or looking to boost your productivity with custom settings and key bindings, this guide provides all the necessary steps and resources. Follow along to get your Zed Editor configured with Nerd Font, Vim mode, local AI assistance, and more.
 
-## Quick Install
+## Install the configuration
 
-Deploy the entire Zed configuration with a single command:
+The scripts require Bash. A local install copies this repository's `settings.json`, `keymap.json`, and `tasks.json` into Zed:
 
 ```sh
-sh install.sh
+./install.sh --dry-run
+./install.sh
 ```
 
-This backs up your existing `settings.json`, `keymap.json`, and `tasks.json` to a timestamped directory, then copies the repo versions into `~/.config/zed`. To restore, run the `cp` command printed at the end.
+Existing files are backed up to a timestamped directory before they are replaced. Use `--no-backup` only when you do not need a restore point.
+
+To install without a local clone, download and inspect the installer before you run it:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jellydn/zed-101-setup/main/install.sh -o /tmp/zed-101-install.sh
+less /tmp/zed-101-install.sh
+bash /tmp/zed-101-install.sh --dry-run
+bash /tmp/zed-101-install.sh
+```
+
+The remote installer makes a temporary public clone and does not store Git credentials.
+
+On macOS, the default destination is `~/.config/zed`. On Linux, it is `${XDG_CONFIG_HOME:-~/.config}/zed`. Stable, Preview, and Nightly share these files and can use [per-channel overrides](https://zed.dev/docs/configuring-zed#per-release-channel-overrides) in `settings.json`. On Windows or for a custom location, set `ZED_CONFIG_DIR` explicitly.
 
 ## Nerd Font
 
@@ -83,7 +97,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Wed Sep 23 2026 13:31:33 GMT+0000 (Coordinated Universal Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -907,7 +921,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Wed Sep 23 2026 13:31:34 GMT+0000 (Coordinated Universal Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1252,7 +1266,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Wed Sep 23 2026 13:31:34 GMT+0000 (Coordinated Universal Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -1321,11 +1335,16 @@ Refer to [Zed's Ollama docs](https://zed.dev/docs/ai/llm-providers#ollama) for m
 - [Maple Font - A Nerd Font with ligatures](https://github.com/subframe7536/Maple-font)
 - [Maple Theme for Zed](https://github.com/subframe7536/zed-theme-maple)
 
-## How to generate the settings
+## Export the configuration
 
-```bash
-sh cli.sh
+To copy your live Zed configuration back into the repository and regenerate the embedded examples in this README:
+
+```sh
+./generate.sh --dry-run
+./generate.sh
 ```
+
+`generate.sh` requires all three managed files and Bun. It exits with an error if a copy or README generation fails. Set `ZED_CONFIG_DIR` to export from a custom location.
 
 ## Author
 
