@@ -42,7 +42,7 @@ for argument in "$@"; do
 done
 
 CONFIG_DIRECTORY="$(zed_config_directory)"
-require_managed_files "$CONFIG_DIRECTORY"
+require_files "$CONFIG_DIRECTORY" "${REQUIRED_ZED_FILES[@]}"
 
 if [[ "$DRY_RUN" == "false" ]]; then
 	command -v bun >/dev/null 2>&1 || {
@@ -56,6 +56,10 @@ if [[ "$DRY_RUN" == "false" ]]; then
 fi
 
 for relative_path in "${MANAGED_FILES[@]}"; do
+	if [[ ! -f "$CONFIG_DIRECTORY/$relative_path" ]]; then
+		printf 'Skipped (not found): %s\n' "$CONFIG_DIRECTORY/$relative_path"
+		continue
+	fi
 	copy_managed_file \
 		"$CONFIG_DIRECTORY/$relative_path" \
 		"$SCRIPT_DIR/$relative_path"

@@ -6,6 +6,11 @@ MANAGED_FILES=(
 	"tasks.json"
 )
 
+REQUIRED_ZED_FILES=(
+	"settings.json"
+	"keymap.json"
+)
+
 zed_config_directory() {
 	if [[ -n "${ZED_CONFIG_DIR:-}" ]]; then
 		printf '%s\n' "$ZED_CONFIG_DIR"
@@ -22,12 +27,13 @@ zed_config_directory() {
 	esac
 }
 
-require_managed_files() {
+require_files() {
 	local directory="$1"
+	shift
 	local missing=false
 	local relative_path
 
-	for relative_path in "${MANAGED_FILES[@]}"; do
+	for relative_path in "$@"; do
 		if [[ ! -f "$directory/$relative_path" ]]; then
 			echo "Required file not found: $directory/$relative_path" >&2
 			missing=true

@@ -9,28 +9,6 @@ set -euo pipefail
 SCRIPT_PATH="${BASH_SOURCE[0]:-}"
 SCRIPT_DIR="$(cd "$(dirname "${SCRIPT_PATH:-.}")" && pwd)"
 
-bootstrap_repository() {
-	command -v git >/dev/null 2>&1 || {
-		echo "git is required to download zed-101-setup." >&2
-		exit 1
-	}
-
-	TEMPORARY_DIRECTORY="$(mktemp -d)"
-	trap 'rm -rf "$TEMPORARY_DIRECTORY"' EXIT INT TERM
-
-	echo "Downloading zed-101-setup..."
-	GIT_TERMINAL_PROMPT=0 git -c credential.helper= clone --depth 1 \
-		https://github.com/jellydn/zed-101-setup.git "$TEMPORARY_DIRECTORY"
-	bash "$TEMPORARY_DIRECTORY/install.sh" "$@"
-}
-
-if [[ -z "$SCRIPT_PATH" || ! -f "$SCRIPT_DIR/lib/zed-config.sh" ]]; then
-	bootstrap_repository "$@"
-	exit 0
-fi
-
-source "$SCRIPT_DIR/lib/zed-config.sh"
-
 usage() {
 	cat <<'EOF'
 Usage: ./install.sh [--dry-run] [--no-backup]
@@ -66,7 +44,29 @@ for argument in "$@"; do
 	esac
 done
 
-require_managed_files "$SCRIPT_DIR"
+bootstrap_repository() {
+	command -v git >/dev/null 2>&1 || {
+		echo "git is required to download zed-101-setup." >&2
+		exit 1
+	}
+
+	TEMPORARY_DIRECTORY="$(mktemp -d)"
+	trap 'rm -rf "$TEMPORARY_DIRECTORY"' EXIT INT TERM
+
+	echo "Downloading zed-101-setup..."
+	GIT_TERMINAL_PROMPT=0 git -c credential.helper= clone --depth 1 \
+		https://github.com/jellydn/zed-101-setup.git "$TEMPORARY_DIRECTORY"
+	bash "$TEMPORARY_DIRECTORY/install.sh" "$@"
+}
+
+if [[ -z "$SCRIPT_PATH" || ! -f "$SCRIPT_DIR/lib/zed-config.sh" ]]; then
+	bootstrap_repository "$@"
+	exit 0
+fi
+
+source "$SCRIPT_DIR/lib/zed-config.sh"
+
+require_files "$SCRIPT_DIR" "${MANAGED_FILES[@]}"
 CONFIG_DIRECTORY="$(zed_config_directory)"
 BACKED_UP=false
 

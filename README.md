@@ -26,7 +26,7 @@ The scripts require Bash. A local install copies this repository's `settings.jso
 
 Existing files are backed up to a timestamped directory before they are replaced. Use `--no-backup` only when you do not need a restore point.
 
-To install without a local clone, download and inspect the installer before you run it:
+To install without a local clone, download and inspect the bootstrap before you run it:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/jellydn/zed-101-setup/main/install.sh -o /tmp/zed-101-install.sh
@@ -35,7 +35,7 @@ bash /tmp/zed-101-install.sh --dry-run
 bash /tmp/zed-101-install.sh
 ```
 
-The remote installer makes a temporary public clone and does not store Git credentials.
+The bootstrap makes a temporary public clone and runs that clone's `install.sh`, which contains the authoritative installation logic. Review the repository at the linked `main` URL before you continue if you need to inspect the complete remote code. The clone does not store Git credentials.
 
 On macOS, the default destination is `~/.config/zed`. On Linux, it is `${XDG_CONFIG_HOME:-~/.config}/zed`. Stable, Preview, and Nightly share these files and can use [per-channel overrides](https://zed.dev/docs/configuring-zed#per-release-channel-overrides) in `settings.json`. On Windows or for a custom location, set `ZED_CONFIG_DIR` explicitly.
 
@@ -1344,7 +1344,7 @@ To copy your live Zed configuration back into the repository and regenerate the 
 ./generate.sh
 ```
 
-`generate.sh` requires all three managed files and Bun. It exits with an error if a copy or README generation fails. Set `ZED_CONFIG_DIR` to export from a custom location.
+`generate.sh` requires `settings.json`, `keymap.json`, and Bun. It exports `tasks.json` when that file exists. It exits with an error if a copy or README generation fails. Set `ZED_CONFIG_DIR` to export from a custom location.
 
 ## Author
 

@@ -129,6 +129,21 @@ EOF
 	assert_content "remote settings.json" "$config_directory/settings.json"
 }
 
+test_standalone_help_does_not_clone() {
+	local downloaded_directory="$TEST_DIRECTORY/help download"
+	local fake_bin="$TEST_DIRECTORY/help bin"
+
+	mkdir -p "$downloaded_directory" "$fake_bin"
+	cp "$ROOT_DIRECTORY/install.sh" "$downloaded_directory/install.sh"
+	cat >"$fake_bin/git" <<'EOF'
+#!/usr/bin/env bash
+exit 99
+EOF
+	chmod +x "$fake_bin/git"
+
+	PATH="$fake_bin:$PATH" bash "$downloaded_directory/install.sh" --help >/dev/null
+}
+
 create_fake_bun() {
 	local fake_bin="$1"
 
@@ -179,13 +194,13 @@ test_generate_dry_run_and_failures() {
 	[[ "$output" == *"Would regenerate README.md."* ]] || fail "Dry run omitted README generation"
 
 	rm "$config_directory/tasks.json"
-	if ZED_CONFIG_DIR="$config_directory" bash "$repository/generate.sh" >/dev/null 2>&1; then
-		fail "generate.sh accepted an incomplete Zed configuration"
-	fi
-	assert_content "repository settings.json" "$repository/settings.json"
+	create_fake_bun "$fake_bin"
+	PATH="$fake_bin:$PATH" ZED_CONFIG_DIR="$config_directory" \
+		bash "$repository/generate.sh" >/dev/null
+	assert_content "local settings.json" "$repository/settings.json"
+	assert_content "repository tasks.json" "$repository/tasks.json"
 
 	printf 'local tasks.json' >"$config_directory/tasks.json"
-	create_fake_bun "$fake_bin"
 	if PATH="$fake_bin:$PATH" BUN_EXIT=23 ZED_CONFIG_DIR="$config_directory" \
 		bash "$repository/generate.sh" >/dev/null 2>&1; then
 		fail "generate.sh ignored a README generation failure"
@@ -232,6 +247,7 @@ test_install_and_backup
 test_install_dry_run
 test_install_preflight_and_copy_failure
 test_bootstrap_install
+test_standalone_help_does_not_clone
 test_generate
 test_generate_dry_run_and_failures
 test_cli_failure_status
