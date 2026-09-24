@@ -15,6 +15,19 @@
 {
 	// UI font family (for menus, panels, etc.)
 	// https://zed.dev/docs/reference/all-settings#ui-font-family
+	"proxy": "",
+	"preview_tabs": {
+		"enable_preview_from_file_finder": false,
+	},
+	"diagnostics": {
+		"inline": {
+			"enabled": true,
+		},
+	},
+	"sticky_scroll": {
+		"enabled": true,
+	},
+	"autoscroll_on_clicks": true,
 	"ui_font_family": "Maple UI",
 
 	// Whether to colorize matching brackets (rainbow brackets)
@@ -37,7 +50,7 @@
 
 	// Show method signatures when inside parentheses
 	// https://zed.dev/docs/reference/all-settings#auto-signature-help
-	"auto_signature_help": false,
+	"auto_signature_help": true,
 
 	// Hide variable values in private files (e.g., .env, .pem)
 	// https://zed.dev/docs/reference/all-settings#redact-private-values
@@ -187,8 +200,8 @@
 	// https://zed.dev/docs/themes
 	"theme": {
 		"mode": "dark",
-		"light": "Maple Light",
-		"dark": "Maple Dark",
+		"light": "Kanagawa Lotus",
+		"dark": "Kanagawa Wave",
 	},
 
 	// UI font size (for menus, panels, etc.)
@@ -215,7 +228,9 @@
 
 	// Vim settings (empty = use defaults)
 	// https://zed.dev/docs/reference/all-settings#vim
-	"vim": {},
+	"vim": {
+		"toggle_relative_line_numbers": true,
+	},
 
 	// Which-key (vim keybinding helper) settings
 	// https://zed.dev/docs/visual-customization#vim-mode
@@ -259,6 +274,7 @@
 	// Scrollbar settings
 	// https://zed.dev/docs/reference/all-settings#editor-scrollbar
 	"scrollbar": {
+		"diagnostics": "error",
 		"show": "never",
 	},
 
