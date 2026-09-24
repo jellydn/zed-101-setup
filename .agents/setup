@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+REPOSITORY_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPOSITORY_ROOT"
+
+command -v bun >/dev/null 2>&1 || {
+	echo "Error: Bun is required to set up this repository." >&2
+	exit 1
+}
+
+start_time=$SECONDS
+echo "Installing locked Bun dependencies..."
+bun install --frozen-lockfile
+printf 'Orb setup complete in %s seconds.\n' "$((SECONDS - start_time))"
