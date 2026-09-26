@@ -15,15 +15,29 @@
 
 The Zed Editor 101 setup guide is designed to help you configure Zed Editor to enhance your development workflow. Whether you’re a Vim enthusiast or looking to boost your productivity with custom settings and key bindings, this guide provides all the necessary steps and resources. Follow along to get your Zed Editor configured with Nerd Font, Vim mode, local AI assistance, and more.
 
-## Quick Install
+## Install the configuration
 
-Deploy the entire Zed configuration with a single command:
+The scripts require Bash. A local install copies this repository's `settings.json`, `keymap.json`, and `tasks.json` into Zed:
 
 ```sh
-sh install.sh
+./install.sh --dry-run
+./install.sh
 ```
 
-This backs up your existing `settings.json`, `keymap.json`, and `tasks.json` to a timestamped directory, then copies the repo versions into `~/.config/zed`. To restore, run the `cp` command printed at the end.
+Existing files are backed up to a timestamped directory before they are replaced. Use `--no-backup` only when you do not need a restore point.
+
+To install without a local clone, download and inspect the bootstrap before you run it:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jellydn/zed-101-setup/main/install.sh -o /tmp/zed-101-install.sh
+less /tmp/zed-101-install.sh
+bash /tmp/zed-101-install.sh --dry-run
+bash /tmp/zed-101-install.sh
+```
+
+The bootstrap makes a temporary public clone and runs that clone's `install.sh`, which contains the authoritative installation logic. Review the repository at the linked `main` URL before you continue if you need to inspect the complete remote code. The clone does not store Git credentials.
+
+On macOS, the default destination is `~/.config/zed`. On Linux, it is `${XDG_CONFIG_HOME:-~/.config}/zed`. Stable, Preview, and Nightly share these files and can use [per-channel overrides](https://zed.dev/docs/configuring-zed#per-release-channel-overrides) in `settings.json`. On Windows or for a custom location, set `ZED_CONFIG_DIR` explicitly.
 
 ## Nerd Font
 
@@ -47,7 +61,7 @@ Then configure in `settings.json`:
 ```jsonc
 "terminal": {
   "shell": {
-    "program": "/path/to/codemux"
+    "program": "$HOME/.cargo/bin/codemux"
   }
 }
 ```
@@ -83,7 +97,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Thu Sep 24 2026 12:54:58 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -101,6 +115,19 @@ Update your settings.json file with the following configuration:
 {
   // UI font family (for menus, panels, etc.)
   // https://zed.dev/docs/reference/all-settings#ui-font-family
+  "proxy": "",
+  "preview_tabs": {
+    "enable_preview_from_file_finder": false,
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "autoscroll_on_clicks": true,
   "ui_font_family": "Maple UI",
 
   // Whether to colorize matching brackets (rainbow brackets)
@@ -123,7 +150,7 @@ Update your settings.json file with the following configuration:
 
   // Show method signatures when inside parentheses
   // https://zed.dev/docs/reference/all-settings#auto-signature-help
-  "auto_signature_help": false,
+  "auto_signature_help": true,
 
   // Hide variable values in private files (e.g., .env, .pem)
   // https://zed.dev/docs/reference/all-settings#redact-private-values
@@ -273,8 +300,8 @@ Update your settings.json file with the following configuration:
   // https://zed.dev/docs/themes
   "theme": {
     "mode": "dark",
-    "light": "Maple Light",
-    "dark": "Maple Dark",
+    "light": "Kanagawa Lotus",
+    "dark": "Kanagawa Wave",
   },
 
   // UI font size (for menus, panels, etc.)
@@ -301,7 +328,9 @@ Update your settings.json file with the following configuration:
 
   // Vim settings (empty = use defaults)
   // https://zed.dev/docs/reference/all-settings#vim
-  "vim": {},
+  "vim": {
+    "toggle_relative_line_numbers": true,
+  },
 
   // Which-key (vim keybinding helper) settings
   // https://zed.dev/docs/visual-customization#vim-mode
@@ -345,6 +374,7 @@ Update your settings.json file with the following configuration:
   // Scrollbar settings
   // https://zed.dev/docs/reference/all-settings#editor-scrollbar
   "scrollbar": {
+    "diagnostics": "error",
     "show": "never",
   },
 
@@ -373,6 +403,7 @@ Update your settings.json file with the following configuration:
   // Agent (AI) panel settings
   // https://zed.dev/docs/ai/agent-settings
   "agent": {
+    "terminal_init_command": "",
     "sidebar_side": "right",
     "default_profile": "ask",
     "favorite_models": [
@@ -387,24 +418,15 @@ Update your settings.json file with the following configuration:
         "enable_thinking": false,
       },
       {
-        "provider": "CrofAI",
-        "model": "kimi-k2.6",
-        "enable_thinking": false,
-      },
-      {
-        "provider": "CrofAI",
-        "model": "glm-5.1",
-        "enable_thinking": false,
-      },
-      {
-        "provider": "CrofAI",
-        "model": "deepseek-v4-pro",
-        "enable_thinking": false,
-      },
-      {
         "provider": "opencode",
         "model": "go/kimi-k2.6",
         "enable_thinking": false,
+      },
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "enable_thinking": true,
+        "effort": "high",
       },
     ],
     "dock": "right",
@@ -413,8 +435,10 @@ Update your settings.json file with the following configuration:
       "model": "free/big-pickle",
     },
     "default_model": {
-      "provider": "CrofAI",
-      "model": "kimi-k2.6",
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
     },
     // Notify when the agent finishes work while Zed is in background
     // https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
@@ -423,7 +447,7 @@ Update your settings.json file with the following configuration:
     // Play a sound when the agent is done
     // https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
     // Options: "never", "when_hidden", "always"
-    "play_sound_when_agent_done": "never",
+    "play_sound_when_agent_done": "when_hidden",
     // Show inline diff review for agent edits in the active buffer
     // https://zed.dev/docs/ai/agent-settings#single-file-review
     "single_file_review": true,
@@ -436,10 +460,6 @@ Update your settings.json file with the following configuration:
         "provider": "opencode",
         // Lower temperature for code editing (more deterministic)
         "temperature": 0.3,
-      },
-      {
-        "provider": "CrofAI",
-        "temperature": 0.4,
       },
     ],
     // Show multiple inline assist alternatives
@@ -576,10 +596,14 @@ Update your settings.json file with the following configuration:
     // Persistent sandbox permission grants
     // https://zed.dev/docs/ai/agent-settings#sandbox-permissions
     "sandbox_permissions": {
-      "allow_network": true,
+      "allow_unsandboxed": false,
       "write_paths": [
-        "/Users/huynhdung/conductor/workspaces/2026-04-07-jellydn-zed-101-setup/belo-horizonte",
+        {
+          "requested": "$HOME/.omp",
+          "resolved": "$HOME/.omp",
+        },
       ],
+      "network_hosts": ["github.com"],
     },
   },
 
@@ -604,101 +628,7 @@ Update your settings.json file with the following configuration:
     "ollama": {
       "api_url": "http://localhost:11434",
     },
-    "openai_compatible": {
-      "CrofAI": {
-        "api_url": "https://crof.ai/v1",
-        "available_models": [
-          {
-            "name": "kimi-k2.6",
-            "display_name": "Kimi K2.6",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "kimi-k2.6-precision",
-            "display_name": "Kimi K2.6 Precision",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "qwen3.5-397b-a17b",
-            "display_name": "Qwen 3.5",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "deepseek-v4-pro",
-            "display_name": "Deepseek V4 Pro",
-            "max_tokens": 10000000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "deepseek-v4-pro-precision",
-            "display_name": "Deepseek V4 Pro Precision",
-            "max_tokens": 10000000,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "glm-5.1-precision",
-            "display_name": "GLM 5.1 Precision",
-            "max_tokens": 202752,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "glm-5.1",
-            "display_name": "GLM 5.1",
-            "max_tokens": 202752,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "qwen3.6-27b",
-            "display_name": "Qwen 3.6",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-        ],
-      },
-    },
+    "openai_compatible": {},
   },
 
   // Inlay hints (parameter names, types, etc.)
@@ -790,7 +720,7 @@ Update your settings.json file with the following configuration:
   "terminal": {
     "shell": {
       // Edit this path to match your local codemux binary location
-      "program": "/Users/huynhdung/.cargo/bin/codemux",
+      "program": "$HOME/.cargo/bin/codemux",
     },
     "show_count_badge": true,
     "font_size": 17.0,
@@ -907,7 +837,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Thu Sep 24 2026 12:54:58 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -1067,7 +997,7 @@ Update your keymap.json file with the following key bindings:
     "bindings": {
       // visual, visual line & visual block modes
       "g c": "editor::ToggleComments",
-      // Inline assists (selection required — runs in editor buffer)
+      // Inline assist. SendKeystrokes splits on spaces and drops hyphenated tokens, so it cannot prefill these prompts.
       "space a e": [
         "assistant::InlineAssist",
         {
@@ -1252,7 +1182,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Thu Sep 24 2026 12:54:58 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -1321,11 +1251,16 @@ Refer to [Zed's Ollama docs](https://zed.dev/docs/ai/llm-providers#ollama) for m
 - [Maple Font - A Nerd Font with ligatures](https://github.com/subframe7536/Maple-font)
 - [Maple Theme for Zed](https://github.com/subframe7536/zed-theme-maple)
 
-## How to generate the settings
+## Export the configuration
 
-```bash
-sh cli.sh
+To copy your live Zed configuration back into the repository and regenerate the embedded examples in this README:
+
+```sh
+./generate.sh --dry-run
+./generate.sh
 ```
+
+`generate.sh` requires `settings.json`, `keymap.json`, and Bun. It exports `tasks.json` when that file exists. It exits with an error if a copy or README generation fails. Set `ZED_CONFIG_DIR` to export from a custom location.
 
 ## Author
 

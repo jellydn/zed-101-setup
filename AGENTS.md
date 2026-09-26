@@ -9,7 +9,9 @@ This repo is a **Zed Editor configuration bundle** — `settings.json`, `keymap.
 ```bash
 bun run lint          # biome check .
 bun run lint:fix      # biome check --write .
+bun run test          # behavior tests for install.sh and generate.sh
 bun run typecheck     # tsc --noEmit
+bun run check         # test, typecheck, and lint
 bun run start         # bun run cli.ts  (regenerates README.md)
 bun run dev           # bun run --hot cli.ts  (hot-reload)
 ```
@@ -27,7 +29,7 @@ sh install.sh         # backs up ~/.config/zed/, copies repo files there
 To regenerate from your live Zed config:
 
 ```bash
-sh cli.sh             # copies from ~/.config/zed/, then runs bun run start
+sh generate.sh        # copies from Zed, then runs bun run start
 ```
 
 **Do not manually edit README sections** between the comment markers — they are overwritten by `cli.ts`. Edit `settings.json`, `keymap.json`, or `tasks.json` directly instead.
