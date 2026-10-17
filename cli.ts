@@ -61,11 +61,8 @@ const formatReadme = (targetPath: string): void => {
 				);
 			}
 		}
-	} catch {
-		console.error(
-			"Error: prettier formatting failed — README.md may not match pre-commit style",
-		);
-		process.exitCode = 1;
+	} catch (error) {
+		throw new Error("Prettier formatting failed", { cause: error });
 	}
 };
 
@@ -113,4 +110,5 @@ try {
 	console.log("Done");
 } catch (error) {
 	console.error(new Error("An error occurred", { cause: error }));
+	process.exitCode = 1;
 }

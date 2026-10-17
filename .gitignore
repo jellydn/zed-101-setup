@@ -71,6 +71,10 @@ web_modules/
 
 .npm
 
+# Amp orb portal metadata
+
+.amp/portals/*
+
 # Optional eslint cache
 
 .eslintcache
