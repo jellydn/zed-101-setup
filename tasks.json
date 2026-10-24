@@ -24,5 +24,18 @@
 		"show_summary": false,
 		"show_command": false,
 		"save": "none"
+	},
+	{
+		"label": "lazygit",
+		"command": "lazygit",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": false,
+		"reveal": "always",
+		"reveal_target": "center",
+		"hide": "on_success",
+		"shell": "system",
+		"show_summary": false,
+		"show_command": false,
+		"save": "none"
 	}
 ]
