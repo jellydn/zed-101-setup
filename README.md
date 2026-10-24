@@ -83,7 +83,7 @@ Update your settings.json file with the following configuration:
 <!-- ALL-SETTINGS:START -->
 
 ```jsonc
-// settings.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// settings.json, generated at Sat Oct 24 2026 19:04:52 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -99,6 +99,59 @@ Update your settings.json file with the following configuration:
 // Themes: https://zed.dev/docs/themes
 
 {
+  // Animate the cursor between positions
+  // https://zed.dev/docs/reference/all-settings
+  "cursor_animation": {
+    "enabled": false,
+  },
+
+  // Render colours in Display P3 instead of sRGB
+  // https://zed.dev/docs/reference/all-settings
+  "use_display_p3": false,
+
+  // What to do when the last window closes
+  // https://zed.dev/docs/reference/all-settings#on-last-window-closed
+  "on_last_window_closed": "quit_app",
+
+  // What a new window opens with
+  // https://zed.dev/docs/reference/all-settings#on-new-window
+  "on_new_window": "empty_tab",
+
+  // Screen-reader and accessibility support
+  // https://zed.dev/docs/reference/all-settings
+  "accessible_mode": true,
+
+  // HTTP proxy for network requests (empty = direct connection)
+  // https://zed.dev/docs/reference/all-settings#network-proxy
+  "proxy": "",
+
+  // Preview tabs
+  // https://zed.dev/docs/reference/all-settings#preview-tabs
+  "preview_tabs": {
+    // Open preview tabs from the file finder
+    // https://zed.dev/docs/reference/all-settings#enable-preview-from-file-finder
+    "enable_preview_from_file_finder": false,
+  },
+
+  // Diagnostics display
+  // https://zed.dev/docs/reference/all-settings#inline-diagnostics
+  "diagnostics": {
+    // Show diagnostics inline after the offending line
+    "inline": {
+      "enabled": true,
+    },
+  },
+
+  // Keep the enclosing scope pinned to the top while scrolling
+  // https://zed.dev/docs/reference/all-settings
+  "sticky_scroll": {
+    "enabled": true,
+  },
+
+  // Scroll the viewport when clicking past the end of the buffer
+  // https://zed.dev/docs/reference/all-settings#autoscroll-on-clicks
+  "autoscroll_on_clicks": true,
+
   // UI font family (for menus, panels, etc.)
   // https://zed.dev/docs/reference/all-settings#ui-font-family
   "ui_font_family": "Maple UI",
@@ -123,11 +176,11 @@ Update your settings.json file with the following configuration:
 
   // Show method signatures when inside parentheses
   // https://zed.dev/docs/reference/all-settings#auto-signature-help
-  "auto_signature_help": false,
+  "auto_signature_help": true,
 
   // Hide variable values in private files (e.g., .env, .pem)
   // https://zed.dev/docs/reference/all-settings#redact-private-values
-  "redact_private_values": true,
+  "redact_private_values": false,
 
   // Default behavior for opening files via CLI
   // https://zed.dev/docs/reference/all-settings#cli-default-open-behavior
@@ -273,8 +326,8 @@ Update your settings.json file with the following configuration:
   // https://zed.dev/docs/themes
   "theme": {
     "mode": "dark",
-    "light": "Maple Light",
-    "dark": "Maple Dark",
+    "light": "Kanagawa Lotus",
+    "dark": "Kanagawa Wave",
   },
 
   // UI font size (for menus, panels, etc.)
@@ -299,9 +352,13 @@ Update your settings.json file with the following configuration:
   // https://zed.dev/docs/reference/all-settings#vim
   "vim_mode": true,
 
-  // Vim settings (empty = use defaults)
+  // Vim settings
   // https://zed.dev/docs/reference/all-settings#vim
-  "vim": {},
+  "vim": {
+    // Allow toggling relative line numbers at runtime
+    // https://zed.dev/docs/reference/all-settings#relative-line-numbers
+    "toggle_relative_line_numbers": true,
+  },
 
   // Which-key (vim keybinding helper) settings
   // https://zed.dev/docs/visual-customization#vim-mode
@@ -345,6 +402,8 @@ Update your settings.json file with the following configuration:
   // Scrollbar settings
   // https://zed.dev/docs/reference/all-settings#editor-scrollbar
   "scrollbar": {
+    // Which diagnostics to mark on the scrollbar
+    "diagnostics": "error",
     "show": "never",
   },
 
@@ -373,8 +432,11 @@ Update your settings.json file with the following configuration:
   // Agent (AI) panel settings
   // https://zed.dev/docs/ai/agent-settings
   "agent": {
-    "sidebar_side": "right",
-    "default_profile": "ask",
+    // Command to run when a new agent terminal opens (empty = none)
+    // https://zed.dev/docs/ai/agent-settings
+    "terminal_init_command": "",
+    // Default profile for new agent threads
+    "default_profile": "write",
     "favorite_models": [
       {
         "provider": "opencode",
@@ -387,24 +449,21 @@ Update your settings.json file with the following configuration:
         "enable_thinking": false,
       },
       {
-        "provider": "CrofAI",
-        "model": "kimi-k2.6",
-        "enable_thinking": false,
-      },
-      {
-        "provider": "CrofAI",
-        "model": "glm-5.1",
-        "enable_thinking": false,
-      },
-      {
-        "provider": "CrofAI",
-        "model": "deepseek-v4-pro",
-        "enable_thinking": false,
-      },
-      {
         "provider": "opencode",
         "model": "go/kimi-k2.6",
         "enable_thinking": false,
+      },
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "enable_thinking": true,
+        "effort": "high",
+      },
+      {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "enable_thinking": true,
+        "effort": "high",
       },
     ],
     "dock": "right",
@@ -413,8 +472,10 @@ Update your settings.json file with the following configuration:
       "model": "free/big-pickle",
     },
     "default_model": {
-      "provider": "CrofAI",
-      "model": "kimi-k2.6",
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "openrouter",
+      "model": "thinkingmachines/inkling:free",
     },
     // Notify when the agent finishes work while Zed is in background
     // https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
@@ -423,12 +484,10 @@ Update your settings.json file with the following configuration:
     // Play a sound when the agent is done
     // https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
     // Options: "never", "when_hidden", "always"
-    "play_sound_when_agent_done": "never",
+    "play_sound_when_agent_done": "when_hidden",
     // Show inline diff review for agent edits in the active buffer
     // https://zed.dev/docs/ai/agent-settings#single-file-review
     "single_file_review": true,
-    // Automatically follow the agent as it reads/edits files
-    "agent_follow": true,
     // Model-specific generation parameters
     // https://zed.dev/docs/ai/agent-settings#model-temperature
     "model_parameters": [
@@ -436,10 +495,6 @@ Update your settings.json file with the following configuration:
         "provider": "opencode",
         // Lower temperature for code editing (more deterministic)
         "temperature": 0.3,
-      },
-      {
-        "provider": "CrofAI",
-        "temperature": 0.4,
       },
     ],
     // Show multiple inline assist alternatives
@@ -461,22 +516,11 @@ Update your settings.json file with the following configuration:
         "name": "Write Code",
         "tools": {
           "edit_file": true,
-          "create_file": true,
-          "delete_file": true,
-          "rename_file": true,
-          "find_file": true,
           "terminal": true,
-          "search": true,
           "fetch": true,
-          "run_command": true,
           "copy_path": true,
           "move_path": true,
-          "open_file": true,
-          "go_to_file": true,
-          "set_context": true,
-          "set_files": true,
           "spawn_agent": false,
-          "create_task": false,
         },
         "enable_all_context_servers": true,
       },
@@ -484,22 +528,11 @@ Update your settings.json file with the following configuration:
         "name": "Code Review",
         "tools": {
           "edit_file": false,
-          "create_file": false,
-          "delete_file": false,
-          "rename_file": false,
-          "find_file": true,
           "terminal": false,
-          "search": true,
           "fetch": true,
-          "run_command": false,
           "copy_path": true,
           "move_path": false,
-          "open_file": true,
-          "go_to_file": true,
-          "set_context": true,
-          "set_files": true,
           "spawn_agent": false,
-          "create_task": false,
         },
         "enable_all_context_servers": true,
         "default_model": {
@@ -511,22 +544,11 @@ Update your settings.json file with the following configuration:
         "name": "Debug",
         "tools": {
           "edit_file": true,
-          "create_file": false,
-          "delete_file": false,
-          "rename_file": false,
-          "find_file": true,
           "terminal": true,
-          "search": true,
           "fetch": true,
-          "run_command": true,
           "copy_path": true,
           "move_path": false,
-          "open_file": true,
-          "go_to_file": true,
-          "set_context": true,
-          "set_files": true,
           "spawn_agent": true,
-          "create_task": false,
         },
         "enable_all_context_servers": false,
         "default_model": {
@@ -541,6 +563,8 @@ Update your settings.json file with the following configuration:
       "default": "confirm",
       "tools": {
         "terminal": {
+          // Decision for commands that match no rule below
+          "default": "allow",
           "always_allow": [
             {
               "pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
@@ -562,6 +586,8 @@ Update your settings.json file with the following configuration:
           ],
         },
         "fetch": {
+          // Decision for URLs that match no rule below
+          "default": "allow",
           "always_allow": [
             {
               "pattern": "^https://(api\\.)?github\\.com",
@@ -576,10 +602,17 @@ Update your settings.json file with the following configuration:
     // Persistent sandbox permission grants
     // https://zed.dev/docs/ai/agent-settings#sandbox-permissions
     "sandbox_permissions": {
-      "allow_network": true,
+      // Never run commands outside the sandbox
+      "allow_unsandboxed": false,
+      // Directories the agent may write to
       "write_paths": [
-        "/Users/huynhdung/conductor/workspaces/2026-04-07-jellydn-zed-101-setup/belo-horizonte",
+        {
+          "requested": "/Users/huynhdung/.omp",
+          "resolved": "/Users/huynhdung/.omp",
+        },
       ],
+      // Hosts the sandboxed agent may reach
+      "network_hosts": ["file", "github.com"],
     },
   },
 
@@ -604,101 +637,7 @@ Update your settings.json file with the following configuration:
     "ollama": {
       "api_url": "http://localhost:11434",
     },
-    "openai_compatible": {
-      "CrofAI": {
-        "api_url": "https://crof.ai/v1",
-        "available_models": [
-          {
-            "name": "kimi-k2.6",
-            "display_name": "Kimi K2.6",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "kimi-k2.6-precision",
-            "display_name": "Kimi K2.6 Precision",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "qwen3.5-397b-a17b",
-            "display_name": "Qwen 3.5",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "deepseek-v4-pro",
-            "display_name": "Deepseek V4 Pro",
-            "max_tokens": 10000000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "deepseek-v4-pro-precision",
-            "display_name": "Deepseek V4 Pro Precision",
-            "max_tokens": 10000000,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "glm-5.1-precision",
-            "display_name": "GLM 5.1 Precision",
-            "max_tokens": 202752,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "glm-5.1",
-            "display_name": "GLM 5.1",
-            "max_tokens": 202752,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-          {
-            "name": "qwen3.6-27b",
-            "display_name": "Qwen 3.6",
-            "max_tokens": 262144,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-            },
-          },
-        ],
-      },
-    },
+    "openai_compatible": {},
   },
 
   // Inlay hints (parameter names, types, etc.)
@@ -907,7 +846,7 @@ Update your keymap.json file with the following key bindings:
 <!-- ALL-KEYMAPS:START -->
 
 ```jsonc
-// keymap.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// keymap.json, generated at Sat Oct 24 2026 19:04:52 GMT+0800 (Singapore Standard Time)
 [
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -927,10 +866,28 @@ Update your keymap.json file with the following key bindings:
       "space m P": "markdown::OpenPreviewToTheSide",
       // Open recent project
       "space f p": "projects::OpenRecent",
-      // Search word under cursor
+      // Search word under cursor (nvim `<leader>sw`)
       "space s w": "pane::DeploySearch",
-      // Search on current buffer
+      // Search on current buffer (nvim `<leader>sb`)
       "space s b": "buffer_search::Deploy",
+      // Document / workspace symbols (nvim `<leader>ss` / `<leader>sS`)
+      // `ss` stays on sneak, so the leader form is the one that matches nvim.
+      "space s s": "outline::Toggle",
+      "space s S": "project_symbols::Toggle",
+      // Diagnostics pickers (nvim `<leader>sd` / `<leader>sD`)
+      "space s d": "diagnostics::DeployCurrentFile",
+      "space s D": "diagnostics::Deploy",
+      // Search and replace (nvim `<leader>sr` / `<leader>sR`)
+      "space s r": ["pane::DeploySearch", { "replace_enabled": true }],
+      "space s R": "buffer_search::DeployReplace",
+      // Command palette (nvim `<leader>:`)
+      "space :": "command_palette::Toggle",
+      // Colorscheme picker (nvim `<leader>uC`)
+      "space u C": "theme_selector::Toggle",
+      // Soft wrap alias (nvim `<leader>tw`; `<leader>uw` is `space u w` above)
+      "space t w": "editor::ToggleSoftWrap",
+      // Toggle terminal (nvim `<leader>ft`)
+      "space f t": "terminal_panel::ToggleFocus",
       // Chat with AI — inline assists (editor buffer)
       "space a i": "assistant::InlineAssist",
       // Agent panel (chat panel)
@@ -942,6 +899,8 @@ Update your keymap.json file with the following key bindings:
       "space a d": "agent::OpenAgentDiff",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
+      // Treesitter expand selection (nvim `g<Space>` / `<C-Space>`)
+      "g space": "editor::SelectLargerSyntaxNode",
     },
   },
   {
@@ -979,18 +938,29 @@ Update your keymap.json file with the following key bindings:
       // Symbol search
       "s s": "outline::Toggle",
       "s S": "project_symbols::Toggle",
-      // Diagnostic
+      // Diagnostic (nvim `<leader>xx` / `<leader>xX` / `<leader>cd` / `<leader>cs`)
       "space x x": "diagnostics::Deploy",
+      "space x X": "diagnostics::DeployCurrentFile",
+      "space c d": "editor::Hover",
+      "space c s": "outline_panel::ToggleFocus",
+      // Hover (nvim `<leader>k` / `<leader>K`; `K` is already Zed's hover)
+      "space k": "editor::Hover",
       // Git
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
       // Git project diff
       "space g d": "git::Diff",
-      // Toggle inline blame
+      // Toggle inline blame (nvim `<leader>gb`)
       "space g b": "editor::ToggleGitBlameInline",
+      // Stage / reset hunk (nvim `<leader>ghs` / `<leader>ghr`)
+      "space g h s": "git::StageAndNext",
+      "space g h r": "git::Restore",
       // Expand all diff hunks
       "space g h e": "editor::ExpandAllDiffHunks",
+      // Modified files (nvim `<leader>gS`) and lazygit (nvim `<leader>gg`)
+      "space g S": "git::OpenModifiedFiles",
+      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
       // Buffers
       // Switch between buffers
       "shift-h": "pane::ActivatePreviousItem",
@@ -999,33 +969,69 @@ Update your keymap.json file with the following key bindings:
       "shift-q": "pane::CloseActiveItem",
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
-      // Buffer switch alias
-      "space b b": "pane::ActivatePreviousItem",
-      // Close other items
+      // Alternate buffer (nvim `<leader>bb` / `<leader>``)
+      "space b b": "pane::AlternateFile",
+      "space `": "pane::AlternateFile",
+      // Buffer picker (nvim `<leader>,` / `<leader>fb`)
+      "space ,": "tab_switcher::Toggle",
+      "space f b": "tab_switcher::Toggle",
+      // Close other items (nvim `<leader>bo`)
       "space b o": "pane::CloseOtherItems",
-      // Save file
+      // Close buffers to the right / left (nvim `<leader>br` / `<leader>bl`)
+      "space b r": "pane::CloseItemsToTheRight",
+      "space b l": "pane::CloseItemsToTheLeft",
+      // Save file (nvim `<C-s>` / `<leader>fs`)
       "ctrl-s": "workspace::Save",
+      "space f s": "workspace::Save",
+      // Copy whole buffer (nvim `<C-c>`)
+      "ctrl-c": [
+        "action::Sequence",
+        ["editor::SelectAll", "editor::Copy", "editor::Cancel"],
+      ],
       // File finder
       "space space": "file_finder::Toggle",
       // Project search
       "space /": "pane::DeploySearch",
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
-      // Move lines up/down
+      // Move lines up/down (nvim `<A-j>` / `<A-k>` / `<A-Down>` / `<A-Up>`)
       "alt-k": "editor::MoveLineUp",
       "alt-j": "editor::MoveLineDown",
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      // Line edges (nvim `gh` / `gl`, `<A-h>` / `<A-l>`)
+      // `gh` replaces Zed's hover-on-gh. Hover stays on `K` and `space k`.
+      "g h": "vim::FirstNonWhitespace",
+      "g l": "vim::EndOfLine",
+      "alt-h": "vim::FirstNonWhitespace",
+      "alt-l": "vim::EndOfLine",
+      // Select all (nvim `<A-a>`)
+      "alt-a": "editor::SelectAll",
       // Buffer prev/next aliases
       "[b": "pane::ActivatePreviousItem",
       "]b": "pane::ActivateNextItem",
-      // Window management
+      // Window management (nvim `<leader>ww` / `<leader>w-` / `<leader>w|` / `<leader>-` / `<leader>|`)
       "space w w": "workspace::ActivatePreviousPane",
       "space w -": "pane::SplitDown",
       "space w |": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+      "space |": "pane::SplitRight",
+      // Tabs as pane items (nvim `<leader><tab>…`). Zed has no vim tabpage.
+      "space tab ]": "pane::ActivateNextItem",
+      "space tab [": "pane::ActivatePreviousItem",
+      "space tab l": "pane::ActivateLastItem",
+      "space tab f": ["pane::ActivateItem", 0],
+      "space tab d": "pane::CloseActiveItem",
+      "space tab o": "pane::CloseOtherItems",
       // New file
       "space f n": "workspace::NewFile",
       // Quit all
       "space q q": "workspace::CloseWindow",
-      // Window resize
+      // Window resize (nvim `<C-Up>` / `<C-Down>` / `<C-Left>` / `<C-Right>`, plus ctrl-shift-hjkl)
+      "ctrl-up": "vim::ResizePaneUp",
+      "ctrl-down": "vim::ResizePaneDown",
+      "ctrl-left": "vim::ResizePaneLeft",
+      "ctrl-right": "vim::ResizePaneRight",
       "ctrl-shift-k": "vim::ResizePaneUp",
       "ctrl-shift-j": "vim::ResizePaneDown",
       "ctrl-shift-h": "vim::ResizePaneLeft",
@@ -1067,42 +1073,87 @@ Update your keymap.json file with the following key bindings:
     "bindings": {
       // visual, visual line & visual block modes
       "g c": "editor::ToggleComments",
-      // Inline assists (selection required — runs in editor buffer)
+      // Treesitter shrink (nvim visual `gS`)
+      "g S": "editor::SelectSmallerSyntaxNode",
+      // Keep the selection after indent (nvim visual `<` / `>`)
+      "<": [
+        "action::Sequence",
+        ["vim::Outdent", "vim::RestoreVisualSelection"],
+      ],
+      ">": ["action::Sequence", ["vim::Indent", "vim::RestoreVisualSelection"]],
+      // Paste without clobbering the yank (nvim visual `p`)
+      "p": ["vim::Paste", { "preserve_clipboard": true }],
+      // Move lines (nvim visual `<A-j>` / `<A-k>`)
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      "alt-up": "editor::MoveLineUp",
+      // Agent panel — focus, attach selection, prefill prompt (sidekick `<leader>av` style)
       "space a e": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
-        },
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread",
+          [
+            "workspace::SendKeystrokes",
+            "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
+          ],
+        ],
       ],
       "space a f": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
-        },
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread",
+          [
+            "workspace::SendKeystrokes",
+            "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
+          ],
+        ],
       ],
       "space a t": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
-        },
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread",
+          [
+            "workspace::SendKeystrokes",
+            "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
+          ],
+        ],
       ],
       "space a r": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
-        },
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread",
+          [
+            "workspace::SendKeystrokes",
+            "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
+          ],
+        ],
       ],
       "space a d": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Add concise inline documentation comments to the selected code without changing logic.",
-        },
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread",
+          [
+            "workspace::SendKeystrokes",
+            "Add concise inline documentation comments to the selected code without changing logic.",
+          ],
+        ],
       ],
       "space a k": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
-        },
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread",
+          [
+            "workspace::SendKeystrokes",
+            "Summarize the selected code. One-paragraph summary plus key takeaways.",
+          ],
+        ],
       ],
       "space a n": "agent::NewThread",
       // Focus agent panel, attach visual selection — sidekick `<leader>av`
@@ -1118,6 +1169,11 @@ Update your keymap.json file with the following key bindings:
     "bindings": {
       "j j": "vim::NormalBefore", // remap jj in insert mode to escape
       "j k": "vim::NormalBefore", // remap jk in insert mode to escape
+      // Move lines (nvim insert `<A-j>` / `<A-k>`)
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      "alt-up": "editor::MoveLineUp",
     },
   },
   // Rename
@@ -1141,6 +1197,9 @@ Update your keymap.json file with the following key bindings:
     "context": "Workspace",
     "bindings": {
       "ctrl-\\": "terminal_panel::ToggleFocus",
+      // nvim `<C-/>` / `<C-_>`
+      "ctrl-/": "terminal_panel::ToggleFocus",
+      "ctrl-_": "terminal_panel::ToggleFocus",
     },
   },
   {
@@ -1200,6 +1259,13 @@ Update your keymap.json file with the following key bindings:
           "reveal": "no_focus",
         },
       ],
+      // nvim `<leader>ctr` (neotest run nearest)
+      "space c t r": [
+        "editor::SpawnNearestTask",
+        {
+          "reveal": "no_focus",
+        },
+      ],
     },
   },
   // Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
@@ -1252,7 +1318,7 @@ Update your tasks.json file with the following task definitions:
 <!-- ALL-TASKS:START -->
 
 ```jsonc
-// tasks.json, generated at Sat Jun 13 2026 16:13:20 GMT+0800 (Singapore Standard Time)
+// tasks.json, generated at Sat Oct 24 2026 19:04:52 GMT+0800 (Singapore Standard Time)
 [
   {
     "label": "fff-gpui: Files",
@@ -1275,6 +1341,19 @@ Update your tasks.json file with the following task definitions:
     "reveal": "never",
     "reveal_target": "dock",
     "hide": "always",
+    "shell": "system",
+    "show_summary": false,
+    "show_command": false,
+    "save": "none",
+  },
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "center",
+    "hide": "on_success",
     "shell": "system",
     "show_summary": false,
     "show_command": false,
