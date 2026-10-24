@@ -17,10 +17,28 @@
 			"space m P": "markdown::OpenPreviewToTheSide",
 			// Open recent project
 			"space f p": "projects::OpenRecent",
-			// Search word under cursor
+			// Search word under cursor (nvim `<leader>sw`)
 			"space s w": "pane::DeploySearch",
-			// Search on current buffer
+			// Search on current buffer (nvim `<leader>sb`)
 			"space s b": "buffer_search::Deploy",
+			// Document / workspace symbols (nvim `<leader>ss` / `<leader>sS`)
+			// `ss` stays on sneak, so the leader form is the one that matches nvim.
+			"space s s": "outline::Toggle",
+			"space s S": "project_symbols::Toggle",
+			// Diagnostics pickers (nvim `<leader>sd` / `<leader>sD`)
+			"space s d": "diagnostics::DeployCurrentFile",
+			"space s D": "diagnostics::Deploy",
+			// Search and replace (nvim `<leader>sr` / `<leader>sR`)
+			"space s r": ["pane::DeploySearch", { "replace_enabled": true }],
+			"space s R": "buffer_search::DeployReplace",
+			// Command palette (nvim `<leader>:`)
+			"space :": "command_palette::Toggle",
+			// Colorscheme picker (nvim `<leader>uC`)
+			"space u C": "theme_selector::Toggle",
+			// Soft wrap alias (nvim `<leader>tw`; `<leader>uw` is `space u w` above)
+			"space t w": "editor::ToggleSoftWrap",
+			// Toggle terminal (nvim `<leader>ft`)
+			"space f t": "terminal_panel::ToggleFocus",
 			// Chat with AI — inline assists (editor buffer)
 			"space a i": "assistant::InlineAssist",
 			// Agent panel (chat panel)
@@ -32,6 +50,8 @@
 			"space a d": "agent::OpenAgentDiff",
 			// Go to file with `gf`
 			"g f": "editor::OpenExcerpts",
+			// Treesitter expand selection (nvim `g<Space>` / `<C-Space>`)
+			"g space": "editor::SelectLargerSyntaxNode",
 		},
 	},
 	{
@@ -69,18 +89,29 @@
 			// Symbol search
 			"s s": "outline::Toggle",
 			"s S": "project_symbols::Toggle",
-			// Diagnostic
+			// Diagnostic (nvim `<leader>xx` / `<leader>xX` / `<leader>cd` / `<leader>cs`)
 			"space x x": "diagnostics::Deploy",
+			"space x X": "diagnostics::DeployCurrentFile",
+			"space c d": "editor::Hover",
+			"space c s": "outline_panel::ToggleFocus",
+			// Hover (nvim `<leader>k` / `<leader>K`; `K` is already Zed's hover)
+			"space k": "editor::Hover",
 			// Git
 			// Git prev/next hunk
 			"] h": "editor::GoToHunk",
 			"[ h": "editor::GoToPreviousHunk",
 			// Git project diff
 			"space g d": "git::Diff",
-			// Toggle inline blame
+			// Toggle inline blame (nvim `<leader>gb`)
 			"space g b": "editor::ToggleGitBlameInline",
+			// Stage / reset hunk (nvim `<leader>ghs` / `<leader>ghr`)
+			"space g h s": "git::StageAndNext",
+			"space g h r": "git::Restore",
 			// Expand all diff hunks
 			"space g h e": "editor::ExpandAllDiffHunks",
+			// Modified files (nvim `<leader>gS`) and lazygit (nvim `<leader>gg`)
+			"space g S": "git::OpenModifiedFiles",
+			"space g g": ["task::Spawn", { "task_name": "lazygit" }],
 			// Buffers
 			// Switch between buffers
 			"shift-h": "pane::ActivatePreviousItem",
@@ -89,33 +120,66 @@
 			"shift-q": "pane::CloseActiveItem",
 			"ctrl-q": "pane::CloseActiveItem",
 			"space b d": "pane::CloseActiveItem",
-			// Buffer switch alias
-			"space b b": "pane::ActivatePreviousItem",
-			// Close other items
+			// Alternate buffer (nvim `<leader>bb` / `<leader>``)
+			"space b b": "pane::AlternateFile",
+			"space `": "pane::AlternateFile",
+			// Buffer picker (nvim `<leader>,` / `<leader>fb`)
+			"space ,": "tab_switcher::Toggle",
+			"space f b": "tab_switcher::Toggle",
+			// Close other items (nvim `<leader>bo`)
 			"space b o": "pane::CloseOtherItems",
-			// Save file
+			// Close buffers to the right / left (nvim `<leader>br` / `<leader>bl`)
+			"space b r": "pane::CloseItemsToTheRight",
+			"space b l": "pane::CloseItemsToTheLeft",
+			// Save file (nvim `<C-s>` / `<leader>fs`)
 			"ctrl-s": "workspace::Save",
+			"space f s": "workspace::Save",
+			// Copy whole buffer (nvim `<C-c>`)
+			"ctrl-c": ["action::Sequence", ["editor::SelectAll", "editor::Copy", "editor::Cancel"]],
 			// File finder
 			"space space": "file_finder::Toggle",
 			// Project search
 			"space /": "pane::DeploySearch",
 			// Show project panel with current file
 			"space e": "pane::RevealInProjectPanel",
-			// Move lines up/down
+			// Move lines up/down (nvim `<A-j>` / `<A-k>` / `<A-Down>` / `<A-Up>`)
 			"alt-k": "editor::MoveLineUp",
 			"alt-j": "editor::MoveLineDown",
+			"alt-up": "editor::MoveLineUp",
+			"alt-down": "editor::MoveLineDown",
+			// Line edges (nvim `gh` / `gl`, `<A-h>` / `<A-l>`)
+			// `gh` replaces Zed's hover-on-gh. Hover stays on `K` and `space k`.
+			"g h": "vim::FirstNonWhitespace",
+			"g l": "vim::EndOfLine",
+			"alt-h": "vim::FirstNonWhitespace",
+			"alt-l": "vim::EndOfLine",
+			// Select all (nvim `<A-a>`)
+			"alt-a": "editor::SelectAll",
 			// Buffer prev/next aliases
 			"[b": "pane::ActivatePreviousItem",
 			"]b": "pane::ActivateNextItem",
-			// Window management
+			// Window management (nvim `<leader>ww` / `<leader>w-` / `<leader>w|` / `<leader>-` / `<leader>|`)
 			"space w w": "workspace::ActivatePreviousPane",
 			"space w -": "pane::SplitDown",
 			"space w |": "pane::SplitRight",
+			"space -": "pane::SplitDown",
+			"space |": "pane::SplitRight",
+			// Tabs as pane items (nvim `<leader><tab>…`). Zed has no vim tabpage.
+			"space tab ]": "pane::ActivateNextItem",
+			"space tab [": "pane::ActivatePreviousItem",
+			"space tab l": "pane::ActivateLastItem",
+			"space tab f": ["pane::ActivateItem", 0],
+			"space tab d": "pane::CloseActiveItem",
+			"space tab o": "pane::CloseOtherItems",
 			// New file
 			"space f n": "workspace::NewFile",
 			// Quit all
 			"space q q": "workspace::CloseWindow",
-			// Window resize
+			// Window resize (nvim `<C-Up>` / `<C-Down>` / `<C-Left>` / `<C-Right>`, plus ctrl-shift-hjkl)
+			"ctrl-up": "vim::ResizePaneUp",
+			"ctrl-down": "vim::ResizePaneDown",
+			"ctrl-left": "vim::ResizePaneLeft",
+			"ctrl-right": "vim::ResizePaneRight",
 			"ctrl-shift-k": "vim::ResizePaneUp",
 			"ctrl-shift-j": "vim::ResizePaneDown",
 			"ctrl-shift-h": "vim::ResizePaneLeft",
@@ -157,42 +221,84 @@
 		"bindings": {
 			// visual, visual line & visual block modes
 			"g c": "editor::ToggleComments",
-			// Inline assists (selection required — runs in editor buffer)
+			// Treesitter shrink (nvim visual `gS`)
+			"g S": "editor::SelectSmallerSyntaxNode",
+			// Keep the selection after indent (nvim visual `<` / `>`)
+			"<": ["action::Sequence", ["vim::Outdent", "vim::RestoreVisualSelection"]],
+			">": ["action::Sequence", ["vim::Indent", "vim::RestoreVisualSelection"]],
+			// Paste without clobbering the yank (nvim visual `p`)
+			"p": ["vim::Paste", { "preserve_clipboard": true }],
+			// Move lines (nvim visual `<A-j>` / `<A-k>`)
+			"alt-j": "editor::MoveLineDown",
+			"alt-k": "editor::MoveLineUp",
+			"alt-down": "editor::MoveLineDown",
+			"alt-up": "editor::MoveLineUp",
+			// Agent panel — focus, attach selection, prefill prompt (sidekick `<leader>av` style)
 			"space a e": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
-				},
+				"action::Sequence",
+				[
+					"agent::ToggleFocus",
+					"agent::AddSelectionToThread",
+					[
+						"workspace::SendKeystrokes",
+						"Explain the selected code. Cover purpose, control flow, and non-obvious behavior.",
+					],
+				],
 			],
 			"space a f": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
-				},
+				"action::Sequence",
+				[
+					"agent::ToggleFocus",
+					"agent::AddSelectionToThread",
+					[
+						"workspace::SendKeystrokes",
+						"Fix bugs and issues in the selected code. Identify root causes, not just symptoms.",
+					],
+				],
 			],
 			"space a t": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
-				},
+				"action::Sequence",
+				[
+					"agent::ToggleFocus",
+					"agent::AddSelectionToThread",
+					[
+						"workspace::SendKeystrokes",
+						"Generate focused unit tests for the selected code. Use the project's test framework and conventions. Output with arrange/act/assert sections.",
+					],
+				],
 			],
 			"space a r": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
-				},
+				"action::Sequence",
+				[
+					"agent::ToggleFocus",
+					"agent::AddSelectionToThread",
+					[
+						"workspace::SendKeystrokes",
+						"Refactor the selected code for clarity and maintainability without changing external behavior. Extract functions, simplify conditions, remove duplication.",
+					],
+				],
 			],
 			"space a d": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Add concise inline documentation comments to the selected code without changing logic.",
-				},
+				"action::Sequence",
+				[
+					"agent::ToggleFocus",
+					"agent::AddSelectionToThread",
+					[
+						"workspace::SendKeystrokes",
+						"Add concise inline documentation comments to the selected code without changing logic.",
+					],
+				],
 			],
 			"space a k": [
-				"assistant::InlineAssist",
-				{
-					"prompt": "Summarize the selected code. One-paragraph summary plus key takeaways.",
-				},
+				"action::Sequence",
+				[
+					"agent::ToggleFocus",
+					"agent::AddSelectionToThread",
+					[
+						"workspace::SendKeystrokes",
+						"Summarize the selected code. One-paragraph summary plus key takeaways.",
+					],
+				],
 			],
 			"space a n": "agent::NewThread",
 			// Focus agent panel, attach visual selection — sidekick `<leader>av`
@@ -208,6 +314,11 @@
 		"bindings": {
 			"j j": "vim::NormalBefore", // remap jj in insert mode to escape
 			"j k": "vim::NormalBefore", // remap jk in insert mode to escape
+			// Move lines (nvim insert `<A-j>` / `<A-k>`)
+			"alt-j": "editor::MoveLineDown",
+			"alt-k": "editor::MoveLineUp",
+			"alt-down": "editor::MoveLineDown",
+			"alt-up": "editor::MoveLineUp",
 		},
 	},
 	// Rename
@@ -231,6 +342,9 @@
 		"context": "Workspace",
 		"bindings": {
 			"ctrl-\\": "terminal_panel::ToggleFocus",
+			// nvim `<C-/>` / `<C-_>`
+			"ctrl-/": "terminal_panel::ToggleFocus",
+			"ctrl-_": "terminal_panel::ToggleFocus",
 		},
 	},
 	{
@@ -285,6 +399,13 @@
 		"context": "EmptyPane || SharedScreen || vim_mode == normal",
 		"bindings": {
 			"space r t": [
+				"editor::SpawnNearestTask",
+				{
+					"reveal": "no_focus",
+				},
+			],
+			// nvim `<leader>ctr` (neotest run nearest)
+			"space c t r": [
 				"editor::SpawnNearestTask",
 				{
 					"reveal": "no_focus",
