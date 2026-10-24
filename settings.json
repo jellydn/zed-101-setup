@@ -346,8 +346,11 @@
 	// Agent (AI) panel settings
 	// https://zed.dev/docs/ai/agent-settings
 	"agent": {
-		"sidebar_side": "right",
-  "default_profile": "ask",
+		// Command to run when a new agent terminal opens (empty = none)
+		// https://zed.dev/docs/ai/agent-settings
+		"terminal_init_command": "",
+		// Default profile for new agent threads
+		"default_profile": "write",
 		"favorite_models": [
 			{
 				"provider": "opencode",
@@ -379,6 +382,18 @@
 				"model": "go/kimi-k2.6",
 				"enable_thinking": false,
 			},
+			{
+				"provider": "deepseek",
+				"model": "deepseek-v4-flash",
+				"enable_thinking": true,
+				"effort": "high",
+			},
+			{
+				"provider": "deepseek",
+				"model": "deepseek-flash",
+				"enable_thinking": true,
+				"effort": "high",
+			},
 		],
 		"dock": "right",
 		"inline_assistant_model": {
@@ -386,8 +401,10 @@
 			"model": "free/big-pickle",
 		},
 		"default_model": {
-			"provider": "CrofAI",
-			"model": "kimi-k2.6",
+			"effort": "high",
+			"enable_thinking": true,
+			"provider": "openrouter",
+			"model": "thinkingmachines/inkling:free",
 		},
 		// Notify when the agent finishes work while Zed is in background
 		// https://zed.dev/docs/ai/agent-settings#notify-when-agent-waiting
@@ -396,12 +413,10 @@
 		// Play a sound when the agent is done
 		// https://zed.dev/docs/ai/agent-settings#play-sound-when-agent-done
 		// Options: "never", "when_hidden", "always"
-		"play_sound_when_agent_done": "never",
+		"play_sound_when_agent_done": "when_hidden",
 		// Show inline diff review for agent edits in the active buffer
 		// https://zed.dev/docs/ai/agent-settings#single-file-review
 		"single_file_review": true,
-		// Automatically follow the agent as it reads/edits files
-		"agent_follow": true,
 		// Model-specific generation parameters
 		// https://zed.dev/docs/ai/agent-settings#model-temperature
 		"model_parameters": [
@@ -434,22 +449,11 @@
 				"name": "Write Code",
 				"tools": {
 					"edit_file": true,
-					"create_file": true,
-					"delete_file": true,
-					"rename_file": true,
-					"find_file": true,
 					"terminal": true,
-					"search": true,
 					"fetch": true,
-					"run_command": true,
 					"copy_path": true,
 					"move_path": true,
-					"open_file": true,
-					"go_to_file": true,
-					"set_context": true,
-					"set_files": true,
 					"spawn_agent": false,
-					"create_task": false,
 				},
 				"enable_all_context_servers": true,
 			},
@@ -457,22 +461,11 @@
 				"name": "Code Review",
 				"tools": {
 					"edit_file": false,
-					"create_file": false,
-					"delete_file": false,
-					"rename_file": false,
-					"find_file": true,
 					"terminal": false,
-					"search": true,
 					"fetch": true,
-					"run_command": false,
 					"copy_path": true,
 					"move_path": false,
-					"open_file": true,
-					"go_to_file": true,
-					"set_context": true,
-					"set_files": true,
 					"spawn_agent": false,
-					"create_task": false,
 				},
 				"enable_all_context_servers": true,
 				"default_model": {
@@ -484,22 +477,11 @@
 				"name": "Debug",
 				"tools": {
 					"edit_file": true,
-					"create_file": false,
-					"delete_file": false,
-					"rename_file": false,
-					"find_file": true,
 					"terminal": true,
-					"search": true,
 					"fetch": true,
-					"run_command": true,
 					"copy_path": true,
 					"move_path": false,
-					"open_file": true,
-					"go_to_file": true,
-					"set_context": true,
-					"set_files": true,
 					"spawn_agent": true,
-					"create_task": false,
 				},
 				"enable_all_context_servers": false,
 				"default_model": {
@@ -514,6 +496,8 @@
 			"default": "confirm",
 			"tools": {
 				"terminal": {
+					// Decision for commands that match no rule below
+					"default": "allow",
 					"always_allow": [
 						{
 							"pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
@@ -535,6 +519,8 @@
 					],
 				},
 				"fetch": {
+					// Decision for URLs that match no rule below
+					"default": "allow",
 					"always_allow": [
 						{
 							"pattern": "^https://(api\\.)?github\\.com",
@@ -549,9 +535,19 @@
 		// Persistent sandbox permission grants
 		// https://zed.dev/docs/ai/agent-settings#sandbox-permissions
 		"sandbox_permissions": {
-			"allow_network": true,
+			// Never run commands outside the sandbox
+			"allow_unsandboxed": false,
+			// Directories the agent may write to
 			"write_paths": [
-				"/Users/huynhdung/conductor/workspaces/2026-04-07-jellydn-zed-101-setup/belo-horizonte",
+				{
+					"requested": "/Users/huynhdung/.omp",
+					"resolved": "/Users/huynhdung/.omp",
+				},
+			],
+			// Hosts the sandboxed agent may reach
+			"network_hosts": [
+				"file",
+				"github.com",
 			],
 		},
 	},
